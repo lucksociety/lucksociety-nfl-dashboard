@@ -1,0 +1,708 @@
+{
+ "season": 2026,
+ "model": "v6",
+ "generated_et": "2026-10-28 01:56",
+ "data_through": {
+  "season": 2026,
+  "week": 7,
+  "last_game_date": "2026-10-26"
+ },
+ "weeks": [
+  {
+   "week": 1,
+   "file": "weeks/2026_w01.json",
+   "dates": [
+    "2026-09-09",
+    "2026-09-10",
+    "2026-09-13",
+    "2026-09-14"
+   ],
+   "n_games": 16,
+   "n_final": 16
+  },
+  {
+   "week": 2,
+   "file": "weeks/2026_w02.json",
+   "dates": [
+    "2026-09-17",
+    "2026-09-20",
+    "2026-09-21"
+   ],
+   "n_games": 16,
+   "n_final": 16
+  },
+  {
+   "week": 3,
+   "file": "weeks/2026_w03.json",
+   "dates": [
+    "2026-09-24",
+    "2026-09-27",
+    "2026-09-28"
+   ],
+   "n_games": 16,
+   "n_final": 16
+  },
+  {
+   "week": 4,
+   "file": "weeks/2026_w04.json",
+   "dates": [
+    "2026-10-01",
+    "2026-10-04",
+    "2026-10-05"
+   ],
+   "n_games": 16,
+   "n_final": 16
+  },
+  {
+   "week": 5,
+   "file": "weeks/2026_w05.json",
+   "dates": [
+    "2026-10-08",
+    "2026-10-11",
+    "2026-10-12"
+   ],
+   "n_games": 15,
+   "n_final": 15
+  },
+  {
+   "week": 6,
+   "file": "weeks/2026_w06.json",
+   "dates": [
+    "2026-10-15",
+    "2026-10-18",
+    "2026-10-19"
+   ],
+   "n_games": 14,
+   "n_final": 14
+  },
+  {
+   "week": 7,
+   "file": "weeks/2026_w07.json",
+   "dates": [
+    "2026-10-22",
+    "2026-10-25",
+    "2026-10-26"
+   ],
+   "n_games": 14,
+   "n_final": 14
+  },
+  {
+   "week": 8,
+   "file": "weeks/2026_w08.json",
+   "dates": [
+    "2026-10-29",
+    "2026-11-01",
+    "2026-11-02"
+   ],
+   "n_games": 14,
+   "n_final": 0
+  },
+  {
+   "week": 9,
+   "file": "weeks/2026_w09.json",
+   "dates": [
+    "2026-11-05",
+    "2026-11-08",
+    "2026-11-09"
+   ],
+   "n_games": 15,
+   "n_final": 0
+  },
+  {
+   "week": 10,
+   "file": "weeks/2026_w10.json",
+   "dates": [
+    "2026-11-12",
+    "2026-11-15",
+    "2026-11-16"
+   ],
+   "n_games": 14,
+   "n_final": 0
+  },
+  {
+   "week": 11,
+   "file": "weeks/2026_w11.json",
+   "dates": [
+    "2026-11-19",
+    "2026-11-22",
+    "2026-11-23"
+   ],
+   "n_games": 13,
+   "n_final": 0
+  },
+  {
+   "week": 12,
+   "file": "weeks/2026_w12.json",
+   "dates": [
+    "2026-11-25",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-29",
+    "2026-11-30"
+   ],
+   "n_games": 16,
+   "n_final": 0
+  },
+  {
+   "week": 13,
+   "file": "weeks/2026_w13.json",
+   "dates": [
+    "2026-12-03",
+    "2026-12-06",
+    "2026-12-07"
+   ],
+   "n_games": 14,
+   "n_final": 0
+  },
+  {
+   "week": 14,
+   "file": "weeks/2026_w14.json",
+   "dates": [
+    "2026-12-10",
+    "2026-12-13",
+    "2026-12-14"
+   ],
+   "n_games": 15,
+   "n_final": 0
+  },
+  {
+   "week": 15,
+   "file": "weeks/2026_w15.json",
+   "dates": [
+    "2026-12-17",
+    "2026-12-19",
+    "2026-12-20",
+    "2026-12-21"
+   ],
+   "n_games": 16,
+   "n_final": 0
+  },
+  {
+   "week": 16,
+   "file": "weeks/2026_w16.json",
+   "dates": [
+    "2026-12-24",
+    "2026-12-25",
+    "2026-12-27",
+    "2026-12-28"
+   ],
+   "n_games": 16,
+   "n_final": 0
+  },
+  {
+   "week": 17,
+   "file": "weeks/2026_w17.json",
+   "dates": [
+    "2026-12-31",
+    "2027-01-03",
+    "2027-01-04"
+   ],
+   "n_games": 16,
+   "n_final": 0
+  },
+  {
+   "week": 18,
+   "file": "weeks/2026_w18.json",
+   "dates": [
+    "2027-01-10"
+   ],
+   "n_games": 16,
+   "n_final": 0
+  }
+ ],
+ "dates": {
+  "2026-09-09": 1,
+  "2026-09-10": 1,
+  "2026-09-13": 1,
+  "2026-09-14": 1,
+  "2026-09-17": 2,
+  "2026-09-20": 2,
+  "2026-09-21": 2,
+  "2026-09-24": 3,
+  "2026-09-27": 3,
+  "2026-09-28": 3,
+  "2026-10-01": 4,
+  "2026-10-04": 4,
+  "2026-10-05": 4,
+  "2026-10-08": 5,
+  "2026-10-11": 5,
+  "2026-10-12": 5,
+  "2026-10-15": 6,
+  "2026-10-18": 6,
+  "2026-10-19": 6,
+  "2026-10-22": 7,
+  "2026-10-25": 7,
+  "2026-10-26": 7,
+  "2026-10-29": 8,
+  "2026-11-01": 8,
+  "2026-11-02": 8,
+  "2026-11-05": 9,
+  "2026-11-08": 9,
+  "2026-11-09": 9,
+  "2026-11-12": 10,
+  "2026-11-15": 10,
+  "2026-11-16": 10,
+  "2026-11-19": 11,
+  "2026-11-22": 11,
+  "2026-11-23": 11,
+  "2026-11-25": 12,
+  "2026-11-26": 12,
+  "2026-11-27": 12,
+  "2026-11-29": 12,
+  "2026-11-30": 12,
+  "2026-12-03": 13,
+  "2026-12-06": 13,
+  "2026-12-07": 13,
+  "2026-12-10": 14,
+  "2026-12-13": 14,
+  "2026-12-14": 14,
+  "2026-12-17": 15,
+  "2026-12-19": 15,
+  "2026-12-20": 15,
+  "2026-12-21": 15,
+  "2026-12-24": 16,
+  "2026-12-25": 16,
+  "2026-12-27": 16,
+  "2026-12-28": 16,
+  "2026-12-31": 17,
+  "2027-01-03": 17,
+  "2027-01-04": 17,
+  "2027-01-10": 18
+ },
+ "sim": {
+  "base": {
+   "td": 0.24770997290672173,
+   "fga": 0.20436072764804541,
+   "fgm": 0.8541666666666666,
+   "to": 0.11650109663269255,
+   "pick6": 0.09302325581395349
+  },
+  "gs": {
+   "start": 0.35,
+   "lead": 7,
+   "ahead": 0.75,
+   "trail": 1.2,
+   "dsd": 1.0
+  },
+  "cal": {
+   "grid": [
+    0.3,
+    0.4,
+    0.5,
+    0.6000000000000001,
+    0.7,
+    0.8,
+    0.9000000000000001,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.4000000000000001,
+    1.5000000000000002,
+    1.6,
+    1.7000000000000002,
+    1.8,
+    1.9000000000000001,
+    2.0,
+    2.1,
+    2.2,
+    2.3,
+    2.4,
+    2.5,
+    2.6
+   ],
+   "mean": [
+    9.40915,
+    11.94755,
+    14.470433333333334,
+    16.968316666666666,
+    19.4374,
+    21.888916666666667,
+    24.293416666666666,
+    26.640183333333333,
+    28.95595,
+    31.2388,
+    33.47651666666667,
+    35.693733333333334,
+    37.88438333333333,
+    40.00655,
+    42.145183333333335,
+    44.23656666666667,
+    46.26096666666667,
+    48.26121666666667,
+    50.22978333333333,
+    52.1563,
+    54.00246666666666,
+    55.7366,
+    57.312983333333335,
+    58.73283333333333
+   ],
+   "sd_game": 0.08,
+   "poss": 11.0
+  },
+  "N": 100000
+ },
+ "manual_cap": 4.0,
+ "teams": {
+  "ARI": {
+   "name": "Arizona Cardinals",
+   "nick": "Cardinals",
+   "color": "#97233F",
+   "color2": "#000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png",
+   "conf": "NFC",
+   "div": "NFC West"
+  },
+  "ATL": {
+   "name": "Atlanta Falcons",
+   "nick": "Falcons",
+   "color": "#A71930",
+   "color2": "#000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+   "conf": "NFC",
+   "div": "NFC South"
+  },
+  "BAL": {
+   "name": "Baltimore Ravens",
+   "nick": "Ravens",
+   "color": "#241773",
+   "color2": "#9E7C0C",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+   "conf": "AFC",
+   "div": "AFC North"
+  },
+  "BUF": {
+   "name": "Buffalo Bills",
+   "nick": "Bills",
+   "color": "#00338D",
+   "color2": "#C60C30",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+   "conf": "AFC",
+   "div": "AFC East"
+  },
+  "CAR": {
+   "name": "Carolina Panthers",
+   "nick": "Panthers",
+   "color": "#0085CA",
+   "color2": "#000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/car.png",
+   "conf": "NFC",
+   "div": "NFC South"
+  },
+  "CHI": {
+   "name": "Chicago Bears",
+   "nick": "Bears",
+   "color": "#0B162A",
+   "color2": "#E64100",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+   "conf": "NFC",
+   "div": "NFC North"
+  },
+  "CIN": {
+   "name": "Cincinnati Bengals",
+   "nick": "Bengals",
+   "color": "#FB4F14",
+   "color2": "#000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+   "conf": "AFC",
+   "div": "AFC North"
+  },
+  "CLE": {
+   "name": "Cleveland Browns",
+   "nick": "Browns",
+   "color": "#FF3C00",
+   "color2": "#311D00",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png",
+   "conf": "AFC",
+   "div": "AFC North"
+  },
+  "DAL": {
+   "name": "Dallas Cowboys",
+   "nick": "Cowboys",
+   "color": "#002244",
+   "color2": "#B0B7BC",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+   "conf": "NFC",
+   "div": "NFC East"
+  },
+  "DEN": {
+   "name": "Denver Broncos",
+   "nick": "Broncos",
+   "color": "#002244",
+   "color2": "#FB4F14",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png",
+   "conf": "AFC",
+   "div": "AFC West"
+  },
+  "DET": {
+   "name": "Detroit Lions",
+   "nick": "Lions",
+   "color": "#0076B6",
+   "color2": "#B0B7BC",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+   "conf": "NFC",
+   "div": "NFC North"
+  },
+  "GB": {
+   "name": "Green Bay Packers",
+   "nick": "Packers",
+   "color": "#203731",
+   "color2": "#FFB612",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+   "conf": "NFC",
+   "div": "NFC North"
+  },
+  "HOU": {
+   "name": "Houston Texans",
+   "nick": "Texans",
+   "color": "#03202F",
+   "color2": "#A71930",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+   "conf": "AFC",
+   "div": "AFC South"
+  },
+  "IND": {
+   "name": "Indianapolis Colts",
+   "nick": "Colts",
+   "color": "#002C5F",
+   "color2": "#a5acaf",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
+   "conf": "AFC",
+   "div": "AFC South"
+  },
+  "JAX": {
+   "name": "Jacksonville Jaguars",
+   "nick": "Jaguars",
+   "color": "#006778",
+   "color2": "#000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
+   "conf": "AFC",
+   "div": "AFC South"
+  },
+  "KC": {
+   "name": "Kansas City Chiefs",
+   "nick": "Chiefs",
+   "color": "#E31837",
+   "color2": "#FFB612",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+   "conf": "AFC",
+   "div": "AFC West"
+  },
+  "LA": {
+   "name": "Los Angeles Rams",
+   "nick": "Rams",
+   "color": "#003594",
+   "color2": "#FFD100",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+   "conf": "NFC",
+   "div": "NFC West"
+  },
+  "LAC": {
+   "name": "Los Angeles Chargers",
+   "nick": "Chargers",
+   "color": "#007BC7",
+   "color2": "#ffc20e",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png",
+   "conf": "AFC",
+   "div": "AFC West"
+  },
+  "LV": {
+   "name": "Las Vegas Raiders",
+   "nick": "Raiders",
+   "color": "#000000",
+   "color2": "#A5ACAF",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
+   "conf": "AFC",
+   "div": "AFC West"
+  },
+  "MIA": {
+   "name": "Miami Dolphins",
+   "nick": "Dolphins",
+   "color": "#008E97",
+   "color2": "#F58220",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+   "conf": "AFC",
+   "div": "AFC East"
+  },
+  "MIN": {
+   "name": "Minnesota Vikings",
+   "nick": "Vikings",
+   "color": "#4F2683",
+   "color2": "#FFC62F",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+   "conf": "NFC",
+   "div": "NFC North"
+  },
+  "NE": {
+   "name": "New England Patriots",
+   "nick": "Patriots",
+   "color": "#002244",
+   "color2": "#C60C30",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+   "conf": "AFC",
+   "div": "AFC East"
+  },
+  "NO": {
+   "name": "New Orleans Saints",
+   "nick": "Saints",
+   "color": "#D3BC8D",
+   "color2": "#000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png",
+   "conf": "NFC",
+   "div": "NFC South"
+  },
+  "NYG": {
+   "name": "New York Giants",
+   "nick": "Giants",
+   "color": "#0B2265",
+   "color2": "#A71930",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png",
+   "conf": "NFC",
+   "div": "NFC East"
+  },
+  "NYJ": {
+   "name": "New York Jets",
+   "nick": "Jets",
+   "color": "#003F2D",
+   "color2": "#000000",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+   "conf": "AFC",
+   "div": "AFC East"
+  },
+  "PHI": {
+   "name": "Philadelphia Eagles",
+   "nick": "Eagles",
+   "color": "#004C54",
+   "color2": "#A5ACAF",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+   "conf": "NFC",
+   "div": "NFC East"
+  },
+  "PIT": {
+   "name": "Pittsburgh Steelers",
+   "nick": "Steelers",
+   "color": "#000000",
+   "color2": "#FFB612",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+   "conf": "AFC",
+   "div": "AFC North"
+  },
+  "SEA": {
+   "name": "Seattle Seahawks",
+   "nick": "Seahawks",
+   "color": "#002244",
+   "color2": "#69be28",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+   "conf": "NFC",
+   "div": "NFC West"
+  },
+  "SF": {
+   "name": "San Francisco 49ers",
+   "nick": "49ers",
+   "color": "#AA0000",
+   "color2": "#B3995D",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+   "conf": "NFC",
+   "div": "NFC West"
+  },
+  "TB": {
+   "name": "Tampa Bay Buccaneers",
+   "nick": "Buccaneers",
+   "color": "#A71930",
+   "color2": "#322F2B",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+   "conf": "NFC",
+   "div": "NFC South"
+  },
+  "TEN": {
+   "name": "Tennessee Titans",
+   "nick": "Titans",
+   "color": "#4495D2",
+   "color2": "#D50A0A",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png",
+   "conf": "AFC",
+   "div": "AFC South"
+  },
+  "WAS": {
+   "name": "Washington Commanders",
+   "nick": "Commanders",
+   "color": "#5A1414",
+   "color2": "#FFB612",
+   "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png",
+   "conf": "NFC",
+   "div": "NFC East"
+  }
+ },
+ "backtest": {
+  "2025_all": {
+   "games": 272.0,
+   "comb_MAE_median": 14.9614,
+   "comb_MAE_mean": 14.7734,
+   "total_MAE": 10.6077,
+   "total_bias": -0.0712,
+   "margin_MAE": 10.1402,
+   "winner_acc": 0.6287,
+   "brier": 0.2202,
+   "team_in50": 0.4982,
+   "team_in80": 0.7831,
+   "total_in80": 0.7831,
+   "margin_in80": 0.7868
+  },
+  "2026_w1-4_tune": {
+   "games": 64.0,
+   "comb_MAE_median": 15.625,
+   "comb_MAE_mean": 15.4738,
+   "total_MAE": 11.7174,
+   "total_bias": 0.336,
+   "margin_MAE": 9.6616,
+   "winner_acc": 0.625,
+   "brier": 0.2258,
+   "team_in50": 0.4531,
+   "team_in80": 0.8125,
+   "total_in80": 0.7656,
+   "margin_in80": 0.75
+  },
+  "2026_w5-7_HOLDOUT": {
+   "games": 43.0,
+   "comb_MAE_median": 13.9767,
+   "comb_MAE_mean": 13.8551,
+   "total_MAE": 10.1006,
+   "total_bias": 0.247,
+   "margin_MAE": 9.3775,
+   "winner_acc": 0.5349,
+   "brier": 0.2348,
+   "team_in50": 0.5116,
+   "team_in80": 0.8605,
+   "total_in80": 0.8372,
+   "margin_in80": 0.8372
+  },
+  "2026_w3-7": {
+   "games": 75.0,
+   "comb_MAE_median": 13.72,
+   "comb_MAE_mean": 13.6043,
+   "total_MAE": 10.5753,
+   "total_bias": -0.2977,
+   "margin_MAE": 8.5106,
+   "winner_acc": 0.5867,
+   "brier": 0.2277,
+   "team_in50": 0.52,
+   "team_in80": 0.8533,
+   "total_in80": 0.8267,
+   "margin_in80": 0.84
+  },
+  "2026_w7_13games": {
+   "games": 13.0,
+   "comb_MAE_median": 15.8462,
+   "comb_MAE_mean": 15.7951,
+   "total_MAE": 9.6538,
+   "total_bias": 1.2127,
+   "margin_MAE": 10.5902,
+   "winner_acc": 0.6154,
+   "brier": 0.2191,
+   "team_in50": 0.3462,
+   "team_in80": 0.8846,
+   "total_in80": 0.8462,
+   "margin_in80": 0.7692
+  }
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "2025_all": {
+  "games": 272.0,
+  "comb_MAE_median": 14.9614,
+  "comb_MAE_mean": 14.7734,
+  "total_MAE": 10.6077,
+  "total_bias": -0.0712,
+  "margin_MAE": 10.1402,
+  "winner_acc": 0.6287,
+  "brier": 0.2202,
+  "team_in50": 0.4982,
+  "team_in80": 0.7831,
+  "total_in80": 0.7831,
+  "margin_in80": 0.7868
+ },
+ "2026_w1-4_tune": {
+  "games": 64.0,
+  "comb_MAE_median": 15.625,
+  "comb_MAE_mean": 15.4738,
+  "total_MAE": 11.7174,
+  "total_bias": 0.336,
+  "margin_MAE": 9.6616,
+  "winner_acc": 0.625,
+  "brier": 0.2258,
+  "team_in50": 0.4531,
+  "team_in80": 0.8125,
+  "total_in80": 0.7656,
+  "margin_in80": 0.75
+ },
+ "2026_w5-7_HOLDOUT": {
+  "games": 43.0,
+  "comb_MAE_median": 13.9767,
+  "comb_MAE_mean": 13.8551,
+  "total_MAE": 10.1006,
+  "total_bias": 0.247,
+  "margin_MAE": 9.3775,
+  "winner_acc": 0.5349,
+  "brier": 0.2348,
+  "team_in50": 0.5116,
+  "team_in80": 0.8605,
+  "total_in80": 0.8372,
+  "margin_in80": 0.8372
+ },
+ "2026_w3-7": {
+  "games": 75.0,
+  "comb_MAE_median": 13.72,
+  "comb_MAE_mean": 13.6043,
+  "total_MAE": 10.5753,
+  "total_bias": -0.2977,
+  "margin_MAE": 8.5106,
+  "winner_acc": 0.5867,
+  "brier": 0.2277,
+  "team_in50": 0.52,
+  "team_in80": 0.8533,
+  "total_in80": 0.8267,
+  "margin_in80": 0.84
+ },
+ "2026_w7_13games": {
+  "games": 13.0,
+  "comb_MAE_median": 15.8462,
+  "comb_MAE_mean": 15.7951,
+  "total_MAE": 9.6538,
+  "total_bias": 1.2127,
+  "margin_MAE": 10.5902,
+  "winner_acc": 0.6154,
+  "brier": 0.2191,
+  "team_in50": 0.3462,
+  "team_in80": 0.8846,
+  "total_in80": 0.8462,
+  "margin_in80": 0.7692
+ }
+}

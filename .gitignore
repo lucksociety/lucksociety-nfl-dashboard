@@ -1,0 +1,6 @@
+model/*.parquet
+model/games.csv
+model/teams_colors_logos.csv
+model/*.part
+__pycache__/
+node_modules/

@@ -1,0 +1,33 @@
+{
+ "version": "v6",
+ "ratings": {
+  "decay": 0.9,
+  "prior": 0.6,
+  "lam_p": 5000,
+  "lam_r": 8000,
+  "lam_d": 60,
+  "lam_s": 6,
+  "qb_k": 200,
+  "qb_prior": -0.05
+ },
+ "features": [
+  "r_p",
+  "r_r",
+  "r_d",
+  "r_s",
+  "qb",
+  "pace",
+  "home",
+  "rest",
+  "env"
+ ],
+ "reg_alpha": 100,
+ "train_min_t": 22,
+ "hfa_shrink": 0.25,
+ "sim": {
+  "sd_game": 0.08,
+  "N": 100000
+ },
+ "manual_adj_scale": 1.0,
+ "notes": "No betting columns are loaded (data.py drops them). Selected on 2025 + 2026 wk1-4; 2026 wk5-7 held out."
+}
