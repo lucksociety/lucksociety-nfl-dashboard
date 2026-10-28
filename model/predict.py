@@ -34,7 +34,7 @@ for i,r in P.iterrows():
 cal=json.load(open('sim_cal.json')); out=[]
 for k,(gid,z) in enumerate(P.groupby('game_id',sort=False)):
     h=z[z.side=='home'].iloc[0]; a=z[z.side=='away'].iloc[0]
-    o=sim.simulate(a.pred,h.pred,poss=float(h.pace),N=NS,seed=t*1000+k,cal=cal); sA=o['sA'].astype(int); sH=o['sH'].astype(int)
+    o=sim.simulate(a.pred,h.pred,poss=float(cal.get("poss",11.0)),N=NS,seed=t*1000+k,cal=cal); sA=o['sA'].astype(int); sH=o['sH'].astype(int)
     j=pd.Series(list(zip(sA,sH))).value_counts(normalize=True)
     out.append(dict(game_id=gid,away=a.team,home=h.team,mu_away=round(a.pred,1),mu_home=round(h.pred,1),
         primary=f"{round(a.pred)}-{round(h.pred)}",modal=f"{j.index[0][0]}-{j.index[0][1]}",p_away=round((sA>sH).mean(),3),p_home=round((sH>sA).mean(),3),

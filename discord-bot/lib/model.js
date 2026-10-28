@@ -62,6 +62,8 @@ async function simulateDay(date, { teamFilter, N = 100000 } = {}) {
   const wk = await loadWeek(idx, w);
   let games = wk.games.filter((g) => g.gameday === date).sort((a, b) => a.gametime.localeCompare(b.gametime) || a.game_id.localeCompare(b.game_id));
   if (teamFilter) games = games.filter((g) => g.away === teamFilter || g.home === teamFilter);
+  let manual = {};
+  try { manual = await getJSON('manual_adj.json'); } catch (_) { manual = {}; } // optional sourced injury tweaks (points)
   const out = [];
   for (const g of games) {
     await new Promise((r) => setImmediate(r)); // keep the gateway/event loop responsive between games
@@ -69,13 +71,13 @@ async function simulateDay(date, { teamFilter, N = 100000 } = {}) {
     for (const side of ['away', 'home']) {
       const opp = side === 'away' ? 'home' : 'away';
       const x = Object.assign({}, g.sides[side].x);
-      mu[side] = LSModel.predictPoints(wk.model, x, x.home, 0, 0, idx.manual_cap); // listed QB, no manual tweaks
-      void opp;
+      const mj = manual[g.game_id] || {}; const own = mj[side] || {}, oth = mj[opp] || {};
+      mu[side] = LSModel.predictPoints(wk.model, x, x.home, +own.off || 0, +oth.def || 0, idx.manual_cap); // listed QB + sourced manual tweaks if any
     }
     const t0 = Date.now();
-    const sims = LSModel.simulate(mu.away, mu.home, { sim: idx.sim, N, seed: g.seed, poss: g.pace });
+    const sims = LSModel.simulate(mu.away, mu.home, { sim: idx.sim, N, seed: g.seed, poss: (idx.sim.cal && idx.sim.cal.poss) || 11 } /* v6.1: pace is already in the points model; sim at calibration drive count */);
     const s = LSModel.summarize(sims, 10);
-    Object.assign(s, { mu_away: mu.away, mu_home: mu.home, seed: g.seed, ms: Date.now() - t0 });
+    Object.assign(s, { mu_away: mu.away, mu_home: mu.home, seed: g.seed, ms: Date.now() - t0, manual: manual[g.game_id] || null });
     out.push({ game: g, res: s, primary: primary(s), dist: { sA: sims.sA, sH: sims.sH } });
   }
   return { week: wk.week, season: wk.season, games: out, idx, dataThrough: idx.data_through, generated: idx.generated_et, source: (cache.get('index.json') || {}).src };

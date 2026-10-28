@@ -9,7 +9,7 @@ const out = wk.games.map((g) => {
   const x = (s) => Object.assign({}, g.sides[s].x, mode === 'mix' ? { qb: 0 } : {});
   const muA = M.predictPoints(wk.model, x('away'), g.sides.away.x.home, 0, 0, 4);
   const muH = M.predictPoints(wk.model, x('home'), g.sides.home.x.home, 0, 0, 4);
-  const t0 = Date.now(); const r = M.runGame({ muA, muH, sim: idx.sim, N, seed: g.seed, poss: g.pace });
+  const t0 = Date.now(); const r = M.runGame({ muA, muH, sim: idx.sim, N, seed: g.seed, poss: (idx.sim.cal && idx.sim.cal.poss) || 11 });
   return { game_id: g.game_id, muA, muH, ...r, top: r.top.slice(0, 5), ms: Date.now() - t0 };
 });
 console.log(JSON.stringify(out));

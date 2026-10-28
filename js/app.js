@@ -59,7 +59,7 @@
     const w = S.idx.dates[d];
     if (!w) { S.wk = null; S.games = []; renderEmpty(); $('#simulate').disabled = true; status(`No NFL games on <b>${fmtDate(d, true)}</b>.`); return; }
     S.wk = await loadWeek(w); S.games = S.wk.games.filter((g) => g.gameday === d).sort((a, b) => a.gametime.localeCompare(b.gametime) || a.game_id.localeCompare(b.game_id));
-    S.games.forEach((g) => { if (!S.inputs[g.game_id]) S.inputs[g.game_id] = { away: { qb: '__listed', off: 0, def: 0 }, home: { qb: '__listed', off: 0, def: 0 } }; });
+    S.games.forEach((g) => { if (!S.inputs[g.game_id]) { const mj = (S.manual || {})[g.game_id] || {}; const d = (sd) => ({ qb: '__listed', off: +((mj[sd] || {}).off) || 0, def: +((mj[sd] || {}).def) || 0 }); S.inputs[g.game_id] = { away: d('away'), home: d('home') }; } });
     $('#empty').classList.add('hidden'); renderSlate(); $('#simulate').disabled = false;
     const nf = S.games.filter((g) => g.final).length;
     status(`<b>Week ${S.wk.week}</b> · ${fmtDate(d, true)} · ${S.games.length} game${S.games.length > 1 ? 's' : ''}${nf ? ` · ${nf} final (model inputs are still strictly pre-game)` : ''}. Press <b>Simulate Now</b> to run ${Number($('#nsim').value).toLocaleString()} sims per game.`);
@@ -170,7 +170,7 @@
     try {
       await Promise.all(S.games.map(async (g) => {
         const m = means(g);
-        const r = await pool.run({ muA: m.away, muH: m.home, sim: S.idx.sim, N, seed: g.seed, poss: g.pace });
+        const r = await pool.run({ muA: m.away, muH: m.home, sim: S.idx.sim, N, seed: g.seed, poss: (S.idx.sim.cal && S.idx.sim.cal.poss) || 11 }); // v6.1: pace already in points model
         S.results[g.game_id] = r; done++; $('#bar').style.width = (done / S.games.length * 100).toFixed(0) + '%';
         const el = document.getElementById('c-' + g.game_id); el.classList.remove('running'); renderCard(g);
       }));
@@ -298,6 +298,7 @@
 
   // ---------- boot ----------
   async function boot() {
+    try { S.manual = await getJSON('data/manual_adj.json'); } catch (_) { S.manual = {}; }
     try { S.idx = await getJSON('data/index.json'); } catch (e) { status(`<span class="no">Could not load data/index.json</span> (${esc(e.message)}). Serve this folder over HTTP, e.g. <code>python3 -m http.server</code>.`); return; }
     fillSlates();
     const ds = allDates(); $('#date').min = ds[0]; $('#date').max = ds[ds.length - 1];

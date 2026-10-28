@@ -1,0 +1,10 @@
+{
+ "_note": "Pre-game injury/lineup tweaks in POINTS (v6 convention; each capped at +/-4). off = change to that team's points; def = change to the OPPONENT's points. ESTIMATES tied to sourced absences not already reflected in recent games. Zero-market: no betting data used.",
+ "2026_08_CAR_GB": {
+  "asof_et": "2026-10-28 14:30",
+  "away": {"off": -0.6, "def": 0.4},
+  "home": {"off": -0.7, "def": 0.1},
+  "why": "CAR off: RT Taylor Moton IR (Freeling starts; -0.2), LG Damien Lewis knee DNP x3 (~70% out, -0.35), G Simpkins DNP depth (-0.05). CAR def: OLB Jaelan Phillips hamstring DNP (+0.25), CB Akayleb Evans DNP (+0.15). GB off: C Sean Rhyan out (John Williams starts; -0.4), WR Matthew Golden DNP (~50%, -0.2), RG Travis Glover DNP (Zeitler, -0.1). GB def: LB Zaire Franklin out (missed wk7 already, +0.1).",
+  "sources": ["https://www.nfl.com/injuries/", "https://www.packers.com/news/packers-panthers-injury-report-oct-27-2026", "https://www.panthers.com/news/panthers-place-right-tackle-taylor-moton-on-injured-reserve", "https://www.acmepackingcompany.com/green-bay-packers-news/88843/packers-injury-report-lafleur-hopes-matthew-golden-plays-on-thursday", "https://www.channel3000.com/news/top-stories/more-line-dancing-with-sean-rhyan-sidelined-and-jacob-monk-on-ir-and-travis-glover/article_dac308b5-b647-42e9-b3e2-65e518ebb1a4.html"]
+ }
+}

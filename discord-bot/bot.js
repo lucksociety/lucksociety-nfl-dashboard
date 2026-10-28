@@ -45,6 +45,11 @@ async function registerCommands(client) {
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.once(Events.ClientReady, async (c) => {
   log(`READY logged in as ${c.user.tag} (id ${c.user.id}) · guilds=${c.guilds.cache.size} · dashboard=${model.DASH}`);
+  if (c.user.id !== APP_ID) { // token belongs to a different Discord application: don't run as the wrong bot
+    log(`WRONG_TOKEN token is for app ${c.user.id}, expected ${APP_ID} (set DISCORD_APP_ID or the right DISCORD_BOT_TOKEN); stopping`);
+    try { require('fs').writeFileSync(require('path').join(__dirname, '.stop'), 'wrong token\n'); } catch (_) {}
+    await c.destroy(); process.exit(0);
+  }
   log(`GUILDS ${[...c.guilds.cache.values()].map((g) => `${g.name}(${g.id})`).join(', ') || '(none)'}`);
   try { await registerCommands(c); } catch (e) { log('COMMAND_REGISTER_FAILED', e.message || e); }
 });
