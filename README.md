@@ -76,3 +76,6 @@ Track record (walk-forward, pre-game info only): 2025 season, 272 games, 62.9% w
 2026 Weeks 5–7 holdout: 43 games, 53.5% winners, Brier 0.235. NFL scoring is noisy, and any single exact score is under 1% likely.
 
 For entertainment and research. Not betting advice.
+
+## Discord bot
+`discord-bot/` has a gateway bot. `/nfl [date] [game]` runs the same v6 sims (100k per game, seeded) and then posts the Jupiter best bet, using `js/market.js`. See `discord-bot/README.md`.

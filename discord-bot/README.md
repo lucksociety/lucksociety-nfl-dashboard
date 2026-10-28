@@ -1,0 +1,47 @@
+# 🍀 Luck Society NFL Discord bot
+
+Slash command **`/nfl`** runs the Luck Society NFL model **v6** (the same `js/sim.js` and `data/` the dashboard uses) for a game day,
+100,000 seeded sims per game, then posts branded embeds with each game's pick and a **Best Bet** from Jupiter prediction-market prices.
+
+**The market never feeds the model.** Step 1 runs the sims from model inputs only. Step 2 pulls Jupiter prices *after* the sims finish
+and compares them with the simulated distribution.
+
+## Usage
+| Command | What it does |
+|---|---|
+| `/nfl` | Today's games (ET). If there are none, it runs the next game day and says so. |
+| `/nfl date:2026-11-01` | Every game on that date |
+| `/nfl game:PHI` | Only that team's game (next one if it doesn't play on the date) |
+| `/nfl date:2026-11-01 game:KC` | One game on one date |
+
+Each game embed shows the primary pick (rounded model mean), the most likely exact score, win %, total with 80% range, margin, QBs and the game's best bet.
+A final **Best Bet of the Day** embed ranks the top edges.
+
+### Best-bet rules
+The bot reuses the dashboard's own Jupiter module (`../js/market.js`), so the Discord best bet matches the dashboard's **Market Edge** panel:
+- Prices come from the Jupiter Predict API (`api.jup.ag/prediction/v1`, keyless; NFL game markets are Polymarket-sourced), with the dashboard's `market-data` snapshot as a fallback.
+- Our probability for each moneyline, spread and total line comes straight from the 100k simulated final scores. OT is included, and ties or pushes count as 50-50 per the market rules.
+- Edge = our prob − market no-vig prob (bid/ask mid, both sides normalised). EV per $1 is measured at the ask, including Jupiter's fee `0.07·p·(1−p)`. The stake is ¼-Kelly capped at 2% of bankroll, shown as units (1u = 1%).
+- Thin lines (no bid, bid-ask over 4¢, or volume under 500) and tail lines (market under 12% or over 88%) are skipped. The best bet is the highest-EV line left with EV ≥ +1¢ per $1. If none qualifies, it says **No edge — pass**.
+- If `js/market.js` is missing, `lib/edge.js` falls back to a built-in Jupiter engine. Set `EDGE_MODULE=/path/module.js` (exporting `async bestBets(day, probs)`) to plug in another engine.
+
+## Setup
+1. In the Discord Developer Portal, open the application (ID `1564884302297043014`), go to Bot, and copy the token.
+2. Invite the bot with Send Messages, Embed Links and Use Application Commands:
+   `https://discord.com/oauth2/authorize?client_id=1564884302297043014&scope=bot%20applications.commands&permissions=2147502080`
+3. Run it:
+```bash
+cd discord-bot
+npm install
+export DISCORD_BOT_TOKEN=...        # never commit it; .env files are gitignored
+./start.sh                          # background + auto-restart loop, logs to bot.log
+./restart.sh / ./stop.sh
+node cli.js 2026-11-01 [TEAM]       # preview the output in a terminal, no Discord needed
+```
+The command is registered globally on startup. New global commands can take a few minutes (up to about an hour) to show in every server.
+The bot uses the gateway (no public URL or interactions endpoint) and only the `Guilds` intent.
+
+Data comes from the live dashboard (`https://lucksociety.github.io/lucksociety-nfl-dashboard/data`, refreshed by the weekly Action), with the local checkout as fallback.
+Set `NFL_DATA_URL=` (empty) to use local files only.
+
+Model estimate, not a guarantee. For entertainment and research.
