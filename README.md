@@ -78,4 +78,4 @@ Track record (walk-forward, pre-game info only): 2025 season, 272 games, 62.9% w
 For entertainment and research. Not betting advice.
 
 ## Discord bot
-`discord-bot/` has a gateway bot. `/nfl [date] [game]` runs the same v6 sims (100k per game, seeded) and then posts the Jupiter best bet, using `js/market.js`. See `discord-bot/README.md`.
+`discord-bot/` has a gateway bot. `/nfl [date]` (pick a game day from the dropdown) runs the same v6 sims (100k per game, seeded) and then posts the Jupiter best bet, using `js/market.js`. See `discord-bot/README.md`.

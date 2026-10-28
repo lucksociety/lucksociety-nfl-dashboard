@@ -9,11 +9,10 @@ and compares them with the simulated distribution.
 ## Usage
 | Command | What it does |
 |---|---|
-| `/nfl` | Today's games (ET). If there are none, it runs the next game day and says so. |
-| `/nfl date:2026-11-01` | Every game on that date |
-| `/nfl game:PHI` | Only that team's game (next one if it doesn't play on the date) |
-| `/nfl date:2026-11-01 game:KC` | One game on one date |
+| `/nfl` | Every game today (ET). If there are none, it runs the next game day and says so. |
+| `/nfl date:` | Pick a game day from the dropdown. It lists upcoming days first (from today ET), then recent past days, e.g. `Thu Oct 29 · Week 8 · 1 game (CAR@GB)`. Type to filter by date, weekday, month, week (`w9`, `week 9`) or team (`phi`). |
 
+`/nfl` always simulates **all** games on the chosen date.
 Each game embed shows the primary pick (rounded model mean), the most likely exact score, win %, total with 80% range, margin, QBs and the game's best bet.
 A final **Best Bet of the Day** embed ranks the top edges.
 
@@ -36,9 +35,9 @@ npm install
 export DISCORD_BOT_TOKEN=...        # never commit it; .env files are gitignored
 ./start.sh                          # background + auto-restart loop, logs to bot.log
 ./restart.sh / ./stop.sh
-node cli.js 2026-11-01 [TEAM]       # preview the output in a terminal, no Discord needed
+node cli.js 2026-11-01              # preview the output in a terminal, no Discord needed
 ```
-The command is registered globally on startup. New global commands can take a few minutes (up to about an hour) to show in every server.
+On startup the command is registered **per server** in every server the bot is in (and on join), so changes show instantly. The global copy is cleared so `/nfl` never appears twice. Set `COMMAND_SCOPE=global` to use global registration instead (updates can take up to about an hour).
 The bot uses the gateway (no public URL or interactions endpoint) and only the `Guilds` intent.
 
 Data comes from the live dashboard (`https://lucksociety.github.io/lucksociety-nfl-dashboard/data`, refreshed by the weekly Action), with the local checkout as fallback.
