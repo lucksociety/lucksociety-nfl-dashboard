@@ -68,7 +68,10 @@
     const top = [...cnt.entries()].sort((x, y) => y[1] - x[1] || x[0] - y[0]).slice(0, topK || 10).map(([k, c]) => ({ away: k >> 8, home: k & 255, p: c / N }));
     const sa = Float64Array.from(o.sA).sort(), sh = Float64Array.from(o.sH).sort(), st = Float64Array.from(tot).sort(), sm = Float64Array.from(mar).sort();
     const r80 = (s) => [Math.trunc(pct(s, 10)), Math.trunc(pct(s, 90))];
-    return { N, sim_mean_away: ma / N, sim_mean_home: mh / N, p_away: wa / N, p_home: wh / N, p_tie: (N - wa - wh) / N, ot: ots / N,
+    // 1-D histograms of final margin (home - away, incl. OT) and combined points, used only after the run by the
+    // market-comparison panel (js/market.js) to price any winner / spread / total line from the same simulated games.
+    const hist = (arr) => { let lo = Infinity, hi = -Infinity; for (let i = 0; i < N; i++) { if (arr[i] < lo) lo = arr[i]; if (arr[i] > hi) hi = arr[i]; } const c = new Array(hi - lo + 1).fill(0); for (let i = 0; i < N; i++) c[arr[i] - lo]++; return { min: lo, c }; };
+    return { N, hist_margin: hist(mar), hist_total: hist(tot), sim_mean_away: ma / N, sim_mean_home: mh / N, p_away: wa / N, p_home: wh / N, p_tie: (N - wa - wh) / N, ot: ots / N,
       ci80_away: r80(sa), ci80_home: r80(sh), ci80_total: r80(st), ci80_margin: r80(sm), median_away: pct(sa, 50), median_home: pct(sh, 50), top };
   }
   /* v6 points model for one side: stacked ridge (standardized) + HFA shrink + capped manual adjustments.

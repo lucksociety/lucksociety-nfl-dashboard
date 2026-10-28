@@ -1,0 +1,40 @@
+name: Jupiter market snapshot
+
+# Snapshots Jupiter prediction-market NFL prices every ~20 min to the `market-data` branch (single commit, force-pushed,
+# so history never grows). The dashboard reads it only AFTER its simulations finish, and only when the live API is
+# unreachable from the browser. The model never reads this file.
+on:
+  schedule:
+    - cron: '7,27,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-snapshot
+  cancel-in-progress: true
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch Jupiter NFL markets
+        env:
+          JUP_API_KEY: ${{ secrets.JUP_API_KEY }}
+        run: node scripts/snapshot_jupiter.js /tmp/jupiter_nfl.json
+      - name: Publish to market-data branch
+        run: |
+          cd /tmp && rm -rf md && mkdir md && cd md
+          git init -q -b market-data
+          cp /tmp/jupiter_nfl.json .
+          printf 'Auto-generated Jupiter NFL market snapshot. Read by the dashboard only after simulations finish.\n' > README.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "market snapshot $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" market-data

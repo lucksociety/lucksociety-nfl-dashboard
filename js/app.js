@@ -4,7 +4,8 @@
   'use strict';
   const $ = (s, el) => (el || document).querySelector(s);
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const S = { idx: null, weeks: {}, date: null, wk: null, games: [], inputs: {}, results: {}, running: false };
+  const S = { idx: null, weeks: {}, date: null, wk: null, games: [], inputs: {}, results: {}, running: false,
+    market: null, mstate: 'idle', merr: '', edges: {}, mopts: { hideThin: true, tails: false, fees: true, posOnly: true } };
   const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const todayET = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
   const dparts = (d) => { const [y, m, dd] = d.split('-').map(Number); const dt = new Date(Date.UTC(y, m - 1, dd)); return { dow: DOW[dt.getUTCDay()], mon: MON[m - 1], d: dd, y }; };
@@ -54,7 +55,7 @@
   async function setDate(d, autorun) {
     S.date = d; $('#date').value = d; $('#slates').value = S.idx.dates[d] ? d : '';
     const u = new URL(location.href); u.searchParams.set('date', d); u.searchParams.delete('autorun'); history.replaceState(null, '', u);
-    S.results = {}; $('#summary').classList.add('hidden'); $('#progress').classList.add('hidden');
+    S.results = {}; S.edges = {}; S.mstate = 'idle'; $('#summary').classList.add('hidden'); $('#edgeboard').classList.add('hidden'); $('#progress').classList.add('hidden');
     const w = S.idx.dates[d];
     if (!w) { S.wk = null; S.games = []; renderEmpty(); $('#simulate').disabled = true; status(`No NFL games on <b>${fmtDate(d, true)}</b>.`); return; }
     S.wk = await loadWeek(w); S.games = S.wk.games.filter((g) => g.gameday === d).sort((a, b) => a.gametime.localeCompare(b.gametime) || a.game_id.localeCompare(b.game_id));
@@ -126,7 +127,7 @@
         <div class="team">${logo(A, g.away)}<div class="ab">${esc(g.away)}</div><div class="nm">${esc(A.name)}</div><div class="qb">${esc(g.sides.away.qb_name || 'QB: recent mix')}</div></div>
         <div class="mid"><div class="at">@</div><div class="ko">${esc(fmtTime(g.gametime))}</div><div>${esc(fmtDate(g.gameday))}</div><div>${esc(g.stadium || '')}</div></div>
         <div class="team">${logo(H, g.home)}<div class="ab">${esc(g.home)}</div><div class="nm">${esc(H.name)}</div><div class="qb">${esc(g.sides.home.qb_name || 'QB: recent mix')}</div></div>
-      </div><div style="text-align:center;margin-top:6px">${badges}</div>${body}
+      </div><div style="text-align:center;margin-top:6px">${badges}</div>${body}${r ? marketHTML(g) : ''}
       <details class="adj" ${isCustom(g) ? 'open' : ''}><summary>QB &amp; injury adjustments</summary>
         <div class="adjgrid">${side('away')}${side('home')}</div>
         <div class="adjnote">Model means with these inputs: <b>${esc(g.away)} ${m.away.toFixed(1)} – ${m.home.toFixed(1)} ${esc(g.home)}</b>${Math.abs(m.away_qbpts) + Math.abs(m.home_qbpts) > 0.005 ? ` · QB change effect ${esc(g.away)} ${sgn(m.away_qbpts, 2)}, ${esc(g.home)} ${sgn(m.home_qbpts, 2)} pts` : ''}. Use point tweaks only for absences not already reflected in recent games; each is capped at ±4 as in v6. Re-run <b>Simulate Now</b> to apply.</div>
@@ -176,6 +177,7 @@
       const secs = ((performance.now() - t0) / 1000).toFixed(1);
       status(`Done: <b>${S.games.length}</b> game${S.games.length > 1 ? 's' : ''} simulated in ${secs}s (${N.toLocaleString()} sims each, model v6, fixed seeds — same inputs give the same picks).`);
       renderSummary();
+      S.running = false; loadMarket(); // market data is fetched only now, after every sim on the day has finished
     } catch (e) { status(`<span class="no">Simulation failed:</span> ${esc(e.message)}`); console.error(e); }
     finally { pool.close(); S.running = false; btn.disabled = false; btn.classList.remove('running'); btn.innerHTML = '<span class="clover">🍀</span> Simulate Now'; setTimeout(() => $('#progress').classList.add('hidden'), 900); }
   }
@@ -216,6 +218,84 @@
     navigator.clipboard.writeText(lines.join('\n')).then(() => { $('#copy').textContent = 'Copied ✓'; setTimeout(() => $('#copy').textContent = 'Copy picks', 1500); });
   }
 
+
+  // ---------- Jupiter market comparison (runs only after the sims; never feeds the model) ----------
+  const SNAP_URL = 'https://raw.githubusercontent.com/lucksociety/lucksociety-nfl-dashboard/market-data/jupiter_nfl.json';
+  const agoET = (iso) => { const d = new Date(iso); const m = Math.round((Date.now() - d) / 60000);
+    const t = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(d);
+    return `${t} ET (${m < 1 ? 'just now' : m < 90 ? m + ' min ago' : Math.round(m / 60) + ' h ago'})`; };
+  async function loadMarket(force) {
+    if (!Object.keys(S.results).length) return;
+    S.mstate = 'loading'; S.merr = ''; renderEdges(); S.games.forEach((g) => S.results[g.game_id] && renderCard(g));
+    const fresh = S.market && !force && Date.now() - new Date(S.market.fetched_at) < 60000;
+    if (!fresh) {
+      let snap = null, errs = [];
+      try { snap = await LSMarket.fetchLive(12000); } catch (e) { errs.push('live API: ' + (e.name === 'AbortError' ? 'timed out' : e.message)); }
+      if (!snap) { try { const r = await fetch(SNAP_URL + '?t=' + Math.floor(Date.now() / 60000), { cache: 'no-store' }); if (!r.ok) throw new Error('HTTP ' + r.status); snap = await r.json(); snap.source = 'snapshot'; } catch (e) { errs.push('snapshot: ' + e.message); } }
+      if (!snap) { S.mstate = 'error'; S.merr = errs.join(' · '); S.market = null; }
+      else { S.market = snap; S.mstate = 'ok'; S.merr = errs.join(' · '); }
+    } else S.mstate = 'ok';
+    computeEdges(); renderEdges(); S.games.forEach((g) => S.results[g.game_id] && renderCard(g));
+  }
+  function computeEdges() {
+    S.edges = {}; if (!S.market) return;
+    S.games.forEach((g) => { const r = S.results[g.game_id]; if (!r || !r.hist_margin) return; const ev = LSMarket.matchEvent(g, S.market);
+      S.edges[g.game_id] = ev ? { ev, rows: LSMarket.evaluate(g, r, ev, { fees: S.mopts.fees }) } : { ev: null, rows: [] }; });
+  }
+  const eclass = (x) => (x.ev >= 0.08 ? 'e-strong' : x.ev >= 0.03 ? 'e-good' : x.ev > 0 ? 'e-lean' : 'e-neg');
+  const cents = (p) => (p == null ? '—' : (p * 100).toFixed(p < 0.1 ? 1 : 0) + '¢');
+  const pp = (v) => (v == null ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(1));
+  const evf = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + '$' + Math.abs(v).toFixed(3);
+  const tname = { moneyline: 'Winner', spreads: 'Spread', totals: 'Total' };
+  const flags = (x) => `${x.thin ? '<span class="badge warn" title="No bid, wide bid/ask (>4¢) or volume under 500">thin</span>' : ''}${x.tail ? '<span class="badge" title="Market price under 12% or over 88%: our sim tails are the least reliable part of the model">tail</span>' : ''}`;
+  const keep = (x) => (!S.mopts.hideThin || !x.thin) && (S.mopts.tails || !x.tail);
+  function rowHTML(x, compact) {
+    return `<tr class="${eclass(x)}"><td><span class="mt">${tname[x.type]}</span> <b>${esc(x.label)}</b> ${flags(x)}</td><td>${cents(x.ask)}</td><td>${x.fair == null ? '—' : pctf(x.fair, 1)}</td><td>${pctf(x.our, 1)}</td>
+      <td class="edge">${pp(x.edge)}</td><td class="evc">${evf(x.ev)}</td>${compact ? '' : `<td>${x.kelly > 0 ? pctf(x.kelly, 2) : '—'}</td>`}</tr>`;
+  }
+  const head = (first) => `<tr><th>${first}</th><th>Ask</th><th>Mkt</th><th>Ours</th><th>Edge</th><th>EV/$1</th></tr>`;
+  function marketHTML(g) {
+    const r = S.results[g.game_id]; if (r && r.stale) return '';
+    if (S.mstate === 'idle') return '';
+    if (S.mstate === 'loading' && !S.edges[g.game_id]) return '<div class="mkt"><div class="sect">Market Edge · Jupiter</div><div class="placeholder">Sims done. Fetching Jupiter prediction markets…</div></div>';
+    if (S.mstate === 'error') return `<div class="mkt"><div class="sect">Market Edge · Jupiter</div><div class="placeholder">Market data unavailable right now (${esc(S.merr)}). Your sim results above are unaffected.</div></div>`;
+    const E = S.edges[g.game_id]; if (!E) return '';
+    if (!E.ev) return '<div class="mkt"><div class="sect">Market Edge · Jupiter</div><div class="placeholder">No open Jupiter market for this game (finished, not listed yet, or already closed).</div></div>';
+    const rows = E.rows; const used = new Set();
+    const pick = (arr) => { arr.forEach((x) => used.add(x.marketId)); return arr; };
+    const ml = pick(rows.filter((x) => x.type === 'moneyline')), sp = pick(LSMarket.mainLine(rows, 'spreads')), tt = pick(LSMarket.mainLine(rows, 'totals'));
+    const alts = rows.filter((x) => !used.has(x.marketId) && x.ev > 0 && keep(x)).sort((a, b) => b.ev - a.ev).slice(0, 3);
+    const best = rows.filter(keep).sort((a, b) => b.ev - a.ev)[0];
+    const kel = best && best.ev > 0 && best.kelly > 0 ? ` · ¼ Kelly ${pctf(best.kelly, 2)}` : '';
+    const all = rows.slice().sort((a, b) => (a.type.localeCompare(b.type)) || ((a.line || 0) - (b.line || 0)) || a.label.localeCompare(b.label));
+    return `<div class="mkt"><div class="sect">Market Edge · Jupiter <span class="muted mkt-src">${esc(E.ev.title)} · vol $${Math.round(E.ev.volumeUsd || 0).toLocaleString()}</span></div>
+      ${best && best.ev > 0 ? `<div class="bestedge ${eclass(best)}">Best edge: <b>${esc(best.label)}</b> at ${cents(best.ask)} · ours ${pctf(best.our, 1)} vs market ${pctf(best.fair, 1)} · EV ${evf(best.ev)} per $1${kel}</div>` : '<div class="bestedge e-neg">No positive-EV line at current asks (after fees).</div>'}
+      <div class="table-wrap"><table class="mtab">${head('Main lines')}${ml.concat(sp, tt).map((x) => rowHTML(x, true)).join('')}
+      ${alts.length ? `<tr class="sub"><td colspan="6">Top +EV alternate lines</td></tr>${alts.map((x) => rowHTML(x, true)).join('')}` : ''}</table></div>
+      <details class="adj"><summary>All ${rows.length} Jupiter lines for this game</summary><div class="table-wrap"><table class="mtab">${head('Line')}${all.map((x) => rowHTML(x, true)).join('')}</table></div></details></div>`;
+  }
+  function renderEdges() {
+    const el = $('#edgeboard'); if (S.mstate === 'idle') { el.classList.add('hidden'); return; }
+    el.classList.remove('hidden');
+    const src = S.market ? (S.market.source === 'live' ? `Live from Jupiter API · fetched ${agoET(S.market.fetched_at)}` : `Snapshot (Jupiter API via scheduled GitHub Action) · as of ${agoET(S.market.fetched_at)}`) : '';
+    $('#msrc').innerHTML = S.mstate === 'loading' ? 'Fetching Jupiter markets…' : S.mstate === 'error' ? `<span class="no">Market data unavailable:</span> ${esc(S.merr)}` :
+      `${esc(src)} · prices routed from ${esc(S.market.provider || 'Polymarket')}${S.merr ? ` <span class="muted">(${esc(S.merr)})</span>` : ''}`;
+    if (S.mstate !== 'ok') { $('#edgetable').innerHTML = ''; $('#edgetiles').innerHTML = ''; return; }
+    const ids = Object.keys(S.edges); const matched = ids.filter((k) => S.edges[k].ev).length;
+    let all = []; ids.forEach((k) => { all = all.concat(S.edges[k].rows); });
+    const list = all.filter(keep).filter((x) => !S.mopts.posOnly || x.ev > 0).sort((a, b) => b.ev - a.ev);
+    const pos = all.filter((x) => x.ev > 0 && keep(x));
+    const top = list[0];
+    $('#edgetiles').innerHTML = `<div class="tile"><span>Games with markets</span><b>${matched}/${S.games.length}</b><i>${all.length} lines priced</i></div>
+      <div class="tile"><span>+EV lines (filters on)</span><b>${pos.length}</b><i>after fees: ${S.mopts.fees ? 'yes' : 'no'}</i></div>
+      ${top ? `<div class="tile"><span>Top edge</span><b>${esc(top.label)}</b><i>${esc(top.matchup)} · EV ${evf(top.ev)}/$1</i></div>` : ''}`;
+    const unmatched = S.games.filter((g) => S.results[g.game_id] && S.edges[g.game_id] && !S.edges[g.game_id].ev).map((g) => `${g.away} @ ${g.home}`);
+    $('#edgetable').innerHTML = list.length ? `<tr><th>#</th><th>Game</th><th>Bet</th><th>Ask</th><th>Bid</th><th>Mkt (no-vig)</th><th>Ours</th><th>Edge pp</th><th>EV/$1</th><th>¼ Kelly</th><th>Volume</th></tr>` +
+      list.slice(0, 40).map((x, i) => `<tr class="${eclass(x)}"><td>${i + 1}</td><td>${esc(x.matchup)}</td><td><span class="mt">${tname[x.type]}</span> <b>${esc(x.label)}</b> ${flags(x)}</td><td>${cents(x.ask)}</td><td>${cents(x.bid)}</td><td>${x.fair == null ? '—' : pctf(x.fair, 1)}</td><td>${pctf(x.our, 1)}</td><td class="edge">${pp(x.edge)}</td><td class="evc">${evf(x.ev)}</td><td>${x.kelly > 0 ? pctf(x.kelly, 2) : '—'}</td><td>${x.volume == null ? '—' : Math.round(x.volume).toLocaleString()}</td></tr>`).join('')
+      : `<tr><td class="muted">No lines pass the current filters.</td></tr>`;
+    $('#edgenote').innerHTML = `${list.length > 40 ? `Showing top 40 of ${list.length}. ` : ''}${unmatched.length ? `No Jupiter market: ${esc(unmatched.join(', '))}. ` : ''}<b>Edge</b> = our simulated probability − the market's no-vig probability (mid of bid/ask, both sides normalised to 100%). <b>EV/$1</b> = expected profit per $1 spent buying at the ask${S.mopts.fees ? ' plus Jupiter\u2019s trading fee (0.07 × P × (1−P) per contract, which reproduces Jupiter\u2019s published fee table; fees round up to the cent per order, so tiny orders pay more)' : ''}. Ties and pushes resolve 50-50 per the market rules. <b>¼ Kelly</b> is a quarter-Kelly bankroll fraction, capped at 2%. Edges are model estimates, not guarantees: the v6 model picked ~59% of winners in backtests (Brier 0.228), and its tails are its weakest part, so far-from-the-number lines are flagged. Thin = no bid, a bid/ask gap over 4¢, or volume under 500. Jupiter restricts its prediction markets in some regions, including the US; check your eligibility before trading. Not betting advice.`;
+  }
+
   // ---------- boot ----------
   async function boot() {
     try { S.idx = await getJSON('data/index.json'); } catch (e) { status(`<span class="no">Could not load data/index.json</span> (${esc(e.message)}). Serve this folder over HTTP, e.g. <code>python3 -m http.server</code>.`); return; }
@@ -228,7 +308,8 @@
     $('#slates').addEventListener('change', (e) => e.target.value && setDate(e.target.value));
     $('#prevDay').onclick = () => { const d = neighbor(-1); if (d) setDate(d); };
     $('#nextDay').onclick = () => { const d = neighbor(1); if (d) setDate(d); };
-    $('#simulate').onclick = simulateAll; $('#copy').onclick = copyPicks;
+    $('#simulate').onclick = simulateAll; $('#copy').onclick = copyPicks; $('#mrefresh').onclick = () => loadMarket(true);
+    document.querySelectorAll('#edgeopts [data-o]').forEach((c) => c.addEventListener('change', () => { S.mopts[c.dataset.o] = c.checked; computeEdges(); renderEdges(); }));
     $('#nsim').addEventListener('change', () => { if (S.games.length && !S.running) status(`Ready: ${S.games.length} game(s). Press <b>Simulate Now</b> to run ${Number($('#nsim').value).toLocaleString()} sims per game.`); });
     const q = new URLSearchParams(location.search); const d = /^\d{4}-\d{2}-\d{2}$/.test(q.get('date') || '') ? q.get('date') : todayET();
     await setDate(d, q.get('autorun') === '1');
