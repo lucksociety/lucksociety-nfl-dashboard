@@ -26,7 +26,7 @@ async function runNfl({ date, game } = {}) {
   const bets = await edge.bestBets(day, model.probs);
   const mktMs = Date.now() - t1;
 
-  const embeds = [E.headerEmbed(day, rd.date, note), ...day.games.map((x) => E.gameEmbed(x, idx.teams, bets.results[x.game.game_id])), E.summaryEmbed(day, bets)];
+  const embeds = [E.headerEmbed(day, rd.date, note), ...day.games.map((x) => E.gameEmbed(x, idx.teams, bets.results[x.game.game_id])), E.summaryEmbed(day, bets, idx.teams)];
   return { date: rd.date, moved: rd.moved, team, nGames: day.games.length, simMs, mktMs, marketSource: bets.source, marketError: bets.error, messages: E.pack(embeds), day, bets };
 }
 

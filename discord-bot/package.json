@@ -6,7 +6,8 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "preview": "node cli.js"
+    "preview": "node cli.js",
+    "test": "node test/payload.test.js 2026-10-29 2026-11-01"
   },
   "engines": {
     "node": ">=18"

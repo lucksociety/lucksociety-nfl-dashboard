@@ -16,6 +16,11 @@ function betLine(b) {
     `Price ${cents(b.ask)} · edge **${sgn(b.edge * 100)} pts** · EV **${b.ev >= 0 ? '+' : '−'}$${Math.abs(b.ev).toFixed(2)}** per $1 · ¼-Kelly **${b.units.toFixed(1)}u**`;
 }
 
+const nick = (teams, ab) => (teams[ab] && teams[ab].nick) || ab;
+/** e.g. "🏈 Panthers (CAR) 21 — Packers (GB) 25" */
+function scoreLine(g, p, teams) { return `🏈 ${nick(teams, g.away)} (${g.away}) ${p.a} — ${nick(teams, g.home)} (${g.home}) ${p.h}`; }
+const shortPick = (x) => `${x.game.away} ${x.primary.a}–${x.primary.h} ${x.game.home}`;
+
 function gameEmbed(x, teams, bet) {
   const g = x.game, r = x.res, p = x.primary;
   const A = teams[g.away] || { name: g.away }, H = teams[g.home] || { name: g.home };
@@ -23,7 +28,7 @@ function gameEmbed(x, teams, bet) {
   const fav = r.p_home >= r.p_away ? g.home : g.away;
   const top = r.top[0];
   const fields = [
-    { name: '🍀 Primary pick', value: `**${g.away} ${p.a} – ${p.h} ${g.home}**`, inline: true },
+    { name: '🍀 Predicted score', value: `**${g.away} ${p.a} – ${p.h} ${g.home}**`, inline: true },
     { name: 'Most likely exact', value: `${top.away}–${top.home} (${pct(top.p, 2)})`, inline: true },
     { name: 'Win %', value: `${g.away} ${pct(r.p_away)} · ${g.home} ${pct(r.p_home)}${fav ? `\nFav: **${fav}**` : ''}`, inline: true },
     { name: 'Total', value: `${tot.toFixed(1)} · 80%: ${r.ci80_total[0]}–${r.ci80_total[1]}`, inline: true },
@@ -37,9 +42,9 @@ function gameEmbed(x, teams, bet) {
   fields.push({ name: '💰 Best Bet (Jupiter, after sim)', value: betVal.slice(0, 1024), inline: false });
   return {
     color: bet && bet.best ? GOLD : GREEN,
-    author: { name: `${A.name} @ ${H.name}` },
-    title: `${g.away} @ ${g.home} · ${fmtTime(g.gametime)}`,
-    url: `${SITE}?date=${g.gameday}`,
+    author: { name: `${g.away} @ ${g.home} · ${fmtTime(g.gametime)} · ${A.name} at ${H.name}`.slice(0, 256) },
+    // NOTE: no `url` here. Discord merges embeds that share a url into one, which hid this card behind the header.
+    title: scoreLine(g, p, teams),
     description: `${g.stadium || ''}${g.neutral ? ' · neutral site' : ''}${g.div_game ? ' · division' : ''}`.trim() || undefined,
     thumbnail: H.logo ? { url: H.logo } : undefined,
     fields,
@@ -57,7 +62,7 @@ function headerEmbed(day, date, note) {
   return { color: BLACK, title: `🍀 Luck Society NFL · Week ${day.week} · ${fmtDate(date)}`, url: `${SITE}?date=${date}`, description: lines.join('\n'), thumbnail: { url: LOGO } };
 }
 
-function summaryEmbed(day, bets) {
+function summaryEmbed(day, bets, teams) {
   const all = [];
   for (const x of day.games) { const b = bets.results[x.game.game_id]; if (b && b.best) all.push({ x, b: b.best, link: b.link }); }
   all.sort((a, b) => b.b.ev - a.b.ev);
@@ -66,9 +71,10 @@ function summaryEmbed(day, bets) {
   else if (!all.length) desc = '**No edge — pass.** No Jupiter line clears the edge rules below.';
   else {
     const t = all[0];
-    desc = `🏆 **${t.x.game.away} @ ${t.x.game.home}** — ` + betLine(t.b) + (t.link ? `\n[Open on Jupiter](${t.link})` : '');
-    if (all.length > 1) desc += '\n\n**Next best:**\n' + all.slice(1, 4).map((o) => `• ${o.x.game.away}@${o.x.game.home}: ${o.b.label} · our ${pct(o.b.q)} vs ${pct(o.b.noVig != null ? o.b.noVig : o.b.ask)} · EV ${o.b.ev >= 0 ? '+' : '−'}$${Math.abs(o.b.ev).toFixed(2)} · ${o.b.units.toFixed(1)}u`).join('\n');
+    desc = `🏆 **${t.x.game.away} @ ${t.x.game.home}** · pick **${shortPick(t.x)}**\n` + betLine(t.b) + (t.link ? `\n[Open on Jupiter](${t.link})` : '');
+    if (all.length > 1) desc += '\n\n**Next best:**\n' + all.slice(1, 4).map((o) => `• ${o.x.game.away}@${o.x.game.home} (${shortPick(o.x)}): ${o.b.label} · our ${pct(o.b.q)} vs ${pct(o.b.noVig != null ? o.b.noVig : o.b.ask)} · EV ${o.b.ev >= 0 ? '+' : '−'}$${Math.abs(o.b.ev).toFixed(2)} · ${o.b.units.toFixed(1)}u`).join('\n');
   }
+  desc += '\n\n**Predicted scores:**\n' + day.games.map((x) => `🏈 ${shortPick(x)}`).join('\n');
   desc += `\n\n-# ${bets.rules || ''}${bets.source ? ` Source: ${bets.source}.` : ''}${bets.fetchedAt ? ` Prices as of ${new Date(bets.fetchedAt).toLocaleString('en-US', { timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })} ET.` : ''}`;
   return { color: GOLD, title: '💰 Best Bet of the Day', description: desc.slice(0, 4096), footer: { text: DISCLAIMER } };
 }
@@ -82,4 +88,4 @@ function pack(embeds) {
   return msgs;
 }
 
-module.exports = { gameEmbed, headerEmbed, summaryEmbed, pack, fmtDate, DISCLAIMER, GOLD, GREEN, BLACK };
+module.exports = { scoreLine, gameEmbed, headerEmbed, summaryEmbed, pack, fmtDate, DISCLAIMER, GOLD, GREEN, BLACK };
