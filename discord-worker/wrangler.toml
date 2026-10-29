@@ -1,0 +1,12 @@
+name = "nfl-oracle-discord"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[vars]
+DISCORD_APPLICATION_ID = "1564884302297043014"
+DISCORD_PUBLIC_KEY = "d438cc18e17a2ec41b31d2fe009845bbd81415eb367dcfee4c3b09f32096ede8"
+GITHUB_REPO = "lucksociety/lucksociety-nfl-dashboard"
+GITHUB_REF = "main"
+DATA_URL = "https://lucksociety.github.io/lucksociety-nfl-dashboard/data"
+# Secrets: GITHUB_TOKEN (Actions write) and RELAY_KEY (same key in Actions).
