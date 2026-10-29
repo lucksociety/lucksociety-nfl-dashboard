@@ -21,7 +21,7 @@ for wk in WEEKS:
     for k, j in enumerate(js):
         z = PF[PF.game_id == j['game_id']]; a = z[z.side == 'away'].iloc[0]; h = z[z.side == 'home'].iloc[0]
         dpred = max(abs(a.pred - j['muA']), abs(h.pred - j['muH']))
-        o = sim.simulate(j['muA'], j['muH'], poss=float(h.pace), N=NS, seed=j['seed'], cal=cal)
+        o = sim.simulate(j['muA'], j['muH'], poss=float(cal.get("poss", 11.0)), N=NS, seed=j['seed'], cal=cal)
         sA = o['sA'].astype(int); sH = o['sH'].astype(int)
         py = dict(mA=sA.mean(), mH=sH.mean(), pA=(sA > sH).mean(), ot=o['ot'].mean(),
                   ci=[int(np.percentile(sA, 10)), int(np.percentile(sA, 90)), int(np.percentile(sH, 10)), int(np.percentile(sH, 90))])

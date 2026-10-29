@@ -12,7 +12,7 @@ if __name__=='__main__':
     h=A[A.side=='home'].set_index('game_id'); a=A[A.side=='away'].set_index('game_id')
     m=h.join(a,lsuffix='_h',rsuffix='_a',how='inner'); cal=json.load(open('sim_cal.json')); rows=[]
     for i,(gid,r) in enumerate(m.iterrows()):
-        poss=float(r.pace_h)  # mean drives/team for the two teams
+        poss=float(cal.get("poss", 11.0))  # same calibration drive count as Discord/live v6.1
         o=sim.simulate(r.pred_a,r.pred_h,poss=poss,N=NS,seed=1000+i,cal=cal)
         sA=o['sA'].astype(int); sH=o['sH'].astype(int); aa,ah=r.pts_a,r.pts_h
         pit=lambda s,v:(s<v).mean()+0.5*(s==v).mean()

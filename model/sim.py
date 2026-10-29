@@ -10,7 +10,11 @@ def base_rates():
     to=v.get('Turnover',0)+v.get('Opp touchdown',0)
     return dict(td=v['Touchdown'],fga=v['Field goal']+v['Missed field goal'],fgm=v['Field goal']/(v['Field goal']+v['Missed field goal']),
                 to=to,pick6=v.get('Opp touchdown',0)/to)
-BASE=base_rates()
+# Keep the drive baseline fixed with sim_cal.json, matching the deployed JS model.
+# Re-estimating BASE at import from the latest pbp silently changed the simulator without
+# recalibrating its multiplier-to-points grid. base_rates() remains an explicit research tool.
+with open(os.path.join(os.path.dirname(__file__), 'sim_base.json')) as _base_file:
+    BASE=json.load(_base_file)
 GS=dict(start=0.35,lead=7,ahead=0.75,trail=1.20,dsd=1.0)  # v6: stronger game-script feedback (calibrated to OOS residual SD)
 def _core(mA,mH,D,rng,fgA,fgH):
     N=len(mA); sA=np.zeros(N,int); sH=np.zeros(N,int); first=rng.random(N)<.5; short=np.zeros(N,bool)
