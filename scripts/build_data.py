@@ -23,7 +23,8 @@ sys.path.insert(0, MODEL); os.chdir(MODEL)
 import core, sim  # noqa: E402  (core loads teamgames/qbgames/games from MODEL)
 from data import BET  # noqa: E402
 
-SEASON = int(sys.argv[sys.argv.index('--season') + 1]) if '--season' in sys.argv else 2026
+from season import current_season
+SEASON = int(sys.argv[sys.argv.index('--season') + 1]) if '--season' in sys.argv else current_season()
 cfg = json.load(open('config.json')); P = cfg['ratings']; FEATS = cfg['features']
 G = core.G
 assert not any(c in G.columns for c in BET), 'betting column leaked into schedule frame'
