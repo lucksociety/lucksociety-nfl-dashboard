@@ -1,5 +1,6 @@
 """Build market-free team-game aggregates from nflverse pbp 2023-2026 (REG only).
 Betting columns from games.csv are DROPPED at load and never used."""
+from pathlib import Path
 import pandas as pd, numpy as np
 BET=['away_moneyline','home_moneyline','spread_line','away_spread_odds','home_spread_odds','total_line','under_odds','over_odds','result','total']
 def load_games():
@@ -9,8 +10,13 @@ def load_games():
     return g
 COLS=['game_id','season','week','season_type','posteam','defteam','home_team','play_type','epa','qb_epa','qb_dropback','wp',
       'passer_player_id','passer_player_name','cpoe','fixed_drive','fixed_drive_result','success']
+def pbp_files(root=Path('.')):
+    return sorted(p for p in root.glob('pbp[0-9][0-9][0-9][0-9].parquet') if int(p.stem[3:]) >= 2023)
+
 def build():
-    P=pd.concat([pd.read_parquet(f'pbp{y}.parquet',columns=COLS) for y in (2023,2024,2025,2026)])
+    files = pbp_files()
+    if not files: raise FileNotFoundError('No nflverse play-by-play files available')
+    P=pd.concat([pd.read_parquet(p,columns=COLS) for p in files],ignore_index=True)
     P=P[P.season_type=='REG']
     x=P[P.play_type.isin(['pass','run'])&P.epa.notna()&P.posteam.notna()].copy()
     x['gt']=((x.wp<.05)|(x.wp>.95)).astype(float)  # garbage time flag

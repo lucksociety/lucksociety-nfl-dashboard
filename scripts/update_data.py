@@ -11,7 +11,9 @@ never used. Run:  python3 scripts/update_data.py [--season 2026] [--validate] [-
 """
 import os, sys, subprocess, urllib.request, shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); MODEL = os.path.join(ROOT, 'model')
-SEASON = int(sys.argv[sys.argv.index('--season') + 1]) if '--season' in sys.argv else 2026
+sys.path.insert(0, MODEL)
+from season import current_season
+SEASON = int(sys.argv[sys.argv.index('--season') + 1]) if '--season' in sys.argv else current_season()
 GAMES_URL = 'https://github.com/nflverse/nfldata/raw/master/data/games.csv'
 PBP_URL = 'https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_{y}.parquet'
 TEAMS_URL = 'https://github.com/nflverse/nflverse-data/releases/download/teams/teams_colors_logos.csv'

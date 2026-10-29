@@ -1,0 +1,4 @@
+{
+  "project": "lucksociety-nfl-dashboard",
+  "refresh_workflow": "update.yml"
+}

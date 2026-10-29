@@ -21,13 +21,14 @@ async function runNfl({ date, game } = {}) {
   const t0 = Date.now();
   const day = await model.simulateDay(rd.date, { teamFilter: team, N: 100000 });
   const simMs = Date.now() - t0;
+  const frozenAt = new Date().toISOString();
   // 2) MARKET — only after the sim is complete
   const t1 = Date.now();
   const bets = await edge.bestBets(day, model.probs);
   const mktMs = Date.now() - t1;
 
   const embeds = [E.headerEmbed(day, rd.date, note), ...day.games.map((x) => E.gameEmbed(x, idx.teams, bets.results[x.game.game_id])), E.summaryEmbed(day, bets, idx.teams)];
-  return { date: rd.date, moved: rd.moved, team, nGames: day.games.length, simMs, mktMs, marketSource: bets.source, marketError: bets.error, messages: E.pack(embeds), day, bets };
+  return { frozenAt, date: rd.date, moved: rd.moved, team, nGames: day.games.length, simMs, mktMs, marketSource: bets.source, marketError: bets.error, messages: E.pack(embeds), day, bets };
 }
 
 module.exports = { runNfl, UserError };
