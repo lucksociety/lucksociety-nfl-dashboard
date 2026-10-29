@@ -44,3 +44,24 @@ Data comes from the live dashboard (`https://lucksociety.github.io/lucksociety-n
 Set `NFL_DATA_URL=` (empty) to use local files only.
 
 Model estimate, not a guarantee. For entertainment and research.
+
+## Hosted command endpoint
+
+`discord-worker/` receives signed `/nfl` interactions on Cloudflare and dispatches
+`discord-nfl.yml`. Actions runs the same `runNfl` pipeline and sends the existing
+embeds back through an encrypted short-lived relay. It uses the checked-out main
+branch's data, runs 100,000 seeded simulations per game, and fetches prices only
+after simulation. The gateway process is no longer required when this endpoint is active.
+
+Deploy with `wrangler deploy` from `discord-worker/`, set Worker secrets
+`GITHUB_TOKEN` (Actions write on this repository) and `RELAY_KEY`, and set the
+same `RELAY_KEY` in repository Actions secrets. Set the existing NFL application's
+Interactions Endpoint URL to `https://nfl-oracle-discord.dreiss324.workers.dev/interactions`.
+Discord verifies the endpoint before saving. Existing guild `/nfl` registration
+continues to work, including date autocomplete. The endpoint serves upcoming
+then recent game dates, filterable by ISO date or week. A date without games still
+runs the next game day and labels that fallback in the report.
+
+Each request gets a fresh model job. Runs have a ten-minute time limit, within
+Discord's fifteen-minute interaction-token lifetime; an unusually long Actions
+queue can still prevent delivery. Keep the workflow enabled and credential current.

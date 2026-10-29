@@ -1,0 +1,44 @@
+name: Discord /nfl
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Requested date YYYY-MM-DD (America/New_York); uses next game day if empty slate'
+        required: true
+      relay:
+        description: 'AES-GCM encrypted interaction credentials'
+        required: true
+permissions:
+  contents: read
+jobs:
+  model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DATE: ${{ inputs.date }}
+      NFL_DATA_URL: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Decrypt interaction
+        env:
+          RELAY_PAYLOAD: ${{ inputs.relay }}
+          RELAY_KEY: ${{ secrets.RELAY_KEY }}
+        run: node scripts/discord-relay.mjs decrypt
+      - name: Run model then compare prices
+        run: node scripts/discord-nfl-report.cjs
+      - name: Deliver result
+        run: node scripts/discord-relay.mjs post
+      - name: Report failure
+        if: failure() && env.INTERACTION_TOKEN != ''
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/discord-relay.mjs fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nfl-model-${{ github.run_id }}
+          path: out/
+          retention-days: 14
