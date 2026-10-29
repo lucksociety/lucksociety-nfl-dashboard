@@ -1,0 +1,22 @@
+{
+  "calibration_proposals": {
+    "nfl-v6": {
+      "minimum_days": 30,
+      "minimum_games": 500,
+      "status": "insufficient_forward_sample"
+    }
+  },
+  "forecast_policy": "Last pre-game freeze per event per model version. No retrospectively generated forecast is graded.",
+  "forecasts": 1,
+  "generated_at": "2026-10-29T19:41:09.050143+00:00",
+  "last_successful_refresh": null,
+  "project": "lucksociety-nfl-dashboard",
+  "settled_by_version": {
+    "nfl-v6": {
+      "n": 0
+    }
+  },
+  "warnings": [
+    "No successful data refresh in the last 48 hours; inspect the refresh workflow before trusting new predictions."
+  ]
+}
