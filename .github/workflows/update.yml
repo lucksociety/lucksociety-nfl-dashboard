@@ -1,7 +1,6 @@
 name: Daily data refresh
 
-# Rebuilds the v6 model inputs from nflverse every Tuesday 10:00 AM ET (after Monday Night Football)
-# and on demand. Commits data/ only when something changed. No betting data is downloaded or used.
+# Rebuilds the v6 model inputs from nflverse daily and on demand. Commits data/ only when something changed. No betting data is downloaded or used.
 on:
   push:
     branches: [main]
@@ -49,4 +48,9 @@ jobs:
           git add data tests/validation.json
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "data: daily refresh $(TZ=America/New_York date '+%Y-%m-%d %H:%M ET')"
-          git push
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
