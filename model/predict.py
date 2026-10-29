@@ -22,7 +22,7 @@ for _,g in gg.iterrows():
     neu=g.location=='Neutral'
     for side in ('home','away'):
         off=g[f'{side}_team']; de=g['away_team' if side=='home' else 'home_team']; hm=0 if neu else (1 if side=='home' else -1)
-        qid=resolve(off,starters.get(off)); f=core.team_feats(R,off,de,hm,qid)
+        qid=resolve(off,starters.get(off)) if off in starters else g.get(f'{side}_qb_id'); f=core.team_feats(R,off,de,hm,qid)
         f['rest']=(g.home_rest-g.away_rest)*(1 if side=='home' else -1)
         f.update(game_id=g.game_id,t=t,team=off,opp=de,side=side,pts=np.nan,qb_used=qid,season=season,week=week); rows.append(f)
 X=pd.DataFrame(rows); FF=pd.concat([F[F.t<t],X],ignore_index=True)
