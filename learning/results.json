@@ -854,5 +854,13 @@
    43
   ],
   "source": "data/weeks/2026_w07.json"
+ },
+ "2026_08_CAR_GB": {
+  "label": "H",
+  "scores": [
+   27,
+   19
+  ],
+  "source": "data/weeks/2026_w08.json"
  }
 }
