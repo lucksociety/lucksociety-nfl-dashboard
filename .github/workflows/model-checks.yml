@@ -24,6 +24,7 @@ jobs:
           npm ci --prefix discord-bot --ignore-scripts --no-audit --no-fund
           node --require ./discord-bot/test/offline.cjs discord-bot/test/payload.test.js 2026-10-29 2026-11-01
           node discord-bot/test/date.test.js
+          node discord-bot/test/bet-policy.test.js
           node discord-worker/worker.test.mjs
       - name: Prospective evaluation regressions
         run: python3 -m unittest discover -s scripts -p test_model_learning.py
