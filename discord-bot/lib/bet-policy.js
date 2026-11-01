@@ -4,6 +4,7 @@
 const MIN_PROB = 0.5;
 function eligible(b, minEV = 0) {
   return !!b && Number.isFinite(b.q) && b.q > MIN_PROB && b.q <= 1 &&
+    Number.isFinite(b.ask) && b.ask > 0 && b.ask < 1 && Number.isFinite(b.bid) && b.bid > 0 && b.bid <= b.ask &&
     Number.isFinite(b.ev) && b.ev > 0 && b.ev >= minEV;
 }
 
@@ -20,4 +21,29 @@ function sanitizeBetResult(result) {
       : result.reason };
 }
 
-module.exports = { MIN_PROB, eligible, sanitizeBetResult };
+// NFL schedule times are Eastern wall time. Never hard-code UTC-5: October uses UTC-4.
+function gameStartMs(g) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(g?.gameday || '') || !/^\d{2}:\d{2}$/.test(g?.gametime || '')) return NaN;
+  const [y, m, d] = g.gameday.split('-').map(Number), [h, mi] = g.gametime.split(':').map(Number);
+  if (h > 23 || mi > 59) return NaN;
+  const wall = Date.UTC(y, m - 1, d, h, mi);
+  if (new Date(wall).toISOString().slice(0, 10) !== g.gameday) return NaN;
+  const parts = ms => Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York',
+    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+    .formatToParts(new Date(ms)).filter(p => p.type !== 'literal').map(p => [p.type, +p.value]));
+  let guess = wall;
+  for (let i = 0; i < 3; i++) {
+    const p = parts(guess); guess += wall - Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute);
+  }
+  const p = parts(guess);
+  return p.year === y && p.month === m && p.day === d && p.hour === h && p.minute === mi ? guess : NaN;
+}
+function pregameResult(game, result, now = Date.now()) {
+  if (!result) return result;
+  const start = gameStartMs(game);
+  if (game.final || result.live || !Number.isFinite(start) || now >= start) {
+    return { ...result, best: null, others: [], reason: 'scheduled kickoff passed, live market, or start unavailable — no pregame bet' };
+  }
+  return sanitizeBetResult(result);
+}
+module.exports = { MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };
