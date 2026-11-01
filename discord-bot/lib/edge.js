@@ -8,7 +8,7 @@
 'use strict';
 const HOSTS = ['https://api.jup.ag/prediction/v1', 'https://prediction-market-api.jup.ag/api/v1'];
 const FEE = (p) => 0.07 * p * (1 - p);
-const { MIN_PROB, eligible, sanitizeBetResult } = require('./bet-policy');
+const { MIN_PROB, eligible, pregameResult } = require('./bet-policy');
 const MAX_SPREAD = 0.06;       // skip illiquid quotes (ask - bid wider than 6c)
 const KELLY_FRACTION = 0.25;   // quarter-Kelly
 const UNIT = 0.01;             // 1 unit = 1% of bankroll
@@ -158,6 +158,7 @@ async function dashboardBestBets(day) {
   for (const x of pending) {
     const ev = LSMarket.matchEvent(x.game, snap);
     if (!ev) { results[x.game.game_id] = { best: null, cands: [], reason: 'no open Jupiter market' }; continue; }
+    if (ev.isLive || ev.isActive === false) { results[x.game.game_id] = { best: null, cands: [], live: !!ev.isLive, reason: 'market live or inactive — no pregame bet' }; continue; }
     const rows = LSMarket.evaluate(x.game, x.res, ev, { fees: true });
     const keep = rows.filter((r) => !r.thin && !r.tail).sort((a, b) => b.ev - a.ev);
     const map = (r) => ({ type: r.type, label: niceLabel(r), q: r.our, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
@@ -180,7 +181,7 @@ async function bestBets(day, probsFn) {
     const r = await builtinBestBets(day, probsFn);
     result = Object.assign(r, { engine: 'built-in fallback', rules: BUILTIN_RULES });
   }
-  result.results = Object.fromEntries(Object.entries(result.results).map(([id, r]) => [id, sanitizeBetResult(r)]));
+  result.results = Object.fromEntries(day.games.map(x => [x.game.game_id, pregameResult(x.game, result.results[x.game.game_id])]));
   return result;
 }
 const BUILTIN_RULES = 'Edge = our prob − market no-vig prob. EV per $1 after Jupiter fee (0.07·p·(1−p)). ¼-Kelly, 1u = 1% bankroll, max 3u. Only sides the model rates >50%, traded, ≤6¢ bid-ask; alt spreads/totals limited to 35–65% market lines.';

@@ -9,7 +9,7 @@ const edge = require('../lib/edge');
 const embeds = require('../lib/embeds');
 
 const bet = (q, ev = 0.2, label = `prob-${q}`) => ({ q, ev, label, ask: 0.3, bid: 0.29, kelly: 0.02, units: 1, edge: q - 0.3 });
-const game = { game_id: 'test', away: 'KC', home: 'BUF', gametime: '13:00', sides: { away: {}, home: {} } };
+const game = { game_id: 'test', away: 'KC', home: 'BUF', gameday: '2099-11-01', gametime: '13:00', sides: { away: {}, home: {} } };
 const x = { game, res: { mu_away: 20, mu_home: 24, p_away: 0.4, p_home: 0.6, N: 100000, seed: 1,
   top: [{ away: 20, home: 24, p: 0.01 }], ci80_total: [20, 60], ci80_margin: [-10, 20] }, primary: { a: 20, h: 24 } };
 const day = { games: [x] };
