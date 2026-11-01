@@ -7,9 +7,9 @@
     }
   },
   "forecast_policy": "Last pre-game freeze per event per model version. No retrospectively generated forecast is graded.",
-  "forecasts": 50,
-  "generated_at": "2026-10-31T20:18:26.004008+00:00",
-  "last_successful_refresh": "2026-10-31T19:17:15+00:00",
+  "forecasts": 78,
+  "generated_at": "2026-11-01T20:49:37.905840+00:00",
+  "last_successful_refresh": "2026-11-01T19:40:11+00:00",
   "project": "lucksociety-nfl-dashboard",
   "settled_by_version": {
     "nfl-v6": {
