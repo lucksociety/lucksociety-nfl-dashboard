@@ -1,5 +1,6 @@
 /* Luck Society branded Discord embeds (gold #E8B931, clover green #1F8A3A, black). */
 'use strict';
+const { sanitizeBetResult } = require('./bet-policy');
 const GOLD = 0xE8B931, GREEN = 0x1F8A3A, BLACK = 0x0B0B0B;
 const SITE = 'https://lucksociety.github.io/lucksociety-nfl-dashboard/';
 const LOGO = SITE + 'assets/logo-96.jpg';
@@ -22,6 +23,7 @@ function scoreLine(g, p, teams) { return `🏈 ${nick(teams, g.away)} (${g.away}
 const shortPick = (x) => `${x.game.away} ${x.primary.a}–${x.primary.h} ${x.game.home}`;
 
 function gameEmbed(x, teams, bet) {
+  bet = sanitizeBetResult(bet);
   const g = x.game, r = x.res, p = x.primary;
   const A = teams[g.away] || { name: g.away }, H = teams[g.home] || { name: g.home };
   const tot = r.mu_away + r.mu_home;
@@ -64,7 +66,7 @@ function headerEmbed(day, date, note) {
 
 function summaryEmbed(day, bets, teams) {
   const all = [];
-  for (const x of day.games) { const b = bets.results[x.game.game_id]; if (b && b.best) all.push({ x, b: b.best, link: b.link }); }
+  for (const x of day.games) { const b = sanitizeBetResult(bets.results[x.game.game_id]); if (b && b.best) all.push({ x, b: b.best, link: b.link }); }
   all.sort((a, b) => b.b.ev - a.b.ev);
   let desc;
   if (bets.error) desc = `Jupiter market data unavailable right now (${bets.error}). **No edge — pass.**`;

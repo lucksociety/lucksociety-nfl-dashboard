@@ -8,7 +8,7 @@
 'use strict';
 const HOSTS = ['https://api.jup.ag/prediction/v1', 'https://prediction-market-api.jup.ag/api/v1'];
 const FEE = (p) => 0.07 * p * (1 - p);
-const MIN_PROB = 0.5;          // only bet a side the model thinks is more likely than not (as in the NHL bot)
+const { MIN_PROB, eligible, sanitizeBetResult } = require('./bet-policy');
 const MAX_SPREAD = 0.06;       // skip illiquid quotes (ask - bid wider than 6c)
 const KELLY_FRACTION = 0.25;   // quarter-Kelly
 const UNIT = 0.01;             // 1 unit = 1% of bankroll
@@ -102,7 +102,7 @@ function evaluate(g, P, mkt) {
       tail: o.type !== 'moneyline' && (o.noVig == null || o.noVig < ALT_BAND[0] || o.noVig > ALT_BAND[1]) });
   }
   cands.sort((a, b) => b.ev - a.ev);
-  const ok = cands.filter((c) => c.q > MIN_PROB && c.ev > 0 && !c.wide && !c.tail && c.volume > 0);
+  const ok = cands.filter((c) => eligible(c) && !c.wide && !c.tail && c.volume > 0);
   let reason = null;
   if (!ok.length) reason = !cands.length ? 'no priced Jupiter market' : 'no positive edge after fees on a side the model favors';
   return { best: ok[0] || null, others: ok.slice(1, 3), cands, reason, link: mkt.link, live: mkt.live };
@@ -130,7 +130,7 @@ const { DASH } = require('./model');
 const MARKET_JS = path.join(DASH, 'js', 'market.js');
 const LSMarket = fs.existsSync(MARKET_JS) ? require(MARKET_JS) : null;
 const SNAP_URL = 'https://raw.githubusercontent.com/lucksociety/lucksociety-nfl-dashboard/market-data/jupiter_nfl.json';
-const DASH_RULES = 'Same rules as the dashboard Market Edge panel: edge = our prob − no-vig mid; EV per $1 at the ask incl. Jupiter fee 0.07·p·(1−p); ' +
+const DASH_RULES = 'Only bets with model probability >50% qualify. Edge = our prob − no-vig mid; EV per $1 at the ask incl. Jupiter fee 0.07·p·(1−p); ' +
   '¼-Kelly capped at 2% bankroll (1u = 1%); thin (no bid, >4¢ bid-ask, volume <500) and tail (<12% / >88%) lines skipped; min EV +1¢.';
 const MIN_EV = 0.01; // need at least +1¢ EV per $1 to call it a bet
 let snapCache = null;
@@ -161,8 +161,8 @@ async function dashboardBestBets(day) {
     const rows = LSMarket.evaluate(x.game, x.res, ev, { fees: true });
     const keep = rows.filter((r) => !r.thin && !r.tail).sort((a, b) => b.ev - a.ev);
     const map = (r) => ({ type: r.type, label: niceLabel(r), q: r.our, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
-    const ok = keep.filter((r) => r.ev >= MIN_EV && r.kelly > 0).map(map);
-    results[x.game.game_id] = { best: ok[0] || null, others: ok.slice(1, 3), cands: rows, reason: ok.length ? null : (rows.length ? 'no line with +1¢ EV or better after fees' : 'no priced Jupiter market'),
+    const ok = keep.map(map).filter((c) => eligible(c, MIN_EV) && c.kelly > 0);
+    results[x.game.game_id] = { best: ok[0] || null, others: ok.slice(1, 3), cands: rows, reason: ok.length ? null : (rows.length ? 'no line with model probability >50% and +1¢ EV or better after fees' : 'no priced Jupiter market'),
       link: `https://jup.ag/prediction/${ev.eventId}`, live: ev.isLive };
   }
   return { results, source: `${snap.source === 'live' ? 'Jupiter API (live)' : 'Jupiter snapshot'}`, fetchedAt: snap.fetched_at, error: null, rules: DASH_RULES, engine: 'dashboard js/market.js' };
@@ -170,13 +170,18 @@ async function dashboardBestBets(day) {
 
 /** Entry point. Called only after model.simulateDay() has finished. */
 async function bestBets(day, probsFn) {
+  let result;
   if (process.env.EDGE_MODULE) {
     const ext = require(process.env.EDGE_MODULE);
-    return { results: await ext.bestBets(day, probsFn), source: 'EDGE_MODULE', error: null, engine: 'EDGE_MODULE' };
+    result = { results: await ext.bestBets(day, probsFn), source: 'EDGE_MODULE', error: null, engine: 'EDGE_MODULE' };
+  } else if (LSMarket) {
+    result = await dashboardBestBets(day);
+  } else {
+    const r = await builtinBestBets(day, probsFn);
+    result = Object.assign(r, { engine: 'built-in fallback', rules: BUILTIN_RULES });
   }
-  if (LSMarket) return dashboardBestBets(day);
-  const r = await builtinBestBets(day, probsFn);
-  return Object.assign(r, { engine: 'built-in fallback', rules: BUILTIN_RULES });
+  result.results = Object.fromEntries(Object.entries(result.results).map(([id, r]) => [id, sanitizeBetResult(r)]));
+  return result;
 }
 const BUILTIN_RULES = 'Edge = our prob − market no-vig prob. EV per $1 after Jupiter fee (0.07·p·(1−p)). ¼-Kelly, 1u = 1% bankroll, max 3u. Only sides the model rates >50%, traded, ≤6¢ bid-ask; alt spreads/totals limited to 35–65% market lines.';
 
