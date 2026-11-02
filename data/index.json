@@ -1,11 +1,11 @@
 {
  "season": 2026,
  "model": "v6",
- "generated_et": "2026-11-01 15:39",
+ "generated_et": "2026-11-02 19:07",
  "data_through": {
   "season": 2026,
   "week": 8,
-  "last_game_date": "2026-10-29"
+  "last_game_date": "2026-11-01"
  },
  "weeks": [
   {
@@ -95,7 +95,7 @@
     "2026-11-02"
    ],
    "n_games": 14,
-   "n_final": 1
+   "n_final": 13
   },
   {
    "week": 9,
