@@ -96,7 +96,7 @@
         const thin = !(s.sell > 0) || (spreadW != null && spreadW > 0.04) || (s.volume != null && s.volume < 500);
         const tail = fair != null && (fair < 0.12 || fair > 0.88);
         rows.push({ game_id: g.game_id, matchup: `${g.away} @ ${g.home}`, type: mkt.type, marketId: s.id, label: s.label, team: s.team, line: s.line,
-          ask: s.buy, bid: s.sell > 0 ? s.sell : null, spread: spreadW, volume: s.volume, overround, fair, our: o.p, edge: fair == null ? null : o.p - fair,
+          ask: s.buy, bid: s.sell > 0 ? s.sell : null, spread: spreadW, volume: s.volume, overround, fair, our: o.p, winProbability: o.win, edge: fair == null ? null : o.p - fair,
           fee, cost, ev: ev1, kelly, thin, tail });
       });
     });

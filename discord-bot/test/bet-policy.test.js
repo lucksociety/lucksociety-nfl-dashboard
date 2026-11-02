@@ -37,12 +37,12 @@ const day = { games: [x] };
   assert.equal(result.best, null);
   assert.match(result.reason, />50%/);
   rows = [row(0.500001)];
-  assert.equal((await edge.dashboardBestBets(day)).results.test.best.q, 0.500001);
+  assert.equal((await edge.dashboardBestBets(day)).results.test.best, null);
 
   // Fallback selector applies the same contract-probability threshold.
   const mkt = { outs: [{ type: 'moneyline', side: 'away', ask: 0.3, bid: 0.29, volume: 1000 }] };
   for (const q of [0.49, 0.5, 0.6]) {
-    result = edge.evaluate(game, { win: () => q, tie: () => 0 }, mkt);
+    result = edge.evaluate(game, { N: 100000, win: () => q, tie: () => 0 }, mkt);
     assert.equal(!!result.best, q > 0.5);
   }
 
