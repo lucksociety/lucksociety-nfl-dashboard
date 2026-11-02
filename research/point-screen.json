@@ -1,0 +1,86 @@
+{
+  "protocol": "Choose from five preregistered point-model variants on 2025 only; report 2026 weeks 5\u20137 without selecting on them. November 1 excluded. Normal probabilities are screening only, not deployment validation.",
+  "selected": "current",
+  "variants": {
+    "current": {
+      "selection_2025": {
+        "n": 272,
+        "team_mae": 7.386689159696224,
+        "margin_mae": 10.140222450959884,
+        "total_mae": 10.607669811779722,
+        "brier_normal_screen": 0.22032640104123433
+      },
+      "locked_2026_w5_7": {
+        "n": 43,
+        "team_mae": 6.927550070657644,
+        "margin_mae": 9.377472608403037,
+        "total_mae": 10.100605196864432,
+        "brier_normal_screen": 0.24148395784746957
+      }
+    },
+    "recent_stack_098": {
+      "selection_2025": {
+        "n": 272,
+        "team_mae": 7.391843750786315,
+        "margin_mae": 10.142972813363683,
+        "total_mae": 10.619522310616716,
+        "brier_normal_screen": 0.22073196644033533
+      },
+      "locked_2026_w5_7": {
+        "n": 43,
+        "team_mae": 6.903026082071227,
+        "margin_mae": 9.306637746614905,
+        "total_mae": 10.118204666112225,
+        "brier_normal_screen": 0.23968542995244374
+      }
+    },
+    "recent_stack_095": {
+      "selection_2025": {
+        "n": 272,
+        "team_mae": 7.400146762904005,
+        "margin_mae": 10.147605492804601,
+        "total_mae": 10.63769223172651,
+        "brier_normal_screen": 0.22137648745945981
+      },
+      "locked_2026_w5_7": {
+        "n": 43,
+        "team_mae": 6.857291093716025,
+        "margin_mae": 9.193507604666207,
+        "total_mae": 10.146698477136324,
+        "brier_normal_screen": 0.23644307655195768
+      }
+    },
+    "stack_shrink_300": {
+      "selection_2025": {
+        "n": 272,
+        "team_mae": 7.389751882480149,
+        "margin_mae": 10.150513155312623,
+        "total_mae": 10.584277592655086,
+        "brier_normal_screen": 0.22055491348874126
+      },
+      "locked_2026_w5_7": {
+        "n": 43,
+        "team_mae": 6.891979087436455,
+        "margin_mae": 9.2655428286791,
+        "total_mae": 10.117459681705826,
+        "brier_normal_screen": 0.23996280628055916
+      }
+    },
+    "slower_team_decay": {
+      "selection_2025": {
+        "n": 272,
+        "team_mae": 7.410660524992802,
+        "margin_mae": 10.206300764646944,
+        "total_mae": 10.566130584781394,
+        "brier_normal_screen": 0.22340982831242778
+      },
+      "locked_2026_w5_7": {
+        "n": 43,
+        "team_mae": 6.895271668118161,
+        "margin_mae": 9.091397059090179,
+        "total_mae": 10.246352353990819,
+        "brier_normal_screen": 0.2357099079236207
+      }
+    }
+  }
+}

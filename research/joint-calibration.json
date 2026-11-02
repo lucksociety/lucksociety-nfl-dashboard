@@ -1,0 +1,34 @@
+[
+  {
+    "season": 2025,
+    "variant": "current",
+    "brier": 0.22032743516271253,
+    "margin_crps": 7.236984903535731,
+    "total_crps": 7.559563011072495,
+    "target_error": 0.18233897427399556
+  },
+  {
+    "season": 2025,
+    "variant": "joint_mean",
+    "brier": 0.22021031621955423,
+    "margin_crps": 7.225331180908204,
+    "total_crps": 7.549516750990924,
+    "target_error": 0.08730727280143624
+  },
+  {
+    "season": 2026,
+    "variant": "current",
+    "brier": 0.23477249273255812,
+    "margin_crps": 6.61676901471657,
+    "total_crps": 6.859317765443314,
+    "target_error": 0.17481064789725193
+  },
+  {
+    "season": 2026,
+    "variant": "joint_mean",
+    "brier": 0.23547258879905525,
+    "margin_crps": 6.633690032521803,
+    "total_crps": 6.862917741460756,
+    "target_error": 0.09004733407987534
+  }
+]

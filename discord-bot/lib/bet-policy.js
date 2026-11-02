@@ -2,10 +2,19 @@
 
 // Apply to the selected contract's model probability, never its market price.
 const MIN_PROB = 0.5;
+function samplingEligible(b, n) {
+  const p = b.winProbability ?? b.q;
+  if (!Number.isInteger(n) || n < 1000 || !Number.isFinite(p) || p < 0 || p > 1 || !Number.isFinite(b.q) || b.q < 0 || b.q > 1) return false;
+  const lo = v => v - 1.96 * Math.sqrt(v * (1 - v) / n);
+  const cost = b.ask + 0.07 * b.ask * (1 - b.ask);
+  return lo(p) > MIN_PROB && lo(b.q) > cost;
+}
 function eligible(b, minEV = 0) {
   return !!b && Number.isFinite(b.q) && b.q > MIN_PROB && b.q <= 1 &&
     Number.isFinite(b.ask) && b.ask > 0 && b.ask < 1 && Number.isFinite(b.bid) && b.bid > 0 && b.bid <= b.ask &&
-    Number.isFinite(b.ev) && b.ev > 0 && b.ev >= minEV;
+    Number.isFinite(b.ev) && b.ev > 0 && b.ev >= minEV &&
+    (b.sampleN === undefined || samplingEligible(b, b.sampleN)) &&
+    (b.winProbability === undefined || b.winProbability > MIN_PROB);
 }
 
 // Recheck every selector (including EDGE_MODULE) and every Discord renderer.
@@ -46,4 +55,4 @@ function pregameResult(game, result, now = Date.now()) {
   }
   return sanitizeBetResult(result);
 }
-module.exports = { MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };
+module.exports = { samplingEligible, MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };

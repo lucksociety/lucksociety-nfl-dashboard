@@ -88,6 +88,7 @@ function probs(dist) {
   const { sA, sH } = dist; const N = sA.length;
   const count = (fn) => { let c = 0; for (let i = 0; i < N; i++) if (fn(sA[i], sH[i])) c++; return c / N; };
   return {
+    N,
     win: (side) => count(side === 'home' ? (a, h) => h > a : (a, h) => a > h),
     tie: () => count((a, h) => a === h),
     cover: (side, line) => count(side === 'home' ? (a, h) => h - a + line > 0 : (a, h) => a - h + line > 0),

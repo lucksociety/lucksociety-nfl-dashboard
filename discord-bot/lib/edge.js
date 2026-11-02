@@ -8,7 +8,7 @@
 'use strict';
 const HOSTS = ['https://api.jup.ag/prediction/v1', 'https://prediction-market-api.jup.ag/api/v1'];
 const FEE = (p) => 0.07 * p * (1 - p);
-const { MIN_PROB, eligible, pregameResult } = require('./bet-policy');
+const { MIN_PROB, eligible, pregameResult, samplingEligible } = require('./bet-policy');
 const MAX_SPREAD = 0.06;       // skip illiquid quotes (ask - bid wider than 6c)
 const KELLY_FRACTION = 0.25;   // quarter-Kelly
 const UNIT = 0.01;             // 1 unit = 1% of bankroll
@@ -97,7 +97,7 @@ function evaluate(g, P, mkt) {
     const ev = q / cost - 1;                       // per $1 staked, after fee
     const kelly = (q - cost) / (1 - cost);         // full Kelly fraction for a binary contract bought at `cost`
     const units = Math.min(MAX_UNITS, Math.max(0, kelly * KELLY_FRACTION / UNIT));
-    cands.push({ type: o.type, label, q, ask: o.ask, bid: o.bid, cost, noVig: o.noVig, edge: o.noVig != null ? q - o.noVig : q - o.ask,
+    cands.push({ type: o.type, label, q, winProbability: o.type === 'moneyline' ? P.win(o.side) : q, sampleN: P.N, ask: o.ask, bid: o.bid, cost, noVig: o.noVig, edge: o.noVig != null ? q - o.noVig : q - o.ask,
       ev, kelly, units, volume: o.volume, wide: o.bid != null ? o.ask - o.bid > MAX_SPREAD : true,
       tail: o.type !== 'moneyline' && (o.noVig == null || o.noVig < ALT_BAND[0] || o.noVig > ALT_BAND[1]) });
   }
@@ -130,7 +130,7 @@ const { DASH } = require('./model');
 const MARKET_JS = path.join(DASH, 'js', 'market.js');
 const LSMarket = fs.existsSync(MARKET_JS) ? require(MARKET_JS) : null;
 const SNAP_URL = 'https://raw.githubusercontent.com/lucksociety/lucksociety-nfl-dashboard/market-data/jupiter_nfl.json';
-const DASH_RULES = 'Only bets with model probability >50% qualify. Edge = our prob − no-vig mid; EV per $1 at the ask incl. Jupiter fee 0.07·p·(1−p); ' +
+const DASH_RULES = 'Only bets with outright win probability >50% and positive after-fee EV beyond Monte Carlo sampling error qualify. Edge = our prob − no-vig mid; EV per $1 at the ask incl. Jupiter fee 0.07·p·(1−p); ' +
   '¼-Kelly capped at 2% bankroll (1u = 1%); thin (no bid, >4¢ bid-ask, volume <500) and tail (<12% / >88%) lines skipped; min EV +1¢.';
 const MIN_EV = 0.01; // need at least +1¢ EV per $1 to call it a bet
 let snapCache = null;
@@ -161,7 +161,7 @@ async function dashboardBestBets(day) {
     if (ev.isLive || ev.isActive === false) { results[x.game.game_id] = { best: null, cands: [], live: !!ev.isLive, reason: 'market live or inactive — no pregame bet' }; continue; }
     const rows = LSMarket.evaluate(x.game, x.res, ev, { fees: true });
     const keep = rows.filter((r) => !r.thin && !r.tail).sort((a, b) => b.ev - a.ev);
-    const map = (r) => ({ type: r.type, label: niceLabel(r), q: r.our, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
+    const map = (r) => ({ type: r.type, label: niceLabel(r), q: r.our, winProbability: r.winProbability, sampleN: x.res.N, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
     const ok = keep.map(map).filter((c) => eligible(c, MIN_EV) && c.kelly > 0);
     results[x.game.game_id] = { best: ok[0] || null, others: ok.slice(1, 3), cands: rows, reason: ok.length ? null : (rows.length ? 'no line with model probability >50% and +1¢ EV or better after fees' : 'no priced Jupiter market'),
       link: `https://jup.ag/prediction/${ev.eventId}`, live: ev.isLive };
@@ -181,7 +181,13 @@ async function bestBets(day, probsFn) {
     const r = await builtinBestBets(day, probsFn);
     result = Object.assign(r, { engine: 'built-in fallback', rules: BUILTIN_RULES });
   }
-  result.results = Object.fromEntries(day.games.map(x => [x.game.game_id, pregameResult(x.game, result.results[x.game.game_id])]));
+  result.results = Object.fromEntries(day.games.map(x => {
+    const r = pregameResult(x.game, result.results[x.game.game_id]);
+    if (!r) return [x.game.game_id, r];
+    const ok = [r.best, ...(r.others || [])].filter(b => b && samplingEligible(b, x.res.N));
+    return [x.game.game_id, {...r, best: ok[0] || null, others: ok.slice(1),
+      reason: ok.length ? null : r.reason || 'NO BET: probability and after-fee EV must clear Monte Carlo error'}];
+  }));
   return result;
 }
 const BUILTIN_RULES = 'Edge = our prob − market no-vig prob. EV per $1 after Jupiter fee (0.07·p·(1−p)). ¼-Kelly, 1u = 1% bankroll, max 3u. Only sides the model rates >50%, traded, ≤6¢ bid-ask; alt spreads/totals limited to 35–65% market lines.';
