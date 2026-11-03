@@ -887,6 +887,14 @@
   ],
   "source": "data/weeks/2026_w08.json"
  },
+ "2026_08_CHI_SEA": {
+  "label": "A",
+  "scores": [
+   17,
+   34
+  ],
+  "source": "data/weeks/2026_w08.json"
+ },
  "2026_08_CLE_PIT": {
   "label": "H",
   "scores": [
