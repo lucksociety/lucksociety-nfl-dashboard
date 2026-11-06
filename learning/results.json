@@ -966,5 +966,13 @@
    36
   ],
   "source": "data/weeks/2026_w08.json"
+ },
+ "2026_09_JAX_BAL": {
+  "label": "A",
+  "scores": [
+   10,
+   33
+  ],
+  "source": "data/weeks/2026_w09.json"
  }
 }
