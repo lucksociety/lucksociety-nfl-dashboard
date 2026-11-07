@@ -83,7 +83,7 @@ function matchEvent(events, g) {
 function teamName(g, side) { return g[side]; }
 
 /** Evaluate every priced outcome for one game against the model's simulated distribution. */
-function evaluate(g, P, mkt) {
+function evaluate(g, P, mkt, primary) {
   if (!mkt) return { best: null, cands: [], reason: 'no Jupiter market' };
   const cands = [];
   for (const o of mkt.outs) {
@@ -97,12 +97,12 @@ function evaluate(g, P, mkt) {
     const ev = q / cost - 1;                       // per $1 staked, after fee
     const kelly = (q - cost) / (1 - cost);         // full Kelly fraction for a binary contract bought at `cost`
     const units = Math.min(MAX_UNITS, Math.max(0, kelly * KELLY_FRACTION / UNIT));
-    cands.push({ type: o.type, label, q, winProbability: o.type === 'moneyline' ? P.win(o.side) : q, sampleN: P.N, ask: o.ask, bid: o.bid, cost, noVig: o.noVig, edge: o.noVig != null ? q - o.noVig : q - o.ask,
+    cands.push({ type: o.type, side: o.side, line: o.line, label, q, winProbability: o.type === 'moneyline' ? P.win(o.side) : q, sampleN: P.N, ask: o.ask, bid: o.bid, cost, noVig: o.noVig, edge: o.noVig != null ? q - o.noVig : q - o.ask,
       ev, kelly, units, volume: o.volume, wide: o.bid != null ? o.ask - o.bid > MAX_SPREAD : true,
       tail: o.type !== 'moneyline' && (o.noVig == null || o.noVig < ALT_BAND[0] || o.noVig > ALT_BAND[1]) });
   }
   cands.sort((a, b) => b.ev - a.ev);
-  const ok = cands.filter((c) => eligible(c) && !c.wide && !c.tail && c.volume > 0);
+  const ok = cands.filter((c) => eligible(c) && require('./bet-policy').scoreSupports(c,g,primary) && !c.wide && !c.tail && c.volume > 0);
   let reason = null;
   if (!ok.length) reason = !cands.length ? 'no priced Jupiter market' : 'no positive edge after fees on a side the model favors';
   return { best: ok[0] || null, others: ok.slice(1, 3), cands, reason, link: mkt.link, live: mkt.live };
@@ -119,7 +119,7 @@ async function builtinBestBets(day, probsFn) {
   catch (e) { for (const x of pending) results[x.game.game_id] = { best: null, cands: [], reason: 'Jupiter unavailable' }; return { results, source: null, error: String(e.message || e) }; }
   for (const x of pending) {
     const ev = matchEvent(feed.events, x.game);
-    results[x.game.game_id] = evaluate(x.game, probsFn(x.dist), ev ? parseEvent(ev, x.game) : null);
+    results[x.game.game_id] = evaluate(x.game, probsFn(x.dist), ev ? parseEvent(ev, x.game) : null, x.primary);
   }
   return { results, source: feed.host, fetchedAt: feed.fetchedAt, error: null };
 }
@@ -161,8 +161,8 @@ async function dashboardBestBets(day) {
     if (ev.isLive || ev.isActive === false) { results[x.game.game_id] = { best: null, cands: [], live: !!ev.isLive, reason: 'market live or inactive — no pregame bet' }; continue; }
     const rows = LSMarket.evaluate(x.game, x.res, ev, { fees: true });
     const keep = rows.filter((r) => !r.thin && !r.tail).sort((a, b) => b.ev - a.ev);
-    const map = (r) => ({ type: r.type, label: niceLabel(r), q: r.our, winProbability: r.winProbability, sampleN: x.res.N, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
-    const ok = keep.map(map).filter((c) => eligible(c, MIN_EV) && c.kelly > 0);
+    const map = (r) => ({ type: r.type, team: r.team, line: r.line, label: niceLabel(r), q: r.our, winProbability: r.winProbability, sampleN: x.res.N, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
+    const ok = keep.map(map).filter((c) => eligible(c, MIN_EV) && require('./bet-policy').scoreSupports(c,x.game,x.primary) && c.kelly > 0);
     results[x.game.game_id] = { best: ok[0] || null, others: ok.slice(1, 3), cands: rows, reason: ok.length ? null : (rows.length ? 'no line with model probability >50% and +1¢ EV or better after fees' : 'no priced Jupiter market'),
       link: `https://jup.ag/prediction/${ev.eventId}`, live: ev.isLive };
   }
@@ -182,7 +182,7 @@ async function bestBets(day, probsFn) {
     result = Object.assign(r, { engine: 'built-in fallback', rules: BUILTIN_RULES });
   }
   result.results = Object.fromEntries(day.games.map(x => {
-    const r = pregameResult(x.game, result.results[x.game.game_id]);
+    const r = pregameResult(x.game, result.results[x.game.game_id], Date.now(), x.primary);
     if (!r) return [x.game.game_id, r];
     const ok = [r.best, ...(r.others || [])].filter(b => b && samplingEligible(b, x.res.N));
     return [x.game.game_id, {...r, best: ok[0] || null, others: ok.slice(1),

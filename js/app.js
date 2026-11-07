@@ -248,7 +248,7 @@
   const evf = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + '$' + Math.abs(v).toFixed(3);
   const tname = { moneyline: 'Winner', spreads: 'Spread', totals: 'Total' };
   const flags = (x) => `${x.thin ? '<span class="badge warn" title="No bid, wide bid/ask (>4¢) or volume under 500">thin</span>' : ''}${x.tail ? '<span class="badge" title="Market price under 12% or over 88%: our sim tails are the least reliable part of the model">tail</span>' : ''}`;
-  const keep = (x) => (!S.mopts.hideThin || !x.thin) && (S.mopts.tails || !x.tail);
+  const keep = (x) => x.scoreConsistent === true && (!S.mopts.hideThin || !x.thin) && (S.mopts.tails || !x.tail);
   function rowHTML(x, compact) {
     return `<tr class="${eclass(x)}"><td><span class="mt">${tname[x.type]}</span> <b>${esc(x.label)}</b> ${flags(x)}</td><td>${cents(x.ask)}</td><td>${x.fair == null ? '—' : pctf(x.fair, 1)}</td><td>${pctf(x.our, 1)}</td>
       <td class="edge">${pp(x.edge)}</td><td class="evc">${evf(x.ev)}</td>${compact ? '' : `<td>${x.kelly > 0 ? pctf(x.kelly, 2) : '—'}</td>`}</tr>`;
