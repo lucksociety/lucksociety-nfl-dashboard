@@ -37,6 +37,7 @@ function gameEmbed(x, teams, bet) {
     { name: `Margin (${g.home})`, value: `${sgn(r.mu_home - r.mu_away)} · 80%: ${sgn(r.ci80_margin[0], 0)} to ${sgn(r.ci80_margin[1], 0)}`, inline: true },
     { name: 'QBs', value: `${g.sides.away.qb_name || 'recent mix'} / ${g.sides.home.qb_name || 'recent mix'}`, inline: true },
   ];
+  if (g.availability) fields.push({name:'Live availability',value:(`Checked ${g.availability.checkedAt} · depth-chart QBs are expected, not confirmed. ` + (g.availability.blockReason || 'Current injury/depth feeds checked.')).slice(0,1024),inline:false});
   if (g.final) fields.push({ name: 'Final', value: `${g.away} ${g.final.away} – ${g.final.home} ${g.home}${g.final.ot ? ' (OT)' : ''}`, inline: false });
   let betVal;
   if (bet && bet.best) betVal = '🎯 ' + betLine(bet.best) + (bet.link ? `\n[Jupiter market](${bet.link})` : '');

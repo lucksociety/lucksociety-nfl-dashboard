@@ -192,4 +192,4 @@ async function bestBets(day, probsFn) {
 }
 const BUILTIN_RULES = 'Edge = our prob − market no-vig prob. EV per $1 after Jupiter fee (0.07·p·(1−p)). ¼-Kelly, 1u = 1% bankroll, max 3u. Only sides the model rates >50%, traded, ≤6¢ bid-ask; alt spreads/totals limited to 35–65% market lines.';
 
-module.exports = { ALT_BAND, bestBets, builtinBestBets, dashboardBestBets, usingDashboardModule: !!LSMarket, evaluate, parseEvent, matchEvent, fetchEvents, FEE, MIN_PROB, KELLY_FRACTION, UNIT };
+module.exports = { clearCache: () => { snapCache = null; }, ALT_BAND, bestBets, builtinBestBets, dashboardBestBets, usingDashboardModule: !!LSMarket, evaluate, parseEvent, matchEvent, fetchEvents, FEE, MIN_PROB, KELLY_FRACTION, UNIT };

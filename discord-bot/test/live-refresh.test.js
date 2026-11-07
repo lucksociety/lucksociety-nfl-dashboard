@@ -1,0 +1,22 @@
+const assert=require('node:assert/strict');
+const A=require('../lib/availability'),P=require('../lib/bet-policy');
+const game={away:'KC',home:'BUF',gameday:'2099-01-01',gametime:'13:00',sides:{away:{x:{qb:.2},qb_name:'Old Quarterback'},home:{x:{qb:.3},qb_name:'J.Allen'}}};
+const wk={qbs:[{team:'KC',name:'N.Pass',id:'new',r:.1}],mix:{KC:.3,BUF:.2},qb_prior:0};
+const injury=name=>({athlete:{displayName:name,position:{abbreviation:'QB'},team:{abbreviation:'KC'}},status:'Out',date:'2099-01-01'});
+let calls=0;
+const fetchJSON=async url=>{calls++;
+ if(url.includes('/injuries'))return {injuries:[{injuries:[injury('Old Quarterback')]}]};
+ if(url.includes('/scoreboard'))return {events:[{status:{type:{state:'pre'}},competitions:[{competitors:[{homeAway:'away',team:{abbreviation:'KC'}},{homeAway:'home',team:{abbreviation:'BUF'}}]}]}]};
+ const names=url.includes('/kc/')?['Old Quarterback','New Pass']:['Josh Allen'];
+ return {depthchart:[{positions:{qb:{athletes:names.map(displayName=>({displayName}))}}}]};
+};
+(async()=>{
+ let [g]=await A.refreshGames([game],wk,{fetchJSON,dataThrough:'2098-12-31'});
+ assert.equal(g.sides.away.qb_name,'New Pass');assert(Math.abs(g.sides.away.x.qb+.2)<1e-9);assert.equal(g.availability.blockReason,null);
+ assert.equal(game.sides.away.qb_name,'Old Quarterback','saved inputs untouched');
+ await A.refreshGames([game],wk,{fetchJSON,dataThrough:'2098-12-31'});assert.equal(calls,8,'both runs fetch all live inputs');
+ [g]=await A.refreshGames([game],{...wk,qbs:[]},{fetchJSON});assert.match(g.availability.blockReason,/no unique fitted/);
+ const b={type:'moneyline',side:'home',q:.7,ask:.5,bid:.49,ev:.3};assert.equal(P.pregameResult(g,{best:b},Date.parse('2098-12-31'),{a:20,h:24}).best,null);
+ [g]=await A.refreshGames([game],wk,{fetchJSON:async()=>{throw Error('offline')}});assert.match(g.availability.blockReason,/unavailable/);
+ console.log('NFL live QB replacement, unknown ratings, failures and fresh-per-request fetches passed');
+})().catch(e=>{console.error(e);process.exitCode=1});

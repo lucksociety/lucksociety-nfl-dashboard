@@ -58,6 +58,7 @@ function gameStartMs(g) {
 }
 function pregameResult(game, result, now = Date.now(), primary) {
   if (!result) return result;
+  if (game.availability?.blockReason) return {...result,best:null,others:[],reason:game.availability.blockReason};
   const start = gameStartMs(game);
   if (game.final || result.live || !Number.isFinite(start) || now >= start) {
     return { ...result, best: null, others: [], reason: 'scheduled kickoff passed, live market, or start unavailable — no pregame bet' };

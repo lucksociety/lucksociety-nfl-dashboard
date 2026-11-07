@@ -15,6 +15,7 @@ const LSModel = require(path.join(DASH, 'js', 'sim.js'));
 const DATA_URL = process.env.NFL_DATA_URL === undefined ? 'https://lucksociety.github.io/lucksociety-nfl-dashboard/data' : process.env.NFL_DATA_URL;
 
 const cache = new Map();
+const beginRun = () => cache.clear();
 async function getJSON(rel) {
   const hit = cache.get(rel);
   if (hit && Date.now() - hit.t < 10 * 60 * 1000) return hit.v;
@@ -62,6 +63,7 @@ async function simulateDay(date, { teamFilter, N = 100000 } = {}) {
   const wk = await loadWeek(idx, w);
   let games = wk.games.filter((g) => g.gameday === date).sort((a, b) => a.gametime.localeCompare(b.gametime) || a.game_id.localeCompare(b.game_id));
   if (teamFilter) games = games.filter((g) => g.away === teamFilter || g.home === teamFilter);
+  if (date >= todayET() && games.length) games = await require("./availability").refreshGames(games, wk, {dataThrough:idx.data_through});
   let manual = {};
   try { manual = await getJSON('manual_adj.json'); } catch (_) { manual = {}; } // optional sourced injury tweaks (points)
   const out = [];
@@ -98,4 +100,4 @@ function probs(dist) {
   };
 }
 
-module.exports = { DASH, todayET, resolveDate, simulateDay, probs, getJSON, gamesOn };
+module.exports = { beginRun, DASH, todayET, resolveDate, simulateDay, probs, getJSON, gamesOn };
