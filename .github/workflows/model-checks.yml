@@ -28,6 +28,7 @@ jobs:
           node discord-bot/test/pregame.test.js
           node discord-bot/test/probability-certainty.test.js
           node discord-bot/test/score-consistency.test.js
+          node discord-bot/test/live-refresh.test.js
           node discord-worker/worker.test.mjs
       - name: Prospective evaluation regressions
         run: python3 -m unittest discover -s scripts -p test_model_learning.py
