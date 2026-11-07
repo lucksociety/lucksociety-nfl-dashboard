@@ -5,10 +5,10 @@ assert.equal(new Date(gameStartMs(game)).toISOString(), '2026-10-30T00:15:00.000
 const winter = { gameday: '2026-11-01', gametime: '13:00' };
 assert.equal(new Date(gameStartMs(winter)).toISOString(), '2026-11-01T18:00:00.000Z');
 for (const g of [{}, { gameday: '2026-02-30', gametime: '13:00' }, { gameday: '2026-11-01', gametime: '25:00' }, { gameday: '2026-03-08', gametime: '02:30' }]) assert(Number.isNaN(gameStartMs(g)));
-const b = { q: .6, ev: .1, ask: .5, bid: .49 };
+const b = { type: 'totals', label: 'Under 50.5', q: .6, ev: .1, ask: .5, bid: .49 };
 const result = { best: b, others: [b] };
 const start = gameStartMs(winter);
-assert(pregameResult(winter, result, start - 1).best);
+assert(pregameResult(winter, result, start - 1, {a:20,h:24}).best);
 assert.equal(pregameResult(winter, result, start).best, null);
 assert.equal(pregameResult(winter, { ...result, live: true }, start - 1000).best, null);
 assert.equal(pregameResult({ ...winter, final: true }, result, start - 1000).best, null);

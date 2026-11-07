@@ -2,6 +2,15 @@
 
 // Apply to the selected contract's model probability, never its market price.
 const MIN_PROB = 0.5;
+function scoreSupports(b,g,p) {
+  const a=p?.a,h=p?.h;if(![a,h].every(x=>Number.isInteger(x)&&x>=0))return false;
+  const lab=String(b.label||'').replace(/−/g,'-');
+  const side=b.side==='home'||b.team===g.home||lab.startsWith(g.home+' ')?'home':b.side==='away'||b.team===g.away||lab.startsWith(g.away+' ')?'away':null;
+  if(b.type==='moneyline')return side==='home'?h>a:side==='away'?a>h:false;
+  if(b.type==='spreads') {const m=/([+-]\d+(?:\.\d+)?)$/.exec(lab);const line=Number.isFinite(b.line)?b.line:m?+m[1]:NaN;return Number.isFinite(line)&&(side==='home'?h+line>a:side==='away'?a+line>h:false);}
+  if(b.type==='totals') {const m=/^(Over|Under|O|U)\s*(\d+(?:\.\d+)?)$/i.exec(lab);const line=Number.isFinite(b.line)?b.line:m?+m[2]:NaN;return !!m&&Number.isFinite(line)&&(/^o/i.test(m[1])?a+h>line:a+h<line);}
+  return false;
+}
 function samplingEligible(b, n) {
   const p = b.winProbability ?? b.q;
   if (!Number.isInteger(n) || n < 1000 || !Number.isFinite(p) || p < 0 || p > 1 || !Number.isFinite(b.q) || b.q < 0 || b.q > 1) return false;
@@ -19,14 +28,14 @@ function eligible(b, minEV = 0) {
 
 // Recheck every selector (including EDGE_MODULE) and every Discord renderer.
 // Candidate diagnostics can retain low-probability lines; recommendations cannot.
-function sanitizeBetResult(result) {
+function sanitizeBetResult(result, game, primary) {
   if (!result) return result;
   const candidates = [result.best, ...(result.others || [])];
-  const valid = candidates.filter(b => eligible(b));
-  const rejected = candidates.some(b => b && !eligible(b));
+  const valid = candidates.filter(b => eligible(b) && scoreSupports(b,game,primary));
+  const rejected = candidates.some(b => b && (!eligible(b) || !scoreSupports(b,game,primary)));
   return { ...result, best: valid[0] || null, others: valid.slice(1),
     reason: valid.length ? null : rejected
-      ? 'NO BET: requires model probability >50% and positive EV after fees'
+      ? 'NO BET: requires model probability >50%, positive EV after fees and a win at the displayed predicted score'
       : result.reason };
 }
 
@@ -47,12 +56,12 @@ function gameStartMs(g) {
   const p = parts(guess);
   return p.year === y && p.month === m && p.day === d && p.hour === h && p.minute === mi ? guess : NaN;
 }
-function pregameResult(game, result, now = Date.now()) {
+function pregameResult(game, result, now = Date.now(), primary) {
   if (!result) return result;
   const start = gameStartMs(game);
   if (game.final || result.live || !Number.isFinite(start) || now >= start) {
     return { ...result, best: null, others: [], reason: 'scheduled kickoff passed, live market, or start unavailable — no pregame bet' };
   }
-  return sanitizeBetResult(result);
+  return sanitizeBetResult(result,game,primary);
 }
-module.exports = { samplingEligible, MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };
+module.exports = { scoreSupports, samplingEligible, MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };

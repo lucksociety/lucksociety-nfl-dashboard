@@ -79,6 +79,15 @@
   const feePer = (P) => 0.07 * P * (1 - P);
   const mid = (s) => (s.buy > 0 && s.sell > 0 ? (s.buy + s.sell) / 2 : s.buy > 0 ? s.buy : null);
 
+  function scoreSupports(g,r,mkt,side) {
+    if(!Number.isFinite(r.mu_away)||!Number.isFinite(r.mu_home))return false;
+    let a=Math.round(r.mu_away),h=Math.round(r.mu_home);if(a===h){if(r.mu_home>=r.mu_away)h++;else a++;}
+    const own=side.team===g.home?h:side.team===g.away?a:null,opp=side.team===g.home?a:h;
+    if(mkt.type==='moneyline')return own!=null&&own>opp;
+    if(mkt.type==='spreads'){const m=/([+-]?\d+(?:\.\d+)?)\s*$/.exec(side.label||'');return own!=null&&!!m&&own+(+m[1])>opp;}
+    if(mkt.type==='totals'){return Number.isFinite(side.line)&&(/^o/i.test(side.label||side.title||'')?a+h>side.line:/^u/i.test(side.label||side.title||'')?a+h<side.line:false);}
+    return false;
+  }
   function evaluate(g, r, ev, opts) {
     opts = opts || {}; const withFees = opts.fees !== false; const kFrac = opts.kelly == null ? 0.25 : opts.kelly; const kCap = opts.kcap == null ? 0.02 : opts.kcap;
     const rows = [];
@@ -95,7 +104,7 @@
         const spreadW = s.sell > 0 ? s.buy - s.sell : null;
         const thin = !(s.sell > 0) || (spreadW != null && spreadW > 0.04) || (s.volume != null && s.volume < 500);
         const tail = fair != null && (fair < 0.12 || fair > 0.88);
-        rows.push({ game_id: g.game_id, matchup: `${g.away} @ ${g.home}`, type: mkt.type, marketId: s.id, label: s.label, team: s.team, line: s.line,
+        rows.push({ scoreConsistent: scoreSupports(g,r,mkt,s), game_id: g.game_id, matchup: `${g.away} @ ${g.home}`, type: mkt.type, marketId: s.id, label: s.label, team: s.team, line: s.line,
           ask: s.buy, bid: s.sell > 0 ? s.sell : null, spread: spreadW, volume: s.volume, overround, fair, our: o.p, winProbability: o.win, edge: fair == null ? null : o.p - fair,
           fee, cost, ev: ev1, kelly, thin, tail });
       });
@@ -110,6 +119,6 @@
     const mid = ks.filter((k) => f(k) >= 0.3 && f(k) <= 0.7).sort((a, b) => v(b) - v(a));
     return by[mid.length ? mid[0] : ks.sort((a, b) => Math.abs(f(a) - 0.5) - Math.abs(f(b) - 0.5))[0]];
   }
-  const api = { API, LIST_URL, normalize, fetchLive, matchEvent, evaluate, mainLine, feePer, kickoffEpoch };
+  const api = { scoreSupports, API, LIST_URL, normalize, fetchLive, matchEvent, evaluate, mainLine, feePer, kickoffEpoch };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.LSMarket = api;
 })(typeof self !== 'undefined' ? self : this);
