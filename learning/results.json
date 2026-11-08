@@ -967,6 +967,14 @@
   ],
   "source": "data/weeks/2026_w08.json"
  },
+ "2026_09_CIN_ATL": {
+  "label": "A",
+  "scores": [
+   17,
+   34
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
  "2026_09_JAX_BAL": {
   "label": "A",
   "scores": [
