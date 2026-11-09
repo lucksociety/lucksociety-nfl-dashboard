@@ -29,8 +29,12 @@ jobs:
           node discord-bot/test/probability-certainty.test.js
           node discord-bot/test/score-consistency.test.js
           node discord-bot/test/live-refresh.test.js
+          node discord-bot/test/selection-freshness.test.js
           node discord-worker/worker.test.mjs
+          node scripts/test-discord-delivery.mjs
       - name: Prospective evaluation regressions
-        run: python3 -m unittest discover -s scripts -p test_model_learning.py
+        run: |
+          python3 -m unittest discover -s scripts -p test_model_learning.py
+          python3 -m unittest discover -s scripts -p test_bet_learning.py
       - name: Evergreen data and reconciliation regressions
         run: python3 -m unittest discover -s scripts -p test_evergreen.py

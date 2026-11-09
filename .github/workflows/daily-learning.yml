@@ -8,6 +8,8 @@ on:
     paths:
       - scripts/model_learning.py
       - scripts/test_model_learning.py
+      - scripts/bet_learning.py
+      - scripts/test_bet_learning.py
       - learning/config.json
       - .github/workflows/daily-learning.yml
 permissions:
@@ -26,7 +28,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validate prospective evaluation and leakage guards
-        run: python -m unittest discover -s scripts -p test_model_learning.py
+        run: |
+          python -m unittest discover -s scripts -p test_model_learning.py
+          python -m unittest discover -s scripts -p test_bet_learning.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -37,7 +41,9 @@ jobs:
       - name: Import archived forecasts, grade finals and evaluate calibration candidates
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/model_learning.py --collect
+        run: |
+          python scripts/model_learning.py --collect
+          python scripts/bet_learning.py --collect
       - name: Save permanent evaluation record
         run: |
           git config user.name "model-learning-bot"

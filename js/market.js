@@ -60,17 +60,20 @@
   function ourPayoff(side, mkt, g, r) {
     const N = r.N; const hm = r.hist_margin, ht = r.hist_total;
     if (mkt.type === 'moneyline') {
+      if (![g.away,g.home].includes(side.team)) return null;
       const isHome = side.team === g.home; const mOf = (x) => (isHome ? x : -x);
       const w = probFromHist(hm, N, (x) => mOf(x) > 0), t = probFromHist(hm, N, (x) => x === 0); return { p: w + 0.5 * t, win: w, push: t };
     }
     if (mkt.type === 'spreads') {
       // Each side's label carries its own handicap: "Packers -3.5" wins if Packers margin > 3.5; "Panthers +3.5" wins if Panthers margin > -3.5.
       const mm = /([+-]?\d+(?:\.\d+)?)\s*$/.exec(side.label || ''); if (!mm || !side.team) return null; const hcp = Number(mm[1]);
+      if (![g.away,g.home].includes(side.team)) return null;
       const isHome = side.team === g.home; const mOf = (x) => (isHome ? x : -x);
       const w = probFromHist(hm, N, (x) => mOf(x) + hcp > 0), t = probFromHist(hm, N, (x) => mOf(x) + hcp === 0); return { p: w + 0.5 * t, win: w, push: t, hcp };
     }
     if (mkt.type === 'totals') {
-      const L = side.line; const over = /^o/i.test(side.label || side.title || ''); if (L == null) return null;
+      const L = side.line; const label = side.label || side.title || ''; const over = /^o(?:ver)?\s*\d/i.test(label);
+      if (!Number.isFinite(L) || (!over && !/^u(?:nder)?\s*\d/i.test(label))) return null;
       const w = probFromHist(ht, N, (x) => (over ? x > L : x < L)), t = probFromHist(ht, N, (x) => x === L); return { p: w + 0.5 * t, win: w, push: t };
     }
     return null;
@@ -82,6 +85,7 @@
   function scoreSupports(g,r,mkt,side) {
     if(!Number.isFinite(r.mu_away)||!Number.isFinite(r.mu_home))return false;
     let a=Math.round(r.mu_away),h=Math.round(r.mu_home);if(a===h){if(r.mu_home>=r.mu_away)h++;else a++;}
+    if (['moneyline','spreads'].includes(mkt.type) && ![g.away,g.home].includes(side.team)) return false;
     const own=side.team===g.home?h:side.team===g.away?a:null,opp=side.team===g.home?a:h;
     if(mkt.type==='moneyline')return own!=null&&own>opp;
     if(mkt.type==='spreads'){const m=/([+-]?\d+(?:\.\d+)?)\s*$/.exec(side.label||'');return own!=null&&!!m&&own+(+m[1])>opp;}
@@ -104,7 +108,7 @@
         const spreadW = s.sell > 0 ? s.buy - s.sell : null;
         const thin = !(s.sell > 0) || (spreadW != null && spreadW > 0.04) || (s.volume != null && s.volume < 500);
         const tail = fair != null && (fair < 0.12 || fair > 0.88);
-        rows.push({ scoreConsistent: scoreSupports(g,r,mkt,s), game_id: g.game_id, matchup: `${g.away} @ ${g.home}`, type: mkt.type, marketId: s.id, label: s.label, team: s.team, line: s.line,
+        rows.push({ scoreConsistent: scoreSupports(g,r,mkt,s), game_id: g.game_id, matchup: `${g.away} @ ${g.home}`, type: mkt.type, marketId: s.id, label: s.label, team: s.team, line: mkt.type === 'spreads' ? o.hcp : s.line,
           ask: s.buy, bid: s.sell > 0 ? s.sell : null, spread: spreadW, volume: s.volume, overround, fair, our: o.p, winProbability: o.win, edge: fair == null ? null : o.p - fair,
           fee, cost, ev: ev1, kelly, thin, tail });
       });

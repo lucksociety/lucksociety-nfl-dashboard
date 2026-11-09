@@ -39,6 +39,17 @@ jobs:
           if-no-files-found: error
       - name: Deliver result
         run: node scripts/discord-relay.mjs post
+      - name: Preserve delivered primary bets for contract-specific evaluation
+        if: success()
+        continue-on-error: true
+        run: python3 scripts/bet_learning.py --capture
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: bet-learning-${{ github.run_id }}
+          path: learning/bets-inbox.jsonl
+          retention-days: 90
+          if-no-files-found: warn
       - name: Report failure
         if: failure() && env.INTERACTION_TOKEN != ''
         env:

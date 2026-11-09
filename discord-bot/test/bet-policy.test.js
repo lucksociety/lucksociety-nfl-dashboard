@@ -23,7 +23,7 @@ const day = { games: [x] };
 
   // Real preferred selector: low-probability +EV must never outrank a qualifying bet.
   let rows = [];
-  market.fetchLive = async () => ({ source: 'live', fetched_at: '2026-10-31T00:00:00Z' });
+  market.fetchLive = async () => ({ source: 'live', fetched_at: new Date().toISOString() });
   market.matchEvent = () => ({ eventId: 'test' });
   market.evaluate = () => rows;
   const row = (q, ev = 0.2) => ({ type: 'moneyline', team: 'BUF', label: `prob-${q}`, our: q, ev,
