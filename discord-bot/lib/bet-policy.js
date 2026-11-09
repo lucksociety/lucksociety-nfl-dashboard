@@ -2,6 +2,7 @@
 
 // Apply to the selected contract's model probability, never its market price.
 const MIN_PROB = 0.5;
+const SELECTION_POLICY = require('./selection-policy.json');
 function scoreSupports(b,g,p) {
   const a=p?.a,h=p?.h;if(![a,h].every(x=>Number.isInteger(x)&&x>=0))return false;
   const lab=String(b.label||'').replace(/−/g,'-');
@@ -11,12 +12,22 @@ function scoreSupports(b,g,p) {
   if(b.type==='totals') {const m=/^(Over|Under|O|U)\s*(\d+(?:\.\d+)?)$/i.exec(lab);const line=Number.isFinite(b.line)?b.line:m?+m[2]:NaN;return !!m&&Number.isFinite(line)&&(/^o/i.test(m[1])?a+h>line:a+h<line);}
   return false;
 }
+function probabilityStress(b,n=b.sampleN) {
+  const p=b.winProbability ?? b.q;
+  const valid=Number.isInteger(n) && n>=1000 && [p,b.q].every(v=>Number.isFinite(v)&&v>=0&&v<=1);
+  const reserve=SELECTION_POLICY.reserve[b.type] ?? Math.max(...Object.values(SELECTION_POLICY.reserve));
+  const lo=v=>v-1.96*Math.sqrt(v*(1-v)/n)-reserve;
+  return {policy:SELECTION_POLICY.id,reserve,winLower:valid?lo(p):-Infinity,payoffLower:valid?lo(b.q):-Infinity};
+}
 function samplingEligible(b, n) {
-  const p = b.winProbability ?? b.q;
-  if (!Number.isInteger(n) || n < 1000 || !Number.isFinite(p) || p < 0 || p > 1 || !Number.isFinite(b.q) || b.q < 0 || b.q > 1) return false;
-  const lo = v => v - 1.96 * Math.sqrt(v * (1 - v) / n);
-  const cost = b.ask + 0.07 * b.ask * (1 - b.ask);
-  return lo(p) > MIN_PROB && lo(b.q) > cost;
+  if (!Number.isInteger(n) || n < 1000) return false;
+  const stress=probabilityStress(b,n),cost=b.ask+0.07*b.ask*(1-b.ask);
+  return stress.winLower>MIN_PROB && stress.payoffLower>cost;
+}
+// Among qualifying +EV bets, rank the conservative outright win probability before ROI.
+function confidenceOrder(a,b) {
+  const lower=x=>x.sampleN===undefined ? (x.winProbability ?? x.q) : probabilityStress(x).winLower;
+  return lower(b)-lower(a) || b.ev-a.ev;
 }
 function eligible(b, minEV = 0) {
   return !!b && Number.isFinite(b.q) && b.q > MIN_PROB && b.q <= 1 &&
@@ -31,7 +42,7 @@ function eligible(b, minEV = 0) {
 function sanitizeBetResult(result, game, primary) {
   if (!result) return result;
   const candidates = [result.best, ...(result.others || [])];
-  const valid = candidates.filter(b => eligible(b) && scoreSupports(b,game,primary));
+  const valid = candidates.filter(b => eligible(b) && scoreSupports(b,game,primary)).sort(confidenceOrder);
   const rejected = candidates.some(b => b && (!eligible(b) || !scoreSupports(b,game,primary)));
   return { ...result, best: valid[0] || null, others: valid.slice(1),
     reason: valid.length ? null : rejected
@@ -65,4 +76,4 @@ function pregameResult(game, result, now = Date.now(), primary) {
   }
   return sanitizeBetResult(result,game,primary);
 }
-module.exports = { scoreSupports, samplingEligible, MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };
+module.exports = { SELECTION_POLICY, probabilityStress, confidenceOrder, scoreSupports, samplingEligible, MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };

@@ -8,7 +8,7 @@
 'use strict';
 const HOSTS = ['https://api.jup.ag/prediction/v1', 'https://prediction-market-api.jup.ag/api/v1'];
 const FEE = (p) => 0.07 * p * (1 - p);
-const { MIN_PROB, eligible, pregameResult, samplingEligible } = require('./bet-policy');
+const { MIN_PROB, eligible, pregameResult, samplingEligible, confidenceOrder, probabilityStress } = require('./bet-policy');
 const MAX_SPREAD = 0.06;       // skip illiquid quotes (ask - bid wider than 6c)
 const KELLY_FRACTION = 0.25;   // quarter-Kelly
 const UNIT = 0.01;             // 1 unit = 1% of bankroll
@@ -101,7 +101,8 @@ function evaluate(g, P, mkt, primary) {
       ev, kelly, units, volume: o.volume, wide: o.bid != null ? o.ask - o.bid > MAX_SPREAD : true,
       tail: o.type !== 'moneyline' && (o.noVig == null || o.noVig < ALT_BAND[0] || o.noVig > ALT_BAND[1]) });
   }
-  cands.sort((a, b) => b.ev - a.ev);
+  cands.sort(confidenceOrder);
+  for(const c of cands)c.probabilityStress=probabilityStress(c);
   const ok = cands.filter((c) => eligible(c) && require('./bet-policy').scoreSupports(c,g,primary) && !c.wide && !c.tail && c.volume > 0);
   let reason = null;
   if (!ok.length) reason = !cands.length ? 'no priced Jupiter market' : 'no positive edge after fees on a side the model favors';
@@ -129,20 +130,17 @@ const fs = require('fs'), path = require('path');
 const { DASH } = require('./model');
 const MARKET_JS = path.join(DASH, 'js', 'market.js');
 const LSMarket = fs.existsSync(MARKET_JS) ? require(MARKET_JS) : null;
-const SNAP_URL = 'https://raw.githubusercontent.com/lucksociety/lucksociety-nfl-dashboard/market-data/jupiter_nfl.json';
-const DASH_RULES = 'Only bets with outright win probability >50% and positive after-fee EV beyond Monte Carlo sampling error qualify. Edge = our prob − no-vig mid; EV per $1 at the ask incl. Jupiter fee 0.07·p·(1−p); ' +
-  '¼-Kelly capped at 2% bankroll (1u = 1%); thin (no bid, >4¢ bid-ask, volume <500) and tail (<12% / >88%) lines skipped; min EV +1¢.';
+const DASH_RULES = 'Only bets with outright win probability >50% and positive after-fee EV beyond Monte Carlo error and prior-season calibration stress qualify. Edge = our prob − no-vig mid; EV per $1 at the ask incl. Jupiter fee 0.07·p·(1−p); ' +
+  'Confidence-first among qualifying bets; fresh live prices required. ¼-Kelly capped at 2% bankroll (1u = 1%); thin (no bid, >4¢ bid-ask, volume <500) and tail (<12% / >88%) lines skipped; min EV +1¢.';
 const MIN_EV = 0.01; // need at least +1¢ EV per $1 to call it a bet
 let snapCache = null;
 async function loadSnapshot() {
   if (snapCache && Date.now() - snapCache.t < 60 * 1000) return snapCache.v;
-  const errs = []; let snap = null;
-  try { snap = await LSMarket.fetchLive(12000); } catch (e) { errs.push('live API: ' + (e.name === 'AbortError' ? 'timed out' : e.message)); }
-  if (!snap) {
-    try { const r = await fetch(SNAP_URL + '?t=' + Math.floor(Date.now() / 60000), { signal: AbortSignal.timeout(10000) }); if (!r.ok) throw new Error('HTTP ' + r.status); snap = await r.json(); snap.source = 'snapshot'; }
-    catch (e) { errs.push('snapshot: ' + e.message); }
-  }
-  if (!snap) throw new Error(errs.join(' · '));
+  // A historical repository quote is not executable evidence of an edge now.
+  // If the live feed fails, withhold recommendations until the next fresh run.
+  const snap = await LSMarket.fetchLive(12000);
+  if (!snap || snap.source !== 'live' || !Number.isFinite(Date.parse(snap.fetched_at)) ||
+      Math.abs(Date.now()-Date.parse(snap.fetched_at)) > 60000) throw new Error('fresh live Jupiter prices unavailable');
   snapCache = { t: Date.now(), v: snap };
   return snap;
 }
@@ -160,9 +158,10 @@ async function dashboardBestBets(day) {
     if (!ev) { results[x.game.game_id] = { best: null, cands: [], reason: 'no open Jupiter market' }; continue; }
     if (ev.isLive || ev.isActive === false) { results[x.game.game_id] = { best: null, cands: [], live: !!ev.isLive, reason: 'market live or inactive — no pregame bet' }; continue; }
     const rows = LSMarket.evaluate(x.game, x.res, ev, { fees: true });
-    const keep = rows.filter((r) => !r.thin && !r.tail).sort((a, b) => b.ev - a.ev);
+    const keep = rows.filter((r) => !r.thin && !r.tail);
     const map = (r) => ({ type: r.type, team: r.team, line: r.line, label: niceLabel(r), q: r.our, winProbability: r.winProbability, sampleN: x.res.N, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
-    const ok = keep.map(map).filter((c) => eligible(c, MIN_EV) && require('./bet-policy').scoreSupports(c,x.game,x.primary) && c.kelly > 0);
+    const ok = keep.map(map).filter((c) => eligible(c, MIN_EV) && require('./bet-policy').scoreSupports(c,x.game,x.primary) && c.kelly > 0).sort(confidenceOrder);
+    for(const c of ok)c.probabilityStress=probabilityStress(c);
     results[x.game.game_id] = { best: ok[0] || null, others: ok.slice(1, 3), cands: rows, reason: ok.length ? null : (rows.length ? 'no line with model probability >50% and +1¢ EV or better after fees' : 'no priced Jupiter market'),
       link: `https://jup.ag/prediction/${ev.eventId}`, live: ev.isLive };
   }
@@ -184,12 +183,12 @@ async function bestBets(day, probsFn) {
   result.results = Object.fromEntries(day.games.map(x => {
     const r = pregameResult(x.game, result.results[x.game.game_id], Date.now(), x.primary);
     if (!r) return [x.game.game_id, r];
-    const ok = [r.best, ...(r.others || [])].filter(b => b && samplingEligible(b, x.res.N));
+    const ok = [r.best, ...(r.others || [])].filter(b => b && samplingEligible(b, x.res.N)).sort(confidenceOrder);
     return [x.game.game_id, {...r, best: ok[0] || null, others: ok.slice(1),
-      reason: ok.length ? null : r.reason || 'NO BET: probability and after-fee EV must clear Monte Carlo error'}];
+      reason: ok.length ? null : r.reason || 'NO BET: probability and after-fee EV must survive sampling and calibration stress'}];
   }));
   return result;
 }
 const BUILTIN_RULES = 'Edge = our prob − market no-vig prob. EV per $1 after Jupiter fee (0.07·p·(1−p)). ¼-Kelly, 1u = 1% bankroll, max 3u. Only sides the model rates >50%, traded, ≤6¢ bid-ask; alt spreads/totals limited to 35–65% market lines.';
 
-module.exports = { clearCache: () => { snapCache = null; }, ALT_BAND, bestBets, builtinBestBets, dashboardBestBets, usingDashboardModule: !!LSMarket, evaluate, parseEvent, matchEvent, fetchEvents, FEE, MIN_PROB, KELLY_FRACTION, UNIT };
+module.exports = { clearCache: () => { snapCache = null; evCache = null; }, ALT_BAND, bestBets, builtinBestBets, dashboardBestBets, usingDashboardModule: !!LSMarket, evaluate, parseEvent, matchEvent, fetchEvents, FEE, MIN_PROB, KELLY_FRACTION, UNIT };

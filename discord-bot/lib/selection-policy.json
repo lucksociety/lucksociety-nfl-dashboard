@@ -1,0 +1,10 @@
+{
+  "id": "confidence-first-calibration-stress-v2",
+  "reserve": {
+    "moneyline": 0.05,
+    "spreads": 0.018,
+    "totals": 0.019
+  },
+  "evidence": "research/probability-stress.json",
+  "interpretation": "Prior-season week-cluster diagnostic stress, not an individual confidence bound or a profitable-betting backtest."
+}

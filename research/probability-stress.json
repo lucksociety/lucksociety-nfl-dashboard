@@ -1,0 +1,27 @@
+{
+  "protocol": "2025 chronological points replay; fixed half-point diagnostic lines; week-cluster bootstrap. No November outcomes or market prices select reserves. Not an individual confidence bound or evidence of profitability. 2026 weeks 5\u20137 are previously used research data, not a new untouched holdout.",
+  "simulation_draws_per_game": 16000,
+  "selection_games": 272,
+  "comparison_games": 43,
+  "families": {
+    "moneyline": {
+      "selection_mean_overconfidence": -0.0038023523985239913,
+      "bootstrap_upper_975": 0.04954774695692884,
+      "rounded_reserve": 0.05,
+      "comparison_mean_overconfidence": 0.06031547619047618
+    },
+    "spreads": {
+      "selection_mean_overconfidence": -0.0008525286179812836,
+      "bootstrap_upper_975": 0.017713042946102767,
+      "rounded_reserve": 0.018,
+      "comparison_mean_overconfidence": -0.011615420190274835
+    },
+    "totals": {
+      "selection_mean_overconfidence": -0.0025290842068210278,
+      "bootstrap_upper_975": 0.018530838782540145,
+      "rounded_reserve": 0.019,
+      "comparison_mean_overconfidence": -0.002130411924789709
+    }
+  },
+  "input_sha256": "2d6a1b7a207c411a9e5576e29bc0b6b030cce4d99a0f6b79ca7b1e693df316a9"
+}

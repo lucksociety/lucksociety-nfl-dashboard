@@ -27,4 +27,5 @@ if (mode === 'decrypt') {
     }
     if (!sent) throw new Error('Discord rate limit exhausted');
   }
+  if(mode==='post')await fs.writeFile('out/delivery.json',JSON.stringify({complete:true,postedAt:new Date().toISOString(),messages:messages.length}));
 }
