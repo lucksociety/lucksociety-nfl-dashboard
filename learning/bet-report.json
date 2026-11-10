@@ -1,7 +1,7 @@
 {
   "settled_by_model_and_market": {},
-  "pending_or_ungradable": 0,
+  "pending_or_ungradable": 1,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-09T18:53:08.662732+00:00",
-  "records": 0
+  "generated_at": "2026-11-10T00:26:16.170835+00:00",
+  "records": 1
 }

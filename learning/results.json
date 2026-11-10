@@ -967,6 +967,14 @@
   ],
   "source": "data/weeks/2026_w08.json"
  },
+ "2026_09_ARI_SEA": {
+  "label": "H",
+  "scores": [
+   17,
+   3
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
  "2026_09_CIN_ATL": {
   "label": "A",
   "scores": [
@@ -975,11 +983,99 @@
   ],
   "source": "data/weeks/2026_w09.json"
  },
+ "2026_09_CLE_NO": {
+  "label": "H",
+  "scores": [
+   23,
+   22
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_DAL_IND": {
+  "label": "A",
+  "scores": [
+   23,
+   27
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_DEN_CAR": {
+  "label": "A",
+  "scores": [
+   21,
+   26
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_DET_MIA": {
+  "label": "A",
+  "scores": [
+   9,
+   19
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_GB_NE": {
+  "label": "A",
+  "scores": [
+   27,
+   45
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_HOU_LAC": {
+  "label": "A",
+  "scores": [
+   22,
+   44
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
  "2026_09_JAX_BAL": {
   "label": "A",
   "scores": [
    10,
    33
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_LA_WAS": {
+  "label": "A",
+  "scores": [
+   13,
+   20
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_LV_SF": {
+  "label": "H",
+  "scores": [
+   38,
+   17
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_NYG_PHI": {
+  "label": "A",
+  "scores": [
+   11,
+   19
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_NYJ_KC": {
+  "label": "H",
+  "scores": [
+   35,
+   12
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
+ "2026_09_TB_CHI": {
+  "label": "H",
+  "scores": [
+   27,
+   24
   ],
   "source": "data/weeks/2026_w09.json"
  }
