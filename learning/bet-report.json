@@ -1,7 +1,32 @@
 {
-  "settled_by_model_and_market": {},
-  "pending_or_ungradable": 1,
+  "settled_by_model_and_market": {
+    "nfl-v6 / confidence-first-calibration-stress-v2 / spreads": {
+      "n": 1,
+      "wins": 0,
+      "win_rate": 0,
+      "mean_probability": 0.64903,
+      "brier": 0.4212399409,
+      "log_loss": 1.0470545292545173,
+      "flat_cost_roi": -1.0,
+      "reliability": [
+        {
+          "lower_exclusive": 0.6,
+          "upper_inclusive": 0.7,
+          "n": 1,
+          "mean_probability": 0.64903,
+          "win_rate": 0
+        }
+      ],
+      "calibration_status": "monitor_only_no_automatic_probability_changes",
+      "calibration_proposal": {
+        "status": "insufficient_forward_sample",
+        "minimum_games": 500,
+        "minimum_days": 30
+      }
+    }
+  },
+  "pending_or_ungradable": 0,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-10T00:26:16.170835+00:00",
+  "generated_at": "2026-11-10T21:57:49.820829+00:00",
   "records": 1
 }

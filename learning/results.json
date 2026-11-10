@@ -975,6 +975,14 @@
   ],
   "source": "data/weeks/2026_w09.json"
  },
+ "2026_09_BUF_MIN": {
+  "label": "A",
+  "scores": [
+   6,
+   23
+  ],
+  "source": "data/weeks/2026_w09.json"
+ },
  "2026_09_CIN_ATL": {
   "label": "A",
   "scores": [
