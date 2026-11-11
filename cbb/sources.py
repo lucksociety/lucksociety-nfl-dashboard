@@ -32,7 +32,7 @@ def clean_event(e):
     if set(sides)!={'home','away'}:raise ValueError('Ambiguous teams')
     g={'id':str(e['id']),'date':e['date'],'season':int(e['season']['year']),'neutral':bool(c.get('neutralSite')),
        'complete':bool(e['status']['type']['completed']),'period':int(e['status'].get('period',2)),
-       'conference_game':bool(c.get('conferenceCompetition'))}
+       'conference_game':c.get('conferenceCompetition')}
     for s,x in sides.items():
         t=x['team'];g[s]=str(t['id']);g[s+'_name']=t['displayName']
         if t['id']=='2113':g[s+'_name']='Centenary Gentlemen'

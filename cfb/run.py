@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 from . import availability as av
 from .model import VERSION,SIMS,Ratings,walk_forward,residuals_before,forecast,digest,evaluate
-from .sources import UTC,ET,instant,fetch_season,refresh_history,daily_schedule,polymarket_inventory
+from .sources import UTC,ET,ESPN,instant,fetch_season,refresh_history,daily_schedule,polymarket_inventory,get_json
 ROOT=Path(__file__).resolve().parent
 OUT=Path('out/cfb')
 
@@ -48,6 +48,11 @@ def make_forecasts(date,now=None):
         if report['state']=='verified':
             try:report=av.assess_report(report,av.recent_participants(g,games))
             except Exception as e:report={'state':'unknown','reason':'Recent participation verification failed: '+type(e).__name__}
+        if (report['state']=='unknown' and report['reason'].startswith('No supported official')
+                and g.get('conference_game')is False and min(fit.counts[g[s]]for s in ['home','away'])>=4):
+            from cfb.roster_continuity import check
+            try:report=check(g,games,ESPN,get_json,now,basketball=False)
+            except (ValueError,KeyError,TypeError)as e:report={'state':'unknown','reason':'Roster continuity not verified: '+str(e)}
         inputs.append({'game':g,'availability':report})
         rows.append({'game':g,'availability':report,'state':'pending_forecast'})
     frozen_at=dt.datetime.now(UTC).isoformat();used=set(fit.used_ids)
@@ -62,7 +67,7 @@ def make_forecasts(date,now=None):
             row.update(prediction=pred,state='forecast');arrays[pred['id']]=draws
             blockers=[]
             if min(pred['current_games'].values())<4:blockers.append('Fewer than four current-season games for a team')
-            if row['availability']['state']!='verified':blockers.append(row['availability']['reason'])
+            if row['availability']['state']not in ['verified','roster_checked']:blockers.append(row['availability']['reason'])
             row['bet_blockers']=blockers
         except ValueError as e:row.update(state='unmodeled',reason=str(e))
     snapshot['forecasts']=[r['prediction'] for r in rows if r['state']=='forecast']
@@ -77,19 +82,24 @@ def make_forecasts(date,now=None):
 def scan_forecasts(now=None):
     from .markets import scan
     now=now or dt.datetime.now(UTC);report=json.loads((OUT/'frozen.json').read_text())
-    if digest(report['snapshot'])!=report['sha256']:raise ValueError('Forecast snapshot hash mismatch')
+    from cfb.freeze_integrity import verify
+    verify(report)
     if now-instant(report['frozen_at'])>dt.timedelta(minutes=8):raise ValueError('Forecast expired; rerun fresh model')
     samples=np.load(OUT/'simulations.npz')
     for row in report['rows']:
         row['bets']=[]
         if row['state']!='forecast':continue
         if instant(row['game']['date'])<=now:row['bet_blockers'].append('Game has started')
-        if row['bet_blockers']:continue
+        if instant(row['game']['date'])<=now:
+            row['assessment']={'status':'STARTED','priced':False};continue
         try:
-            bets,checked=scan(row['game'],row['prediction'],samples[row['game']['id']],dt.datetime.now(UTC))
-            row.update(bets=bets,contracts_checked=checked)
+            bets,checked=scan(dict(row['game'],selection_reserve=row.get('availability',{}).get('selection_reserve',.04)),row['prediction'],samples[row['game']['id']],dt.datetime.now(UTC))
+            blocked=bool(row['bet_blockers'])
+            row.update(bets=[] if blocked else bets,contracts_checked=checked,assessment={'status':'INPUT_BLOCKED'if blocked else'BET'if bets else'NO_QUALIFYING_EDGE','priced':True,'contracts_checked':checked,'price_passes':len(bets)})
             if not bets:row['bet_blockers'].append('No contract passes probability, score, fees and uncertainty checks')
-        except Exception as e:row['bet_blockers'].append('Price scan unavailable: '+type(e).__name__)
+        except Exception as e:
+            row['assessment']={'status':'PRICE_UNAVAILABLE','priced':False,'error_type':type(e).__name__}
+            row['bet_blockers'].append('Price scan unavailable: '+type(e).__name__)
     report['scanned_at']=dt.datetime.now(UTC).isoformat();write(OUT/'report.json',report)
     return report
 
@@ -113,10 +123,12 @@ def messages(report,now=None):
             for b in bets:
                 content+=f"\n💰 {b['label']} @ ${b['price']:.2f} · model {b['probability']*100:.1f}% · after-fee EV +${b['ev_per_share']:.3f}/share\n[Polymarket](https://polymarket.com/event/{g['market_slug']}) · ${b['depth_dollars']:.0f} at quoted ask"
                 delivered.append(dict(b,game_id=g['id'],kickoff=g['date'],forecast_hash=report['sha256']))
-        else:content+='\n🚫 NO BET — '+('; '.join(row.get('bet_blockers',[])) or 'Quote/forecast expired or game started; rerun /cfb')
+        else:content+=('\n⏸ BETTING BLOCKED — 'if row.get('assessment',{}).get('status')=='INPUT_BLOCKED'else'\n🚫 NO BET — ')+('; '.join(row.get('bet_blockers',[])) or 'Quote/forecast expired or game started; rerun /cfb')
         content+='\nAvailability: '+row.get('availability',{}).get('reason','unknown');shown.append(content)
     n=sum(r['state']=='forecast'for r in report['rows'])
-    header=f"🏈 **COLLEGE FOOTBALL {report['version']} — {report['date']}**\nMen’s Polymarket slate: {len(report['rows'])} games · {n} forecasts · {len(delivered)} qualifying bets\n{SIMS:,} fresh sims/game · frozen {report['frozen_at']} · `{report['sha256'][:12]}` before prices."
+    assessed=sum(r.get('assessment',{}).get('priced',False)for r in report['rows'])
+    blocked=sum(r.get('assessment',{}).get('status')=='INPUT_BLOCKED'for r in report['rows'])
+    header=f"🏈 **COLLEGE FOOTBALL {report['version']} — {report['date']}**\nMen’s Polymarket slate: {len(report['rows'])} games · {n} forecasts · {len(delivered)} qualifying bets · {assessed} price-assessed · {blocked} input-blocked\n{SIMS:,} fresh sims/game · frozen {report['frozen_at']} · `{report['sha256'][:12]}` before prices."
     parts=[];current=header
     for block in shown or ['No men’s college-football games found on Polymarket for this ET date.']:
         if len(current)+len(block)+2>1900:parts.append({'content':current,'allowed_mentions':{'parse':[]}});current=block

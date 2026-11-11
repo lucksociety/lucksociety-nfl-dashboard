@@ -2,6 +2,7 @@
 import datetime as dt
 import re
 import unicodedata
+from zoneinfo import ZoneInfo
 from .sources import ET, ESPN, UTC, get_json, instant
 
 MAC_SOURCE = 'https://getsomemaction.com/sports/2026/7/28/FB_0728265050.aspx.aspx'
@@ -27,7 +28,13 @@ def match_report(records, game, now, minimum_players=20):
         names = [{norm(t.get('teamName', '')), norm(t.get('teamDisplayName', ''))} for t in teams]
         if not all(any(aliases(game, s) & n for n in names) for s in ['home', 'away']):
             continue
-        published = dt.datetime.fromisoformat(r['publishDate']+'T'+r['postedTime']).replace(tzinfo=ET).astimezone(UTC)
+        zones={'ET':ET,'CT':ZoneInfo('America/Chicago'),'MT':ZoneInfo('America/Denver'),'PT':ZoneInfo('America/Los_Angeles')}
+        try:
+            zone=zones[r.get('conferenceTimeZone','ET')]
+            published=dt.datetime.fromisoformat(r['publishDate']+'T'+r['postedTime']).replace(tzinfo=zone).astimezone(UTC)
+        except (ValueError,KeyError,TypeError):
+            candidates.append({'state':'unknown','reason':'Official report timestamp/timezone not verified'})
+            continue
         status = str(r.get('ReportType', ''))
         report_source = r.get('source', MAC_SOURCE)
         if 'pending' in status.lower() or published > now:

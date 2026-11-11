@@ -89,14 +89,14 @@ def executable(book, now):
     return ask,dollars
 
 
-def qualify(c, draws, score, book, now):
+def qualify(c, draws, score, book, now, reserve=.04):
     p=float(np.mean(wins(c,draws)))
     if p<=.5 or not bool(wins(c,np.array([score]))[0]):return None
     if c['fee_rate'] is None:return None
     price,depth=executable(book,now)
     if p-price>.20:return None  # Extraordinary apparent edges require investigation.
     # 10% shrinkage plus 4pp model-error and a 1c adverse fill stress; not just Monte Carlo SE.
-    conservative=.5+.9*(p-.5)-.04
+    conservative=.5+.9*(p-.5)-reserve
     cost=min(.999,price+.01)
     fee=c['fee_rate']*(cost*(1-cost))**c['fee_exponent']
     ev=p-price-c['fee_rate']*(price*(1-price))**c['fee_exponent']
@@ -121,7 +121,7 @@ def scan(game, pred, draws, now):
     bets=[]
     for c in candidates:
         try:
-            bet=qualify(c,draws,pred['score'],books.get(c['token'],{}),now)
+            bet=qualify(c,draws,pred['score'],books.get(c['token'],{}),now,reserve=game.get('selection_reserve',.04))
             if bet:bets.append(bet)
         except (ValueError,TypeError,KeyError):continue
     # One primary bet per game avoids presenting many correlated lines as independent edges.

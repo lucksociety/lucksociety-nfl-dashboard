@@ -45,7 +45,7 @@ def clean_event(event):
         raise ValueError('Expected exactly two home/away teams')
     out = {'id': str(event['id']), 'date': event['date'], 'season': int(event['season']['year']),
            'week': int(event.get('week', {}).get('number', 0)), 'neutral': bool(c.get('neutralSite')),
-           'complete': bool(event['status']['type']['completed'])}
+           'conference_game':c.get('conferenceCompetition'), 'complete': bool(event['status']['type']['completed'])}
     for side, x in sides.items():
         t = x['team']
         out[side] = str(t['id'])
