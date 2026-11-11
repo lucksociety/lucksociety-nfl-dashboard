@@ -1,0 +1,27 @@
+name: College basketball checks
+on:
+  push:
+    paths: ['cbb/**', 'cfb/**', 'discord-worker/**', '.github/workflows/*cbb*']
+  pull_request:
+    paths: ['cbb/**', 'cfb/**', 'discord-worker/**', '.github/workflows/*cbb*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r cbb/requirements.txt
+      - run: python -m pytest -q cbb/test_cbb.py
+      - run: node cbb/worker.test.mjs
+      - run: node cbb/delivery.test.mjs
+      - run: node discord-worker/worker.test.mjs
+      - run: node cfb/worker.test.mjs
+      - run: python -m pytest -q cfb/test_cfb.py

@@ -17,7 +17,7 @@ def aliases(game, side):
     return {norm(a) for a in game[side+'_aliases']} | {norm(game[side+'_name'])}
 
 
-def match_report(records, game, now):
+def match_report(records, game, now, minimum_players=20):
     date = instant(game['date']).astimezone(ET).date().isoformat()
     candidates = []
     for r in records.values():
@@ -29,8 +29,9 @@ def match_report(records, game, now):
             continue
         published = dt.datetime.fromisoformat(r['publishDate']+'T'+r['postedTime']).replace(tzinfo=ET).astimezone(UTC)
         status = str(r.get('ReportType', ''))
+        report_source = r.get('source', MAC_SOURCE)
         if 'pending' in status.lower() or published > now:
-            candidates.append({'state': 'pending', 'reason': 'Official MAC report pending; rerun near kickoff', 'source': MAC_SOURCE})
+            candidates.append({'state': 'pending', 'reason': 'Official MAC report pending; rerun near kickoff', 'source': report_source})
             continue
         players = {}
         for s in ['home', 'away']:
@@ -38,10 +39,10 @@ def match_report(records, game, now):
             players[s] = [{'name': re.sub(r'^.*?#\d+\s*', '', p['name']), 'status': p['status']}
                           for p in team.get('rows', []) if p.get('name') and p.get('status')]
         # Final report only, sufficient roster coverage, bounded age. Empty isn't verified empty.
-        complete = all(len(players[s]) >= 20 for s in players)
+        complete = all(len(players[s]) >= minimum_players for s in players)
         valid = complete and 'game day' in status.lower() and dt.timedelta(0) <= now-published <= dt.timedelta(hours=8)
         candidates.append({'state': 'verified' if valid else 'unknown', 'reason': 'Official game-day report' if valid else 'Incomplete, stale or preliminary availability report',
-                           'source': MAC_SOURCE, 'published': published.isoformat(), 'players': players})
+                           'source': report_source, 'published': published.isoformat(), 'players': players})
     return next((r for r in candidates if r['state']=='verified'), candidates[0] if candidates else
                 {'state': 'unknown', 'reason': 'No supported official game-day availability report for this matchup'})
 
