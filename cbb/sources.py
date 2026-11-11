@@ -111,10 +111,15 @@ def summary_stats(game):
 
 
 def history(now,root):
-    year=season_for(now);all_games={}
+    year=season_for(now);all_games={};current_archive_missing=False
     for y in range(2023,year+1):
-        box=download_frame('team',y,root,refresh=y==year)
-        sched=download_frame('schedule',y,root,refresh=y==year)
+        try:
+            box=download_frame('team',y,root,refresh=y==year)
+            sched=download_frame('schedule',y,root,refresh=y==year)
+        except urllib.error.HTTPError as e:
+            if e.code!=404 or y!=year:raise
+            current_archive_missing=True
+            continue
         for g in archive_games(box,sched,y):all_games[g['id']]=g
     # Overlay fresh official finals if the daily archive has not caught up or a result changed.
     missing=[]
@@ -132,7 +137,7 @@ def history(now,root):
         for g,gap in pool.map(overlay,missing):
             if g:all_games[g['id']]=g
             if gap:gaps.append(gap)
-    (root/'quality.json').write_text(json.dumps({'refreshed_at':now.isoformat(),'recent_boxscore_gaps':gaps}))
+    (root/'quality.json').write_text(json.dumps({'refreshed_at':now.isoformat(),'recent_boxscore_gaps':gaps,'current_archive_missing':current_archive_missing}))
     return sorted([g for g in all_games.values()if instant(g['date'])+dt.timedelta(hours=4)<now],key=lambda g:(g['date'],g['id']))
 
 

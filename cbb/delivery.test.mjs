@@ -9,7 +9,7 @@ const moduleUrl=new URL('./deliver.mjs',import.meta.url).href;
 let renders=0,calls=[];
 try{
  process.chdir(tmp);fs.mkdirSync('out/cbb',{recursive:true});
- process.env.INTERACTION_TOKEN='fake.test.token';process.env.DISCORD_APPLICATION_ID='1570135389107134474';
+ process.env.INTERACTION_TOKEN='fake.test.token';process.env.DISCORD_APPLICATION_ID='1570148814914977932';
  child.spawnSync=()=>{
   renders++;
   const content=renders<3?'**Away @ Home**\n💰 Home @ $.55':'**Away @ Home**\n🚫 NO BET — quote expired';

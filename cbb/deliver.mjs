@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
 const token=process.env.INTERACTION_TOKEN,app=process.env.DISCORD_APPLICATION_ID;
-if(!token||app!=='1570135389107134474')throw new Error('Missing/mismatched CBB interaction');
+if(!token||app!=='1570148814914977932')throw new Error('Missing/mismatched CBB interaction');
 const base=`https://discord.com/api/v10/webhooks/${app}/${token}`;
 const delivery={messages:[],bets:[],forecasts:[]};
 const path='out/cbb/delivery.json';

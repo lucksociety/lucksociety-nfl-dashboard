@@ -156,3 +156,15 @@ def test_grade_only_delivered_card_last_publication_including_no_bet():
     final=dict(G,complete=True,home_score=71,away_score=80)
     assert grade([p],[final])['bet_win_rate']==0
     assert grade([p,dict(p,sent_at='2026-11-11T21:00Z',bets=[])],[final])['settled_bets']==0
+
+
+def test_empty_slate_runs_without_future_archive_or_reusing_forecasts(monkeypatch,tmp_path):
+    from cbb import run
+    monkeypatch.setattr(run,'OUT',tmp_path)
+    monkeypatch.setattr(run,'daily_schedule',lambda date:[])
+    monkeypatch.setattr(run,'polymarket_inventory',lambda date:[])
+    monkeypatch.setattr(run,'history',lambda now:(_ for _ in ()).throw(AssertionError('No history needed for an empty slate')))
+    r=run.make_forecasts('2027-07-01',instant('2027-07-01T12:00Z'))
+    assert r['rows']==[];assert (tmp_path/'frozen.json').exists()
+    msg,bets=run.messages(r,instant('2027-07-01T12:00Z'));assert bets==[]
+    assert 'No men’s college-basketball'in msg[0]['content']

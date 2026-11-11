@@ -1,6 +1,6 @@
 # Men's College Basketball Oracle
 
-`/cbb [date:YYYY-MM-DD]` uses the existing College Football Discord app and shared Worker/Actions transport, with its own basketball model, workflow and channel restriction: `1299433532401254410`. The default is today's Eastern date; autocomplete works locally. `/cfb` and `/nfl` retain their separate routing. A bot token is used only to register commands, never at runtime.
+`/cbb [date:YYYY-MM-DD]` uses the dedicated College Basketball Discord app and shared Worker/Actions transport, with its own basketball model, workflow and channel restriction: `1299433532401254410`. The default is today's Eastern date; autocomplete works locally. `/cfb` and `/nfl` retain their separate routing. Its signed endpoint is `/cbb/interactions`, verified with the basketball app’s own public key and app ID. A bot token is used only to register commands, never at runtime.
 
 ## Independent basketball protocol
 

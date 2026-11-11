@@ -23,7 +23,12 @@ def history(now):
 def make_forecasts(date,now=None):
     from .markets import join_fixture
     now=now or dt.datetime.now(UTC);dt.date.fromisoformat(date)
-    games=history(now);schedule=daily_schedule(date);inventory=polymarket_inventory(date)
+    schedule=daily_schedule(date);inventory=polymarket_inventory(date)
+    if not inventory:
+        snapshot={'version':VERSION,'requested_date':date,'frozen_at':now.isoformat(),'inputs':[],'forecasts':[]}
+        result={'version':VERSION,'date':date,'frozen_at':now.isoformat(),'sha256':digest(snapshot),'snapshot':snapshot,'rows':[],'validation':{}}
+        write(OUT/'frozen.json',result);np.savez_compressed(OUT/'simulations.npz');return result
+    games=history(now)
     try:reports=av.load_reports();report_error=None
     except Exception as e:reports={};report_error=type(e).__name__
     params=json.loads((ROOT/'data/validation.json').read_text())['parameters']
@@ -56,6 +61,7 @@ def make_forecasts(date,now=None):
             pred,draws=forecast(row['game'],fit,error_pools[phase(row['game']['date'])],h)
             row.update(prediction=pred,state='forecast');arrays[pred['id']]=draws
             blockers=[]
+            if quality.get('current_archive_missing'):blockers.append('Current-season archive has not been published; preseason-only baseline')
             if min(pred['current_games'].values())<3:blockers.append('Provisional preseason prior: fewer than three current-season games for a team')
             if any(row['game'][s] in [q['home'],q['away']]for q in quality['recent_boxscore_gaps']for s in ['home','away']):blockers.append('A recent final lacks possession statistics')
             if row['availability']['state']!='verified':blockers.append(row['availability']['reason'])
@@ -116,7 +122,7 @@ def messages(report,now=None):
     n=sum(r['state']=='forecast'for r in report['rows'])
     header=f"🏀 **COLLEGE BASKETBALL {report['version']} — {report['date']}**\nMen’s Polymarket slate: {len(report['rows'])} games · {n} forecasts · {len(delivered)} qualifying bets\n{SIMS:,} fresh sims/game · frozen {report['frozen_at']} · `{report['sha256'][:12]}` before prices."
     parts=[];current=header
-    for block in shown or ['No men’s college-football games found on Polymarket for this ET date.']:
+    for block in shown or ['No men’s college-basketball games found on Polymarket for this ET date.']:
         if len(current)+len(block)+2>1900:parts.append({'content':current,'allowed_mentions':{'parse':[]}});current=block
         else:current+='\n\n'+block
     if current:parts.append({'content':current,'allowed_mentions':{'parse':[]}})
