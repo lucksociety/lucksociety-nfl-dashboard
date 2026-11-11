@@ -54,9 +54,35 @@ async function verify(request, publicKey) {
     return {ok:await crypto.subtle.verify('Ed25519',key,bytes(sig),new TextEncoder().encode(ts+body)),body};
   } catch { return {ok:false,body}; }
 }
+export function cfbDateOptions(query='', today=todayET()) {
+  const q=String(query).trim().toLowerCase();
+  return Array.from({length:15},(_,i)=>new Date(Date.parse(today+'T12:00:00Z')+(i-7)*86400000).toISOString().slice(0,10))
+    .sort((a,b)=>(a===today?-1:b===today?1:a.localeCompare(b)))
+    .filter(d=>!q||d.includes(q)||(d===today&&'today'.includes(q)))
+    .map(d=>({name:d+(d===today?' · today':''),value:d}));
+}
+async function cfbRequest(request,env,ctx) {
+  if(request.method==='GET')return json({service:'cfb-oracle-discord',application_id:env.CFB_APPLICATION_ID,ready:!!(env.GITHUB_TOKEN&&env.RELAY_KEY&&env.CFB_PUBLIC_KEY&&env.CFB_CHANNEL_ID)});
+  if(request.method!=='POST')return new Response('Method not allowed',{status:405});
+  const checked=await verify(request,env.CFB_PUBLIC_KEY);
+  if(!checked.ok)return new Response('Invalid signature',{status:401});
+  let it;try{it=JSON.parse(checked.body);}catch{return new Response('Invalid JSON',{status:400});}
+  if(it.type===1)return json({type:1});
+  if(it.application_id!==env.CFB_APPLICATION_ID)return new Response('Wrong application',{status:401});
+  if(!env.CFB_CHANNEL_ID||it.channel_id!==env.CFB_CHANNEL_ID)return it.type===4?json({type:8,data:{choices:[]}}):json({type:4,data:{content:'Use /cfb in the dedicated college-football channel.',flags:64}});
+  if(it.data?.name!=='cfb')return json({type:4,data:{content:'Unknown command.',flags:64}});
+  if(it.type===4)return json({type:8,data:{choices:cfbDateOptions((it.data.options||[]).find(o=>o.name==='date')?.value)}});
+  if(it.type!==2)return new Response('Unsupported interaction',{status:400});
+  const date=String((it.data.options||[]).find(o=>o.name==='date')?.value||todayET()).trim();
+  if(!validDate(date))return json({type:4,data:{content:'Use a valid date in YYYY-MM-DD format.',flags:64}});
+  if(!env.GITHUB_TOKEN||!env.RELAY_KEY)return json({type:4,data:{content:'College-football runner is not configured.',flags:64}});
+  ctx.waitUntil(dispatchModel({...env,DISCORD_APPLICATION_ID:env.CFB_APPLICATION_ID},it,date,'discord-cfb.yml','lucksociety/lucksociety-nfl-dashboard'));
+  return json({type:5});
+}
 export default {
   async fetch(request,env,ctx) {
     const pathname=new URL(request.url).pathname;
+    if(pathname==='/cfb/interactions')return cfbRequest(request,env,ctx);
     if(!['/','/interactions'].includes(pathname))return new Response('Not found',{status:404});
     if(request.method==='GET')return json({service:'nfl-oracle-discord',transport:'github-actions',application_id:APP});
     if(request.method!=='POST')return new Response('Method not allowed',{status:405});

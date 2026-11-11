@@ -10,3 +10,7 @@ GITHUB_REPO = "lucksociety/lucksociety-nfl-dashboard"
 GITHUB_REF = "main"
 DATA_URL = "https://lucksociety.github.io/lucksociety-nfl-dashboard/data"
 # Secrets: GITHUB_TOKEN (Actions write) and RELAY_KEY (same key in Actions).
+
+CFB_APPLICATION_ID = "1570135389107134474"
+CFB_PUBLIC_KEY = "6ab63ad5af5dcc99db91d932dd5928a3f8d1f259c97ca6e545867ef607b920fa"
+CFB_CHANNEL_ID = "1299433503238393916"

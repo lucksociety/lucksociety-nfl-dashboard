@@ -4,3 +4,9 @@ model/teams_colors_logos.csv
 model/*.part
 __pycache__/
 node_modules/
+
+cfb/data/history.json
+cfb/data/residuals.json
+out/
+__pycache__/
+.pytest_cache/
