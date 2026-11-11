@@ -1,0 +1,48 @@
+{
+  "version": "cfb-1.0.0",
+  "parameters": {
+    "ridge": 4,
+    "retention": 0.35
+  },
+  "selection": "lowest 2024 chronological winner Brier among four prespecified candidates",
+  "tuning": [
+    [
+      0.19071229216088809,
+      4,
+      0.35
+    ],
+    [
+      0.19574420647049875,
+      8,
+      0.5
+    ],
+    [
+      0.20126626478862528,
+      16,
+      0.65
+    ],
+    [
+      0.20709487131234794,
+      24,
+      0.5
+    ]
+  ],
+  "holdout_2025": {
+    "games": 1661,
+    "winner_brier": 0.1810182146297411,
+    "winner_log_loss": 0.538166259528938,
+    "winner_accuracy": 0.720048163756773,
+    "margin_mae": 14.378023329319687,
+    "total_mae": 12.684993226971704,
+    "margin_interval80_coverage": 0.8061408789885611
+  },
+  "holdout_2026": {
+    "games": 1258,
+    "winner_brier": 0.18800703636724958,
+    "winner_log_loss": 0.5549107851016498,
+    "winner_accuracy": 0.7186009538950715,
+    "margin_mae": 15.451055643879172,
+    "total_mae": 13.264506756756758,
+    "margin_interval80_coverage": 0.7782193958664547
+  }
+}

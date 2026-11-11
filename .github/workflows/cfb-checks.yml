@@ -1,0 +1,25 @@
+name: College football checks
+on:
+  push:
+    paths: ['cfb/**', 'discord-worker/**', '.github/workflows/*cfb*']
+  pull_request:
+    paths: ['cfb/**', 'discord-worker/**', '.github/workflows/*cfb*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r cfb/requirements.txt
+      - run: python -m pytest -q cfb/test_cfb.py
+      - run: node cfb/worker.test.mjs
+      - run: node cfb/delivery.test.mjs
+      - run: node discord-worker/worker.test.mjs

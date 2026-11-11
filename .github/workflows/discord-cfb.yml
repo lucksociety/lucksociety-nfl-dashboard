@@ -1,0 +1,61 @@
+name: Discord /cfb
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Exact ET date YYYY-MM-DD'
+        required: true
+      relay:
+        description: 'Encrypted short-lived Discord interaction'
+        required: true
+permissions:
+  contents: read
+jobs:
+  model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      DATE: ${{ inputs.date }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Decrypt interaction
+        env:
+          RELAY_PAYLOAD: ${{ inputs.relay }}
+          RELAY_KEY: ${{ secrets.RELAY_KEY }}
+        run: node scripts/discord-relay.mjs decrypt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: cfb/requirements.txt
+      - run: pip install -r cfb/requirements.txt
+      - name: Cache result history only (never forecasts, availability, or prices)
+        uses: actions/cache@v4
+        with:
+          path: cfb/data/history.json
+          key: cfb-results-v1-${{ github.run_id }}
+          restore-keys: cfb-results-v1-
+      - name: Refresh inputs, refit model, simulate and freeze
+        run: python -m cfb.run forecast --date "$DATE"
+      - name: Scan executable prices after freeze
+        run: python -m cfb.run scan
+      - name: Deliver with freshness and kickoff rechecks
+        run: node cfb/deliver.mjs
+      - name: Report failure
+        if: failure() && env.INTERACTION_TOKEN != ''
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/discord-relay.mjs fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cfb-record-${{ github.run_id }}
+          path: |
+            out/cfb/frozen.json
+            out/cfb/report.json
+            out/cfb/delivery.json
+          retention-days: 90
+          if-no-files-found: warn

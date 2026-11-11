@@ -1,0 +1,47 @@
+name: College football daily learning
+on:
+  schedule:
+    - cron: '20 11 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: cfb-daily-learning
+  cancel-in-progress: false
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: cfb/requirements.txt
+      - run: pip install -r cfb/requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: cfb/data/history.json
+          key: cfb-results-v1-${{ github.run_id }}
+          restore-keys: cfb-results-v1-
+      - name: Refresh results, refit diagnostics, grade delivered cards
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m cfb.learning
+      - name: Preserve cumulative evaluation
+        run: |
+          git config user.name model-learning-bot
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add cfb/data/publications.json cfb/data/daily-report.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'cfb: daily prospective evaluation'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cfb-daily-${{ github.run_id }}
+          path: cfb/data/daily-report.json
+          retention-days: 90
