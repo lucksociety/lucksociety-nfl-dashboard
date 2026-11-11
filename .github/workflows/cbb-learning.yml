@@ -1,0 +1,48 @@
+name: College basketball daily learning
+on:
+  schedule:
+    - cron: '40 11 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: cbb-daily-learning
+  cancel-in-progress: false
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: cbb/requirements.txt
+      - run: pip install -r cbb/requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: |
+            cbb/data/*.parquet
+          key: cbb-results-v1-${{ github.run_id }}
+          restore-keys: cbb-results-v1-
+      - name: Refresh results, refit diagnostics, grade delivered cards
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m cbb.learning
+      - name: Preserve cumulative evaluation
+        run: |
+          git config user.name model-learning-bot
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add cbb/data/publications.json cbb/data/daily-report.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'cbb: daily prospective evaluation'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cbb-daily-${{ github.run_id }}
+          path: cbb/data/daily-report.json
+          retention-days: 90

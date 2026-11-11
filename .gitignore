@@ -10,3 +10,8 @@ cfb/data/residuals.json
 out/
 __pycache__/
 .pytest_cache/
+
+cbb/data/*.parquet
+cbb/data/history.json
+cbb/data/residuals.json
+cbb/data/quality.json

@@ -1,0 +1,44 @@
+{
+  "version": "cbb-1.0.0",
+  "parameters": {
+    "ridge": 4,
+    "retention": 0.25
+  },
+  "tuning_season": 2025,
+  "selection": "lowest chronological 2025 winner Brier among three predeclared protocols",
+  "tuning": [
+    [
+      0.17829544064922537,
+      4,
+      0.25
+    ],
+    [
+      0.18400342092619557,
+      8,
+      0.25
+    ],
+    [
+      0.18864469806807202,
+      16,
+      0.5
+    ]
+  ],
+  "holdout_2026": {
+    "games": 6192,
+    "winner_brier": 0.18085118954901522,
+    "winner_log_loss": 0.5340284517550037,
+    "winner_accuracy": 0.7197997416020672,
+    "margin_mae": 10.956821907299693,
+    "total_mae": 13.995996002907004,
+    "margin_interval80_coverage": 0.8137919896640827
+  },
+  "holdout_2027": {
+    "games": 549,
+    "winner_brier": 0.11057317657103835,
+    "winner_log_loss": 0.36313317551304786,
+    "winner_accuracy": 0.8542805100182149,
+    "margin_mae": 15.205838342440796,
+    "total_mae": 14.405472222222235,
+    "margin_interval80_coverage": 0.761384335154827
+  }
+}
