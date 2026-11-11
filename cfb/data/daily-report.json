@@ -1,0 +1,36 @@
+{
+  "policy": "Last successfully delivered pregame card per game and version, including NO BET; recommendations, not actual user wagers",
+  "publications": 0,
+  "settled_forecasts": 0,
+  "settled_bets": 0,
+  "winner_accuracy": null,
+  "winner_brier": null,
+  "bet_win_rate": null,
+  "bet_roi": null,
+  "calibration": "Monitor only; require independent holdout evidence before changing the frozen protocol",
+  "settled": [],
+  "bets": [],
+  "generated_at": "2026-11-11T18:28:26.632017+00:00",
+  "version": "cfb-1.0.0",
+  "training_results": 7833,
+  "chronological_holdouts": {
+    "2025": {
+      "games": 1661,
+      "winner_brier": 0.1810182146297411,
+      "winner_log_loss": 0.538166259528938,
+      "winner_accuracy": 0.720048163756773,
+      "margin_mae": 14.378023329319687,
+      "total_mae": 12.684993226971704,
+      "margin_interval80_coverage": 0.8061408789885611
+    },
+    "2026": {
+      "games": 1258,
+      "winner_brier": 0.18800703636724958,
+      "winner_log_loss": 0.5549107851016498,
+      "winner_accuracy": 0.7186009538950715,
+      "margin_mae": 15.451055643879172,
+      "total_mae": 13.264506756756758,
+      "margin_interval80_coverage": 0.7782193958664547
+    }
+  }
+}
