@@ -1,4 +1,8 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
 import worker,{cfbDateOptions} from '../discord-worker/worker.mjs';
 const keys=await crypto.subtle.generateKey('Ed25519',true,['sign','verify']);
 const pub=Buffer.from(await crypto.subtle.exportKey('raw',keys.publicKey)).toString('hex');
@@ -31,3 +35,17 @@ const auto=await(await invoke({...it,type:4,data:{name:'cfb',options:[{name:'dat
 assert.equal(auto.type,8);assert.ok(auto.data.choices.length>0);assert.equal(calls.length,0);
 assert.equal(cfbDateOptions('today','2026-11-11')[0].value,'2026-11-11');
 console.log('CFB signatures, separate app, channel restriction, local autocomplete, encrypted dispatch and invalid input: passed');
+
+// Exercise the actual shared CLI decrypter, not a separately reconstructed environment.
+const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'cfb-relay-'));
+try{
+ const envFile=path.join(tmp,'env');
+ const r=spawnSync(process.execPath,['scripts/discord-relay.mjs','decrypt'],{encoding:'utf8',env:{...process.env,DATE:'2026-11-11',RELAY_PAYLOAD:relay,RELAY_KEY:env.RELAY_KEY,GITHUB_ENV:envFile}});
+ assert.equal(r.status,0);
+ const vars=Object.fromEntries((await fs.readFile(envFile,'utf8')).trim().split('\n').map(line=>{const i=line.indexOf('=');return[line.slice(0,i),line.slice(i+1)];}));
+ assert.equal(vars.DISCORD_APPLICATION_ID,env.CFB_APPLICATION_ID);
+ assert.equal(vars.INTERACTION_TOKEN,it.token);
+ const publisher=await fs.readFile('cfb/deliver.mjs','utf8');
+ assert.ok(publisher.includes('app=process.env.DISCORD_APPLICATION_ID'));
+ console.log('CFB encrypted relay uses the shared CLI publication environment: passed');
+}finally{await fs.rm(tmp,{recursive:true,force:true});}
