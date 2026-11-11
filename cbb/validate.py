@@ -13,7 +13,7 @@ def main():
     _,ridge,retention=min(choices);rows=walk_forward(games,ridge,retention)
     report={'version':VERSION,'parameters':{'ridge':ridge,'retention':retention},'tuning_season':2025,
             'selection':'lowest chronological 2025 winner Brier among three predeclared protocols','tuning':choices,
-            'holdout_2026':evaluate(rows,2026),'holdout_2027':evaluate(rows,season_for(now))}
+            'holdout_2026':evaluate(rows,2026),'holdout_2027':evaluate(rows,2027)}
     write(ROOT/'data/validation.json',report);print(report)
 
 

@@ -39,3 +39,11 @@ python -m cfb.run render
 ```
 
 The last three commands do not post to Discord. `node cfb/deliver.mjs` posts only with short-lived credentials supplied by the signed command workflow.
+
+## November 11 reliability update
+
+Every modelled, unstarted fixture now gets a separate post-freeze price assessment, even when input quality blocks a recommendation. Input-blocked candidates are never published as bets; the card distinguishes price-assessed games from input-blocked games. The displayed game, prediction and availability record must match the frozen hash.
+
+For explicitly nonconference games with no supported official report and enough current-season results, a fresh official current-season roster and three recent participation boxscores can establish roster/rotation continuity. Missing contributors, inactive/uncertain reported players, stale rosters, source failures, incomplete history and pending required reports still block. Roster continuity does not establish health or confirm starters: the card says so, and this path uses a seven-percentage-point probability reserve instead of four, in addition to the existing shrinkage/fee/quote stress. These reserves are conservative heuristics, not calibrated confidence intervals or proof of profit.
+
+Report timestamps respect their declared conference timezone. Malformed/unknown report times cannot establish verified availability. A deleted initial Discord reply can be recovered with a fresh follow-up; an expired/invalid interaction cannot be recovered without a new command.

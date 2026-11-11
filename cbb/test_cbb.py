@@ -168,3 +168,30 @@ def test_empty_slate_runs_without_future_archive_or_reusing_forecasts(monkeypatc
     assert r['rows']==[];assert (tmp_path/'frozen.json').exists()
     msg,bets=run.messages(r,instant('2027-07-01T12:00Z'));assert bets==[]
     assert 'No men’s college-basketball'in msg[0]['content']
+
+
+def test_report_timezones_do_not_mark_future_reports_verified():
+    r=report(time='14:30:00');r['r']['conferenceTimeZone']='CT'
+    assert match_report(r,G,NOW)['state']=='pending'
+    r['r']['conferenceTimeZone']='ET'
+    assert match_report(r,G,NOW)['state']=='verified'
+    r['r']['conferenceTimeZone']='UNRECOGNIZED'
+    assert match_report(r,G,NOW)['state']=='unknown'
+
+
+def test_blocked_games_are_price_assessed_without_leaking_recommendations(monkeypatch,tmp_path):
+    from cbb import run,markets
+    from cbb.model import digest
+    r=card();row=r['rows'][0];row['bet_blockers']=['Report unavailable']
+    snapshot={'requested_date':r['date'],'frozen_at':r['frozen_at'],'inputs':[{'game':row['game'],'availability':row['availability']}],'forecasts':[row['prediction']]}
+    r['snapshot']=snapshot;r['sha256']=digest(snapshot)
+    run.write(tmp_path/'frozen.json',r);np.savez(tmp_path/'simulations.npz',**{'1':np.array([[80,72]])})
+    monkeypatch.setattr(run,'OUT',tmp_path)
+    monkeypatch.setattr(markets,'scan',lambda *args:([row['bets'][0]],10))
+    result=run.scan_forecasts(NOW)
+    assert result['rows'][0]['bets']==[]
+    assert result['rows'][0]['assessment']=={'status':'INPUT_BLOCKED','priced':True,'contracts_checked':10,'price_passes':1}
+    msg,bets=run.messages(result,NOW);assert bets==[];assert 'BETTING BLOCKED' in msg[0]['content']
+    changed=json.loads(json.dumps(r));changed['rows'][0]['prediction']['score']=[99,0]
+    from cfb.freeze_integrity import verify
+    with pytest.raises(ValueError,match='changed after'):verify(changed)

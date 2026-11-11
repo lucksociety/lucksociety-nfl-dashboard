@@ -58,5 +58,6 @@ jobs:
             out/cbb/frozen.json
             out/cbb/report.json
             out/cbb/delivery.json
+            out/delivery-error.json
           retention-days: 90
           if-no-files-found: warn
