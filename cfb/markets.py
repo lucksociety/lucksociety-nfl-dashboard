@@ -8,8 +8,14 @@ from .availability import aliases, norm
 from .sources import get_json, instant
 
 
+TEAM_ALIASES={'2433':['Louisiana-Monroe','Louisiana-Monroe Warhawks']}
+
+def team_aliases(game,side):
+    return aliases(game,side)|{norm(x)for x in TEAM_ALIASES.get(game[side],[])}
+
+
 def side_for(label, game):
-    sides = [s for s in ['home', 'away'] if norm(label) in aliases(game, s)]
+    sides = [s for s in ['home', 'away'] if norm(label) in team_aliases(game, s)]
     return sides[0] if len(sides)==1 else None
 
 

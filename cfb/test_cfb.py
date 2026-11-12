@@ -146,3 +146,11 @@ def test_discord_record_grades_last_card_including_no_bet():
     assert grade([p],[final])['bet_win_rate']==0
     later=dict(p,publication_key='p2',sent_at='2026-11-11T21:00Z',bets=[])
     report=grade([p,later],[final]);assert report['settled_bets']==0;assert report['settled_forecasts']==1
+
+
+def test_ul_monroe_inventory_alias_is_not_louisiana_lafayette():
+    g={'id':'401869969','date':'2026-11-13T02:00Z','home':'2433','home_name':'UL Monroe Warhawks','home_aliases':['UL Monroe Warhawks'],'away':'309','away_name':"Louisiana Ragin' Cajuns",'away_aliases':['Louisiana']}
+    e={'title':'Louisiana vs. Louisiana-Monroe','start':g['date']}
+    assert join_fixture(e,[g])['home']=='2433'
+    assert join_fixture({**e,'title':'Louisiana vs. Louisiana'},[g])is None
+    assert join_fixture(e,[g,{**g,'id':'duplicate'}])is None
