@@ -14,10 +14,7 @@ from .markets import wins
 ROOT=Path(__file__).resolve().parent
 
 
-def api(path,binary=False):
-    req=urllib.request.Request('https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+path,
-          headers={'Authorization':'Bearer '+os.environ['GITHUB_TOKEN'],'Accept':'application/vnd.github+json','User-Agent':'cbb-learning'})
-    with urllib.request.urlopen(req,timeout=30)as r:return r.read() if binary else json.load(r)
+from cfb.github_artifacts import api
 
 
 def collect(existing):
@@ -27,7 +24,7 @@ def collect(existing):
     while True:
         data=api(f'/actions/artifacts?per_page=100&page={page}')['artifacts']
         for a in data:
-            if a['expired'] or not a['name'].startswith('cbb-record-'):continue
+            if a['expired'] or not a['name'].startswith('cbb-record-') or a['id'] in {x.get('artifact_id')for x in existing}:continue
             raw=api('/actions/artifacts/'+str(a['id'])+'/zip',True)
             with zipfile.ZipFile(io.BytesIO(raw))as z:
                 files=[n for n in z.namelist() if n.endswith('delivery.json')]

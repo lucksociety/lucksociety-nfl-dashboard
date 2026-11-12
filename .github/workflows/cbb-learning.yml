@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: '40 11 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [cfb/github_artifacts.py, cbb/learning.py, .github/workflows/cbb-learning.yml]
 permissions:
   contents: write
   actions: read
