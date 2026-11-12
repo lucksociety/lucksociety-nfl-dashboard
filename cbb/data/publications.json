@@ -1,1 +1,3839 @@
-[]
+[
+  {
+    "game": {
+      "id": "401911263",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "179",
+      "home_name": "St. Bonaventure Bonnies",
+      "home_aliases": [
+        "SBU",
+        "St Bonaventure",
+        "St. Bonaventure",
+        "St. Bonaventure Bonnies"
+      ],
+      "away": "172",
+      "away_name": "Cornell Big Red",
+      "away_aliases": [
+        "COR",
+        "Cornell",
+        "Cornell Big Red"
+      ],
+      "market_id": "1316871",
+      "market_slug": "cbb-cornel-stbon-2026-11-11",
+      "market_title": "Cornell Big Red vs. St. Bonaventure Bonnies"
+    },
+    "prediction": {
+      "id": "401911263",
+      "mean": [
+        89.555,
+        76.421
+      ],
+      "score": [
+        90,
+        76
+      ],
+      "home_win": 0.7815666666666666,
+      "simulations": 300000,
+      "pace": 71.17639917740834,
+      "efficiency": [
+        118.89357809878658,
+        108.55610186594315
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          73,
+          62
+        ],
+        [
+          106,
+          91
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "7725230c0d2d9092d3028fc7827ca20995bd6394931325d6028867aa4ddfbc1b",
+    "sent_at": "2026-11-11T19:11:05.904Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401912209",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2182",
+      "home_name": "Drexel Dragons",
+      "home_aliases": [
+        "DREX",
+        "Drexel",
+        "Drexel Dragons"
+      ],
+      "away": "44",
+      "away_name": "American University Eagles",
+      "away_aliases": [
+        "AMER",
+        "American",
+        "American University",
+        "American University Eagles"
+      ],
+      "market_id": "1316869",
+      "market_slug": "cbb-amercn-drexel-2026-11-11",
+      "market_title": "American Eagles vs. Drexel Dragons"
+    },
+    "prediction": {
+      "id": "401912209",
+      "mean": [
+        78.792,
+        64.846
+      ],
+      "score": [
+        79,
+        65
+      ],
+      "home_win": 0.79756,
+      "simulations": 300000,
+      "pace": 67.33581136094512,
+      "efficiency": [
+        109.76110874107098,
+        97.57255176613614
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          63,
+          50
+        ],
+        [
+          96,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "b5276d768ac6f4c5dbf8964095cd8f879a20d775ce26acb04e1bf262fba55d66",
+    "sent_at": "2026-11-11T19:11:05.904Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401918452",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2226",
+      "home_name": "Florida Atlantic Owls",
+      "home_aliases": [
+        "FAU",
+        "Florida Atlantic",
+        "Florida Atlantic Owls"
+      ],
+      "away": "2729",
+      "away_name": "William & Mary Tribe",
+      "away_aliases": [
+        "W&M",
+        "William & Mary",
+        "William & Mary Tribe"
+      ],
+      "market_id": "1316868",
+      "market_slug": "cbb-wm-flatl-2026-11-11",
+      "market_title": "William & Mary Tribe vs. Florida Atlantic Owls"
+    },
+    "prediction": {
+      "id": "401918452",
+      "mean": [
+        88.812,
+        76.285
+      ],
+      "score": [
+        89,
+        76
+      ],
+      "home_win": 0.7678566666666666,
+      "simulations": 300000,
+      "pace": 73.97794345748656,
+      "efficiency": [
+        113.4540108504702,
+        104.27127122735817
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          73,
+          61
+        ],
+        [
+          106,
+          91
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "b59976ce09e508fab207878a9d4fcff2677cb4d64fcf71a561aec17dec737d3c",
+    "sent_at": "2026-11-11T19:11:05.904Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401911012",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "113",
+      "home_name": "Massachusetts Minutemen",
+      "home_aliases": [
+        "MASS",
+        "Massachusetts",
+        "Massachusetts Minutemen",
+        "UMass"
+      ],
+      "away": "2349",
+      "away_name": "UMass Lowell River Hawks",
+      "away_aliases": [
+        "UML",
+        "UMass Lowell",
+        "UMass Lowell River Hawks"
+      ],
+      "market_id": "1316872",
+      "market_slug": "cbb-maslow-umass-2026-11-11",
+      "market_title": "Massachusetts-Lowell River Hawks vs. Massachusetts Minutemen"
+    },
+    "prediction": {
+      "id": "401911012",
+      "mean": [
+        85.743,
+        71.995
+      ],
+      "score": [
+        86,
+        72
+      ],
+      "home_win": 0.79467,
+      "simulations": 300000,
+      "pace": 71.12751653708641,
+      "efficiency": [
+        113.64146354192665,
+        102.46185660217783
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          69,
+          57
+        ],
+        [
+          103,
+          87
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "f25427c4b545a2970b2f12a60f23da1baaa472f81d89223e0de578a5afd0715f",
+    "sent_at": "2026-11-11T19:11:05.904Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401918978",
+      "date": "2026-11-11T21:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "151",
+      "home_name": "East Carolina Pirates",
+      "home_aliases": [
+        "ECU",
+        "East Carolina",
+        "East Carolina Pirates"
+      ],
+      "away": "2448",
+      "away_name": "North Carolina A&T Aggies",
+      "away_aliases": [
+        "NC A&T",
+        "NCAT",
+        "North Carolina A&T",
+        "North Carolina A&T Aggies"
+      ],
+      "market_id": "1316876",
+      "market_slug": "cbb-ncat-ecar-2026-11-11",
+      "market_title": "North Carolina A&T Aggies vs. East Carolina Pirates"
+    },
+    "prediction": {
+      "id": "401918978",
+      "mean": [
+        83.99,
+        70.813
+      ],
+      "score": [
+        84,
+        71
+      ],
+      "home_win": 0.7809533333333334,
+      "simulations": 300000,
+      "pace": 70.67615102243748,
+      "efficiency": [
+        111.90766249181884,
+        101.48475735369142
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 1
+      },
+      "interval80": [
+        [
+          68,
+          56
+        ],
+        [
+          101,
+          86
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "63e3794f76cce756836dd669c06aff27ce08a5d7eff517a951c0744b1e117f0a",
+    "sent_at": "2026-11-11T19:11:07.048Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401917901",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2698",
+      "home_name": "West Georgia Wolves",
+      "home_aliases": [
+        "WGA",
+        "West Georgia",
+        "West Georgia Wolves"
+      ],
+      "away": "2427",
+      "away_name": "UNC Asheville Bulldogs",
+      "away_aliases": [
+        "UNC Asheville",
+        "UNC Asheville Bulldogs",
+        "UNCA"
+      ],
+      "market_id": "1316877",
+      "market_slug": "cbb-ncashe-uwg-2026-11-11",
+      "market_title": "UNC Asheville Bulldogs vs. West Georgia Wolves"
+    },
+    "prediction": {
+      "id": "401917901",
+      "mean": [
+        81.854,
+        70.862
+      ],
+      "score": [
+        82,
+        71
+      ],
+      "home_win": 0.7332833333333333,
+      "simulations": 300000,
+      "pace": 69.60171893302655,
+      "efficiency": [
+        110.54436970943729,
+        103.13038584039262
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          66,
+          56
+        ],
+        [
+          99,
+          86
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "804d4a232ad3510958895d300c3ab83e77ca2e4af45c94c62b0b511cae67b553",
+    "sent_at": "2026-11-11T19:11:07.048Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401909524",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "130",
+      "home_name": "Michigan Wolverines",
+      "home_aliases": [
+        "MICH",
+        "Michigan",
+        "Michigan Wolverines"
+      ],
+      "away": "269",
+      "away_name": "Marquette Golden Eagles",
+      "away_aliases": [
+        "MARQ",
+        "Marquette",
+        "Marquette Golden Eagles"
+      ],
+      "market_id": "1316873",
+      "market_slug": "cbb-marq-mich-2026-11-11",
+      "market_title": "Marquette Golden Eagles vs. Michigan Wolverines"
+    },
+    "prediction": {
+      "id": "401909524",
+      "mean": [
+        88.483,
+        66.027
+      ],
+      "score": [
+        88,
+        66
+      ],
+      "home_win": 0.92604,
+      "simulations": 300000,
+      "pace": 71.78500214506963,
+      "efficiency": [
+        116.43409204563353,
+        93.25102670229548
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          72,
+          51
+        ],
+        [
+          105,
+          81
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "ca8db1b7783b46e445908049b2b311b044a36a08eca8c2d2dc33b0f73b045383",
+    "sent_at": "2026-11-11T19:11:07.048Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401918992",
+      "date": "2026-11-11T20:00Z",
+      "season": 2027,
+      "neutral": true,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "58",
+      "home_name": "South Florida Bulls",
+      "home_aliases": [
+        "South Florida",
+        "South Florida Bulls",
+        "USF"
+      ],
+      "away": "2603",
+      "away_name": "Saint Joseph's Hawks",
+      "away_aliases": [
+        "JOES",
+        "Saint Joseph's",
+        "Saint Joseph's Hawks"
+      ],
+      "market_id": "1316874",
+      "market_slug": "cbb-stjoe-sfl-2026-11-11",
+      "market_title": "Saint Joseph's Hawks vs. South Florida Bulls"
+    },
+    "prediction": {
+      "id": "401918992",
+      "mean": [
+        83.076,
+        72.502
+      ],
+      "score": [
+        83,
+        73
+      ],
+      "home_win": 0.7234533333333333,
+      "simulations": 300000,
+      "pace": 71.99574075855963,
+      "efficiency": [
+        108.6078772302073,
+        101.88361448101307
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          67,
+          58
+        ],
+        [
+          100,
+          87
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "d030da11ced70da33a181855cf5eabd6c324ff61967c13a754efe19eccf8994d",
+    "sent_at": "2026-11-11T19:11:07.048Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401911230",
+      "date": "2026-11-11T20:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2005",
+      "home_name": "Air Force Falcons",
+      "home_aliases": [
+        "AF",
+        "Air Force",
+        "Air Force Falcons"
+      ],
+      "away": "2350",
+      "away_name": "Loyola Chicago Ramblers",
+      "away_aliases": [
+        "LUC",
+        "Loyola Chicago",
+        "Loyola Chicago Ramblers"
+      ],
+      "market_id": "1316875",
+      "market_slug": "cbb-loych-airf-2026-11-11",
+      "market_title": "Loyola Chicago Ramblers vs. Air Force Falcons"
+    },
+    "prediction": {
+      "id": "401911230",
+      "mean": [
+        76.183,
+        69.168
+      ],
+      "score": [
+        76,
+        69
+      ],
+      "home_win": 0.6356333333333334,
+      "simulations": 300000,
+      "pace": 67.8438115959139,
+      "efficiency": [
+        105.0584928185717,
+        103.21155625897983
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 2
+      },
+      "interval80": [
+        [
+          60,
+          54
+        ],
+        [
+          93,
+          84
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "f21321b55d96ef6fad8b3b303fafc05d22f49ae637ee41b723be81508ddd5611",
+    "sent_at": "2026-11-11T19:11:07.048Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401920202",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2670",
+      "home_name": "VCU Rams",
+      "home_aliases": [
+        "VCU",
+        "VCU Rams"
+      ],
+      "away": "2885",
+      "away_name": "NJIT Highlanders",
+      "away_aliases": [
+        "NJIT",
+        "NJIT Highlanders"
+      ],
+      "market_id": "1316880",
+      "market_slug": "cbb-njit-vcu-2026-11-11",
+      "market_title": "NJIT Highlanders vs. VCU Rams"
+    },
+    "prediction": {
+      "id": "401920202",
+      "mean": [
+        90.116,
+        60.279
+      ],
+      "score": [
+        90,
+        60
+      ],
+      "home_win": 0.9742133333333334,
+      "simulations": 300000,
+      "pace": 69.15006063973573,
+      "efficiency": [
+        123.26188623430046,
+        88.47281251532421
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 4
+      },
+      "interval80": [
+        [
+          74,
+          45.9
+        ],
+        [
+          107,
+          75
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "7dd3b52744d4d1baac28cfd682a97c5a96f2f4caeed3cf33b53eb2c94caf3bd7",
+    "sent_at": "2026-11-11T19:11:08.249Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401921105",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "91",
+      "home_name": "Bellarmine Knights",
+      "home_aliases": [
+        "BELL",
+        "Bellarmine",
+        "Bellarmine Knights"
+      ],
+      "away": "2233",
+      "away_name": "Franklin Grizzlies",
+      "away_aliases": [
+        "FRKL",
+        "Franklin",
+        "Franklin Grizzlies"
+      ],
+      "market_id": "1316882",
+      "market_slug": "cbb-frank-bella-2026-11-11",
+      "market_title": "Franklin Grizzlies vs. Bellarmine Knights"
+    },
+    "prediction": {
+      "id": "401921105",
+      "mean": [
+        86.071,
+        70.649
+      ],
+      "score": [
+        86,
+        71
+      ],
+      "home_win": 0.8266433333333333,
+      "simulations": 300000,
+      "pace": 68.57131129371255,
+      "efficiency": [
+        118.38445468148993,
+        104.32446801490597
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 0
+      },
+      "interval80": [
+        [
+          70,
+          56
+        ],
+        [
+          103,
+          85
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "7e9c70ebd48dcdb3af9b0c1acbb155ddac2cefea9d43c0b62a50521f8588d879",
+    "sent_at": "2026-11-11T19:11:08.249Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401920740",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2193",
+      "home_name": "East Tennessee State Buccaneers",
+      "home_aliases": [
+        "ETSU",
+        "East Tennessee State",
+        "East Tennessee State Buccaneers"
+      ],
+      "away": "2097",
+      "away_name": "Campbell Fighting Camels",
+      "away_aliases": [
+        "CAM",
+        "Campbell",
+        "Campbell Fighting Camels"
+      ],
+      "market_id": "1316886",
+      "market_slug": "cbb-camp-etnst-2026-11-11",
+      "market_title": "Campbell Fighting Camels vs. East Tennessee State Buccaneers"
+    },
+    "prediction": {
+      "id": "401920740",
+      "mean": [
+        85.245,
+        66.599
+      ],
+      "score": [
+        85,
+        67
+      ],
+      "home_win": 0.8783366666666667,
+      "simulations": 300000,
+      "pace": 67.47370212189244,
+      "efficiency": [
+        119.07291958831046,
+        100.06918040298784
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          69,
+          52
+        ],
+        [
+          102,
+          81
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "a26bee3660058b2202ab5cddbbafaf34f026a5a2ebd0ea9ea00a3a8617e0eca7",
+    "sent_at": "2026-11-11T19:11:08.249Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401921286",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "107",
+      "home_name": "Holy Cross Crusaders",
+      "home_aliases": [
+        "HC",
+        "Holy Cross",
+        "Holy Cross Crusaders"
+      ],
+      "away": "231",
+      "away_name": "Furman Paladins",
+      "away_aliases": [
+        "FUR",
+        "Furman",
+        "Furman Paladins"
+      ],
+      "market_id": "1316881",
+      "market_slug": "cbb-furman-holy-2026-11-11",
+      "market_title": "Furman Paladins vs. Holy Cross Crusaders"
+    },
+    "prediction": {
+      "id": "401921286",
+      "mean": [
+        77.171,
+        75.181
+      ],
+      "score": [
+        77,
+        75
+      ],
+      "home_win": 0.5030533333333334,
+      "simulations": 300000,
+      "pace": 67.49034682115675,
+      "efficiency": [
+        107.05392571635798,
+        112.69097735065905
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          61,
+          60
+        ],
+        [
+          94,
+          90
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "bae436088b76113538185c7db1375d9c1ffb8f5b6dc454e5993bde9c802da1dd",
+    "sent_at": "2026-11-11T19:11:08.249Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401921175",
+      "date": "2026-11-11T23:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "85",
+      "home_name": "IU Indianapolis Jaguars",
+      "home_aliases": [
+        "IU Indianapolis",
+        "IU Indianapolis Jaguars",
+        "IU Indy",
+        "IUIN"
+      ],
+      "away": "88",
+      "away_name": "Southern Indiana Screaming Eagles",
+      "away_aliases": [
+        "S Indiana",
+        "Southern Indiana",
+        "Southern Indiana Screaming Eagles",
+        "USI"
+      ],
+      "market_id": "1316889",
+      "market_slug": "cbb-usi-iupui-2026-11-11",
+      "market_title": "Southern Indiana Screaming Eagles vs. IU Indy Jaguars"
+    },
+    "prediction": {
+      "id": "401921175",
+      "mean": [
+        86.597,
+        73.708
+      ],
+      "score": [
+        87,
+        74
+      ],
+      "home_win": 0.776,
+      "simulations": 300000,
+      "pace": 73.50339380238167,
+      "efficiency": [
+        111.08981779396768,
+        101.47659201309347
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          70,
+          59
+        ],
+        [
+          104,
+          88
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "01942822e89974a296f55a5c808407e76a6d2d00713c604d31e1fdae7a16771d",
+    "sent_at": "2026-11-11T19:11:09.302Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401920680",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2599",
+      "home_name": "St. John's Red Storm",
+      "home_aliases": [
+        "SJU",
+        "St John's",
+        "St. John's",
+        "St. John's Red Storm"
+      ],
+      "away": "2142",
+      "away_name": "Colgate Raiders",
+      "away_aliases": [
+        "COLG",
+        "Colgate",
+        "Colgate Raiders"
+      ],
+      "market_id": "1316887",
+      "market_slug": "cbb-colg-stjohn-2026-11-11",
+      "market_title": "Colgate Raiders vs. St. John's Red Storm"
+    },
+    "prediction": {
+      "id": "401920680",
+      "mean": [
+        90.459,
+        65.668
+      ],
+      "score": [
+        90,
+        66
+      ],
+      "home_win": 0.9450466666666667,
+      "simulations": 300000,
+      "pace": 70.19628429215605,
+      "efficiency": [
+        121.95411947366262,
+        94.86102534998744
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          74,
+          51
+        ],
+        [
+          107,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "257cfeb334ac6cc34f79a092eb631f51ffd5df869dd75a854dcb1b81311e6e6e",
+    "sent_at": "2026-11-11T19:11:09.302Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401921821",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2579",
+      "home_name": "South Carolina Gamecocks",
+      "home_aliases": [
+        "SC",
+        "South Carolina",
+        "South Carolina Gamecocks"
+      ],
+      "away": "2612",
+      "away_name": "Saint Peter's Peacocks",
+      "away_aliases": [
+        "SPU",
+        "Saint Peter's",
+        "Saint Peter's Peacocks"
+      ],
+      "market_id": "1316891",
+      "market_slug": "cbb-stpete-sc-2026-11-11",
+      "market_title": "Saint Peter's Peacocks vs. South Carolina Gamecocks"
+    },
+    "prediction": {
+      "id": "401921821",
+      "mean": [
+        78.382,
+        60.232
+      ],
+      "score": [
+        78,
+        60
+      ],
+      "home_win": 0.87222,
+      "simulations": 300000,
+      "pace": 64.82215900640934,
+      "efficiency": [
+        113.27041283614635,
+        94.2852690650348
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          62,
+          45
+        ],
+        [
+          95,
+          75
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "28e6e5d9c634931c76cdb6e88214048ceac63fb0a0b2bc605ec266a3422291a7",
+    "sent_at": "2026-11-11T19:11:09.302Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401920903",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "48",
+      "home_name": "Delaware Blue Hens",
+      "home_aliases": [
+        "DEL",
+        "Delaware",
+        "Delaware Blue Hens"
+      ],
+      "away": "256",
+      "away_name": "James Madison Dukes",
+      "away_aliases": [
+        "JMU",
+        "James Madison",
+        "James Madison Dukes"
+      ],
+      "market_id": "1316890",
+      "market_slug": "cbb-jmad-del-2026-11-11",
+      "market_title": "James Madison Dukes vs. Delaware Fightin' Blue Hens"
+    },
+    "prediction": {
+      "id": "401920903",
+      "mean": [
+        81.552,
+        68.414
+      ],
+      "score": [
+        82,
+        68
+      ],
+      "home_win": 0.78023,
+      "simulations": 300000,
+      "pace": 66.28931991569624,
+      "efficiency": [
+        115.61665943572336,
+        104.5681705869614
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          65,
+          54
+        ],
+        [
+          99,
+          83
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "4d10f9d7cecc902380022ab1de2c0adeff3894e570915eebb3621bbc129ee2a9",
+    "sent_at": "2026-11-11T19:11:09.302Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401921181",
+      "date": "2026-11-11T22:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2426",
+      "home_name": "Navy Midshipmen",
+      "home_aliases": [
+        "NAVY",
+        "Navy",
+        "Navy Midshipmen"
+      ],
+      "away": "219",
+      "away_name": "Pennsylvania Quakers",
+      "away_aliases": [
+        "PENN",
+        "Penn",
+        "Pennsylvania",
+        "Pennsylvania Quakers"
+      ],
+      "market_id": "1316888",
+      "market_slug": "cbb-penn-navy-2026-11-11",
+      "market_title": "Penn Quakers vs. Navy Midshipmen"
+    },
+    "prediction": {
+      "id": "401921181",
+      "mean": [
+        82.873,
+        65.351
+      ],
+      "score": [
+        83,
+        65
+      ],
+      "home_win": 0.8619433333333333,
+      "simulations": 300000,
+      "pace": 69.6349683937763,
+      "efficiency": [
+        111.94356513468102,
+        95.14824331922968
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 2
+      },
+      "interval80": [
+        [
+          67,
+          51
+        ],
+        [
+          100,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "7f988c2cd9307a15c3510ba652be2df95666969af890873525133ec8b17804a4",
+    "sent_at": "2026-11-11T19:11:09.302Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401922282",
+      "date": "2026-11-11T23:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2908",
+      "home_name": "South Carolina Upstate Spartans",
+      "home_aliases": [
+        "SC Upstate",
+        "South Carolina Upstate",
+        "South Carolina Upstate Spartans",
+        "UPST"
+      ],
+      "away": "3243",
+      "away_name": "Bob Jones Bruins",
+      "away_aliases": [
+        "BOBJ",
+        "Bob Jones",
+        "Bob Jones Bruins"
+      ],
+      "market_id": "1316892",
+      "market_slug": "cbb-bob-scup-2026-11-11",
+      "market_title": "Bob Jones Bruins vs. USC Upstate Spartans"
+    },
+    "prediction": {
+      "id": "401922282",
+      "mean": [
+        91.793,
+        64.612
+      ],
+      "score": [
+        92,
+        65
+      ],
+      "home_win": 0.9624633333333333,
+      "simulations": 300000,
+      "pace": 73.02139647347602,
+      "efficiency": [
+        118.95853314324569,
+        89.77523830765487
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 1
+      },
+      "interval80": [
+        [
+          75,
+          50
+        ],
+        [
+          109,
+          79
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "10893a082e1a0f01a4b5a14b125e64b184e574eab2bb58c6b8b5ad5b06221f79",
+    "sent_at": "2026-11-11T19:11:10.913Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925011",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2320",
+      "home_name": "Lamar Cardinals",
+      "home_aliases": [
+        "LAM",
+        "Lamar",
+        "Lamar Cardinals"
+      ],
+      "away": "2113",
+      "away_name": "Centenary Gentlemen",
+      "away_aliases": [
+        "CTLA",
+        "Centenary (LA)",
+        "Centenary (LA) Ladies"
+      ],
+      "market_id": "1316894",
+      "market_slug": "cbb-cent-lamar-2026-11-11",
+      "market_title": "Centenary Gentlemen vs. Lamar Cardinals"
+    },
+    "prediction": {
+      "id": "401925011",
+      "mean": [
+        86.485,
+        64.821
+      ],
+      "score": [
+        86,
+        65
+      ],
+      "home_win": 0.9174566666666667,
+      "simulations": 300000,
+      "pace": 70.3425132163878,
+      "efficiency": [
+        116.05564872766334,
+        93.45865476828726
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 0
+      },
+      "interval80": [
+        [
+          70,
+          50
+        ],
+        [
+          104,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "16182c05f5dadce17c7ca8b7737d94b7515313fb56d3664be72f9c00bc8b09e4",
+    "sent_at": "2026-11-11T19:11:10.913Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401923311",
+      "date": "2026-11-11T23:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "160",
+      "home_name": "New Hampshire Wildcats",
+      "home_aliases": [
+        "New Hampshire",
+        "New Hampshire Wildcats",
+        "UNH"
+      ],
+      "away": "2645",
+      "away_name": "Thomas College Terriers",
+      "away_aliases": [
+        "THMC",
+        "Thomas Coll",
+        "Thomas College",
+        "Thomas College Terriers"
+      ],
+      "market_id": "1316893",
+      "market_slug": "cbb-tom-nhamp-2026-11-11",
+      "market_title": "Thomas Terriers vs. New Hampshire Wildcats"
+    },
+    "prediction": {
+      "id": "401923311",
+      "mean": [
+        82.215,
+        65.971
+      ],
+      "score": [
+        82,
+        66
+      ],
+      "home_win": 0.8416366666666667,
+      "simulations": 300000,
+      "pace": 70.50778961887724,
+      "efficiency": [
+        109.65721541937823,
+        94.82385374609864
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 0
+      },
+      "interval80": [
+        [
+          66,
+          51
+        ],
+        [
+          99,
+          81
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "313806ab305cdffa0832a671a9329d08d68928cb7fa26a2e2827b4b09ad7593a",
+    "sent_at": "2026-11-11T19:11:10.913Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401924735",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "163",
+      "home_name": "Princeton Tigers",
+      "home_aliases": [
+        "PRIN",
+        "Princeton",
+        "Princeton Tigers"
+      ],
+      "away": "2619",
+      "away_name": "Stony Brook Seawolves",
+      "away_aliases": [
+        "STBK",
+        "Stony Brook",
+        "Stony Brook Seawolves"
+      ],
+      "market_id": "1316896",
+      "market_slug": "cbb-stbr-prnce-2026-11-11",
+      "market_title": "Stony Brook Seawolves vs. Princeton Tigers"
+    },
+    "prediction": {
+      "id": "401924735",
+      "mean": [
+        78.652,
+        64.008
+      ],
+      "score": [
+        79,
+        64
+      ],
+      "home_win": 0.8121733333333333,
+      "simulations": 300000,
+      "pace": 65.63810273487258,
+      "efficiency": [
+        112.33558550923934,
+        98.88004105838407
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 2
+      },
+      "interval80": [
+        [
+          62,
+          49
+        ],
+        [
+          96,
+          79
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "4d2d01cf15b66a8cf80dc9f33cb03db53bea2fc3b64b389e8b1fa9d57964ac31",
+    "sent_at": "2026-11-11T19:11:10.913Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401926206",
+      "date": "2026-11-11T23:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2717",
+      "home_name": "Western Carolina Catamounts",
+      "home_aliases": [
+        "W Carolina",
+        "WCU",
+        "Western Carolina",
+        "Western Carolina Catamounts"
+      ],
+      "away": "3229",
+      "away_name": "Virginia Lynchburg Dragons",
+      "away_aliases": [
+        "VA Lynchburg",
+        "VUL",
+        "Virginia Lynchburg",
+        "Virginia Lynchburg Dragons"
+      ],
+      "market_id": "1316897",
+      "market_slug": "cbb-vulyn-wcar-2026-11-11",
+      "market_title": "VU of Lynchburg Dragons vs. Western Carolina Catamounts"
+    },
+    "prediction": {
+      "id": "401926206",
+      "mean": [
+        112.814,
+        62.394
+      ],
+      "score": [
+        113,
+        62
+      ],
+      "home_win": 0.9994166666666666,
+      "simulations": 300000,
+      "pace": 78.82106425293291,
+      "efficiency": [
+        136.93148869094972,
+        80.32390467051555
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 4
+      },
+      "interval80": [
+        [
+          97,
+          48
+        ],
+        [
+          130,
+          77
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "9bb4f27d7a985cb43e3dfd89ccb86adc0debba699bd82781f0119690ccb7347a",
+    "sent_at": "2026-11-11T19:11:10.913Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925895",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2450",
+      "home_name": "Norfolk State Spartans",
+      "home_aliases": [
+        "NORF",
+        "Norfolk St",
+        "Norfolk State",
+        "Norfolk State Spartans"
+      ],
+      "away": "295",
+      "away_name": "Old Dominion Monarchs",
+      "away_aliases": [
+        "ODU",
+        "Old Dominion",
+        "Old Dominion Monarchs"
+      ],
+      "market_id": "1316904",
+      "market_slug": "cbb-old-norfst-2026-11-11",
+      "market_title": "Old Dominion Monarchs vs. Norfolk State Spartans"
+    },
+    "prediction": {
+      "id": "401925895",
+      "mean": [
+        81.676,
+        69.518
+      ],
+      "score": [
+        82,
+        70
+      ],
+      "home_win": 0.7587933333333333,
+      "simulations": 300000,
+      "pace": 69.15494682434436,
+      "efficiency": [
+        110.99032070414773,
+        101.80389867710674
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 3
+      },
+      "interval80": [
+        [
+          65,
+          55
+        ],
+        [
+          99,
+          84
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "288660eea778a41936c1090cc00520ad2d40a291ec8de63368a7a907495b2dde",
+    "sent_at": "2026-11-11T19:11:11.973Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925717",
+      "date": "2026-11-11T22:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "21",
+      "home_name": "San Diego State Aztecs",
+      "home_aliases": [
+        "SDSU",
+        "San Diego St",
+        "San Diego State",
+        "San Diego State Aztecs"
+      ],
+      "away": "2065",
+      "away_name": "Bethune-Cookman Wildcats",
+      "away_aliases": [
+        "BCU",
+        "Bethune",
+        "Bethune-Cookman",
+        "Bethune-Cookman Wildcats"
+      ],
+      "market_id": "1316900",
+      "market_slug": "cbb-bcook-sdst-2026-11-11",
+      "market_title": "Bethune-Cookman Wildcats vs. San Diego State Aztecs"
+    },
+    "prediction": {
+      "id": "401925717",
+      "mean": [
+        87.049,
+        63.337
+      ],
+      "score": [
+        87,
+        63
+      ],
+      "home_win": 0.9367333333333333,
+      "simulations": 300000,
+      "pace": 71.15079852110642,
+      "efficiency": [
+        115.52184557375989,
+        90.2798504548541
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          71,
+          49
+        ],
+        [
+          104,
+          78
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "29305650cb541ebd7fa75cc6742e191f0ef56825a15be1be2e0874c11549a56a",
+    "sent_at": "2026-11-11T19:11:11.973Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401926202",
+      "date": "2026-11-11T23:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2678",
+      "home_name": "VMI Keydets",
+      "home_aliases": [
+        "VMI",
+        "VMI Keydets"
+      ],
+      "away": "2428",
+      "away_name": "North Carolina Central Eagles",
+      "away_aliases": [
+        "NC Central",
+        "NCCU",
+        "North Carolina Central",
+        "North Carolina Central Eagles"
+      ],
+      "market_id": "1316903",
+      "market_slug": "cbb-ncc-vamil-2026-11-11",
+      "market_title": "North Carolina Central Eagles vs. VMI Keydets"
+    },
+    "prediction": {
+      "id": "401926202",
+      "mean": [
+        82.344,
+        70.817
+      ],
+      "score": [
+        82,
+        71
+      ],
+      "home_win": 0.74528,
+      "simulations": 300000,
+      "pace": 69.66876669856185,
+      "efficiency": [
+        111.24510131630436,
+        102.96242197944704
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 2
+      },
+      "interval80": [
+        [
+          66,
+          56
+        ],
+        [
+          99,
+          86
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "4fd92fa34e4880f2e500f3e8b6717db31fb8aa45322ffe3abbce665ae5e61413",
+    "sent_at": "2026-11-11T19:11:11.973Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925858",
+      "date": "2026-11-11T23:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "218",
+      "home_name": "Temple Owls",
+      "home_aliases": [
+        "TEM",
+        "Temple",
+        "Temple Owls"
+      ],
+      "away": "232",
+      "away_name": "Charleston Cougars",
+      "away_aliases": [
+        "COFC",
+        "Charleston",
+        "Charleston Cougars"
+      ],
+      "market_id": "1316899",
+      "market_slug": "cbb-char-templ-2026-11-11",
+      "market_title": "Charleston Cougars vs. Temple Owls"
+    },
+    "prediction": {
+      "id": "401925858",
+      "mean": [
+        80.904,
+        71.139
+      ],
+      "score": [
+        81,
+        71
+      ],
+      "home_win": 0.705,
+      "simulations": 300000,
+      "pace": 69.15357971529166,
+      "efficiency": [
+        109.9249289242011,
+        104.13483771308445
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          65,
+          56
+        ],
+        [
+          98,
+          86
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "8564f3ae7d0686eb8c54e72f85c8552b3d86995ee297eb3be4a500b835fac2cd",
+    "sent_at": "2026-11-11T19:11:11.973Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925682",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "87",
+      "home_name": "Notre Dame Fighting Irish",
+      "home_aliases": [
+        "ND",
+        "Notre Dame",
+        "Notre Dame Fighting Irish"
+      ],
+      "away": "2569",
+      "away_name": "South Carolina State Bulldogs",
+      "away_aliases": [
+        "SC State",
+        "SCST",
+        "South Carolina State",
+        "South Carolina State Bulldogs"
+      ],
+      "market_id": "1316901",
+      "market_slug": "cbb-scarst-nd-2026-11-11",
+      "market_title": "South Carolina State Bulldogs vs. Notre Dame Fighting Irish"
+    },
+    "prediction": {
+      "id": "401925682",
+      "mean": [
+        85.524,
+        66.457
+      ],
+      "score": [
+        86,
+        66
+      ],
+      "home_win": 0.8843966666666667,
+      "simulations": 300000,
+      "pace": 69.88035249514095,
+      "efficiency": [
+        115.39347959268441,
+        96.35853392109905
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 3
+      },
+      "interval80": [
+        [
+          69,
+          52
+        ],
+        [
+          103,
+          81
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "c897d7942102cb2ae4ec1902e8e1a6718bcc35a4eee87d178e88a8b41e8e83e8",
+    "sent_at": "2026-11-11T19:11:11.973Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401926211",
+      "date": "2026-11-11T23:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2747",
+      "home_name": "Wofford Terriers",
+      "home_aliases": [
+        "WOF",
+        "Wofford",
+        "Wofford Terriers"
+      ],
+      "away": "2679",
+      "away_name": "Voorhees Tigers",
+      "away_aliases": [
+        "VRHS",
+        "Voorhees",
+        "Voorhees Tigers"
+      ],
+      "market_id": "1316902",
+      "market_slug": "cbb-voorhe-woff-2026-11-11",
+      "market_title": "Voorhees College Tigers vs. Wofford Terriers"
+    },
+    "prediction": {
+      "id": "401926211",
+      "mean": [
+        89.11,
+        68.34
+      ],
+      "score": [
+        89,
+        68
+      ],
+      "home_win": 0.90739,
+      "simulations": 300000,
+      "pace": 70.39107698975708,
+      "efficiency": [
+        119.639091088085,
+        98.33205623393087
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 0
+      },
+      "interval80": [
+        [
+          73,
+          54
+        ],
+        [
+          106,
+          83
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "f492cb622ebb9f0d9551ba1414a47ead71dd12c2a5fafc5a761d49053232aa59",
+    "sent_at": "2026-11-11T19:11:11.973Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401926863",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "350",
+      "home_name": "UNC Wilmington Seahawks",
+      "home_aliases": [
+        "UNC Wilmington",
+        "UNC Wilmington Seahawks",
+        "UNCW"
+      ],
+      "away": "2309",
+      "away_name": "Kent State Golden Flashes",
+      "away_aliases": [
+        "KENT",
+        "Kent State",
+        "Kent State Golden Flashes"
+      ],
+      "market_id": "1316907",
+      "market_slug": "cbb-kentst-ncw-2026-11-11",
+      "market_title": "Kent State Golden Flashes vs. UNCW Seahawks"
+    },
+    "prediction": {
+      "id": "401926863",
+      "mean": [
+        86.652,
+        70.607
+      ],
+      "score": [
+        87,
+        71
+      ],
+      "home_win": 0.8392066666666667,
+      "simulations": 300000,
+      "pace": 70.70012739226966,
+      "efficiency": [
+        115.63427435376722,
+        101.10691306219712
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          70,
+          56
+        ],
+        [
+          104,
+          85
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "0a48d12e5647841cbb4d9dda8c525b39ba3bfe149f38b9cfd0395ef5bf659e23",
+    "sent_at": "2026-11-11T19:11:13.447Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401917522",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "249",
+      "home_name": "North Texas Mean Green",
+      "home_aliases": [
+        "North Texas",
+        "North Texas Mean Green",
+        "UNT"
+      ],
+      "away": "2541",
+      "away_name": "Santa Clara Broncos",
+      "away_aliases": [
+        "SCU",
+        "Santa Clara",
+        "Santa Clara Broncos"
+      ],
+      "market_id": "1317144",
+      "market_slug": "cbb-sanclr-ntx-2026-11-11",
+      "market_title": "Santa Clara Broncos vs. North Texas Mean Green"
+    },
+    "prediction": {
+      "id": "401917522",
+      "mean": [
+        81.146,
+        69.259
+      ],
+      "score": [
+        81,
+        69
+      ],
+      "home_win": 0.7525666666666667,
+      "simulations": 300000,
+      "pace": 69.46090983650552,
+      "efficiency": [
+        109.73301828445057,
+        100.94168622362811
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          65,
+          54
+        ],
+        [
+          98,
+          84
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "14382e1ccb52b14659a4ac379294b2325c1cb12b358e8ce0d8703d8c848cc1b2",
+    "sent_at": "2026-11-11T19:11:13.447Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401919030",
+      "date": "2026-11-12T00:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2724",
+      "home_name": "Wichita State Shockers",
+      "home_aliases": [
+        "WICH",
+        "Wichita St",
+        "Wichita State",
+        "Wichita State Shockers"
+      ],
+      "away": "128218",
+      "away_name": "Friends Falcons",
+      "away_aliases": [
+        "FRU",
+        "Friends",
+        "Friends Falcons"
+      ],
+      "market_id": "1317143",
+      "market_slug": "cbb-friends-wichst-2026-11-11",
+      "market_title": "Friends Falcons vs. Wichita State Shockers"
+    },
+    "prediction": {
+      "id": "401919030",
+      "mean": [
+        86.86,
+        65.613
+      ],
+      "score": [
+        87,
+        66
+      ],
+      "home_win": 0.9132366666666667,
+      "simulations": 300000,
+      "pace": 70.17412498895227,
+      "efficiency": [
+        116.78018058017797,
+        94.73789967666879
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 0
+      },
+      "interval80": [
+        [
+          71,
+          51
+        ],
+        [
+          104,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "844aca8cbd227d6cca9ea3355715766f837c9c168ae9a7c78ee935be48d2fec7",
+    "sent_at": "2026-11-11T19:11:13.447Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401930177",
+      "date": "2026-11-12T02:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "26",
+      "home_name": "UCLA Bruins",
+      "home_aliases": [
+        "UCLA",
+        "UCLA Bruins"
+      ],
+      "away": "2029",
+      "away_name": "Arkansas-Pine Bluff Golden Lions",
+      "away_aliases": [
+        "AR-Pine Bluff",
+        "Arkansas-Pine Bluff",
+        "Arkansas-Pine Bluff Golden Lions",
+        "UAPB"
+      ],
+      "market_id": "1316916",
+      "market_slug": "cbb-arpb-ucla-2026-11-11",
+      "market_title": "Arkansas-Pine Bluff Golden Lions vs. UCLA Bruins"
+    },
+    "prediction": {
+      "id": "401930177",
+      "mean": [
+        94.662,
+        62.985
+      ],
+      "score": [
+        95,
+        63
+      ],
+      "home_win": 0.9793266666666667,
+      "simulations": 300000,
+      "pace": 70.55679291572517,
+      "efficiency": [
+        127.24340305150487,
+        90.53265846537768
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          78,
+          48
+        ],
+        [
+          112,
+          78
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "b6b0e2f1ac2bf8c9ef41cfcf2c1622a10594224e61837bdeab46c19bee5b4ad0",
+    "sent_at": "2026-11-11T19:11:13.447Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401926868",
+      "date": "2026-11-12T00:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "282",
+      "home_name": "Indiana State Sycamores",
+      "home_aliases": [
+        "INST",
+        "Indiana St",
+        "Indiana State",
+        "Indiana State Sycamores"
+      ],
+      "away": "270",
+      "away_name": "Milwaukee Panthers",
+      "away_aliases": [
+        "MILW",
+        "Milwaukee",
+        "Milwaukee Panthers"
+      ],
+      "market_id": "1316905",
+      "market_slug": "cbb-wbd-indst-2026-11-11",
+      "market_title": "Milwaukee Panthers vs. Indiana State Sycamores"
+    },
+    "prediction": {
+      "id": "401926868",
+      "mean": [
+        86.188,
+        70.764
+      ],
+      "score": [
+        86,
+        71
+      ],
+      "home_win": 0.82687,
+      "simulations": 300000,
+      "pace": 71.05696788390055,
+      "efficiency": [
+        114.41594050741283,
+        100.84545158692234
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          70,
+          56
+        ],
+        [
+          103,
+          86
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "e7c7df1483f7ed71359d4a17cfaabfd529aa1399e70c627c7337e4409e19808c",
+    "sent_at": "2026-11-11T19:11:13.447Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401921037",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2572",
+      "home_name": "Southern Miss Golden Eagles",
+      "home_aliases": [
+        "Southern Miss",
+        "Southern Miss Golden Eagles",
+        "USM"
+      ],
+      "away": "2296",
+      "away_name": "Jackson State Tigers",
+      "away_aliases": [
+        "JKST",
+        "Jackson St",
+        "Jackson State",
+        "Jackson State Tigers"
+      ],
+      "market_id": "1317147",
+      "market_slug": "cbb-jackst-soumis-2026-11-11",
+      "market_title": "Jackson State Tigers vs. Southern Miss Golden Eagles"
+    },
+    "prediction": {
+      "id": "401921037",
+      "mean": [
+        88.267,
+        63.733
+      ],
+      "score": [
+        88,
+        64
+      ],
+      "home_win": 0.9436833333333333,
+      "simulations": 300000,
+      "pace": 72.11373809237037,
+      "efficiency": [
+        115.6340781912889,
+        89.60965453126336
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          72,
+          49
+        ],
+        [
+          105,
+          79
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "85626d0c001371475aa35c6e0532e8533afdd4ac9dfd9bce6c1e56c3b924e586",
+    "sent_at": "2026-11-11T19:11:14.436Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401911391",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2241",
+      "home_name": "Gardner-Webb Runnin' Bulldogs",
+      "home_aliases": [
+        "GWEB",
+        "Gardner-Webb",
+        "Gardner-Webb Runnin' Bulldogs"
+      ],
+      "away": "2215",
+      "away_name": "Erskine Flying Fleet",
+      "away_aliases": [
+        "ERSK",
+        "Erskine",
+        "Erskine Flying Fleet"
+      ],
+      "market_id": "1317145",
+      "market_slug": "cbb-ersff-gardwb-2026-11-11",
+      "market_title": "Erskine Flying Fleet vs. Gardner-Webb Runnin' Bulldogs"
+    },
+    "prediction": {
+      "id": "401911391",
+      "mean": [
+        88.439,
+        72.276
+      ],
+      "score": [
+        88,
+        72
+      ],
+      "home_win": 0.8399566666666667,
+      "simulations": 300000,
+      "pace": 73.44561736198838,
+      "efficiency": [
+        113.71154474025258,
+        99.58020166681241
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          72,
+          57
+        ],
+        [
+          105,
+          87
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "980ab33f79bc5c22b1888cf4692478b271f4ece45e9f6fade98d33c9161199ca",
+    "sent_at": "2026-11-11T19:11:14.436Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925863",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "202",
+      "home_name": "Tulsa Golden Hurricane",
+      "home_aliases": [
+        "TLSA",
+        "Tulsa",
+        "Tulsa Golden Hurricane"
+      ],
+      "away": "198",
+      "away_name": "Oral Roberts Golden Eagles",
+      "away_aliases": [
+        "ORU",
+        "Oral Roberts",
+        "Oral Roberts Golden Eagles"
+      ],
+      "market_id": "1317149",
+      "market_slug": "cbb-oral-tulsa-2026-11-11",
+      "market_title": "Oral Roberts Golden Eagles vs. Tulsa Golden Hurricane"
+    },
+    "prediction": {
+      "id": "401925863",
+      "mean": [
+        90.028,
+        65.502
+      ],
+      "score": [
+        90,
+        66
+      ],
+      "home_win": 0.9432666666666667,
+      "simulations": 300000,
+      "pace": 69.29470833755096,
+      "efficiency": [
+        122.85051549620349,
+        95.84552067635731
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          74,
+          51
+        ],
+        [
+          107,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "a6dc1e0f1ebcff4ac0947f268a5f63f4581638fa04643318dc1408f8ca641707",
+    "sent_at": "2026-11-11T19:11:14.436Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925702",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "248",
+      "home_name": "Houston Cougars",
+      "home_aliases": [
+        "HOU",
+        "Houston",
+        "Houston Cougars"
+      ],
+      "away": "55",
+      "away_name": "Jacksonville State Gamecocks",
+      "away_aliases": [
+        "JXST",
+        "Jacksonville State",
+        "Jacksonville State Gamecocks",
+        "Jax State"
+      ],
+      "market_id": "1317150",
+      "market_slug": "cbb-jaxst-hou-2026-11-11",
+      "market_title": "Jacksonville State Gamecocks vs. Houston Cougars"
+    },
+    "prediction": {
+      "id": "401925702",
+      "mean": [
+        82.114,
+        58.445
+      ],
+      "score": [
+        82,
+        58
+      ],
+      "home_win": 0.93676,
+      "simulations": 300000,
+      "pace": 64.95761440727652,
+      "efficiency": [
+        118.8595909391114,
+        91.4067454223044
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          66,
+          44
+        ],
+        [
+          99,
+          73
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "ea3180fc140decfaf150d96b3797f5f34b4c81cb379cab957208a24616aa41af",
+    "sent_at": "2026-11-11T19:11:14.436Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401911275",
+      "date": "2026-11-12T00:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "111902",
+      "home_name": "Misericordia Cougars",
+      "home_aliases": [
+        "MISE",
+        "Misericordia",
+        "Misericordia Cougars"
+      ],
+      "away": "2066",
+      "away_name": "Binghamton Bearcats",
+      "away_aliases": [
+        "BING",
+        "Binghamton",
+        "Binghamton Bearcats"
+      ],
+      "market_id": "1317146",
+      "market_slug": "cbb-bing-mise-2026-11-11",
+      "market_title": "Binghamton Bearcats vs. Misericordia Cougars"
+    },
+    "prediction": {
+      "id": "401911275",
+      "mean": [
+        82.634,
+        66.461
+      ],
+      "score": [
+        83,
+        66
+      ],
+      "home_win": 0.84106,
+      "simulations": 300000,
+      "pace": 67.97156371847942,
+      "efficiency": [
+        114.33975051529718,
+        99.11616789329217
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 0,
+        "away": 3
+      },
+      "interval80": [
+        [
+          66,
+          52
+        ],
+        [
+          100,
+          81
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "f52fb4885842e2da962d342c19aa7cdbe33b4618a8a4bfb07e01629a8e9fbb2e",
+    "sent_at": "2026-11-11T19:11:14.436Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401928801",
+      "date": "2026-11-12T00:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "98",
+      "home_name": "Western Kentucky Hilltoppers",
+      "home_aliases": [
+        "WKU",
+        "Western KY",
+        "Western Kentucky",
+        "Western Kentucky Hilltoppers"
+      ],
+      "away": "2098",
+      "away_name": "Campbellsville Tigers",
+      "away_aliases": [
+        "CBVU",
+        "Campbellsville",
+        "Campbellsville Tigers"
+      ],
+      "market_id": "1317154",
+      "market_slug": "cbb-cmpvle-wkent-2026-11-11",
+      "market_title": "Campbellsville Tigers vs. Western Kentucky Hilltoppers"
+    },
+    "prediction": {
+      "id": "401928801",
+      "mean": [
+        90.644,
+        67.046
+      ],
+      "score": [
+        91,
+        67
+      ],
+      "home_win": 0.93569,
+      "simulations": 300000,
+      "pace": 72.40145802557039,
+      "efficiency": [
+        118.45071847116772,
+        93.83167847271578
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 0
+      },
+      "interval80": [
+        [
+          74,
+          52
+        ],
+        [
+          108,
+          82
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "27a5953ccf314d9304a569405414dc9be6868a35a47ee7b622ae7e22367aac00",
+    "sent_at": "2026-11-11T19:11:15.334Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401926067",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2197",
+      "home_name": "Eastern Illinois Panthers",
+      "home_aliases": [
+        "E Illinois",
+        "EIU",
+        "Eastern Illinois",
+        "Eastern Illinois Panthers"
+      ],
+      "away": "2070",
+      "away_name": "Blackburn Beavers",
+      "away_aliases": [
+        "BCKB",
+        "Blackburn",
+        "Blackburn Beavers"
+      ],
+      "market_id": "1317151",
+      "market_slug": "cbb-blkbn-eill-2026-11-11",
+      "market_title": "Blackburn Beavers vs. Eastern Illinois Panthers"
+    },
+    "prediction": {
+      "id": "401926067",
+      "mean": [
+        81.561,
+        66.228
+      ],
+      "score": [
+        82,
+        66
+      ],
+      "home_win": 0.8247,
+      "simulations": 300000,
+      "pace": 69.36620288433299,
+      "efficiency": [
+        110.46271803345364,
+        96.75501249895315
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 0
+      },
+      "interval80": [
+        [
+          65,
+          51
+        ],
+        [
+          99,
+          81
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "291f62a963de53eac676042bd0b933906d20473e425b295a1b7b6f12f32cddbd",
+    "sent_at": "2026-11-11T19:11:15.334Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401928794",
+      "date": "2026-11-12T00:30Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2534",
+      "home_name": "Sam Houston Bearkats",
+      "home_aliases": [
+        "SHSU",
+        "Sam Houston",
+        "Sam Houston Bearkats"
+      ],
+      "away": "2492",
+      "away_name": "Pepperdine Waves",
+      "away_aliases": [
+        "PEPP",
+        "Pepperdine",
+        "Pepperdine Waves"
+      ],
+      "market_id": "1317155",
+      "market_slug": "cbb-pepp-smho-2026-11-11",
+      "market_title": "Pepperdine Waves vs. Sam Houston Bearkats"
+    },
+    "prediction": {
+      "id": "401928794",
+      "mean": [
+        90.799,
+        69.418
+      ],
+      "score": [
+        91,
+        69
+      ],
+      "home_win": 0.91516,
+      "simulations": 300000,
+      "pace": 71.93882325898707,
+      "efficiency": [
+        119.40517494135906,
+        97.72519413621751
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          75,
+          55
+        ],
+        [
+          108,
+          84
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "631a98e7af5b277f6ff7acd11e9ec5aba40deb999ec2906a821c8f8ee6c1e566",
+    "sent_at": "2026-11-11T19:11:15.334Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401928996",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2571",
+      "home_name": "South Dakota State Jackrabbits",
+      "home_aliases": [
+        "S Dakota St",
+        "SDST",
+        "South Dakota State",
+        "South Dakota State Jackrabbits"
+      ],
+      "away": "2674",
+      "away_name": "Valparaiso Beacons",
+      "away_aliases": [
+        "VAL",
+        "Valparaiso",
+        "Valparaiso Beacons"
+      ],
+      "market_id": "1317152",
+      "market_slug": "cbb-valp-sdkst-2026-11-11",
+      "market_title": "Valparaiso Beacons vs. South Dakota State Jackrabbits"
+    },
+    "prediction": {
+      "id": "401928996",
+      "mean": [
+        79.704,
+        64.983
+      ],
+      "score": [
+        80,
+        65
+      ],
+      "home_win": 0.81314,
+      "simulations": 300000,
+      "pace": 66.90113082588019,
+      "efficiency": [
+        111.83717951597184,
+        98.4355872981991
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          63,
+          50
+        ],
+        [
+          97,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "a851691b077986c208fb8845c630ee590ffc494bdeb9df8edb05f405d45556b0",
+    "sent_at": "2026-11-11T19:11:15.334Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401928824",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "8",
+      "home_name": "Arkansas Razorbacks",
+      "home_aliases": [
+        "ARK",
+        "Arkansas",
+        "Arkansas Razorbacks"
+      ],
+      "away": "2523",
+      "away_name": "Robert Morris Colonials",
+      "away_aliases": [
+        "RMU",
+        "Robert Morris",
+        "Robert Morris Colonials"
+      ],
+      "market_id": "1317153",
+      "market_slug": "cbb-robms-ark-2026-11-11",
+      "market_title": "Robert Morris Colonials vs. Arkansas Razorbacks"
+    },
+    "prediction": {
+      "id": "401928824",
+      "mean": [
+        90.888,
+        67.872
+      ],
+      "score": [
+        91,
+        68
+      ],
+      "home_win": 0.9302766666666666,
+      "simulations": 300000,
+      "pace": 70.03411602812304,
+      "efficiency": [
+        122.76232070622889,
+        98.19213491451517
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          75,
+          53
+        ],
+        [
+          108,
+          83
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "c540629774e89ea05334cf77df28a7d89b71ac6a73bac8af6c2b8dc6c0dc2e55",
+    "sent_at": "2026-11-11T19:11:15.334Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401917963",
+      "date": "2026-11-12T01:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2000",
+      "home_name": "Abilene Christian Wildcats",
+      "home_aliases": [
+        "ACU",
+        "Abilene Christian",
+        "Abilene Christian Wildcats",
+        "Abilene Chrstn"
+      ],
+      "away": "2617",
+      "away_name": "Stephen F. Austin Lumberjacks",
+      "away_aliases": [
+        "SF Austin",
+        "SFA",
+        "Stephen F. Austin",
+        "Stephen F. Austin Lumberjacks"
+      ],
+      "market_id": "1317383",
+      "market_slug": "cbb-sfaus-abchr-2026-11-11",
+      "market_title": "Stephen F. Austin Lumberjacks vs. Abilene Christian Wildcats"
+    },
+    "prediction": {
+      "id": "401917963",
+      "mean": [
+        74.612,
+        71.159
+      ],
+      "score": [
+        75,
+        71
+      ],
+      "home_win": 0.53872,
+      "simulations": 300000,
+      "pace": 68.9016437095009,
+      "efficiency": [
+        101.19382377059607,
+        104.59475231466608
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          58,
+          56
+        ],
+        [
+          92,
+          86
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "2a62c4ec2ca3f3a069e214f5dffd4d7e38c9c083fb5398c505f7e889ecfa6b3f",
+    "sent_at": "2026-11-11T19:11:16.409Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401911346",
+      "date": "2026-11-12T02:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2253",
+      "home_name": "Grand Canyon Lopes",
+      "home_aliases": [
+        "GCU",
+        "Grand Canyon",
+        "Grand Canyon Lopes"
+      ],
+      "away": "13",
+      "away_name": "Cal Poly Mustangs",
+      "away_aliases": [
+        "CP",
+        "Cal Poly",
+        "Cal Poly Mustangs"
+      ],
+      "market_id": "1317384",
+      "market_slug": "cbb-calpol-gcan-2026-11-11",
+      "market_title": "Cal Poly Mustangs vs. Grand Canyon Antelopes"
+    },
+    "prediction": {
+      "id": "401911346",
+      "mean": [
+        93.596,
+        72.438
+      ],
+      "score": [
+        94,
+        72
+      ],
+      "home_win": 0.9116133333333334,
+      "simulations": 300000,
+      "pace": 76.23692533061488,
+      "efficiency": [
+        116.39620747210974,
+        96.25020234352145
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          77,
+          58
+        ],
+        [
+          111,
+          87
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "3164a8a42fffab1c0127c8aea5b5c932426cf9685cc6c28daf4b341d7f3c34d9",
+    "sent_at": "2026-11-11T19:11:16.409Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401926062",
+      "date": "2026-11-12T02:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "158",
+      "home_name": "Nebraska Cornhuskers",
+      "home_aliases": [
+        "NEB",
+        "Nebraska",
+        "Nebraska Cornhuskers"
+      ],
+      "away": "2815",
+      "away_name": "Lindenwood Lions",
+      "away_aliases": [
+        "LIN",
+        "Lindenwood",
+        "Lindenwood Lions"
+      ],
+      "market_id": "1317386",
+      "market_slug": "cbb-jac-nebr-2026-11-11",
+      "market_title": "Lindenwood Lions vs. Nebraska Cornhuskers"
+    },
+    "prediction": {
+      "id": "401926062",
+      "mean": [
+        84.979,
+        65.266
+      ],
+      "score": [
+        85,
+        65
+      ],
+      "home_win": 0.89283,
+      "simulations": 300000,
+      "pace": 71.48438054903184,
+      "efficiency": [
+        112.02808297971359,
+        92.58106062118628
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          69,
+          50
+        ],
+        [
+          102,
+          80
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "3301f82d9fe564fc1aa0ddbcd5b2b968cc3008231bb219ff4a918921d7712388",
+    "sent_at": "2026-11-11T19:11:16.409Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925915",
+      "date": "2026-11-12T02:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "36",
+      "home_name": "Colorado State Rams",
+      "home_aliases": [
+        "CSU",
+        "Colorado St",
+        "Colorado State",
+        "Colorado State Rams"
+      ],
+      "away": "2502",
+      "away_name": "Portland State Vikings",
+      "away_aliases": [
+        "PRST",
+        "Portland St",
+        "Portland State",
+        "Portland State Vikings"
+      ],
+      "market_id": "1317387",
+      "market_slug": "cbb-portst-colst-2026-11-11",
+      "market_title": "Portland State Vikings vs. Colorado State Rams"
+    },
+    "prediction": {
+      "id": "401925915",
+      "mean": [
+        81.185,
+        67.32
+      ],
+      "score": [
+        81,
+        67
+      ],
+      "home_win": 0.79679,
+      "simulations": 300000,
+      "pace": 67.24245275330154,
+      "efficiency": [
+        113.45543529134571,
+        101.47512816858236
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          65,
+          52
+        ],
+        [
+          98,
+          82
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "73698e0f71ead7ffb9be5500b7b8b2ff029ec2c646dc094458aa1db40e50328b",
+    "sent_at": "2026-11-11T19:11:16.409Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401911454",
+      "date": "2026-11-12T02:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2540",
+      "home_name": "UC Santa Barbara Gauchos",
+      "home_aliases": [
+        "Santa Barbara",
+        "UC Santa Barbara",
+        "UC Santa Barbara Gauchos",
+        "UCSB"
+      ],
+      "away": "2440",
+      "away_name": "Nevada Wolf Pack",
+      "away_aliases": [
+        "NEV",
+        "Nevada",
+        "Nevada Wolf Pack"
+      ],
+      "market_id": "1317385",
+      "market_slug": "cbb-nevada-uscb-2026-11-11",
+      "market_title": "Nevada Wolf Pack vs. UC Santa Barbara Gauchos"
+    },
+    "prediction": {
+      "id": "401911454",
+      "mean": [
+        80.42,
+        68.284
+      ],
+      "score": [
+        80,
+        68
+      ],
+      "home_win": 0.7586533333333333,
+      "simulations": 300000,
+      "pace": 65.61699045879544,
+      "efficiency": [
+        115.15172214574952,
+        105.44657397698246
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          64,
+          53
+        ],
+        [
+          97,
+          83
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "c3b5c0e340b5e41a73370c4c44dee19981ad6c449ea7f1cffec06c889d221bc8",
+    "sent_at": "2026-11-11T19:11:16.409Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401928814",
+      "date": "2026-11-12T02:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "68",
+      "home_name": "Boise State Broncos",
+      "home_aliases": [
+        "BOIS",
+        "Boise St",
+        "Boise State",
+        "Boise State Broncos"
+      ],
+      "away": "2473",
+      "away_name": "Oakland Golden Grizzlies",
+      "away_aliases": [
+        "OAK",
+        "Oakland",
+        "Oakland Golden Grizzlies"
+      ],
+      "market_id": "1317388",
+      "market_slug": "cbb-oak-boise-2026-11-11",
+      "market_title": "Oakland Golden Grizzlies vs. Boise State Broncos"
+    },
+    "prediction": {
+      "id": "401928814",
+      "mean": [
+        91.128,
+        68.847
+      ],
+      "score": [
+        91,
+        69
+      ],
+      "home_win": 0.9237466666666667,
+      "simulations": 300000,
+      "pace": 69.7081189467509,
+      "efficiency": [
+        123.70568991518209,
+        100.05348891084849
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 4
+      },
+      "interval80": [
+        [
+          75,
+          54
+        ],
+        [
+          108,
+          84
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "3c8dee106e965629585468dbbf00c63e50d155a143504fdfb84faed40073eb0a",
+    "sent_at": "2026-11-11T19:11:17.522Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401925738",
+      "date": "2026-11-12T03:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2483",
+      "home_name": "Oregon Ducks",
+      "home_aliases": [
+        "ORE",
+        "Oregon",
+        "Oregon Ducks"
+      ],
+      "away": "2400",
+      "away_name": "Mississippi Valley State Delta Devils",
+      "away_aliases": [
+        "MVSU",
+        "Miss Valley St",
+        "Mississippi Valley State",
+        "Mississippi Valley State Delta Devils"
+      ],
+      "market_id": "1317623",
+      "market_slug": "cbb-msvlst-ore-2026-11-11",
+      "market_title": "Mississippi Valley State Delta Devils vs. Oregon Ducks"
+    },
+    "prediction": {
+      "id": "401925738",
+      "mean": [
+        88.964,
+        57.925
+      ],
+      "score": [
+        89,
+        58
+      ],
+      "home_win": 0.97748,
+      "simulations": 300000,
+      "pace": 67.69336885406676,
+      "efficiency": [
+        124.26662954746187,
+        86.88238959847743
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          73,
+          43
+        ],
+        [
+          106,
+          73
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "5639a5bf6aa6dfa82e179c743815f826e4393f57e352917468eb1072210c338c",
+    "sent_at": "2026-11-11T19:11:17.522Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401919734",
+      "date": "2026-11-12T03:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2856",
+      "home_name": "California Baptist Lancers",
+      "home_aliases": [
+        "CA Baptist",
+        "CBU",
+        "California Baptist",
+        "California Baptist Lancers"
+      ],
+      "away": "2130",
+      "away_name": "Chicago State Cougars",
+      "away_aliases": [
+        "CHST",
+        "Chicago St",
+        "Chicago State",
+        "Chicago State Cougars"
+      ],
+      "market_id": "1317622",
+      "market_slug": "cbb-chist-cabap-2026-11-11",
+      "market_title": "Chicago State Cougars vs. California Baptist Lancers"
+    },
+    "prediction": {
+      "id": "401919734",
+      "mean": [
+        82.902,
+        59.966
+      ],
+      "score": [
+        83,
+        60
+      ],
+      "home_win": 0.92985,
+      "simulations": 300000,
+      "pace": 67.3930832946777,
+      "efficiency": [
+        115.69228935728827,
+        90.37004877760447
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 3
+      },
+      "interval80": [
+        [
+          67,
+          45
+        ],
+        [
+          100,
+          75
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "8256a82d9abb58d238551e30a93269b9871330aa4a45aed7813972ad61e96a1e",
+    "sent_at": "2026-11-11T19:11:17.522Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401917523",
+      "date": "2026-11-12T03:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "299",
+      "home_name": "Long Beach State Beach",
+      "home_aliases": [
+        "LBSU",
+        "Long Beach St",
+        "Long Beach State",
+        "Long Beach State Beach"
+      ],
+      "away": "279",
+      "away_name": "Pacific Tigers",
+      "away_aliases": [
+        "PAC",
+        "Pacific",
+        "Pacific Tigers"
+      ],
+      "market_id": "1317620",
+      "market_slug": "cbb-pacfc-lbst-2026-11-11",
+      "market_title": "Pacific Tigers vs. Long Beach State Beach"
+    },
+    "prediction": {
+      "id": "401917523",
+      "mean": [
+        75.882,
+        67.703
+      ],
+      "score": [
+        76,
+        68
+      ],
+      "home_win": 0.66707,
+      "simulations": 300000,
+      "pace": 66.50767379314726,
+      "efficiency": [
+        106.71081311319284,
+        103.08983988897221
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          60,
+          53
+        ],
+        [
+          93,
+          82
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "e3775e4cfabd309fd7878a7865780b5b59e049f32542e7a8a17b520c9d73b1cd",
+    "sent_at": "2026-11-11T19:11:17.522Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401917521",
+      "date": "2026-11-12T03:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "2547",
+      "home_name": "Seattle U Redhawks",
+      "home_aliases": [
+        "SEA",
+        "Seattle U",
+        "Seattle U Redhawks"
+      ],
+      "away": "2636",
+      "away_name": "UTSA Roadrunners",
+      "away_aliases": [
+        "UTSA",
+        "UTSA Roadrunners"
+      ],
+      "market_id": "1317621",
+      "market_slug": "cbb-utsa-sea-2026-11-11",
+      "market_title": "UTSA Roadrunners vs. Seattle Redhawks"
+    },
+    "prediction": {
+      "id": "401917521",
+      "mean": [
+        86.943,
+        59.82
+      ],
+      "score": [
+        87,
+        60
+      ],
+      "home_win": 0.9618266666666667,
+      "simulations": 300000,
+      "pace": 70.30626538354599,
+      "efficiency": [
+        116.67898507950211,
+        86.37649843224091
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          71,
+          45
+        ],
+        [
+          104,
+          75
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "e4524d9ee7867380bdefa1a0e461837a90d574e84edc5db6e3e4d063b29ede81",
+    "sent_at": "2026-11-11T19:11:17.522Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401929625",
+      "date": "2026-11-12T03:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "300",
+      "home_name": "UC Irvine Anteaters",
+      "home_aliases": [
+        "UC Irvine",
+        "UC Irvine Anteaters",
+        "UCI"
+      ],
+      "away": "124946",
+      "away_name": "Lincoln (CA) Oaklanders",
+      "away_aliases": [
+        "LNCA",
+        "Lincoln (CA)",
+        "Lincoln (CA) Oaklanders"
+      ],
+      "market_id": "1317624",
+      "market_slug": "cbb-loaks-ucirv-2026-11-11",
+      "market_title": "Lincoln (CA) Oaks vs. UC Irvine Anteaters"
+    },
+    "prediction": {
+      "id": "401929625",
+      "mean": [
+        99.691,
+        61.632
+      ],
+      "score": [
+        100,
+        62
+      ],
+      "home_win": 0.9932966666666667,
+      "simulations": 300000,
+      "pace": 76.11712528403675,
+      "efficiency": [
+        124.57413170300266,
+        82.16620578237666
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 2,
+        "away": 2
+      },
+      "interval80": [
+        [
+          83,
+          47
+        ],
+        [
+          117,
+          76
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "285b847c6914e9403449446bfc244ef36643c7205cb28e2c023a456544027e42",
+    "sent_at": "2026-11-11T19:11:18.386Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  },
+  {
+    "game": {
+      "id": "401918054",
+      "date": "2026-11-12T04:00Z",
+      "season": 2027,
+      "neutral": false,
+      "complete": false,
+      "period": 0,
+      "conference_game": false,
+      "home": "25",
+      "home_name": "California Golden Bears",
+      "home_aliases": [
+        "CAL",
+        "California",
+        "California Golden Bears"
+      ],
+      "away": "30",
+      "away_name": "USC Trojans",
+      "away_aliases": [
+        "USC",
+        "USC Trojans"
+      ],
+      "market_id": "1317830",
+      "market_slug": "cbb-usc-cah-2026-11-11",
+      "market_title": "USC Trojans vs. California Golden Bears"
+    },
+    "prediction": {
+      "id": "401918054",
+      "mean": [
+        87.935,
+        73.666
+      ],
+      "score": [
+        88,
+        74
+      ],
+      "home_win": 0.80535,
+      "simulations": 300000,
+      "pace": 72.40778276917982,
+      "efficiency": [
+        114.67996482759888,
+        102.91822380929908
+      ],
+      "phase": "opening",
+      "current_games": {
+        "home": 3,
+        "away": 2
+      },
+      "interval80": [
+        [
+          72,
+          59
+        ],
+        [
+          105,
+          89
+        ]
+      ]
+    },
+    "forecast_hash": "a9ebead49606b62fae08c87fc292a75a827e4f943e5f017fa4110b285b03274e",
+    "frozen_at": "2026-11-11T19:10:48.373933+00:00",
+    "version": "cbb-1.0.0",
+    "publication_key": "798761b121e9d19a229daee70e620eefd2915a4967854f3afb07636bf7a821f7",
+    "sent_at": "2026-11-11T19:11:18.386Z",
+    "artifact_id": 13885258810,
+    "bets": []
+  }
+]
