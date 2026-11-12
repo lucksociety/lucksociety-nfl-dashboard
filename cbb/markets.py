@@ -15,6 +15,7 @@ TEAM_ALIASES={
  '2908':['USC Upstate Spartans'],'2645':['Thomas Terriers'],'2113':['Centenary Gentlemen'],
  '3229':['VU of Lynchburg Dragons'],'2430':['UNCG Spartans'],'2679':['Voorhees College Tigers'],
  '2824':['Oklahoma Panhandle State Aggies'],'350':['UNCW Seahawks'],'2900':['St. Thomas (MN) Tommies'],
+ '2934':['Bakersfield Roadrunners'],'2115':['Central Connecticut State Blue Devils'],
  '2253':['Grand Canyon Antelopes'],'2547':['Seattle Redhawks'],'124946':['Lincoln (CA) Oaks'],
 }
 

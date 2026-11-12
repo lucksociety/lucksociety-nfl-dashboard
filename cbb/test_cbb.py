@@ -195,3 +195,13 @@ def test_blocked_games_are_price_assessed_without_leaking_recommendations(monkey
     changed=json.loads(json.dumps(r));changed['rows'][0]['prediction']['score']=[99,0]
     from cfb.freeze_integrity import verify
     with pytest.raises(ValueError,match='changed after'):verify(changed)
+
+
+def test_reviewed_nov12_inventory_aliases_keep_exact_teams_and_kickoff():
+    base={'id':'fixture','date':'2026-11-13T00:00Z','home':'2710','home_name':'Western Illinois Leathernecks','home_aliases':['Western Illinois Leathernecks'],'away':'2934','away_name':'Cal State Bakersfield Roadrunners','away_aliases':['Cal State Bakersfield Roadrunners']}
+    event={'title':'Bakersfield Roadrunners vs. Western Illinois Leathernecks','start':base['date']}
+    assert join_fixture(event,[base])['away']=='2934'
+    assert join_fixture({**event,'start':'2026-11-13T01:00Z'},[base])is None
+    central={**base,'home':'2529','home_name':'Sacred Heart Pioneers','home_aliases':['Sacred Heart Pioneers'],'away':'2115','away_name':'Central Connecticut Blue Devils','away_aliases':['Central Connecticut Blue Devils']}
+    assert join_fixture({'title':'Central Connecticut State Blue Devils vs. Sacred Heart Pioneers','start':central['date']},[central])['away']=='2115'
+    assert join_fixture({'title':'Johnson & Wales (RI) Wildcats vs. Boston Terriers','start':base['date']},[base])is None
