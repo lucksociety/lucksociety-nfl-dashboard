@@ -30,6 +30,7 @@ jobs:
           node discord-bot/test/score-consistency.test.js
           node discord-bot/test/live-refresh.test.js
           node discord-bot/test/availability-recovery.test.js
+          node discord-bot/test/official-injuries.test.js
           node discord-bot/test/selection-freshness.test.js
           node discord-worker/worker.test.mjs
           node scripts/test-discord-delivery.mjs

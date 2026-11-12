@@ -94,3 +94,20 @@ expected starters. They expire at the specified kickoff, require matching game
 identity/date and do not establish official active status, clear injury blocks or
 invent individual non-QB point adjustments. The November 12 WAS–NYG screenshot
 agrees with the model's Daniels/McCarthy quarterback inputs.
+
+
+### Official NFL report reconciliation
+
+Live scans fetch the clubs' final injury-report tables, verify season, selected
+week, both team identities, final practice weekday and publication window, and
+record report hashes/URLs with the frozen inputs. Matching official final game
+designations supersede stale ESPN injury/depth flags. A missing game designation
+is not a claim of confirmed game-day active status. Conflicting club reports,
+malformed pages and early/mismatched weeks cannot clear provider flags. Possible
+new game-day scratches are retained as conflicts rather than automatically cleared.
+
+For WAS–NYG on November 12, both clubs clear the stale Burks, McCarthy, Skattebo
+and Hood flags. Patrick and Yankoff remain out, and Harrison remains questionable.
+The individual non-QB impacts are not yet supported by this model, so betting
+blocks remain for them. Forecasts still run and appear. No point penalties or
+participation probabilities were invented to make a bet qualify.

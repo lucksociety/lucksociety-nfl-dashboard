@@ -34,7 +34,7 @@ function ratingFor(name, team, wk) {
   const candidates=(wk.qbs||[]).filter(q=>q.team===team && (norm(q.name)===n || (norm(q.name).startsWith(initial)&&norm(q.name).endsWith(norm(surname)))));
   return candidates.length===1 ? candidates[0] : null;
 }
-async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThrough}={}) {
+async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThrough,officialLoader}={}) {
   const at=now.toISOString(),day=games[0]?.gameday;
   dataThrough=cutoffDate(dataThrough);
   let injuryBody,board,leagueError;
@@ -43,6 +43,9 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
   let injuries={};try{injuries=injuriesOf(injuryBody);}catch(e){leagueError ||= e.message;}
   const teams=[...new Set(games.flatMap(g=>[g.away,g.home]))],depth={};
   await Promise.all(teams.map(async team=>{try{depth[team]=quarterbacks(await fetchJSON(`${BASE}/teams/${providerTeam(team)}/depthcharts`));}catch{depth[team]=null;}}));
+  const primary={};
+  const loader=officialLoader||(fetchJSON===liveJSON?require('./official-injuries').load:null);
+  if(loader)await Promise.all(games.map(async g=>{try{primary[g.game_id]=await loader(g,wk,{now});}catch(e){primary[g.game_id]={error:e.message};}}));
   return games.map(original=>{
     const g=structuredClone(original),reasons=[];if(leagueError)reasons.push('live injury/schedule feed unavailable');
     const event=(board?.events||[]).find(e=>{const c=e.competitions?.[0]?.competitors||[];return c.some(x=>x.homeAway==='away'&&alias(x.team?.abbreviation)===g.away)&&c.some(x=>x.homeAway==='home'&&alias(x.team?.abbreviation)===g.home);});
@@ -58,9 +61,15 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
         g.gameday=day;g.gametime=`${parts.hour}:${parts.minute}`;
       }
     }
+    let currentInjuries=injuries,official=null;
+    const report=primary[g.game_id];
+    if(report&&!report.error){
+      try{const r=require('./official-injuries').reconcile(injuries,report,g);currentInjuries=r.injuries;official={sources:report.sources,finalReportDate:report.finalReportDate,corrections:r.corrections,conflicts:r.conflicts};reasons.push(...r.conflicts);}
+      catch(e){reasons.push('official injury reconciliation failed');}
+    }
     const sides={};
     for(const side of ['away','home']){
-      const team=g[side],rows=injuries[team]||[],qbs=depth[team];
+      const team=g[side],rows=currentInjuries[team]||[],qbs=depth[team];
       sides[side]={injuries:rows,quarterback:null};
       if(!qbs?.length){reasons.push(`${team} live QB depth chart unavailable`);continue;}
       const qb=qbs.find(q=>!unavailable(rows.find(x=>norm(x.name)===norm(q.name))?.status||q.status));
@@ -77,9 +86,9 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
       }
       // No invented point penalties for new non-QB absences the team-level model cannot price.
       const recent=rows.filter(x=>x.position!=='QB' && (unavailable(x.status)||uncertain(x.status)) && dataThrough && String(x.updatedAt||'').slice(0,10)>dataThrough);
-      if(recent.length)reasons.push(`${team} recent non-QB availability changes need review: ${recent.slice(0,3).map(x=>x.name).join(', ')}`);
+      if(recent.length)reasons.push(`${team} current non-QB availability not individually modeled: ${recent.slice(0,3).map(x=>x.name).join(', ')}`);
     }
-    g.availability={checkedAt:at,source:'ESPN live injuries + team depth charts + scoreboard',sides,blockReason:reasons.join('; ')||null};
+    g.availability={checkedAt:at,source:official?'Official final team reports reconciled with ESPN live injuries/depth/schedule':'ESPN live injuries + team depth charts + scoreboard',officialReport:official,officialReportUnavailable:report?.error||null,sides,blockReason:reasons.join('; ')||null};
     return g;
   });
 }
