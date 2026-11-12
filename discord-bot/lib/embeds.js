@@ -38,9 +38,11 @@ function gameEmbed(x, teams, bet) {
     { name: 'QBs', value: `${g.sides.away.qb_name || 'recent mix'} / ${g.sides.home.qb_name || 'recent mix'}`, inline: true },
   ];
   if (g.availability) fields.push({name:'Live availability',value:(`Checked ${g.availability.checkedAt} · depth-chart QBs are expected, not confirmed. ` + (g.availability.blockReason || 'Current injury/depth feeds checked.')).slice(0,1024),inline:false});
+  if(g.expectedLineup)fields.push({name:'Expected starters — user-supplied screenshot',value:['away','home'].map(side=>g[side]+': '+g.expectedLineup.sides[side].map(p=>p.position+' '+p.name).join(' · ')).join('\n').slice(0,1024)+'\nExpected lineup only; inactive status is not shown. Non-QB players are represented by team ratings, not individual point adjustments.',inline:false});
   if (g.final) fields.push({ name: 'Final', value: `${g.away} ${g.final.away} – ${g.final.home} ${g.home}${g.final.ot ? ' (OT)' : ''}`, inline: false });
   let betVal;
   if (bet && bet.best) betVal = '🎯 ' + betLine(bet.best) + (bet.link ? `\n[Jupiter market](${bet.link})` : '');
+  else if(g.availability?.blockReason)betVal=`BETTING BLOCKED — ${g.availability.blockReason}. Prediction above is still available.`;
   else betVal = `No edge — pass${bet && bet.reason ? ` (${bet.reason})` : ''}`;
   fields.push({ name: '💰 Best Bet (Jupiter, after sim)', value: betVal.slice(0, 1024), inline: false });
   return {
@@ -71,7 +73,7 @@ function summaryEmbed(day, bets, teams) {
   all.sort((a, b) => b.b.ev - a.b.ev);
   let desc;
   if (bets.error) desc = `Jupiter market data unavailable right now (${bets.error}). **No edge — pass.**`;
-  else if (!all.length) desc = '**No edge — pass.** No Jupiter line clears the edge rules below.';
+  else if (!all.length) {const blocked=day.games.filter(x=>x.game.availability?.blockReason).length;desc=blocked?`**No bets.** ${blocked} of ${day.games.length} games blocked by availability verification. Forecasts are shown below; a block does not establish that market edge is absent.`:'**No edge — pass.** No Jupiter line clears the edge rules below.';}
   else {
     const t = all[0];
     desc = `🏆 **${t.x.game.away} @ ${t.x.game.home}** · pick **${shortPick(t.x)}**\n` + betLine(t.b) + (t.link ? `\n[Open on Jupiter](${t.link})` : '');

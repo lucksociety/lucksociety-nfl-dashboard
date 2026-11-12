@@ -1,0 +1,27 @@
+const assert=require('node:assert/strict');
+const A=require('../lib/availability'),L=require('../lib/expected-lineups'),E=require('../lib/embeds');
+(async()=>{
+ assert.equal(A.providerTeam('WAS'),'wsh');assert.equal(A.providerTeam('LA'),'lar');
+ assert.equal(A.cutoffDate({season:2026,week:9,last_game_date:'2026-11-09'}),'2026-11-09');
+ const game={game_id:'x',away:'WAS',home:'NYG',gameday:'2099-01-01',gametime:'20:15',sides:{away:{x:{qb:0},qb_name:'Jayden Daniels'},home:{x:{qb:0},qb_name:'J.J. McCarthy'}}};
+ const calls=[];const fetchJSON=async url=>{calls.push(url);
+  if(url.includes('/injuries'))return {injuries:[{injuries:[{athlete:{displayName:'Recent Receiver',position:{abbreviation:'WR'},team:{abbreviation:'WSH'}},status:'Out',date:'2098-12-31'}]}]};
+  if(url.includes('/scoreboard'))return {events:[{status:{type:{state:'pre'}},competitions:[{competitors:[{homeAway:'away',team:{abbreviation:'WSH'}},{homeAway:'home',team:{abbreviation:'NYG'}}]}]}]};
+  assert(!url.includes('/was/'),'never request the model abbreviation from ESPN');
+  const displayName=url.includes('/wsh/')?'Jayden Daniels':'J.J. McCarthy';return {depthchart:[{positions:{qb:{athletes:[{displayName,injuries:displayName.includes('McCarthy')?[{status:'Questionable'}]:[]}]}}}]};
+ };
+ const [g]=await A.refreshGames([game],{},{fetchJSON,dataThrough:{last_game_date:'2098-12-30'}});
+ assert(calls.some(x=>x.includes('/wsh/depthcharts')));assert(!g.availability.blockReason.includes('depth chart unavailable'));
+ assert.match(g.availability.blockReason,/Recent Receiver/);assert.match(g.availability.blockReason,/quarterback availability uncertain/);
+ const slots=['QB','RB','WR','WR','WR','TE','K'].map(position=>({position,name:'Expected Player'}));
+ const doc={schema:1,date:game.gameday,source:'user screenshot',expires_at:'2099-01-02T01:15:00Z',games:{x:{away:'WAS',home:'NYG',sides:{away:slots,home:slots}}}};
+ const now=Date.parse('2099-01-01T12:00:00Z');
+ const [annotated]=L.attach([g],doc,{now});assert.equal(annotated.expectedLineup.healthConfirmed,false);assert.equal(annotated.availability.blockReason,g.availability.blockReason);
+ assert(!L.attach([g],doc,{now:Date.parse(doc.expires_at)})[0].expectedLineup);
+ assert(!L.attach([{...g,gameday:'2099-01-02'}],doc,{now})[0].expectedLineup);
+ assert(!L.attach([{...g,home:'BUF'}],doc,{now})[0].expectedLineup);
+ const summary=E.summaryEmbed({games:[{game:g,primary:{a:21,h:25}}]},{results:{},rules:''},{});
+ assert.match(summary.description,/blocked by availability/);assert(!summary.description.includes('No Jupiter line clears'));
+ assert.equal(game.sides.away.qb_name,'Jayden Daniels');
+ console.log('NFL provider aliases, object data cutoff, retained injury blocks and dated scenario annotations: passed');
+})().catch(e=>{console.error(e);process.exitCode=1});
