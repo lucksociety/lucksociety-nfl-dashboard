@@ -1,18 +1,55 @@
 {
   "policy": "Last successfully delivered pregame card per game and version, including NO BET; recommendations, not actual user wagers",
-  "publications": 0,
-  "settled_forecasts": 0,
+  "publications": 6,
+  "settled_forecasts": 3,
   "settled_bets": 0,
-  "winner_accuracy": null,
-  "winner_brier": null,
+  "winner_accuracy": 1.0,
+  "winner_brier": 0.10172716185185186,
   "bet_win_rate": null,
   "bet_roi": null,
   "calibration": "Monitor only; require independent holdout evidence before changing the frozen protocol",
-  "settled": [],
+  "settled": [
+    {
+      "game_id": "401866461",
+      "version": "cfb-1.0.0",
+      "publication_key": "bad03fb3583314a40f30309b8d87a8e43be121470b5de1b88b5f129541b540e3",
+      "actual": [
+        7,
+        28
+      ],
+      "winner_correct": true,
+      "brier": 0.22689344444444445,
+      "log_loss": 0.6468999293946255
+    },
+    {
+      "game_id": "401866462",
+      "version": "cfb-1.0.0",
+      "publication_key": "7d414f99345945c7ad1d9e54320340e6eea9317b8ee317c11f5212cdf97918df",
+      "actual": [
+        28,
+        7
+      ],
+      "winner_correct": true,
+      "brier": 0.06425211040000002,
+      "log_loss": 0.29233287066720837
+    },
+    {
+      "game_id": "401866463",
+      "version": "cfb-1.0.0",
+      "publication_key": "142eb608fab346950e98cdf3e53aeb6db6f39bf162c92017482068e8f8380e88",
+      "actual": [
+        24,
+        0
+      ],
+      "winner_correct": true,
+      "brier": 0.014035930711111108,
+      "log_loss": 0.12610002613647311
+    }
+  ],
   "bets": [],
-  "generated_at": "2026-11-11T18:28:26.632017+00:00",
+  "generated_at": "2026-11-12T20:26:51.291761+00:00",
   "version": "cfb-1.0.0",
-  "training_results": 7833,
+  "training_results": 7836,
   "chronological_holdouts": {
     "2025": {
       "games": 1661,
@@ -24,13 +61,13 @@
       "margin_interval80_coverage": 0.8061408789885611
     },
     "2026": {
-      "games": 1258,
-      "winner_brier": 0.18800703636724958,
-      "winner_log_loss": 0.5549107851016498,
-      "winner_accuracy": 0.7186009538950715,
-      "margin_mae": 15.451055643879172,
-      "total_mae": 13.264506756756758,
-      "margin_interval80_coverage": 0.7782193958664547
+      "games": 1261,
+      "winner_brier": 0.18780106785289452,
+      "winner_log_loss": 0.5544315056874656,
+      "winner_accuracy": 0.7192704203013481,
+      "margin_mae": 15.44059734337827,
+      "total_mae": 13.281540642347343,
+      "margin_interval80_coverage": 0.7787470261697066
     }
   }
 }
