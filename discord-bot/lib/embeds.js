@@ -63,7 +63,9 @@ function headerEmbed(day, date, note) {
   const lines = [];
   if (note) lines.push(`⚠️ ${note}`);
   lines.push(`**${n} game${n === 1 ? '' : 's'}** · ${(day.games[0] ? day.games[0].res.N : 100000).toLocaleString()} seeded sims each · zero market input in the model.`);
-  lines.push(`Data through Week ${day.dataThrough.week} (${day.dataThrough.last_game_date}) · built ${day.generated} ET`);
+  lines.push(`Historical results through Week ${day.dataThrough.week} (${day.dataThrough.last_game_date}) · built ${day.generated} ET`);
+  if (day.inputRefresh) lines.push(`Inputs downloaded and rebuilt ${day.inputRefresh.completed_at} · ${day.inputRefresh.inputs_changed ? 'exports updated' : 'exported values unchanged'}.`);
+  if (day.simulatedAt) lines.push(`Fresh sims ${day.simulatedAt} · input fingerprint \`${day.inputHash.slice(0,12)}\``);
   lines.push(`Market prices are pulled only **after** the sims finish, to find edges.`);
   return { color: BLACK, title: `🍀 Luck Society NFL · Week ${day.week} · ${fmtDate(date)}`, url: `${SITE}?date=${date}`, description: lines.join('\n'), thumbnail: { url: LOGO } };
 }

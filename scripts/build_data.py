@@ -21,6 +21,7 @@ MODEL = os.path.join(ROOT, 'model')
 OUT = os.path.join(ROOT, 'data')
 sys.path.insert(0, MODEL); os.chdir(MODEL)
 import core, sim  # noqa: E402  (core loads teamgames/qbgames/games from MODEL)
+from season import generated_et
 from data import BET  # noqa: E402
 
 from season import current_season
@@ -97,7 +98,7 @@ def main():
         weeks_meta.append(dict(week=int(week), file=f'weeks/{fn}', dates=sorted(gg.gameday.unique().tolist()),
                                n_games=int(len(gg)), n_final=int(gg.home_score.notna().sum())))
     cal = json.load(open('sim_cal.json'))
-    index = dict(season=SEASON, model='v6', generated_et=dt.datetime.now(dt.timezone(dt.timedelta(hours=-4))).strftime('%Y-%m-%d %H:%M'),
+    index = dict(season=SEASON, model='v6', generated_et=generated_et(),
                  data_through=data_through, weeks=weeks_meta,
                  dates={d: w['week'] for w in weeks_meta for d in w['dates']},
                  sim=dict(base={k: float(v) for k, v in sim.BASE.items()}, gs=sim.GS, cal=cal, N=cfg['sim']['N']),
