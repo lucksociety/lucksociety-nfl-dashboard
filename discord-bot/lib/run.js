@@ -7,7 +7,7 @@ const ALIAS = { LAR: 'LA', WSH: 'WAS', JAC: 'JAX', LVR: 'LV', OAK: 'LV', SD: 'LA
 
 class UserError extends Error {}
 
-async function runNfl({ date, game } = {}) {
+async function runNfl({ date, game, inputRefresh } = {}) {
   if (date && (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(Date.parse(date + 'T12:00:00Z')) || new Date(date + 'T12:00:00Z').toISOString().slice(0, 10) !== date)) throw new UserError('Pick a game day from the date list (or type YYYY-MM-DD, e.g. 2026-11-01).');
   model.beginRun();
   edge.clearCache();
@@ -22,6 +22,8 @@ async function runNfl({ date, game } = {}) {
   // 1) SIM — model inputs only (no market)
   const t0 = Date.now();
   const day = await model.simulateDay(rd.date, { teamFilter: team, N: 100000 });
+  day.inputRefresh = inputRefresh;
+  day.simulatedAt = new Date().toISOString();
   const simMs = Date.now() - t0;
   const frozenAt = new Date().toISOString();
   // 2) MARKET — only after the sim is complete

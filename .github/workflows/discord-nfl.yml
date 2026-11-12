@@ -17,6 +17,7 @@ jobs:
     env:
       DATE: ${{ inputs.date }}
       NFL_DATA_URL: ''
+      NFL_REFRESH_REQUIRED: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,6 +28,21 @@ jobs:
           RELAY_PAYLOAD: ${{ inputs.relay }}
           RELAY_KEY: ${{ secrets.RELAY_KEY }}
         run: node scripts/discord-relay.mjs decrypt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: model/pbp*.parquet
+          key: nfl-command-history-${{ github.run_id }}
+          restore-keys: |
+            nfl-command-history-
+            nfl-history-
+      - name: Install input builder
+        run: pip install -r requirements.txt
+      - name: Download current NFL data and rebuild team and QB inputs
+        run: python scripts/update_data.py --manifest out/refresh.json
       - name: Run model then compare prices
         run: node scripts/discord-nfl-report.cjs
       - name: Preserve pre-game forecasts for prospective evaluation
