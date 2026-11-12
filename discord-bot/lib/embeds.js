@@ -38,6 +38,7 @@ function gameEmbed(x, teams, bet) {
     { name: 'QBs', value: `${g.sides.away.qb_name || 'recent mix'} / ${g.sides.home.qb_name || 'recent mix'}`, inline: true },
   ];
   if (g.availability) fields.push({name:'Live availability',value:(`Checked ${g.availability.checkedAt} · depth-chart QBs are expected, not confirmed. ` + (g.availability.blockReason || 'Current injury/depth feeds checked.')).slice(0,1024),inline:false});
+  if(g.availability?.officialReport)fields.push({name:'Official report reconciliation',value:(`Final report ${g.availability.officialReport.finalReportDate}; ${g.availability.officialReport.corrections.map(p=>p.name+': '+p.from+' → '+p.to).join('; ')||'no provider corrections needed'}. No game designation is not a final active-list confirmation.`).slice(0,1024),inline:false});
   if(g.expectedLineup)fields.push({name:'Expected starters — user-supplied screenshot',value:['away','home'].map(side=>g[side]+': '+g.expectedLineup.sides[side].map(p=>p.position+' '+p.name).join(' · ')).join('\n').slice(0,1024)+'\nExpected lineup only; inactive status is not shown. Non-QB players are represented by team ratings, not individual point adjustments.',inline:false});
   if (g.final) fields.push({ name: 'Final', value: `${g.away} ${g.final.away} – ${g.final.home} ${g.home}${g.final.ot ? ' (OT)' : ''}`, inline: false });
   let betVal;
