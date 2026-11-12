@@ -24,4 +24,4 @@ jobs:
       - run: node cbb/delivery.test.mjs
       - run: node discord-worker/worker.test.mjs
       - run: node cfb/worker.test.mjs
-      - run: python -m pytest -q cfb/test_cfb.py cfb/test_roster_continuity.py
+      - run: python -m pytest -q cfb/test_cfb.py cfb/test_roster_continuity.py cfb/test_github_artifacts.py cfb/test_feed_transport.py

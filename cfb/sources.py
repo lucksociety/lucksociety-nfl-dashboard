@@ -1,4 +1,5 @@
 """Public result and schedule sources. Only allowlisted fields cross the price firewall."""
+import gzip
 import concurrent.futures
 import datetime as dt
 import json
@@ -21,9 +22,11 @@ def get_json(url, payload=None):
     body = None if payload is None else json.dumps(payload).encode()
     for attempt in range(3):
         try:
-            req = urllib.request.Request(url, data=body, headers={'User-Agent': 'LuckSociety-CFB/1.0', 'Content-Type': 'application/json'})
+            req = urllib.request.Request(url, data=body, headers={'User-Agent': 'LuckSociety-CFB/1.0', 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip'})
             with urllib.request.urlopen(req, timeout=30) as r:
-                return json.load(r)
+                raw=r.read()
+                if r.headers.get('Content-Encoding','').lower()=='gzip':raw=gzip.decompress(raw)
+                return json.loads(raw)
         except Exception:
             if attempt == 2:
                 raise

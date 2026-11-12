@@ -111,3 +111,19 @@ and Hood flags. Patrick and Yankoff remain out, and Harrison remains questionabl
 The individual non-QB impacts are not yet supported by this model, so betting
 blocks remain for them. Forecasts still run and appear. No point penalties or
 participation probabilities were invented to make a bet qualify.
+
+
+### College grading archive recovery
+
+College football and basketball daily grading use a shared Actions archive client
+that refreshes expired signed download redirects, avoids cached redirect URLs,
+and never forwards the GitHub token to an archive storage host. Only allowlisted
+HTTPS archive hosts are followed; invalid archives and exhausted retries fail
+explicitly. This repairs the November 12 daily grading failures without altering
+model parameters or fabricating retrospective recommendations.
+
+
+The shared college JSON client negotiates and decodes gzip. This is required by
+Gamma /events for page limits greater than 50; without it, inventory requests
+fail HTTP 406 rather than establishing that the slate is empty. Transport
+regressions cover compressed inventory and ordinary uncompressed ESPN responses.
