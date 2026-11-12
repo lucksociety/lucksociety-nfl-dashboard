@@ -4,6 +4,8 @@ const BASE = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl';
 const norm = s => String(s || '').toLowerCase().replace(/[^a-z]/g, '');
 const unavailable = s => /^(out|inactive|injured reserve|suspension|suspended|reserve|physically unable)/i.test(s || '');
 const uncertain = s => /questionable|doubtful/i.test(s || '');
+const providerTeam = s => ({WAS:'wsh',LA:'lar',JAX:'jax',LV:'lv'}[s] || String(s).toLowerCase());
+const cutoffDate = v => typeof v==='string' ? v : v?.last_game_date;
 const alias = s => ({LAR:'LA',WSH:'WAS',JAC:'JAX',LVR:'LV'}[s] || s);
 async function liveJSON(url) {
   const u = new URL(url); u.searchParams.set('_refresh', String(Date.now()));
@@ -34,12 +36,13 @@ function ratingFor(name, team, wk) {
 }
 async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThrough}={}) {
   const at=now.toISOString(),day=games[0]?.gameday;
+  dataThrough=cutoffDate(dataThrough);
   let injuryBody,board,leagueError;
   try {[injuryBody,board]=await Promise.all([fetchJSON(BASE+'/injuries'),fetchJSON(BASE+'/scoreboard?dates='+day.replaceAll('-',''))]);}
   catch(e){leagueError=e.message;}
   let injuries={};try{injuries=injuriesOf(injuryBody);}catch(e){leagueError ||= e.message;}
   const teams=[...new Set(games.flatMap(g=>[g.away,g.home]))],depth={};
-  await Promise.all(teams.map(async team=>{try{depth[team]=quarterbacks(await fetchJSON(`${BASE}/teams/${team.toLowerCase()}/depthcharts`));}catch{depth[team]=null;}}));
+  await Promise.all(teams.map(async team=>{try{depth[team]=quarterbacks(await fetchJSON(`${BASE}/teams/${providerTeam(team)}/depthcharts`));}catch{depth[team]=null;}}));
   return games.map(original=>{
     const g=structuredClone(original),reasons=[];if(leagueError)reasons.push('live injury/schedule feed unavailable');
     const event=(board?.events||[]).find(e=>{const c=e.competitions?.[0]?.competitors||[];return c.some(x=>x.homeAway==='away'&&alias(x.team?.abbreviation)===g.away)&&c.some(x=>x.homeAway==='home'&&alias(x.team?.abbreviation)===g.home);});
@@ -80,4 +83,4 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
     return g;
   });
 }
-module.exports={liveJSON,injuriesOf,quarterbacks,ratingFor,refreshGames};
+module.exports={liveJSON,injuriesOf,quarterbacks,ratingFor,refreshGames,providerTeam,cutoffDate};

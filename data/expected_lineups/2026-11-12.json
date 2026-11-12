@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "date": "2026-11-12",
+  "source": "User-supplied expected-lineup screenshot",
+  "source_reference": "codex-clipboard-cdbbf803-5806-4298-863c-dfb907d06f6b.png",
+  "expires_at": "2026-11-13T01:15:00Z",
+  "games": {
+    "2026_10_WAS_NYG": {
+      "away": "WAS",
+      "home": "NYG",
+      "sides": {
+        "away": [
+          {
+            "position": "QB",
+            "name": "Jayden Daniels"
+          },
+          {
+            "position": "RB",
+            "name": "R. White"
+          },
+          {
+            "position": "WR",
+            "name": "Stefon Diggs"
+          },
+          {
+            "position": "WR",
+            "name": "A. Williams"
+          },
+          {
+            "position": "WR",
+            "name": "T. Burks"
+          },
+          {
+            "position": "TE",
+            "name": "Chig Okonkwo"
+          },
+          {
+            "position": "K",
+            "name": "Drew Stevens"
+          }
+        ],
+        "home": [
+          {
+            "position": "QB",
+            "name": "J.J. McCarthy"
+          },
+          {
+            "position": "RB",
+            "name": "Cam Skattebo"
+          },
+          {
+            "position": "WR",
+            "name": "Malik Nabers"
+          },
+          {
+            "position": "WR",
+            "name": "M. Fields"
+          },
+          {
+            "position": "WR",
+            "name": "D. Mooney"
+          },
+          {
+            "position": "TE",
+            "name": "I. Likely"
+          },
+          {
+            "position": "K",
+            "name": "D. Zvada"
+          }
+        ]
+      }
+    }
+  }
+}

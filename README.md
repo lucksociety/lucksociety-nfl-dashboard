@@ -79,3 +79,18 @@ For entertainment and research. Not betting advice.
 
 ## Discord bot
 `discord-bot/` has a gateway bot. `/nfl [date]` (pick a game day from the dropdown) runs the same v6 sims (100k per game, seeded) and then posts the Jupiter best bet, using `js/market.js`. See `discord-bot/README.md`.
+
+
+### NFL availability recovery (November 12, 2026)
+
+Provider aliases are separate from model team codes: Washington requests ESPN
+`wsh`, not `was`. Recent injury comparisons use `data_through.last_game_date`
+when the index supplies the structured cutoff object. Known new non-QB absences
+and uncertain quarterback status continue to block betting; predictions still run.
+Cards distinguish these blocks from absence of price edge.
+
+Optional dated `data/expected_lineups/YYYY-MM-DD.json` files annotate user-supplied
+expected starters. They expire at the specified kickoff, require matching game
+identity/date and do not establish official active status, clear injury blocks or
+invent individual non-QB point adjustments. The November 12 WAS–NYG screenshot
+agrees with the model's Daniels/McCarthy quarterback inputs.
