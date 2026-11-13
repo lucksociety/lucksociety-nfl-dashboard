@@ -58,3 +58,17 @@ def test_only_delivered_pregame_records_enter_learning():
     assert len(run.publication_records(frozen,delivery))==1
     assert not run.publication_records(frozen,dict(messages=[],bets=[]))
     delivery['messages'][0]['sent_at']='2026-11-14T22:01Z';assert not run.publication_records(frozen,delivery)
+
+def test_missing_control_stays_at_prior_instead_of_becoming_zero():
+    b=bout();b['stats'][0]['control_missing']=True;b['stats'][0]['ctrl']=0
+    state=features.State();state.update(b)
+    assert state.fighters['a']['ctrl_minutes']==0
+    assert state.profile('a','2021-01-01')[15]==pytest.approx(.2)
+
+def test_result_identity_change_is_not_graded(monkeypatch,tmp_path):
+    monkeypatch.setattr(data,'ROOT',tmp_path);monkeypatch.setattr(run,'OUT',tmp_path/'out');(tmp_path/'data').mkdir()
+    record=dict(key='one',sent_at='2020-01-01T12:00Z',bout=dict(id='1',names=['One','Two'],date='2020-01-01'),prediction=dict(win=[.7,.3]),bets=[])
+    (tmp_path/'data/publications.json').write_text(json.dumps([record]))
+    response=dict(events=[dict(competitions=[dict(id='1',status={'type':{'completed':True,'name':'STATUS_FINAL'}},competitors=[dict(winner=True,athlete={'displayName':'Replacement'}),dict(winner=False,athlete={'displayName':'Two'})])])])
+    monkeypatch.setattr(data,'get',lambda u:json.dumps(response).encode());run.learn()
+    assert json.loads((tmp_path/'data/learning.json').read_text())['settled']==0

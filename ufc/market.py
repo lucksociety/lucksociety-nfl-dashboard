@@ -54,7 +54,8 @@ def scan(frozen):
                 tokens=parsed(market.get('clobTokenIds','[]'));fees=market.get('feeSchedule')
                 if len(tokens)!=2:continue
                 # No assumed fee-free market or unpriced settlement rule.
-                if market.get('feesEnabled') and not isinstance(fees,dict):continue
+                if not isinstance(fees,dict) and market.get('feesEnabled')is not False:continue
+                if isinstance(fees,dict)and not all(k in fees for k in ['rate','exponent']):continue
                 rate=float((fees or {}).get('rate',0));exponent=float((fees or {}).get('exponent',1))
                 for token,side in zip(tokens,sides):
                     try:q=quote(token)

@@ -62,7 +62,9 @@ def history():
         v=stats.setdefault(key,dict(sig=0,att=0,td=0,tda=0,sub=0,kd=0,ctrl=0,rounds=0))
         try:
             sig,att=map(float,r['SIG.STR.'].split(' of '));td,tda=map(float,r['TD'].split(' of '))
-            ctrl=r['CTRL'].split(':');ctrl=float(ctrl[0])*60+float(ctrl[1])if len(ctrl)==2 else 0
+            ctrl=r['CTRL'].split(':')
+            if len(ctrl)==2:ctrl=float(ctrl[0])*60+float(ctrl[1])
+            else:ctrl=0;v['control_missing']=True
             for k,x in [('sig',sig),('att',att),('td',td),('tda',tda),('sub',float(r['SUB.ATT'])),('kd',float(r['KD'])),('ctrl',ctrl)]:v[k]+=x
             v['rounds']+=1
         except (ValueError,KeyError):v['incomplete']=True

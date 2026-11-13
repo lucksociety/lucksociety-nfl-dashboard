@@ -111,13 +111,14 @@ def learn():
             for b in event.get('competitions',[]):
                 if b.get('status',{}).get('type',{}).get('completed'):
                     winners=[p for p in b.get('competitors',[])if p.get('winner')]
-                    if len(winners)==1:results[str(b['id'])]=dict(winner=winners[0]['athlete']['displayName'],status=b['status']['type']['name'])
+                    if len(winners)==1:results[str(b['id'])]=dict(names=[p['athlete']['displayName']for p in b['competitors']],winner=winners[0]['athlete']['displayName'],status=b['status']['type']['name'])
     final={}
     for r in sorted(rows,key=lambda x:x['sent_at']):final[r['bout']['id']]=r
     correct=settled=0;betwins=betlosses=0;ys=[];ps=[]
     for r in final.values():
         result=results.get(r['bout']['id'])
         if not result or result['status']!='STATUS_FINAL':continue
+        if {data.norm(n)for n in result['names']}!={data.norm(n)for n in r['bout']['names']}:continue
         names=r['bout']['names'];winner=result['winner'];pick=names[int(r['prediction']['win'][1]>r['prediction']['win'][0])];settled+=1;correct+=data.norm(pick)==data.norm(winner);ys.append(int(data.norm(names[0])==data.norm(winner)));ps.append(r['prediction']['win'][0])
         for b in r['bets']:
             won=data.norm(names[b['side']])==data.norm(winner);betwins+=won;betlosses+=not won
