@@ -1,0 +1,121 @@
+{
+  "baseline": {
+    "temperature": 0.8,
+    "metrics": {
+      "n": 349,
+      "log_loss": 0.6393102874216521,
+      "brier": 0.2244338669168479,
+      "accuracy": 0.6131805157593123,
+      "auc": 0.6777799893842889,
+      "ece": 0.06505634309406114,
+      "reliability": [
+        {
+          "n": 9,
+          "probability": 0.17058597335713405,
+          "frequency": 0.2222222222222222
+        },
+        {
+          "n": 30,
+          "probability": 0.25899664667541866,
+          "frequency": 0.36666666666666664
+        },
+        {
+          "n": 51,
+          "probability": 0.3518748656006555,
+          "frequency": 0.3333333333333333
+        },
+        {
+          "n": 64,
+          "probability": 0.45356602943894214,
+          "frequency": 0.5625
+        },
+        {
+          "n": 84,
+          "probability": 0.55048559353452,
+          "frequency": 0.5119047619047619
+        },
+        {
+          "n": 53,
+          "probability": 0.6483320562829706,
+          "frequency": 0.6226415094339622
+        },
+        {
+          "n": 49,
+          "probability": 0.7383568089157737,
+          "frequency": 0.8367346938775511
+        },
+        {
+          "n": 9,
+          "probability": 0.8144956182512499,
+          "frequency": 1.0
+        }
+      ]
+    }
+  },
+  "opponent_challenger": {
+    "temperature": 0.8,
+    "metrics": {
+      "n": 349,
+      "log_loss": 0.6339608489686507,
+      "brier": 0.22162785670887333,
+      "accuracy": 0.6418338108882522,
+      "auc": 0.6910164543524416,
+      "ece": 0.028428940225558898,
+      "reliability": [
+        {
+          "n": 5,
+          "probability": 0.17396469101368134,
+          "frequency": 0.4
+        },
+        {
+          "n": 35,
+          "probability": 0.2556393622486058,
+          "frequency": 0.3142857142857143
+        },
+        {
+          "n": 39,
+          "probability": 0.35340107887341293,
+          "frequency": 0.358974358974359
+        },
+        {
+          "n": 63,
+          "probability": 0.4528991619246122,
+          "frequency": 0.4444444444444444
+        },
+        {
+          "n": 72,
+          "probability": 0.5493305352909635,
+          "frequency": 0.5277777777777778
+        },
+        {
+          "n": 60,
+          "probability": 0.6459306259647556,
+          "frequency": 0.6833333333333333
+        },
+        {
+          "n": 60,
+          "probability": 0.7463010632997032,
+          "frequency": 0.7333333333333333
+        },
+        {
+          "n": 15,
+          "probability": 0.839008575582936,
+          "frequency": 0.9333333333333333
+        }
+      ]
+    }
+  },
+  "selection": {
+    "mean_logloss_change": -0.0053494384530015275,
+    "paired_event_se": 0.007600830051233851,
+    "passed": false,
+    "rule": "Require log-loss improvement greater than one paired event standard error and no worse Brier on Jan-Oct 2024 development validation; no recent diagnostic used for selection."
+  },
+  "status": "Research only: failed uncertainty-aware promotion rule; live features unchanged",
+  "features": [
+    "540-day-decayed mean pre-bout opponent Elo, shrunk by 3 bouts",
+    "540-day-decayed defensive striking residual versus opponents pre-bout offense, shrunk by 3 bouts"
+  ],
+  "cohort": "Jan-Oct 2024 development validation; 2023 temperature calibration; history through Nov 7 2026; no odds inputs",
+  "physical_snapshot": "Current UFCStats + missing-only current ESPN metadata; not historical physical snapshots"
+}

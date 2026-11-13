@@ -101,5 +101,5 @@ def schedule(day):
             names=[p.get('athlete',{}).get('displayName')for p in people]
             if not all(names)or len(set(map(norm,names)))!=2:continue
             start=c.get('date',event.get('date'));rounds=c.get('format',{}).get('regulation',{}).get('periods')
-            bouts.append(dict(id=str(c['id']),event_id=event['id'],event=event['name'],date=day,start=start,names=names,a=norm(names[0]),b=norm(names[1]),rounds=rounds if rounds in [3,5]else None,weight=division,status=c.get('status',{}).get('type',{}).get('state'),source=url))
+            bouts.append(dict(id=str(c['id']),event_id=event['id'],event=event['name'],date=day,start=start,names=names,athlete_ids=[str(p['id'])for p in people],a=norm(names[0]),b=norm(names[1]),rounds=rounds if rounds in [3,5]else None,weight=division,status=c.get('status',{}).get('type',{}).get('state'),source=url))
     return bouts

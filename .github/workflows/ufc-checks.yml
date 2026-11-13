@@ -19,5 +19,5 @@ jobs:
         with:
           node-version: '22'
       - run: pip install -r ufc/requirements.txt
-      - run: python -m pytest -q ufc/test_ufc.py
+      - run: python -m pytest -q ufc/test_ufc.py ufc/test_supplement.py
       - run: node discord-worker/worker.test.mjs && node ufc/worker.test.mjs

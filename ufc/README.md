@@ -10,7 +10,7 @@ python -m ufc.run forecast --date 2026-11-14
 python -m ufc.run scan
 python -m ufc.predict 'Ciryl Gane' 'Josh Hokit' --weight Heavyweight --rounds 5 --refresh
 python -m ufc.run evaluate
-python -m pytest -q ufc/test_ufc.py
+python -m pytest -q ufc/test_ufc.py ufc/test_supplement.py
 ```
 
 Dates are America/New_York. An empty slate advances to the next verified UFC card within 14 days. Every command downloads current historical inputs, refits the selected estimator, fetches the current ESPN card/participants, reruns outcome sampling and freezes predictions before requesting prices. Finished/cancelled bouts remain unmodeled. Source failures produce an explicit error rather than silently reusing yesterday's inputs.
@@ -25,7 +25,11 @@ Only modern standard 3/5-round bouts from 2000 onward are used. Draws, no contes
 
 Current physical metadata is treated as approximate static metadata. Historical career win/stat summaries are NEVER read. Missing DOB/reach use disclosed neutral priors and retain explicit indicators, but those source-coverage indicators cannot become predictive strength shortcuts. Missing profiles and fewer than two UFC bouts each withhold betting recommendations while still showing prior-based forecasts.
 
-Pre-UFC records, verified short-notice timestamps, injury clearance, weight-cut status, individual judges, exact finish-round and round-total modeling are **not implemented**. Do not infer those fields from current records or invent them. New participants without enough history are a stated limitation.
+The current card's ESPN athlete IDs are now used to verify fresh male profiles by exact ID/name. Only missing DOB/height/reach are filled; existing measurements are retained, ambiguous identities are rejected and conflicting DOBs withhold recommendations. Profile recoveries are recorded before model fitting and prediction freezing. These are current static-profile approximations, not historical measurement snapshots.
+
+For fighters with at most three verified UFC bouts, the scanner resolves ESPN's paginated event log into **dated final results**, including opponent IDs, event, promotion, method, date and source reference. UFC, Contender Series, Road to UFC and other promotions have separate records. Both athletes must be verified male; an omitted regional weight class remains unknown. Future/cancelled/unresolved fights and known exhibitions are excluded; draws/NCs remain distinct. Partial feeds and rejected entries are reported. Current aggregate career records never become historical features. Normalized evidence is retained in `ufc/data/careers.json` by the daily job; detailed coverage is archived in each command's `supplement.json`. Historical detail requests have a seven-day cache; current profiles/event logs and recent results refresh each run.
+
+**Career results are evidence only in v1.1, not an activated regional-strength predictor.** This first current-card cohort is insufficient to learn promotion transfer or opponent quality without selection bias. The two-UFC-bout betting guard remains. Verified short-notice timestamps, injury clearance, weight-cut status, individual judges, exact finish-round and round-total modeling are not implemented.
 
 ## Features and estimates
 
@@ -49,7 +53,7 @@ No independently verified timestamped closing-odds series was available. An olde
 
 Only moneyline markets with a unique two-fighter/date join are eligible. Method props, distance and round totals are informational/unpriced until they have their own validated model and settlement handling. Forecasts remain visible even when no bets qualify.
 
-A recommendation needs: model probability strictly above 50%; agreement with the predicted winner; 3–10 percentage points of after-fee edge; positive EV after a five-point probability stress and one-cent price stress; known venue fee schedule; verified two-sided book, maximum five-cent spread, minimum ten contracts at ask, maximum 90-cent ask; adequate historical/profile coverage. The five-point deduction is a sensitivity reserve, **not a confidence interval**. High apparent edges above the cap are reviewed rather than automatically trusted. High probability does not itself imply positive EV.
+A recommendation needs: model probability strictly above 50%; agreement with the predicted winner; 3–10 percentage points of after-fee edge; positive EV after a five-point probability stress and one-cent price stress; known venue fee schedule; verified two-sided book, maximum five-cent spread, minimum ten contracts at ask, maximum 90-cent ask; adequate historical/profile coverage. The five-point deduction is a sensitivity reserve, **not a confidence interval**. High apparent edges above the cap are reviewed rather than automatically trusted. High probability does not itself imply positive EV. Each priced candidate now retains every failed rule in `rejections`; the card explains the favored side’s precise failure, such as the large-edge review cap, negative/insufficient after-fee edge, failed stress, depth/spread or missing history. A priced but rejected candidate is never described as a missing quote.
 
 Quotes expire after 120 seconds. Every delivery attempt/retry rechecks quote age, forecast integrity and scheduled start. Complete bout sections stay together, and only actually delivered pregame forecasts and bets enter the record. Fight start estimates may be conservative; once the scheduled start passes, rerun rather than reuse a prematch quote. Standard draw/no-contest settlement remains an unmodeled uncertainty in conditional moneyline estimates.
 
@@ -57,6 +61,14 @@ The command uses the UFC app's signed `/ufc/interactions` endpoint on `nfl-oracl
 
 ## Daily refresh and learning
 
-`ufc-learning.yml` runs daily at 12:45 UTC: imports successful command artifacts, preserves immutable publications permanently, fetches final results, grades the last delivered pregame forecast per bout, updates win/log-loss/Brier summaries and refits current inputs. Original probabilities are never rewritten; repeated scans are not independent bets. Walkovers/NCs do not count as played wins. Published records are saved in `ufc/data/publications.json`; results/metrics in `learning.json`. New data refreshes the model automatically; any new feature or model-family promotion requires further chronological/prospective evidence and code review.
+`ufc-learning.yml` runs daily at 12:45 UTC: imports successful command artifacts, preserves immutable publications permanently, fetches final results, grades the last delivered pregame forecast per bout, updates win/log-loss/Brier summaries, refreshes the next card’s verified profiles/dated career evidence and refits current inputs. Original probabilities are never rewritten; repeated scans are not independent bets. Walkovers/NCs do not count as played wins. Published records are saved in `ufc/data/publications.json`; results/metrics in `learning.json`. New data refreshes the model automatically; any new feature or model-family promotion requires further chronological/prospective evidence and code review.
 
 Source/attribution: [UFCStats](http://ufcstats.com/), [Greco1899 maintained mirror](https://github.com/Greco1899/scrape_ufc_stats), ESPN UFC scoreboard, Polymarket Gamma/CLOB. Downloaded raw third-party CSVs are not committed. Respect source terms and robots rules when adding a direct scraper; a challenge page is not valid fight data.
+
+## November 13 v1.1 review
+
+Verified 22 current-card male profiles; recovered height/reach for Juan Diaz and Bilal Hasan. Resolved 63 dated final results across the five thin-UFC-history fighters; one Hasan entry had an unresolved result and was rejected. Dated totals reconcile Sanches 11–1, Diaz 16–1–1 and Hasan 10–0 without reading current career summaries as predictive features. Source coverage can still be incomplete; these are resolved ESPN entries, not a claim of a full professional audit.
+
+Fresh-profile refit diagnostic: 879 bouts, winner accuracy 63.48%, log loss 0.64759, Brier 0.22729, versus 63.59%, 0.64749, 0.22724 previously. This is a data-coverage correction, not evidence of improved overall accuracy. It remains an inspected historical diagnostic.
+
+An inactive opponent-quality challenger adds decayed pre-bout opponent Elo and defensive striking residuals. On Jan–Oct 2024 development validation, log loss changed 0.63931 → 0.63396 and Brier 0.22443 → 0.22163, but the paired event standard error of the log-loss change was 0.00760, larger than the 0.00535 improvement. It failed the pre-stated one-standard-error/no-worse-Brier promotion rule. Live feature definitions remain unchanged. The reproducible research script is `ufc/research_opponents.py`; results are `ufc/data/opponent-research.json`. Promotion transfer from regional histories needs a broader historical cohort and prospective checks.
