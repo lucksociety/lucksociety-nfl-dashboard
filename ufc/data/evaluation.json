@@ -145,11 +145,11 @@
   "selected": "logistic",
   "test": {
     "n": 879,
-    "log_loss": 0.6474917187669674,
-    "brier": 0.22723913521885813,
-    "accuracy": 0.6359499431171786,
-    "auc": 0.6744259102189551,
-    "ece": 0.04237008440550678,
+    "log_loss": 0.647594475937881,
+    "brier": 0.22729043896483933,
+    "accuracy": 0.6348122866894198,
+    "auc": 0.6742007769714867,
+    "ece": 0.04235602910376751,
     "reliability": [
       {
         "n": 1,
@@ -172,14 +172,14 @@
         "frequency": 0.39552238805970147
       },
       {
-        "n": 162,
-        "probability": 0.4516690494168618,
-        "frequency": 0.48148148148148145
+        "n": 161,
+        "probability": 0.45140811872494047,
+        "frequency": 0.484472049689441
       },
       {
-        "n": 185,
-        "probability": 0.5502427333815968,
-        "frequency": 0.5837837837837838
+        "n": 186,
+        "probability": 0.5500050493367765,
+        "frequency": 0.5806451612903226
       },
       {
         "n": 154,
@@ -233,15 +233,15 @@
       }
     ]
   },
-  "joint_method_log_loss": 1.6481588950165638,
+  "joint_method_log_loss": 1.6483023270810808,
   "segments": {
     "Bantamweight": {
       "n": 116,
-      "log_loss": 0.643339899035337,
-      "brier": 0.2265076205563486,
-      "accuracy": 0.6206896551724138,
-      "auc": 0.6773809523809524,
-      "ece": 0.08452918781866109,
+      "log_loss": 0.643847430836461,
+      "brier": 0.226761245728526,
+      "accuracy": 0.6120689655172413,
+      "auc": 0.6770833333333334,
+      "ece": 0.08477874366822555,
       "reliability": [
         {
           "n": 3,
@@ -259,14 +259,14 @@
           "frequency": 0.45
         },
         {
-          "n": 18,
-          "probability": 0.44383227946567555,
-          "frequency": 0.3888888888888889
+          "n": 17,
+          "probability": 0.44090012585682153,
+          "frequency": 0.4117647058823529
         },
         {
-          "n": 23,
-          "probability": 0.557034114822672,
-          "frequency": 0.43478260869565216
+          "n": 24,
+          "probability": 0.5556005004286303,
+          "frequency": 0.4166666666666667
         },
         {
           "n": 18,
@@ -337,11 +337,11 @@
     },
     "Flyweight": {
       "n": 70,
-      "log_loss": 0.638679460333442,
-      "brier": 0.2236455277190746,
+      "log_loss": 0.6391287441091937,
+      "brier": 0.2238694630440013,
       "accuracy": 0.5857142857142857,
       "auc": 0.67,
-      "ece": 0.10597968077892975,
+      "ece": 0.10574262551720624,
       "reliability": [
         {
           "n": 5,
@@ -360,7 +360,7 @@
         },
         {
           "n": 14,
-          "probability": 0.5503705349372062,
+          "probability": 0.5491852586285887,
           "frequency": 0.42857142857142855
         },
         {
@@ -902,11 +902,11 @@
     },
     "debutant": {
       "n": 191,
-      "log_loss": 0.6367533058085472,
-      "brier": 0.2224351528778325,
-      "accuracy": 0.6387434554973822,
-      "auc": 0.6905660377358491,
-      "ece": 0.04414715748514272,
+      "log_loss": 0.6372262039930131,
+      "brier": 0.2226712575517458,
+      "accuracy": 0.6335078534031413,
+      "auc": 0.6894561598224196,
+      "ece": 0.04823352086376886,
       "reliability": [
         {
           "n": 2,
@@ -924,14 +924,14 @@
           "frequency": 0.34615384615384615
         },
         {
-          "n": 42,
-          "probability": 0.45499067841123375,
-          "frequency": 0.4523809523809524
+          "n": 41,
+          "probability": 0.4540470634745273,
+          "frequency": 0.4634146341463415
         },
         {
-          "n": 47,
-          "probability": 0.5479046523205275,
-          "frequency": 0.5319148936170213
+          "n": 48,
+          "probability": 0.5470323366689547,
+          "frequency": 0.5208333333333334
         },
         {
           "n": 44,
@@ -992,7 +992,7 @@
   },
   "limitations": [
     "Men only; standard modern 3/5-round UFC bouts; draws/NC/DQ excluded",
-    "No verified pre-UFC histories, injury/weight-cut clearance or short-notice timestamps",
+    "Dated pre-UFC evidence is collected separately; it is not yet a validated scoring feature. No injury/weight-cut clearance or short-notice timestamps",
     "Debutants use explicit shrunk priors; no bets with fewer than two UFC bouts each",
     "Method model is conditional multinomial regression; finish-round and totals models are not supplied",
     "Historical physical metadata comes from current source snapshots; career aggregate stats are never used",

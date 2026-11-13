@@ -1,5 +1,5 @@
 {
-  "version": "ufc-1.0.0",
+  "version": "ufc-1.1.0",
   "selected": "logistic",
   "temperature": 0.8,
   "features": [
