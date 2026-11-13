@@ -15,3 +15,8 @@ cbb/data/*.parquet
 cbb/data/history.json
 cbb/data/residuals.json
 cbb/data/quality.json
+
+# UFC immutable run artifacts stay in Actions; mutable source downloads are refreshed per run.
+ufc/data/raw/
+ufc/data/source.json
+ufc/data/*.part

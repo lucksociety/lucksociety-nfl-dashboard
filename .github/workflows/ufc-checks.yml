@@ -1,0 +1,23 @@
+name: UFC checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: ufc/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r ufc/requirements.txt
+      - run: python -m pytest -q ufc/test_ufc.py
+      - run: node discord-worker/worker.test.mjs && node ufc/worker.test.mjs
