@@ -1,1 +1,11 @@
-{"settled":0,"winner_correct":0,"bet_wins":0,"bet_losses":0}
+{
+  "settled": 0,
+  "winner_correct": 0,
+  "bet_wins": 0,
+  "bet_losses": 0,
+  "results": {},
+  "probability_metrics": {
+    "n": 0
+  },
+  "updated_at": "2026-11-13T15:27:18.333063+00:00"
+}
