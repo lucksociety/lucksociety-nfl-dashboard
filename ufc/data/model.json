@@ -1,0 +1,40 @@
+{
+  "version": "ufc-1.0.0",
+  "selected": "logistic",
+  "temperature": 0.8,
+  "features": [
+    "elo",
+    "experience",
+    "win_rate",
+    "age",
+    "age_squared",
+    "reach",
+    "height",
+    "layoff",
+    "sig_for",
+    "sig_against",
+    "sig_accuracy",
+    "sig_defense",
+    "td_rate",
+    "td_defense",
+    "sub_rate",
+    "control_share",
+    "kd_rate",
+    "ko_win",
+    "sub_win",
+    "ko_loss",
+    "opponent_adjusted_striking",
+    "missing_age",
+    "missing_reach",
+    "missing_stats",
+    "five_round_rating",
+    "five_round_activity"
+  ],
+  "train_bouts": 7461,
+  "data_through": "2026-11-07",
+  "methods": [
+    "KO",
+    "SUB",
+    "DEC"
+  ]
+}
