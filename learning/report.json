@@ -7,20 +7,20 @@
     }
   },
   "forecast_policy": "Last pre-game freeze per event per model version. No retrospectively generated forecast is graded.",
-  "forecasts": 145,
-  "generated_at": "2026-11-12T22:27:08.738006+00:00",
-  "last_successful_refresh": "2026-11-12T21:51:29+00:00",
+  "forecasts": 157,
+  "generated_at": "2026-11-13T22:11:01.265675+00:00",
+  "last_successful_refresh": "2026-11-13T21:26:22+00:00",
   "project": "lucksociety-nfl-dashboard",
   "settled_by_version": {
     "nfl-v6": {
-      "brier_multiclass_sum": 0.31718828713793107,
-      "log_loss": 0.5036487908486686,
-      "margin_mae": 9.799288620689655,
-      "n": 29,
-      "score_mae_per_team": 7.745332586206897,
-      "score_n": 29,
-      "total_mae": 11.471923793103448,
-      "winner_accuracy": 0.8275862068965517
+      "brier_multiclass_sum": 0.33208451348,
+      "log_loss": 0.5191387470040354,
+      "margin_mae": 9.696577333333334,
+      "n": 30,
+      "score_mae_per_team": 7.599120666666667,
+      "score_n": 30,
+      "total_mae": 11.103639333333332,
+      "winner_accuracy": 0.8
     }
   },
   "warnings": []

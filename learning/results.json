@@ -1086,5 +1086,13 @@
    24
   ],
   "source": "data/weeks/2026_w09.json"
+ },
+ "2026_10_WAS_NYG": {
+  "label": "A",
+  "scores": [
+   21,
+   24
+  ],
+  "source": "data/weeks/2026_w10.json"
  }
 }
