@@ -5,7 +5,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 import numpy as np
 from . import data,features,model
-OUT=Path('out/ufc');ET=ZoneInfo('America/New_York');VERSION='ufc-1.0.0'
+OUT=Path('out/ufc');ET=ZoneInfo('America/New_York');VERSION='ufc-1.1.0'
 def canonical(x):return json.dumps(x,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
 def seal(x):return hashlib.sha256(canonical({k:v for k,v in x.items()if k!='sha256'})).hexdigest()
 def load(name):return json.loads((OUT/name).read_text())
@@ -13,20 +13,35 @@ def verify(f):
     if seal(f)!=f['sha256']:raise ValueError('Forecast changed after freeze')
     return f
 
-def build_model(refresh=True):
+def build_model(refresh=True,slate=None):
     if refresh:data.refresh()
-    physical=data.physical();bouts=[b for b in data.history()if b['date']<datetime.now(ET).date().isoformat()];X,bouts,state=features.build(bouts,physical)
+    physical=data.physical();bouts=[b for b in data.history()if b['date']<datetime.now(ET).date().isoformat()]
+    enrichment=None
+    if slate is not None:
+        from .supplement import refresh as enrich
+        physical,enrichment=enrich(slate,physical,bouts)
+    X,bouts,state=features.build(bouts,physical)
+    state.enrichment=enrichment
     m,r=model.train(X,bouts,OUT,datetime.now(ET).date().isoformat());return m,r,state,bouts
 
-def forecast(day,refresh=True):
-    m,report,state,history=build_model(refresh);now=datetime.now(timezone.utc);slate=[];selected_day=None
+def next_slate(day):
     for offset in range(15):
         date=(datetime.fromisoformat(day)+timedelta(days=offset)).date().isoformat();card=data.schedule(date)
-        if card:slate=card;selected_day=date;break
+        if card:return card,date
+    return [],None
+
+def forecast(day,refresh=True):
+    now=datetime.now(timezone.utc);slate,selected_day=next_slate(day)
     if not slate:raise ValueError('No verified men’s UFC card in the next 14 days')
+    m,report,state,history=build_model(refresh,slate=slate)
     rows=[]
     for b in slate:
-        quality=[];counts=[state.fighters.get(k,features.blank())['n']for k in [b['a'],b['b']]]
+        quality=[]
+        enrichment=state.enrichment or{}
+        career=[enrichment.get('coverage',{}).get(k)for k in [b['a'],b['b']]]
+        conflicts=[x['reason']for x in enrichment.get('profile_conflicts',[])if data.norm(x['name'])in [b['a'],b['b']]]
+        quality.extend(conflicts)
+        counts=[state.fighters.get(k,features.blank())['n']for k in [b['a'],b['b']]]
         if b['status']!='pre'or not b['rounds']:rows.append(dict(bout=b,state='unmodeled',reason='Not scheduled or round format unverified'));continue
         if any(state.physical.get(k,{}).get('ambiguous')for k in [b['a'],b['b']]):rows.append(dict(bout=b,state='unmodeled',reason='Fighter name maps to multiple source identities'));continue
         if min(counts)<2:quality.append('Fewer than two verified UFC bouts for one or both fighters; no betting recommendation')
@@ -40,8 +55,8 @@ def forecast(day,refresh=True):
         if m.kind=='logistic':
             coeff=m.base[-1].coef_[0];scaled=m.base[0].transform(model.strength_inputs(x))[0];effects=coeff*scaled/m.temperature
             top=[dict(feature=features.NAMES[i],log_odds_contribution=float(effects[i]))for i in np.argsort(abs(effects))[-3:][::-1]]
-        rows.append(dict(bout=b,state='forecast',prediction=pred,ufc_bouts=counts,quality=quality,features=x.tolist(),top_factors=top,simulations=100000,seed=seed,simulated_method_counts=sample.tolist()))
-    f=dict(version=VERSION,requested=day,date=selected_day,frozen_at=datetime.now(timezone.utc).isoformat(),market_inputs='NONE',source_download=data.ROOT.joinpath('data/source.json').read_text()if data.ROOT.joinpath('data/source.json').exists()else'local test inputs',results_through=state.cutoff,training_bouts=len(history),selected_model=m.kind,evaluation=report,rows=rows)
+        rows.append(dict(bout=b,state='forecast',prediction=pred,ufc_bouts=counts,career_evidence=career,profile_recoveries=[r for r in enrichment.get('recovered',[])if data.norm(r['name'])in [b['a'],b['b']]],quality=quality,features=x.tolist(),top_factors=top,simulations=100000,seed=seed,simulated_method_counts=sample.tolist()))
+    f=dict(version=VERSION,requested=day,date=selected_day,frozen_at=datetime.now(timezone.utc).isoformat(),market_inputs='NONE',source_download=data.ROOT.joinpath('data/source.json').read_text()if data.ROOT.joinpath('data/source.json').exists()else'local test inputs',results_through=state.cutoff,training_bouts=len(history),supplement=state.enrichment,selected_model=m.kind,evaluation=report,rows=rows)
     f['sha256']=seal(f);(OUT/'frozen.json').write_text(json.dumps(f,indent=2)+'\n')
     with (OUT/'predictions.csv').open('w')as file:
         writer=csv.writer(file);writer.writerow(['bout_id','fighter_a','fighter_b','p_a','p_b','A_KO','A_SUB','A_DEC','B_KO','B_SUB','B_DEC','distance','state'])
@@ -60,6 +75,11 @@ def render():
         p=row['prediction'];lines.append('Win: '+ ' · '.join(f"{n} **{q:.1%}**"for n,q in zip(b['names'],p['win'])))
         for side,n in zip(['A','B'],b['names']):lines.append(n+': '+ ' · '.join(f"{k} {p['methods'][side+'_'+k]:.1%}"for k in model.METHODS))
         lines.append(f"Goes distance: {p['distance']:.1%} · UFC history: {row['ufc_bouts'][0]}/{row['ufc_bouts'][1]} bouts")
+        for side,c in enumerate(row.get('career_evidence',[])):
+            if c:
+                detail=' · '.join(k+': '+str(v['wins'])+'–'+str(v['losses'])+'–'+str(v['draws'])+(f" ({v['no_contests']} NC)"if v['no_contests']else'')for k,v in c['records'].items()if v['bouts'])
+                lines.append(f"Career evidence {b['names'][side]}: {detail} ({'verified source entries'if c['complete']else'partial feed'}; separate from UFC model experience).")
+        if row.get('profile_recoveries'):lines.append('Missing physical fields filled from ID-verified ESPN profiles.')
         q=quotes.get(b['id'],{});best=q.get('best');reason=q.get('reason')or'No qualifying executable moneyline'
         if best:
             expired=(now-datetime.fromisoformat(best['checked_at'])).total_seconds()>120

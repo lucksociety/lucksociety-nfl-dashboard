@@ -31,7 +31,7 @@ def test_joint_method_consistency():
     assert sum(p['methods'][k]for k in ['A_KO','A_SUB','A_DEC'])==pytest.approx(p['win'][0]);reverse=m.predict(-np.ones(26),5);assert reverse['win'][0]==pytest.approx(p['win'][1])
 
 def test_mens_schedule_excludes_short_w_prefix_and_strawweight(monkeypatch):
-    def c(division):return dict(id=division,type={'abbreviation':division},competitors=[{'athlete':{'displayName':'One'}},{'athlete':{'displayName':'Two'}}],date='2026-11-14T22:00Z',format={'regulation':{'periods':3}},status={'type':{'state':'pre'}})
+    def c(division):return dict(id=division,type={'abbreviation':division},competitors=[{'id':'1','athlete':{'displayName':'One'}},{'id':'2','athlete':{'displayName':'Two'}}],date='2026-11-14T22:00Z',format={'regulation':{'periods':3}},status={'type':{'state':'pre'}})
     body={'events':[dict(id='event',name='UFC',date='2026-11-14T22:00Z',competitions=[c(x)for x in ['W Bantamweight',"Women's Flyweight",'Strawweight','Lightweight','']])]}
     monkeypatch.setattr(data,'get',lambda u:json.dumps(body).encode());rows=data.schedule('2026-11-14');assert [r['weight']for r in rows]==['Lightweight']
 

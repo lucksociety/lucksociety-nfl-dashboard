@@ -1,7 +1,8 @@
 """Daily permanent import of delivered records; result updates never rewrite forecasts."""
 import io,json,os,zipfile
+from datetime import datetime
 from .data import ROOT
-from .run import learn,build_model,publication_records
+from .run import learn,build_model,publication_records,next_slate,ET
 from cfb.github_artifacts import api
 
 def main():
@@ -28,6 +29,7 @@ def main():
     else:raise ValueError('Artifact pagination incomplete')
     pub.write_text(json.dumps(rows,indent=2)+'\n');learn()
     # Rebuild on current results, but never optimize based on yesterday's wins/losses.
-    build_model(True)
+    slate,_=next_slate(datetime.now(ET).date().isoformat())
+    build_model(True,slate=slate or None)
     state['imported']=sorted(imported);state_file.write_text(json.dumps(state)+'\n')
 if __name__=='__main__':main()

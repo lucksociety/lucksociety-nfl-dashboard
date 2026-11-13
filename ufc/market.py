@@ -33,6 +33,20 @@ def quote(token):
     if not asks or not bids:return None
     ask=asks[0][0];return dict(ask=ask,bid=bids[0][0],depth=sum(n for p,n in asks if p==ask),min_order=float(book.get('min_order_size',5)),checked_at=datetime.now(timezone.utc).isoformat())
 
+def rejection_reasons(p,opponent,q,cost,stress_cost,quality):
+    """One source of truth for eligibility and quote-level audit explanations."""
+    fails=list(quality)
+    if p<=.5:fails.append('Model probability is not above 50%')
+    if p<=opponent:fails.append('Side disagrees with predicted winner')
+    edge=p-cost
+    if edge<.03:fails.append(f'After-fee edge {edge:+.1%} is below 3 percentage points')
+    if edge>.10:fails.append(f'Large after-fee edge {edge:+.1%} exceeds 10-point review cap')
+    if max(0,p-.05)<=stress_cost:fails.append('Fails 5-point probability and 1-cent price stress')
+    if q['depth']<max(10,q['min_order']):fails.append('Insufficient executable depth at ask')
+    if q['ask']-q['bid']>.05:fails.append('Bid/ask spread exceeds 5 cents')
+    if q['ask']>.9:fails.append('Ask exceeds 90-cent limit')
+    return fails
+
 def scan(frozen):
     now=datetime.now(timezone.utc);rows=[]
     try:inventory=events();error=None
@@ -64,8 +78,12 @@ def scan(frozen):
                     p=row['prediction']['win'][side];fee=rate*(q['ask']*(1-q['ask']))**exponent;cost=q['ask']+fee
                     lower=max(0,p-.05);stress_ask=min(.999,q['ask']+.01);stress_cost=stress_ask+rate*(stress_ask*(1-stress_ask))**exponent
                     # Only the predicted winner can be recommended; props are informational until validated.
-                    qualifies=(not reason and p>.5 and p>row['prediction']['win'][1-side]and  .03<=p-cost<=.10 and lower>stress_cost and q['depth']>=max(10,q['min_order'])and q['ask']-q['bid']<=.05 and q['ask']<=.9)
-                    candidates.append(dict(label=bout['names'][side]+' to win',side=side,probability=p,model_stress=lower,fee=fee,cost=cost,ev=p/cost-1,qualifies=qualifies,slug=event['slug'],market_id=market['id'],**q))
+                    fails=rejection_reasons(p,row['prediction']['win'][1-side],q,cost,stress_cost,reason)
+                    qualifies=not fails
+                    candidates.append(dict(label=bout['names'][side]+' to win',side=side,probability=p,model_stress=lower,fee=fee,cost=cost,ev=p/cost-1,qualifies=qualifies,rejections=fails,slug=event['slug'],market_id=market['id'],**q))
         eligible=[c for c in candidates if c['qualifies']];best=max(eligible,key=lambda c:c['ev'])if eligible else None
-        rows.append(dict(id=bout['id'],best=best,candidates=candidates,reason='; '.join(reason)or error or('No verified current two-sided quote with robust positive EV'if not best else None)))
+        favored=[c for c in candidates if c['probability']>.5]
+        closest=max(favored,key=lambda c:c['ev'])if favored else None
+        explanation=None if best else ('; '.join(closest['rejections'])if closest else '; '.join(reason)or error or 'No verified current two-sided moneyline with known fees')
+        rows.append(dict(id=bout['id'],best=best,candidates=candidates,reason=explanation))
     return dict(forecast_sha256=frozen['sha256'],fetched_at=datetime.now(timezone.utc).isoformat(),error=error,rows=rows,policy='ufc-moneyline-stress-v1')

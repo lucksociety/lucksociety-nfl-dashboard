@@ -24,6 +24,11 @@ jobs:
           cache: pip
           cache-dependency-path: ufc/requirements.txt
       - run: pip install -r ufc/requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: ufc/data/cache/espn
+          key: ufc-career-v1-${{ github.run_id }}
+          restore-keys: ufc-career-v1-
       - name: Grade delivered cards, refresh history and refit
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -35,7 +40,7 @@ jobs:
           cp out/ufc/model.json ufc/data/model.json
           git config user.name model-learning-bot
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add ufc/data/publications.json ufc/data/learning.json ufc/data/learning-state.json ufc/data/evaluation.json ufc/data/model.json
+          git add ufc/data/publications.json ufc/data/learning.json ufc/data/learning-state.json ufc/data/evaluation.json ufc/data/model.json ufc/data/careers.json
           if ! git diff --cached --quiet; then
             git commit -m 'ufc: daily prospective grading and input refresh'
             git pull --rebase origin main
@@ -48,4 +53,6 @@ jobs:
           path: |
             out/ufc/
             ufc/data/learning.json
+            ufc/data/supplement.json
+            ufc/data/careers.json
           retention-days: 90

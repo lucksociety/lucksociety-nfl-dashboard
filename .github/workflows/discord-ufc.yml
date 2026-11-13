@@ -33,6 +33,11 @@ jobs:
           cache: pip
           cache-dependency-path: ufc/requirements.txt
       - run: pip install -r ufc/requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: ufc/data/cache/espn
+          key: ufc-career-v1-${{ github.run_id }}
+          restore-keys: ufc-career-v1-
       - name: Download current history, refit and freeze forecasts
         run: python -m ufc.run forecast --date "$DATE"
       - name: Scan current Polymarket prices after the freeze
@@ -54,5 +59,6 @@ jobs:
           path: |
             out/ufc/
             ufc/data/source.json
+            ufc/data/supplement.json
             ufc/data/publications.json
           retention-days: 90

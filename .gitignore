@@ -20,3 +20,6 @@ cbb/data/quality.json
 ufc/data/raw/
 ufc/data/source.json
 ufc/data/*.part
+
+ufc/data/cache/
+ufc/data/supplement.json
