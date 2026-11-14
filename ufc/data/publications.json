@@ -427,5 +427,478 @@
       "distance": 0.3657404958794348
     },
     "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401932013",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:43.639Z",
+    "bout": {
+      "id": "401932013",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-14T22:00Z",
+      "names": [
+        "Evan Elder",
+        "Samuel Sanches"
+      ],
+      "athlete_ids": [
+        "5037883",
+        "5293557"
+      ],
+      "a": "evanelder",
+      "b": "samuelsanches",
+      "rounds": 3,
+      "weight": "Lightweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.4302166197134727,
+        0.5697833802865273
+      ],
+      "methods": {
+        "A_KO": 0.11479954570901499,
+        "A_SUB": 0.09310648172256737,
+        "A_DEC": 0.22231059228189035,
+        "B_KO": 0.2385557168658499,
+        "B_SUB": 0.08556084886358724,
+        "B_DEC": 0.24566681455709022
+      },
+      "distance": 0.4679774068389806
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401933936",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:43.639Z",
+    "bout": {
+      "id": "401933936",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-14T22:00Z",
+      "names": [
+        "Alatengheili",
+        "Juan Diaz"
+      ],
+      "athlete_ids": [
+        "3154389",
+        "5310574"
+      ],
+      "a": "alatengheili",
+      "b": "juandiaz",
+      "rounds": 3,
+      "weight": "Bantamweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.22984269656885217,
+        0.7701573034311479
+      ],
+      "methods": {
+        "A_KO": 0.08111956127471741,
+        "A_SUB": 0.031044928287797473,
+        "A_DEC": 0.11767820700633728,
+        "B_KO": 0.24568179523965286,
+        "B_SUB": 0.18673808963724747,
+        "B_DEC": 0.3377374185542475
+      },
+      "distance": 0.4554156255605848
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401931774",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:45.203Z",
+    "bout": {
+      "id": "401931774",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-14T22:00Z",
+      "names": [
+        "Jared Gordon",
+        "Melquizael Costa"
+      ],
+      "athlete_ids": [
+        "3894823",
+        "4425763"
+      ],
+      "a": "jaredgordon",
+      "b": "melquizaelcosta",
+      "rounds": 3,
+      "weight": "Lightweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.2233067998290838,
+        0.7766932001709161
+      ],
+      "methods": {
+        "A_KO": 0.063552654806927,
+        "A_SUB": 0.026977291783613876,
+        "A_DEC": 0.13277685323854294,
+        "B_KO": 0.29422489339380625,
+        "B_SUB": 0.20162285709245362,
+        "B_DEC": 0.2808454496846563
+      },
+      "distance": 0.41362230292319924
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401931773",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:45.203Z",
+    "bout": {
+      "id": "401931773",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T00:00Z",
+      "names": [
+        "Cesar Almeida",
+        "Donte Johnson"
+      ],
+      "athlete_ids": [
+        "5144068",
+        "5302831"
+      ],
+      "a": "cesaralmeida",
+      "b": "dontejohnson",
+      "rounds": 3,
+      "weight": "Catch Weight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.14939360202124574,
+        0.8506063979787543
+      ],
+      "methods": {
+        "A_KO": 0.044254950373049474,
+        "A_SUB": 0.017079275544848768,
+        "A_DEC": 0.08805937610334749,
+        "B_KO": 0.3086433522875665,
+        "B_SUB": 0.23263461844969446,
+        "B_DEC": 0.30932842724149334
+      },
+      "distance": 0.3973878033448408
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401922643",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:45.203Z",
+    "bout": {
+      "id": "401922643",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T00:00Z",
+      "names": [
+        "Jim Miller",
+        "Terrance McKinney"
+      ],
+      "athlete_ids": [
+        "2335718",
+        "4425604"
+      ],
+      "a": "jimmiller",
+      "b": "terrancemckinney",
+      "rounds": 3,
+      "weight": "Lightweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.22292934677379878,
+        0.7770706532262013
+      ],
+      "methods": {
+        "A_KO": 0.06816439418089566,
+        "A_SUB": 0.0680119749907474,
+        "A_DEC": 0.08675297760215572,
+        "B_KO": 0.27184843153201527,
+        "B_SUB": 0.07925451759958554,
+        "B_DEC": 0.42596770409460044
+      },
+      "distance": 0.5127206816967562
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401922642",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:45.203Z",
+    "bout": {
+      "id": "401922642",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T00:00Z",
+      "names": [
+        "Drew Dober",
+        "Chris Duncan"
+      ],
+      "athlete_ids": [
+        "2951202",
+        "4867356"
+      ],
+      "a": "drewdober",
+      "b": "chrisduncan",
+      "rounds": 3,
+      "weight": "Lightweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.44111253093244485,
+        0.5588874690675552
+      ],
+      "methods": {
+        "A_KO": 0.1890252613228634,
+        "A_SUB": 0.03635847384971028,
+        "A_DEC": 0.2157287957598712,
+        "B_KO": 0.13120383662297924,
+        "B_SUB": 0.19842013417783957,
+        "B_DEC": 0.2292634982667363
+      },
+      "distance": 0.4449922940266075
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401913647",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:45.203Z",
+    "bout": {
+      "id": "401913647",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T00:00Z",
+      "names": [
+        "Stephen Thompson",
+        "Charles Radtke"
+      ],
+      "athlete_ids": [
+        "2615077",
+        "4416297"
+      ],
+      "a": "stephenthompson",
+      "b": "charlesradtke",
+      "rounds": 3,
+      "weight": "Welterweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.2736431987168562,
+        0.7263568012831438
+      ],
+      "methods": {
+        "A_KO": 0.11833407359640803,
+        "A_SUB": 0.0331370155698991,
+        "A_DEC": 0.1221721095505491,
+        "B_KO": 0.18294471154216904,
+        "B_SUB": 0.19003836508539385,
+        "B_DEC": 0.3533737246555809
+      },
+      "distance": 0.47554583420613
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401922641",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:46.787Z",
+    "bout": {
+      "id": "401922641",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T02:00Z",
+      "names": [
+        "Luis Gurule",
+        "Bilal Hasan"
+      ],
+      "athlete_ids": [
+        "5218137",
+        "5264405"
+      ],
+      "a": "luisgurule",
+      "b": "bilalhasan",
+      "rounds": 3,
+      "weight": "Flyweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.1651288900385016,
+        0.8348711099614984
+      ],
+      "methods": {
+        "A_KO": 0.04097374655029064,
+        "A_SUB": 0.034537892994631794,
+        "A_DEC": 0.08961725049357916,
+        "B_KO": 0.3699237790083931,
+        "B_SUB": 0.12765772148118928,
+        "B_DEC": 0.33728960947191605
+      },
+      "distance": 0.4269068599654952
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401922640",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:46.787Z",
+    "bout": {
+      "id": "401922640",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T02:00Z",
+      "names": [
+        "Kevin Holland",
+        "Uro\u0161 Medi\u0107"
+      ],
+      "athlete_ids": [
+        "3943695",
+        "4685870"
+      ],
+      "a": "kevinholland",
+      "b": "urosmedic",
+      "rounds": 3,
+      "weight": "Welterweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.5247314040846675,
+        0.47526859591533255
+      ],
+      "methods": {
+        "A_KO": 0.10627711029576471,
+        "A_SUB": 0.23191672161013352,
+        "A_DEC": 0.18653757217876923,
+        "B_KO": 0.20941661905784098,
+        "B_SUB": 0.027915397763158555,
+        "B_DEC": 0.2379365790943329
+      },
+      "distance": 0.4244741512731022
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401922639",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:46.787Z",
+    "bout": {
+      "id": "401922639",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T02:00Z",
+      "names": [
+        "Caio Borralho",
+        "Yousri Belgaroui"
+      ],
+      "athlete_ids": [
+        "4835137",
+        "5149815"
+      ],
+      "a": "caioborralho",
+      "b": "yousribelgaroui",
+      "rounds": 3,
+      "weight": "Middleweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.35318860757567205,
+        0.646811392424328
+      ],
+      "methods": {
+        "A_KO": 0.07637559152433018,
+        "A_SUB": 0.14099004680924673,
+        "A_DEC": 0.1358229692420951,
+        "B_KO": 0.28381744229865985,
+        "B_SUB": 0.044722926724204956,
+        "B_DEC": 0.3182710234014631
+      },
+      "distance": 0.4540939926435582
+    },
+    "bets": []
+  },
+  {
+    "key": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2:401913646",
+    "forecast_hash": "472d6ec19656333b9cebdc0a60676f622462ff23ea56c8160bc4a6e8aa69f8b2",
+    "frozen_at": "2026-11-13T16:56:36.536720+00:00",
+    "sent_at": "2026-11-13T16:56:48.203Z",
+    "bout": {
+      "id": "401913646",
+      "event_id": "600061400",
+      "event": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-14",
+      "start": "2026-11-15T02:00Z",
+      "names": [
+        "Josh Hokit",
+        "Ciryl Gane"
+      ],
+      "athlete_ids": [
+        "4049391",
+        "4426000"
+      ],
+      "a": "joshhokit",
+      "b": "cirylgane",
+      "rounds": 5,
+      "weight": "Heavyweight",
+      "status": "pre",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261114"
+    },
+    "prediction": {
+      "win": [
+        0.4215648602712486,
+        0.5784351397287514
+      ],
+      "methods": {
+        "A_KO": 0.23519442834571205,
+        "A_SUB": 0.03762466055580382,
+        "A_DEC": 0.14874577136973272,
+        "B_KO": 0.23692915769333214,
+        "B_SUB": 0.12440852909560225,
+        "B_DEC": 0.21709745293981697
+      },
+      "distance": 0.3658432243095497
+    },
+    "bets": []
   }
 ]
