@@ -1087,6 +1087,14 @@
   ],
   "source": "data/weeks/2026_w09.json"
  },
+ "2026_10_NE_DET": {
+  "label": "H",
+  "scores": [
+   35,
+   10
+  ],
+  "source": "data/weeks/2026_w10.json"
+ },
  "2026_10_WAS_NYG": {
   "label": "A",
   "scores": [
