@@ -683,9 +683,9 @@
     }
   ],
   "bets": [],
-  "generated_at": "2026-11-14T17:17:17.738538+00:00",
+  "generated_at": "2026-11-15T17:57:17.063346+00:00",
   "version": "cbb-1.0.0",
-  "training_results": 25793,
+  "training_results": 25861,
   "chronological_holdouts": {
     "2026": {
       "games": 6192,
@@ -697,13 +697,13 @@
       "margin_interval80_coverage": 0.8116925064599483
     },
     "2027": {
-      "games": 701,
-      "winner_brier": 0.12234162633737511,
-      "winner_log_loss": 0.3912184528729419,
-      "winner_accuracy": 0.833095577746077,
-      "margin_mae": 14.892951854493607,
-      "total_mae": 14.18646398002853,
-      "margin_interval80_coverage": 0.7674750356633381
+      "games": 768,
+      "winner_brier": 0.12906080607096346,
+      "winner_log_loss": 0.4090756228616088,
+      "winner_accuracy": 0.8216145833333334,
+      "margin_mae": 14.932088541666685,
+      "total_mae": 14.383425130208323,
+      "margin_interval80_coverage": 0.7643229166666666
     }
   }
 }
