@@ -1,11 +1,135 @@
 {
-  "settled": 0,
-  "winner_correct": 0,
+  "settled": 10,
+  "winner_correct": 5,
   "bet_wins": 0,
   "bet_losses": 0,
-  "results": {},
-  "probability_metrics": {
-    "n": 0
+  "results": {
+    "401932013": {
+      "names": [
+        "Evan Elder",
+        "Samuel Sanches"
+      ],
+      "winner": "Evan Elder",
+      "status": "STATUS_FINAL"
+    },
+    "401933936": {
+      "names": [
+        "Alatengheili",
+        "Juan Diaz"
+      ],
+      "winner": "Juan Diaz",
+      "status": "STATUS_FINAL"
+    },
+    "401922645": {
+      "names": [
+        "Macy Chiasson",
+        "Bia Mesquita"
+      ],
+      "winner": "Bia Mesquita",
+      "status": "STATUS_FINAL"
+    },
+    "401931774": {
+      "names": [
+        "Jared Gordon",
+        "Melquizael Costa"
+      ],
+      "winner": "Melquizael Costa",
+      "status": "STATUS_FINAL"
+    },
+    "401931773": {
+      "names": [
+        "Cesar Almeida",
+        "Donte Johnson"
+      ],
+      "winner": "Cesar Almeida",
+      "status": "STATUS_FINAL"
+    },
+    "401922643": {
+      "names": [
+        "Jim Miller",
+        "Terrance McKinney"
+      ],
+      "winner": "Terrance McKinney",
+      "status": "STATUS_FINAL"
+    },
+    "401922642": {
+      "names": [
+        "Drew Dober",
+        "Chris Duncan"
+      ],
+      "winner": "Chris Duncan",
+      "status": "STATUS_FINAL"
+    },
+    "401913647": {
+      "names": [
+        "Stephen Thompson",
+        "Charles Radtke"
+      ],
+      "winner": "Stephen Thompson",
+      "status": "STATUS_FINAL"
+    },
+    "401922641": {
+      "names": [
+        "Luis Gurule",
+        "Bilal Hasan"
+      ],
+      "winner": "Luis Gurule",
+      "status": "STATUS_FINAL"
+    },
+    "401922639": {
+      "names": [
+        "Caio Borralho",
+        "Yousri Belgaroui"
+      ],
+      "winner": "Caio Borralho",
+      "status": "STATUS_FINAL"
+    },
+    "401922638": {
+      "names": [
+        "Amanda Nunes",
+        "Kayla Harrison"
+      ],
+      "winner": "Kayla Harrison",
+      "status": "STATUS_FINAL"
+    },
+    "401913646": {
+      "names": [
+        "Josh Hokit",
+        "Ciryl Gane"
+      ],
+      "winner": "Ciryl Gane",
+      "status": "STATUS_FINAL"
+    }
   },
-  "updated_at": "2026-11-14T18:29:46.848001+00:00"
+  "probability_metrics": {
+    "n": 10,
+    "log_loss": 0.8777679847094557,
+    "brier": 0.321584157715174,
+    "accuracy": 0.5,
+    "auc": 0.4,
+    "ece": 0.2675460869393156,
+    "reliability": [
+      {
+        "n": 2,
+        "probability": 0.15726124602987368,
+        "frequency": 1.0
+      },
+      {
+        "n": 4,
+        "probability": 0.23743051047214775,
+        "frequency": 0.25
+      },
+      {
+        "n": 1,
+        "probability": 0.35318860757567205,
+        "frequency": 1.0
+      },
+      {
+        "n": 3,
+        "probability": 0.4309646703057221,
+        "frequency": 0.3333333333333333
+      }
+    ]
+  },
+  "updated_at": "2026-11-15T19:07:17.247279+00:00"
 }

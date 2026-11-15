@@ -30,8 +30,8 @@
     "five_round_rating",
     "five_round_activity"
   ],
-  "train_bouts": 7461,
-  "data_through": "2026-11-07",
+  "train_bouts": 7470,
+  "data_through": "2026-11-14",
   "methods": [
     "KO",
     "SUB",
