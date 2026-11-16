@@ -11,7 +11,7 @@ function validateRefresh(manifest, {root, runId, now=Date.now()}={}) {
   const files = Object.entries(manifest.files || {});
   if (!files.some(([file]) => file === 'data/index.json') || !files.some(([file]) => /^data\/weeks\/[^/]+\.json$/.test(file))) throw Error('NFL input rebuild has no model exports.');
   for (const [file, hash] of files) {
-    if (!/^data\/(index\.json|weeks\/[^/]+\.json)$/.test(file)) throw Error('Invalid NFL input manifest path.');
+    if (!/^data\/(index\.json|availability-baseline\.json|weeks\/[^/]+\.json)$/.test(file)) throw Error('Invalid NFL input manifest path.');
     if (createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex') !== hash) throw Error('NFL exports changed after the input rebuild.');
   }
   return manifest;

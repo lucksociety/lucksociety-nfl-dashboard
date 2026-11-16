@@ -1,7 +1,8 @@
 'use strict';
 // Market-free live inputs. Depth charts are expected starters, not official game-day actives.
 const BASE = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl';
-const norm = s => String(s || '').toLowerCase().replace(/[^a-z]/g, '');
+const {key:norm,dedupe}=require('./player-identity');
+const {assess}=require('./availability-evidence');
 const unavailable = s => /^(out|inactive|injured reserve|suspension|suspended|reserve|physically unable)/i.test(s || '');
 const uncertain = s => /questionable|doubtful/i.test(s || '');
 const providerTeam = s => ({WAS:'wsh',LA:'lar',JAX:'jax',LV:'lv'}[s] || String(s).toLowerCase());
@@ -19,7 +20,7 @@ function injuriesOf(body) {
   for (const team of body.injuries) for (const x of team.injuries || []) {
     const a=x.athlete || {}, code=alias(a.team?.abbreviation);
     if (!code || !a.displayName) continue;
-    (byTeam[code] ||= []).push({name:a.displayName,position:a.position?.abbreviation,status:x.status,updatedAt:x.date});
+    (byTeam[code] ||= []).push({name:a.displayName,playerId:a.id?String(a.id):undefined,position:a.position?.abbreviation,status:x.status,updatedAt:x.date});
   }
   return byTeam;
 }
@@ -34,15 +35,15 @@ function ratingFor(name, team, wk) {
   const candidates=(wk.qbs||[]).filter(q=>q.team===team && (norm(q.name)===n || (norm(q.name).startsWith(initial)&&norm(q.name).endsWith(norm(surname)))));
   return candidates.length===1 ? candidates[0] : null;
 }
-async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThrough,officialLoader}={}) {
+async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThrough,officialLoader,evidence}={}) {
   const at=now.toISOString(),day=games[0]?.gameday;
   dataThrough=cutoffDate(dataThrough);
   let injuryBody,board,leagueError;
   try {[injuryBody,board]=await Promise.all([fetchJSON(BASE+'/injuries'),fetchJSON(BASE+'/scoreboard?dates='+day.replaceAll('-',''))]);}
   catch(e){leagueError=e.message;}
   let injuries={};try{injuries=injuriesOf(injuryBody);}catch(e){leagueError ||= e.message;}
-  const teams=[...new Set(games.flatMap(g=>[g.away,g.home]))],depth={};
-  await Promise.all(teams.map(async team=>{try{depth[team]=quarterbacks(await fetchJSON(`${BASE}/teams/${providerTeam(team)}/depthcharts`));}catch{depth[team]=null;}}));
+  const teams=[...new Set(games.flatMap(g=>[g.away,g.home]))],depth={},starters={},depthCoverage={};
+  await Promise.all(teams.map(async team=>{try{const body=await fetchJSON(`${BASE}/teams/${providerTeam(team)}/depthcharts`);depth[team]=quarterbacks(body);depthCoverage[team]=(body.depthchart||[]).reduce((n,c)=>n+Object.keys(c.positions||{}).length,0)>=7;starters[team]=(body.depthchart||[]).flatMap(c=>Object.values(c.positions||{}).flatMap(p=>(p.athletes||[]).slice(0,1).map(a=>norm(a.displayName))));}catch{depth[team]=null;}}));
   const primary={};
   const loader=officialLoader||(fetchJSON===liveJSON?require('./official-injuries').load:null);
   if(loader)await Promise.all(games.map(async g=>{try{primary[g.game_id]=await loader(g,wk,{now});}catch(e){primary[g.game_id]={error:e.message};}}));
@@ -69,7 +70,7 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
     }
     const sides={};
     for(const side of ['away','home']){
-      const team=g[side],rows=currentInjuries[team]||[],qbs=depth[team];
+      const team=g[side],rows=dedupe(currentInjuries[team]||[]),qbs=depth[team];
       sides[side]={injuries:rows,quarterback:null};
       if(!qbs?.length){reasons.push(`${team} live QB depth chart unavailable`);continue;}
       const qb=qbs.find(q=>!unavailable(rows.find(x=>norm(x.name)===norm(q.name))?.status||q.status));
@@ -84,11 +85,14 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
         if(q){g.sides[side].x.qb=q.r-(wk.mix[team]??wk.qb_prior);g.sides[side].qb_name=qb.name;g.sides[side].qb_id=q.id;sides[side].quarterback.changedFrom=listed;}
         else if(!(listed&&norm(listed).startsWith(norm(qb.name)[0])&&norm(listed).endsWith(norm(qb.name.split(' ').pop()))))reasons.push(`${team} current QB has no unique fitted player rating`);
       }
-      // No invented point penalties for new non-QB absences the team-level model cannot price.
-      const recent=rows.filter(x=>x.position!=='QB' && (unavailable(x.status)||uncertain(x.status)) && dataThrough && String(x.updatedAt||'').slice(0,10)>dataThrough);
-      if(recent.length)reasons.push(`${team} current non-QB availability not individually modeled: ${recent.slice(0,3).map(x=>x.name).join(', ')}`);
+      // Report updatedAt is not an injury-onset timestamp. Use prior participation/status evidence.
+      const evidenceFresh=evidence?.available===true&&Date.parse(evidence.generated_at)<=+now&&+now-Date.parse(evidence.generated_at)<24*3600000;
+      const checks=rows.filter(x=>x.position!=='QB'&&(unavailable(x.status)||uncertain(x.status))).map(row=>assess(row,evidenceFresh?evidence.games?.[g.game_id]?.[team]:null,{starter:!depthCoverage[team]||starters[team]?.includes(norm(row.name)),now,gameDate:g.gameday}));
+      sides[side].availabilityChecks=checks;
+      const blocked=checks.filter(x=>x.decision==='block');
+      if(blocked.length)reasons.push(`${team} unresolved non-QB availability: ${blocked.slice(0,3).map(x=>x.name+' ('+x.reason+')').join(', ')}`);
     }
-    g.availability={checkedAt:at,source:official?'Official final team reports reconciled with ESPN live injuries/depth/schedule':'ESPN live injuries + team depth charts + scoreboard',officialReport:official,officialReportUnavailable:report?.error||null,sides,blockReason:reasons.join('; ')||null};
+    g.availability={evidence:evidence?{available:evidence.available,generatedAt:evidence.generated_at,sources:evidence.sources}:null,checkedAt:at,source:official?'Official final team reports reconciled with ESPN live injuries/depth/schedule':'ESPN live injuries + team depth charts + scoreboard',officialReport:official,officialReportUnavailable:report?.error||null,sides,blockReason:reasons.join('; ')||null};
     return g;
   });
 }

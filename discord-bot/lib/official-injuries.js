@@ -40,7 +40,7 @@ async function load(game,wk,{fetchText=liveText,now=new Date()}={}){
  const urls=[game.home,game.away].map(t=>DOMAINS[t]).filter(Boolean).map(d=>'https://www.'+d+'/team/injury-report/');
  const results=await Promise.allSettled(urls.map(async url=>({...parse(await fetchText(url),game,wk.week,wk.season,now),url})));
  const reports=results.filter(r=>r.status==='fulfilled').map(r=>r.value);if(!reports.length)throw Error('No verified final official report');
- const norm=s=>s.toLowerCase().replace(/[^a-z]/g,'');
+ const norm=require('./player-identity').key;
  for(const team of [game.home,game.away])for(const r of reports.slice(1)){
   if(r.teams[team].length!==reports[0].teams[team].length)throw Error('Official team reports differ in coverage');
   for(const p of reports[0].teams[team]){
@@ -52,10 +52,10 @@ async function load(game,wk,{fetchText=liveText,now=new Date()}={}){
 module.exports={parse,load,liveText};
 
 function reconcile(provider,report,game){
- const norm=s=>String(s||'').toLowerCase().replace(/[^a-z]/g,'');
+ const norm=require('./player-identity').key;
  const result=structuredClone(provider),corrections=[],conflicts=[];
  for(const team of [game.home,game.away]){
-  const rows=result[team]||=[];
+  const rows=result[team]=require('./player-identity').dedupe(result[team]||[]);
   for(const official of report.teams[team]){
    const matches=rows.filter(p=>norm(p.name)===norm(official.name));
    if(matches.length>1)throw Error('Ambiguous official/provider player identity');
