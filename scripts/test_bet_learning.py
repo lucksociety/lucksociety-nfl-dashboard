@@ -19,6 +19,27 @@ class BetLearningTests(unittest.TestCase):
         first=self.row();last=self.row(at='2026-11-06T22:00:00Z',bet=False)
         r=b.evaluate(b.merge([first,first,last]),{'G':{'scores':[124,118]}})
         self.assertEqual(r['settled_by_model_and_market'],{})
+    def test_model_vs_market_is_recorded_for_every_game_and_graded_on_the_same_games(self):
+        mk=lambda e,m,k,bet=None:b.make_record(e,'2026-11-07T03:00:00Z','model',bet,'run','2026-11-06T20:00:00Z',benchmark={'model':m,'market':k})
+        rows=[mk('A',.70,.60),mk('B',.55,.65),mk('C',.40,.48),mk('T',.5,.5)]
+        self.assertEqual(rows[0]['benchmark'],{'model':.7,'market':.6});self.assertIsNone(rows[0]['bet'])
+        for bad in (None,{},{'model':.6},{'model':None,'market':.5},{'model':1.0,'market':.5},{'model':.6,'market':0},{'model':'x','market':.5}):
+            self.assertNotIn('benchmark',b.make_record('Z','2026-11-07T03:00:00Z','model',None,'run','2026-11-06T20:00:00Z',benchmark=bad))
+        plain=b.make_record('Z','2026-11-07T03:00:00Z','model',None,'run','2026-11-06T20:00:00Z')
+        self.assertNotIn('benchmark',plain);self.assertEqual(len(b.merge([plain,rows[0],rows[0]])),2)
+        # scores are [home, away]; A home win, B away win, C away win, T tie (skipped), unsettled games skipped
+        r=b.evaluate(b.merge(rows),{'A':{'scores':[3,1]},'B':{'scores':[1,2]},'C':{'scores':[0,4]},'T':{'scores':[2,2]}})['model_vs_market']
+        import math
+        self.assertEqual(r['n'],3)
+        self.assertAlmostEqual(r['model_log_loss'],-(math.log(.7)+math.log(.45)+math.log(.6))/3)
+        self.assertAlmostEqual(r['market_log_loss'],-(math.log(.6)+math.log(.35)+math.log(.52))/3)
+        self.assertAlmostEqual(r['log_loss_diff'],r['model_log_loss']-r['market_log_loss'])
+        self.assertEqual(r['verdict'],'too few games to say')
+        self.assertEqual(r['disagree_over_5pts']['n'],3);self.assertEqual(r['disagree_over_5pts']['model_side_won'],1)   # A: model leans home, home won; B and C: model leans away, away won
+        self.assertEqual(b.evaluate([self.row()],{'G':{'scores':[124,118]}})['model_vs_market'],{'n':0})
+        big=[mk(str(i),.62,.60) for i in range(250)]
+        v=b.evaluate(b.merge(big),{str(i):{'scores':[1,0] if i%5 else [0,1]} for i in range(250)})['model_vs_market']
+        self.assertEqual(v['n'],250);self.assertIn(v['verdict'],('model at least matches the market','no measurable difference yet','market is more accurate than the model'))
     def test_modified_archive_rejected(self):
         r=self.row();r['bet']['probability']=.9
         with self.assertRaises(AssertionError):b.merge([r])
@@ -45,6 +66,10 @@ class BetLearningTests(unittest.TestCase):
             rec['results']['G']['best']=None;(root/'out/recommendations.json').write_text(json.dumps(rec))
             later=b.capture(root,'lucksociety-nfl-dashboard','2026-11-08T16:02:00Z','later')
             self.assertIsNone(later[0]['bet'])
+            self.assertNotIn('benchmark',later[0])   # no priced home moneyline in the recommendations file
+            rec['results']['G']['cands']=[{'type':'moneyline','team':'KC','our':.42,'fair':.45},{'type':'moneyline','team':'BUF','our':.58,'fair':.55},{'type':'spreads','team':'BUF','our':.5,'fair':.5}]
+            (root/'out/recommendations.json').write_text(json.dumps(rec))
+            self.assertEqual(b.capture(root,'lucksociety-nfl-dashboard','2026-11-08T16:02:00Z','later')[0]['benchmark'],{'model':.58,'market':.55})
             (root/'out/delivery.json').write_text(json.dumps({'complete':True,'postedAt':'2026-11-08T18:00:00Z'}))
             self.assertEqual(b.capture(root,'lucksociety-nfl-dashboard','2026-11-08T18:00:00Z','late'),[])
 
