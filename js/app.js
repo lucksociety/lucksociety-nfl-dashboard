@@ -219,8 +219,8 @@
   }
 
 
-  // ---------- Jupiter market comparison (runs only after the sims; never feeds the model) ----------
-  const SNAP_URL = 'https://raw.githubusercontent.com/lucksociety/lucksociety-nfl-dashboard/market-data/jupiter_nfl.json';
+  // ---------- Polymarket market comparison (runs only after the sims; never feeds the model) ----------
+  const SNAP_URL = 'https://raw.githubusercontent.com/lucksociety/lucksociety-nfl-dashboard/market-data/polymarket_nfl.json';
   const agoET = (iso) => { const d = new Date(iso); const m = Math.round((Date.now() - d) / 60000);
     const t = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(d);
     return `${t} ET (${m < 1 ? 'just now' : m < 90 ? m + ' min ago' : Math.round(m / 60) + ' h ago'})`; };
@@ -257,10 +257,10 @@
   function marketHTML(g) {
     const r = S.results[g.game_id]; if (r && r.stale) return '';
     if (S.mstate === 'idle') return '';
-    if (S.mstate === 'loading' && !S.edges[g.game_id]) return '<div class="mkt"><div class="sect">Market Edge · Jupiter</div><div class="placeholder">Sims done. Fetching Jupiter prediction markets…</div></div>';
-    if (S.mstate === 'error') return `<div class="mkt"><div class="sect">Market Edge · Jupiter</div><div class="placeholder">Market data unavailable right now (${esc(S.merr)}). Your sim results above are unaffected.</div></div>`;
+    if (S.mstate === 'loading' && !S.edges[g.game_id]) return '<div class="mkt"><div class="sect">Market Edge · Polymarket</div><div class="placeholder">Sims done. Fetching Polymarket…</div></div>';
+    if (S.mstate === 'error') return `<div class="mkt"><div class="sect">Market Edge · Polymarket</div><div class="placeholder">Market data unavailable right now (${esc(S.merr)}). Your sim results above are unaffected.</div></div>`;
     const E = S.edges[g.game_id]; if (!E) return '';
-    if (!E.ev) return '<div class="mkt"><div class="sect">Market Edge · Jupiter</div><div class="placeholder">No open Jupiter market for this game (finished, not listed yet, or already closed).</div></div>';
+    if (!E.ev) return '<div class="mkt"><div class="sect">Market Edge · Polymarket</div><div class="placeholder">No open Polymarket market for this game (finished, not listed yet, or already closed).</div></div>';
     const rows = E.rows; const used = new Set();
     const pick = (arr) => { arr.forEach((x) => used.add(x.marketId)); return arr; };
     const ml = pick(rows.filter((x) => x.type === 'moneyline')), sp = pick(LSMarket.mainLine(rows, 'spreads')), tt = pick(LSMarket.mainLine(rows, 'totals'));
@@ -268,17 +268,17 @@
     const best = rows.filter(keep).sort((a, b) => b.ev - a.ev)[0];
     const kel = best && best.ev > 0 && best.kelly > 0 ? ` · ¼ Kelly ${pctf(best.kelly, 2)}` : '';
     const all = rows.slice().sort((a, b) => (a.type.localeCompare(b.type)) || ((a.line || 0) - (b.line || 0)) || a.label.localeCompare(b.label));
-    return `<div class="mkt"><div class="sect">Market Edge · Jupiter <span class="muted mkt-src">${esc(E.ev.title)} · vol $${Math.round(E.ev.volumeUsd || 0).toLocaleString()}</span></div>
+    return `<div class="mkt"><div class="sect">Market Edge · Polymarket <span class="muted mkt-src">${esc(E.ev.title)} · vol $${Math.round(E.ev.volumeUsd || 0).toLocaleString()}</span></div>
       ${best && best.ev > 0 ? `<div class="bestedge ${eclass(best)}">Best edge: <b>${esc(best.label)}</b> at ${cents(best.ask)} · ours ${pctf(best.our, 1)} vs market ${pctf(best.fair, 1)} · EV ${evf(best.ev)} per $1${kel}</div>` : '<div class="bestedge e-neg">No positive-EV line at current asks (after fees).</div>'}
       <div class="table-wrap"><table class="mtab">${head('Main lines')}${ml.concat(sp, tt).map((x) => rowHTML(x, true)).join('')}
       ${alts.length ? `<tr class="sub"><td colspan="6">Top +EV alternate lines</td></tr>${alts.map((x) => rowHTML(x, true)).join('')}` : ''}</table></div>
-      <details class="adj"><summary>All ${rows.length} Jupiter lines for this game</summary><div class="table-wrap"><table class="mtab">${head('Line')}${all.map((x) => rowHTML(x, true)).join('')}</table></div></details></div>`;
+      <details class="adj"><summary>All ${rows.length} Polymarket lines for this game</summary><div class="table-wrap"><table class="mtab">${head('Line')}${all.map((x) => rowHTML(x, true)).join('')}</table></div></details></div>`;
   }
   function renderEdges() {
     const el = $('#edgeboard'); if (S.mstate === 'idle') { el.classList.add('hidden'); return; }
     el.classList.remove('hidden');
-    const src = S.market ? (S.market.source === 'live' ? `Live from Jupiter API · fetched ${agoET(S.market.fetched_at)}` : `Snapshot (Jupiter API via scheduled GitHub Action) · as of ${agoET(S.market.fetched_at)}`) : '';
-    $('#msrc').innerHTML = S.mstate === 'loading' ? 'Fetching Jupiter markets…' : S.mstate === 'error' ? `<span class="no">Market data unavailable:</span> ${esc(S.merr)}` :
+    const src = S.market ? (S.market.source === 'live' ? `Live from Polymarket API · fetched ${agoET(S.market.fetched_at)}` : `Snapshot (Polymarket API via scheduled GitHub Action) · as of ${agoET(S.market.fetched_at)}`) : '';
+    $('#msrc').innerHTML = S.mstate === 'loading' ? 'Fetching Polymarket markets…' : S.mstate === 'error' ? `<span class="no">Market data unavailable:</span> ${esc(S.merr)}` :
       `${esc(src)} · prices routed from ${esc(S.market.provider || 'Polymarket')}${S.merr ? ` <span class="muted">(${esc(S.merr)})</span>` : ''}`;
     if (S.mstate !== 'ok') { $('#edgetable').innerHTML = ''; $('#edgetiles').innerHTML = ''; return; }
     const ids = Object.keys(S.edges); const matched = ids.filter((k) => S.edges[k].ev).length;
@@ -293,7 +293,7 @@
     $('#edgetable').innerHTML = list.length ? `<tr><th>#</th><th>Game</th><th>Bet</th><th>Ask</th><th>Bid</th><th>Mkt (no-vig)</th><th>Ours</th><th>Edge pp</th><th>EV/$1</th><th>¼ Kelly</th><th>Volume</th></tr>` +
       list.slice(0, 40).map((x, i) => `<tr class="${eclass(x)}"><td>${i + 1}</td><td>${esc(x.matchup)}</td><td><span class="mt">${tname[x.type]}</span> <b>${esc(x.label)}</b> ${flags(x)}</td><td>${cents(x.ask)}</td><td>${cents(x.bid)}</td><td>${x.fair == null ? '—' : pctf(x.fair, 1)}</td><td>${pctf(x.our, 1)}</td><td class="edge">${pp(x.edge)}</td><td class="evc">${evf(x.ev)}</td><td>${x.kelly > 0 ? pctf(x.kelly, 2) : '—'}</td><td>${x.volume == null ? '—' : Math.round(x.volume).toLocaleString()}</td></tr>`).join('')
       : `<tr><td class="muted">No lines pass the current filters.</td></tr>`;
-    $('#edgenote').innerHTML = `${list.length > 40 ? `Showing top 40 of ${list.length}. ` : ''}${unmatched.length ? `No Jupiter market: ${esc(unmatched.join(', '))}. ` : ''}<b>Edge</b> = our simulated probability − the market's no-vig probability (mid of bid/ask, both sides normalised to 100%). <b>EV/$1</b> = expected profit per $1 spent buying at the ask${S.mopts.fees ? ' plus Jupiter\u2019s trading fee (0.07 × P × (1−P) per contract, which reproduces Jupiter\u2019s published fee table; fees round up to the cent per order, so tiny orders pay more)' : ''}. Ties and pushes resolve 50-50 per the market rules. <b>¼ Kelly</b> is a quarter-Kelly bankroll fraction, capped at 2%. Edges are model estimates, not guarantees: the v6 model picked ~59% of winners in backtests (Brier 0.228), and its tails are its weakest part, so far-from-the-number lines are flagged. Thin = no bid, a bid/ask gap over 4¢, or volume under 500. Jupiter restricts its prediction markets in some regions, including the US; check your eligibility before trading. Not betting advice.`;
+    $('#edgenote').innerHTML = `${list.length > 40 ? `Showing top 40 of ${list.length}. ` : ''}${unmatched.length ? `No Polymarket market: ${esc(unmatched.join(', '))}. ` : ''}<b>Edge</b> = our simulated probability − the market's no-vig probability (mid of bid/ask, both sides normalised to 100%). <b>EV/$1</b> = expected profit per $1 spent buying at the ask${S.mopts.fees ? ' plus Polymarket\u2019s trading fee (0.07 × P × (1−P) per contract, which reproduces Polymarket\u2019s published fee table; fees round up to the cent per order, so tiny orders pay more)' : ''}. Ties and pushes resolve 50-50 per the market rules. <b>¼ Kelly</b> is a quarter-Kelly bankroll fraction, capped at 2%. Edges are model estimates, not guarantees: the v6 model picked ~59% of winners in backtests (Brier 0.228), and its tails are its weakest part, so far-from-the-number lines are flagged. Thin = no bid, a bid/ask gap over 4¢, or volume under 500. Polymarket restricts its prediction markets in some regions, including the US; check your eligibility before trading. Not betting advice.`;
   }
 
   // ---------- boot ----------

@@ -21,7 +21,7 @@ function probabilityStress(b,n=b.sampleN) {
 }
 function samplingEligible(b, n) {
   if (!Number.isInteger(n) || n < 1000) return false;
-  const stress=probabilityStress(b,n),cost=b.ask+0.07*b.ask*(1-b.ask);
+  const stress=probabilityStress(b,n),cost=Number.isFinite(b.cost)?b.cost:b.ask+0.05*b.ask*(1-b.ask);   // the candidate's own ask + fee; Polymarket sports default otherwise
   return stress.winLower>MIN_PROB && stress.payoffLower>cost;
 }
 // Among qualifying +EV bets, rank the conservative outright win probability before ROI.

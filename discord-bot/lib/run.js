@@ -1,4 +1,4 @@
-/* /nfl pipeline: resolve date -> run v6 sims (no market data) -> THEN fetch Jupiter prices and compute edges -> embeds. */
+/* /nfl pipeline: resolve date -> run v6 sims (no market data) -> THEN fetch Polymarket prices and compute edges -> embeds. */
 'use strict';
 const model = require('./model');
 const edge = require('./edge');

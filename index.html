@@ -56,11 +56,11 @@
     <p class="note" id="sumnote"></p>
   </section>
   <section id="edgeboard" class="summary edgeboard hidden">
-    <div class="sum-head"><h2>Market Edge Board · Jupiter</h2><button id="mrefresh" class="btn-ghost">Refresh market</button></div>
+    <div class="sum-head"><h2>Market Edge Board · Polymarket</h2><button id="mrefresh" class="btn-ghost">Refresh market</button></div>
     <p class="msrc" id="msrc"></p>
     <div id="edgeopts" class="edgeopts">
       <label><input type="checkbox" data-o="posOnly" checked> +EV only</label>
-      <label><input type="checkbox" data-o="fees" checked> Include Jupiter fees</label>
+      <label><input type="checkbox" data-o="fees" checked> Include Polymarket fees</label>
       <label><input type="checkbox" data-o="hideThin" checked> Hide thin markets</label>
       <label><input type="checkbox" data-o="tails"> Include longshots/tails (&lt;12% or &gt;88%)</label>
     </div>
@@ -77,7 +77,7 @@
   <p><b>How it works.</b> A Python build step runs the v6 pipeline on nflverse play-by-play and exports, for every week, each team's pre-game feature vector (opponent-adjusted pass EPA/dropback, rush EPA/play, points per drive and points per game ratings with 0.90/week decay; starting-QB adjustment; pace; home; rest; league scoring environment) and the walk-forward stacked ridge model fit only on games played before that week. Your browser turns those into expected points, applies the 0.25-pt-per-team home-field shrink and any capped (±4) QB/injury inputs you set, then runs the v6 drive-level Monte Carlo (game-script feedback, 2-pt decisions, pick-sixes, safeties, overtime) in Web Workers.</p>
   <p><b>Reading the picks.</b> <b>Primary</b> = rounded model mean (beat the sim median on error out of sample). <b>Modal</b> = most frequent simulated exact score; any single exact score is only ~0.5–0.9% likely. 80% ranges are the 10th–90th percentiles of the simulations. Same inputs + same seed = same output.</p>
   <p><b>Zero market input.</b> No spreads, totals, moneylines, odds or public picks are loaded at any stage of the model; the build drops every betting column from the schedule file and asserts none survive.</p>
-  <p><b>Market Edge (after the sims).</b> Only once every game on the day has finished simulating does the page fetch Jupiter's public prediction-market prices (live from <code>api.jup.ag/prediction/v1</code>, falling back to a snapshot a GitHub Action refreshes every ~20 minutes). The market is compared against the finished simulation output and never touches the model, its inputs or its seeds. Each line's probability comes from the same simulated games' margin and total distributions.</p>
+  <p><b>Market Edge (after the sims).</b> Only once every game on the day has finished simulating does the page fetch Polymarket's public prediction-market prices (live from <code>gamma-api.polymarket.com</code>, falling back to a snapshot a GitHub Action refreshes every ~20 minutes). The market is compared against the finished simulation output and never touches the model, its inputs or its seeds. Each line's probability comes from the same simulated games' margin and total distributions.</p>
   <p id="track" class="muted"></p>
   <p id="datainfo" class="muted"></p>
   <p class="muted">For entertainment and research. Not betting advice. Gamble responsibly.</p>

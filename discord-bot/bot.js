@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Luck Society NFL Discord bot (gateway). /nfl [date] (autocomplete game days; always ALL games that day) -> v6 sims (100k each, seeded) -> Jupiter edges -> branded embeds.
+/* Luck Society NFL Discord bot (gateway). /nfl [date] (autocomplete game days; always ALL games that day) -> v6 sims (100k each, seeded) -> Polymarket edges -> branded embeds.
  * Token comes ONLY from env DISCORD_BOT_TOKEN and is never logged. */
 'use strict';
 const { Client, GatewayIntentBits, Events, REST, Routes, ApplicationCommandOptionType, MessageFlags } = require('discord.js');
@@ -15,7 +15,7 @@ if (!TOKEN) { log('FATAL DISCORD_BOT_TOKEN is not set'); process.exit(78); }
 
 const COMMANDS = [{
   name: 'nfl',
-  description: 'Run the Luck Society NFL v6 sim (100k per game) for every game on a day + Jupiter best bet',
+  description: 'Run the Luck Society NFL v6 sim (100k per game) for every game on a day + Polymarket best bet',
   dm_permission: true,
   options: [
     { type: ApplicationCommandOptionType.String, name: 'date', description: 'Pick a game day from the list (default: today ET, or the next game day)', required: false, autocomplete: true, max_length: 10 },

@@ -15,7 +15,7 @@ const row=(p,ask)=>({type:'moneyline',team:'BUF',label:'BUF',our:p,winProbabilit
   const failed=await edge.dashboardBestBets({games:[x]});assert.equal(failed.results.test.best,null);assert.match(failed.error,/offline/);
   edge.clearCache();market.fetchLive=async()=>({source:'live',fetched_at:'2020-01-01T00:00:00Z'});
   assert.equal((await edge.dashboardBestBets({games:[x]})).results.test.best,null);
-  let calls=0;global.fetch=async()=>{calls++;return new Response(JSON.stringify({data:[],pagination:{hasNext:false}}));};
+  let calls=0;global.fetch=async()=>{calls++;return new Response(JSON.stringify([]));};
   edge.clearCache();await edge.fetchEvents();await edge.fetchEvents();assert.equal(calls,1);
   edge.clearCache();await edge.fetchEvents();assert.equal(calls,2,'new command clears fallback event cache too');
   const candidates=[{q:.55,ev:.5,sampleN:100000},{q:.75,ev:.05,sampleN:100000}];assert.equal(candidates.sort(policy.confidenceOrder)[0].q,.75);
