@@ -46,11 +46,11 @@ function gameEmbed(x, teams, bet) {
   if(g.expectedLineup)fields.push({name:'Expected starters — user-supplied screenshot',value:['away','home'].map(side=>g[side]+': '+g.expectedLineup.sides[side].map(p=>p.position+' '+p.name).join(' · ')).join('\n').slice(0,1024)+'\nExpected lineup only; inactive status is not shown. Non-QB players are represented by team ratings, not individual point adjustments.',inline:false});
   if (g.final) fields.push({ name: 'Final', value: `${g.away} ${g.final.away} – ${g.final.home} ${g.home}${g.final.ot ? ' (OT)' : ''}`, inline: false });
   let betVal;
-  if (bet && bet.best) betVal = '🎯 ' + betLine(bet.best) + (bet.link ? `\n[Jupiter market](${bet.link})` : '');
+  if (bet && bet.best) betVal = '🎯 ' + betLine(bet.best) + (bet.link ? `\n[Polymarket market](${bet.link})` : '');
   else if(closed(g))betVal='NO PREGAME BET — game finished, live, postponed, or scheduled kickoff passed.';
   else if(g.availability?.blockReason)betVal=`BETTING BLOCKED — ${g.availability.blockReason}. Prediction above is still available.`;
   else betVal = `No edge — pass${bet && bet.reason ? ` (${bet.reason})` : ''}`;
-  fields.push({ name: '💰 Best Bet (Jupiter, after sim)', value: betVal.slice(0, 1024), inline: false });
+  fields.push({ name: '💰 Best Bet (Polymarket, after sim)', value: betVal.slice(0, 1024), inline: false });
   return {
     color: bet && bet.best ? GOLD : GREEN,
     author: { name: `${g.away} @ ${g.home} · ${fmtTime(g.gametime)} · ${A.name} at ${H.name}`.slice(0, 256) },
@@ -80,11 +80,11 @@ function summaryEmbed(day, bets, teams) {
   for (const x of day.games) { const b = pregameResult(x.game, bets.results[x.game.game_id], Date.now(), x.primary); if (b && b.best) all.push({ x, b: b.best, link: b.link }); }
   all.sort((a, b) => b.b.ev - a.b.ev);
   let desc;
-  if (bets.error) desc = `Jupiter market data unavailable right now (${bets.error}). **No edge — pass.**`;
+  if (bets.error) desc = `Polymarket market data unavailable right now (${bets.error}). **No edge — pass.**`;
   else if (!all.length) {const pending=day.games.filter(x=>!closed(x.game)),blocked=pending.filter(x=>x.game.availability?.blockReason).length,finished=day.games.length-pending.length;desc=blocked?`**No bets.** ${blocked} of ${pending.length} pregame games blocked by QB/source verification. ${finished} games already started or closed.`:pending.length?`**No edge — pass.** No eligible pregame line clears the probability, EV and price checks. ${finished} games already started or closed.`:'**No pregame games remain.** All selected games have started or closed.';}
   else {
     const t = all[0];
-    desc = `🏆 **${t.x.game.away} @ ${t.x.game.home}** · pick **${shortPick(t.x)}**\n` + betLine(t.b) + (t.link ? `\n[Open on Jupiter](${t.link})` : '');
+    desc = `🏆 **${t.x.game.away} @ ${t.x.game.home}** · pick **${shortPick(t.x)}**\n` + betLine(t.b) + (t.link ? `\n[Open on Polymarket](${t.link})` : '');
     if (all.length > 1) desc += '\n\n**Next best:**\n' + all.slice(1, 4).map((o) => `• ${o.x.game.away}@${o.x.game.home} (${shortPick(o.x)}): ${o.b.label} · our ${pct(o.b.q)} vs ${pct(o.b.noVig != null ? o.b.noVig : o.b.ask)} · EV ${o.b.ev >= 0 ? '+' : '−'}$${Math.abs(o.b.ev).toFixed(2)} · ${o.b.units.toFixed(1)}u`).join('\n');
   }
   desc += '\n\n**Predicted scores:**\n' + day.games.map((x) => `🏈 ${shortPick(x)}`).join('\n');

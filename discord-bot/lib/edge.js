@@ -1,13 +1,13 @@
 /* Market comparison — runs ONLY AFTER the sim is finished; nothing here feeds the model.
- * Source: Jupiter Predict (https://api.jup.ag/prediction/v1, keyless, 0.5 req/s; fallback prediction-market-api.jup.ag/api/v1).
- * NFL game events are Polymarket-sourced: slug nfl-<away>-<home>-<UTC date>, markets: moneyline, spreads (alt lines), totals.
- * Rules: OT included; moneyline tie resolves 50-50.  Fee (Jupiter, Polymarket-sourced): 0.07 * p * (1 - p) per contract.
+ * Source: Polymarket's public Gamma API (https://gamma-api.polymarket.com, no key).
+ * NFL game events: slug nfl-<away>-<home>-<date>, markets: moneyline, spreads (alt lines), totals.
+ * Rules: OT included; moneyline tie resolves 50-50.  Fee: Polymarket taker fee rate * (p * (1 - p)) ^ exponent (sports 0.05).
  *
  * Pluggable: set EDGE_MODULE=/path/to/module.js exporting `async bestBets(day, probs) -> { [game_id]: {best, cands, reason} }`
- * to replace this built-in engine (e.g. the dashboard's Jupiter edge module once it lands). */
+ * to replace this built-in engine. */
 'use strict';
-const HOSTS = ['https://api.jup.ag/prediction/v1', 'https://prediction-market-api.jup.ag/api/v1'];
-const FEE = (p) => 0.07 * p * (1 - p);
+const GAMMA = 'https://gamma-api.polymarket.com';
+const FEE = (p, fee) => { const f = fee && fee.rate != null ? fee : { rate: 0.05, exponent: 1 }; return Number(f.rate) * Math.pow(p * (1 - p), Number(f.exponent == null ? 1 : f.exponent)); };
 const { MIN_PROB, eligible, pregameResult, samplingEligible, confidenceOrder, probabilityStress } = require('./bet-policy');
 const MAX_SPREAD = 0.06;       // skip illiquid quotes (ask - bid wider than 6c)
 const KELLY_FRACTION = 0.25;   // quarter-Kelly
@@ -15,33 +15,52 @@ const UNIT = 0.01;             // 1 unit = 1% of bankroll
 const MAX_UNITS = 3;
 const ALT_BAND = [0.35, 0.65]; // spreads/totals: only lines near the market's main line (sim tails are wider than real NFL scoring)
 
+const jlist = (v) => { if (typeof v === 'string') { try { v = JSON.parse(v); } catch (e) { return []; } } return Array.isArray(v) ? v : []; };
+const jnum = (x) => { if (x == null || x === '') return null; const n = Number(x); return Number.isFinite(n) ? n : null; };
+/** Gamma event -> the flat per-outcome market records parseEvent reads (fallback engine only). */
+function adaptGammaEvent(e) {
+  const byName = {}; for (const t of e.teams || []) for (const k of [t.name, t.alias]) if (k) byName[String(k)] = String(t.abbreviation || '');
+  const markets = [];
+  for (const mk of e.markets || []) {
+    const smt = mk.sportsMarketType; if (!['moneyline', 'spreads', 'totals'].includes(smt)) continue;
+    if (smt === 'moneyline' && mk.slug !== e.slug) continue;
+    const outs = jlist(mk.outcomes); if (outs.length !== 2) continue;
+    const bid = jnum(mk.bestBid), ask = jnum(mk.bestAsk), line = jnum(mk.line);
+    const q = [[ask, bid], [bid == null ? null : 1 - bid, ask == null ? null : 1 - ask]];
+    const usd = (x) => (x != null && x > 0 && x < 1 ? Math.round(x * 1e6) : 0);
+    const fee = mk.feesEnabled === false ? { rate: 0, exponent: 1 } : mk.feeSchedule && mk.feeSchedule.rate != null ? { rate: Number(mk.feeSchedule.rate), exponent: Number(mk.feeSchedule.exponent == null ? 1 : mk.feeSchedule.exponent) } : null;
+    const teams = smt === 'totals' ? [null, null] : outs.map((o) => byName[String(o)] || null);
+    if (smt === 'totals' ? (line == null || String(outs[0]) !== 'Over' || String(outs[1]) !== 'Under') : (!teams[0] || !teams[1] || teams[0] === teams[1] || (smt === 'spreads' && line == null))) continue;
+    for (let i = 0; i < 2; i++) {
+      const l = i ? -line : line;
+      const label = smt === 'totals' ? `${i ? 'U' : 'O'} ${line}` : smt === 'spreads' ? `${teams[i].toUpperCase()} ${l > 0 ? '+' : ''}${l}` : String(outs[i]);
+      markets.push({ marketId: `POLY-${mk.id}-${i}`, sportsMarketType: smt, status: !mk.closed && mk.active !== false && mk.acceptingOrders !== false ? 'open' : 'closed', title: String(outs[i]),
+        marketOptions: [{ label }], team: teams[i] ? { abbreviation: teams[i] } : null, fee, pricing: { buyYesPriceUsd: usd(q[i][0]), sellYesPriceUsd: usd(q[i][1]), volume: jnum(mk.volumeNum) || 0 } });
+    }
+  }
+  return { eventId: `POLY-${e.id}`, isLive: !!(e.live || e.ended), metadata: { slug: e.slug, title: e.title }, markets };
+}
+
 let evCache = null;
 async function fetchEvents() {
   if (evCache && Date.now() - evCache.t < 60 * 1000) return evCache.v;
-  let lastErr;
-  for (const host of HOSTS) {
-    try {
-      const out = [];
-      for (let start = 0; start < 800; start += 100) {
-        const r = await fetch(`${host}/events?category=sports&subcategory=nfl&includeMarkets=true&includeAllMarkets=true&start=${start}&end=${start + 100}`, { signal: AbortSignal.timeout(15000) });
-        if (!r.ok) throw new Error('Jupiter HTTP ' + r.status);
-        const j = await r.json();
-        out.push(...(j.data || []));
-        if (!(j.pagination && j.pagination.hasNext)) break;
-        await new Promise((res) => setTimeout(res, 2100));
-      }
-      const v = { host, events: out, fetchedAt: new Date() };
-      evCache = { t: Date.now(), v };
-      return v;
-    } catch (e) { lastErr = e; }
+  const now = Date.now(), out = [];
+  for (let off = 0; off < 500; off += 100) {
+    const r = await fetch(`${GAMMA}/events?tag_id=450&closed=false&limit=100&offset=${off}&order=id&ascending=true&start_time_min=${encodeURIComponent(new Date(now - 12 * 36e5).toISOString())}&start_time_max=${encodeURIComponent(new Date(now + 8 * 864e5).toISOString())}`,
+      { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
+    if (!r.ok) throw new Error('Polymarket HTTP ' + r.status);
+    const page = await r.json(); if (!Array.isArray(page)) throw new Error('Polymarket events page is not a list');
+    out.push(...page.map(adaptGammaEvent)); if (page.length < 100) break;
   }
-  throw lastErr || new Error('Jupiter unavailable');
+  const v = { host: GAMMA, events: out, fetchedAt: new Date() };
+  evCache = { t: Date.now(), v };
+  return v;
 }
 
 const up = (s) => String(s || '').toUpperCase();
 const dayDiff = (a, b) => Math.abs((Date.parse(a) - Date.parse(b)) / 86400000);
 
-/** Parse a Jupiter NFL game event into a flat list of priced outcomes. */
+/** Parse an adapted NFL game event into a flat list of priced outcomes. */
 function parseEvent(e, g) {
   const seen = new Set(), outs = [];
   for (const mk of e.markets || []) {
@@ -51,7 +70,7 @@ function parseEvent(e, g) {
     const label = ((mk.marketOptions || [])[0] || {}).label || mk.title || '';
     const key = mk.marketId + '|' + label; if (seen.has(key)) continue; seen.add(key);
     const ask = pr.buyYesPriceUsd ? pr.buyYesPriceUsd / 1e6 : null, bid = pr.sellYesPriceUsd ? pr.sellYesPriceUsd / 1e6 : null;
-    const o = { type: smt, marketId: mk.marketId, pair: mk.marketId.replace(/-\d+$/, ''), label, ask, bid, volume: pr.volume || 0 };
+    const o = { type: smt, marketId: mk.marketId, pair: mk.marketId.replace(/-\d+$/, ''), label, ask, bid, volume: pr.volume || 0, fee: mk.fee || null };
     const ab = up(mk.team && mk.team.abbreviation);
     if (smt === 'moneyline' || smt === 'spreads') {
       o.side = ab === g.away ? 'away' : ab === g.home ? 'home' : null;
@@ -70,7 +89,7 @@ function parseEvent(e, g) {
     const s = arr.length === 2 && arr[0].ask && arr[1].ask ? arr[0].ask + arr[1].ask : null;
     for (const o of arr) o.noVig = s && o.ask ? o.ask / s : null;
   }
-  return { eventId: e.eventId, slug: e.metadata && e.metadata.slug, link: `https://jup.ag/prediction/${e.eventId}`, live: !!e.isLive, outs };
+  return { eventId: e.eventId, slug: e.metadata && e.metadata.slug, link: `https://polymarket.com/event/${e.metadata && e.metadata.slug}`, live: !!e.isLive, outs };
 }
 
 function matchEvent(events, g) {
@@ -84,7 +103,7 @@ function teamName(g, side) { return g[side]; }
 
 /** Evaluate every priced outcome for one game against the model's simulated distribution. */
 function evaluate(g, P, mkt, primary) {
-  if (!mkt) return { best: null, cands: [], reason: 'no Jupiter market' };
+  if (!mkt) return { best: null, cands: [], reason: 'no Polymarket market' };
   const cands = [];
   for (const o of mkt.outs) {
     if (!o.ask || o.ask <= 0 || o.ask >= 1) continue;
@@ -92,8 +111,8 @@ function evaluate(g, P, mkt, primary) {
     if (o.type === 'moneyline') { q = P.win(o.side) + 0.5 * P.tie(); label = `${teamName(g, o.side)} to win`; }
     else if (o.type === 'spreads') { q = P.cover(o.side, o.line); push = P.push(o.side, o.line); label = `${teamName(g, o.side)} ${o.line > 0 ? '+' : ''}${o.line}`; }
     else { q = o.ou === 'O' ? P.over(o.line) : P.under(o.line); label = `${o.ou === 'O' ? 'Over' : 'Under'} ${o.line}`; }
-    if (push > 0) continue; // Jupiter spreads/totals are half-point lines; skip anything that could push
-    const cost = o.ask + FEE(o.ask);
+    if (push > 0) continue; // Polymarket spreads/totals are half-point lines; skip anything that could push
+    const cost = o.ask + FEE(o.ask, o.fee);
     const ev = q / cost - 1;                       // per $1 staked, after fee
     const kelly = (q - cost) / (1 - cost);         // full Kelly fraction for a binary contract bought at `cost`
     const units = Math.min(MAX_UNITS, Math.max(0, kelly * KELLY_FRACTION / UNIT));
@@ -105,7 +124,7 @@ function evaluate(g, P, mkt, primary) {
   for(const c of cands)c.probabilityStress=probabilityStress(c);
   const ok = cands.filter((c) => eligible(c) && require('./bet-policy').scoreSupports(c,g,primary) && !c.wide && !c.tail && c.volume > 0);
   let reason = null;
-  if (!ok.length) reason = !cands.length ? 'no priced Jupiter market' : 'no positive edge after fees on a side the model favors';
+  if (!ok.length) reason = !cands.length ? 'no priced Polymarket market' : 'no positive edge after fees on a side the model favors';
   return { best: ok[0] || null, others: ok.slice(1, 3), cands, reason, link: mkt.link, live: mkt.live };
 }
 
@@ -117,7 +136,7 @@ async function builtinBestBets(day, probsFn) {
   if (!pending.length) return { results, source: null, error: null };
   let feed;
   try { feed = await fetchEvents(); }
-  catch (e) { for (const x of pending) results[x.game.game_id] = { best: null, cands: [], reason: 'Jupiter unavailable' }; return { results, source: null, error: String(e.message || e) }; }
+  catch (e) { for (const x of pending) results[x.game.game_id] = { best: null, cands: [], reason: 'Polymarket unavailable' }; return { results, source: null, error: String(e.message || e) }; }
   for (const x of pending) {
     const ev = matchEvent(feed.events, x.game);
     results[x.game.game_id] = evaluate(x.game, probsFn(x.dist), ev ? parseEvent(ev, x.game) : null, x.primary);
@@ -125,12 +144,12 @@ async function builtinBestBets(day, probsFn) {
   return { results, source: feed.host, fetchedAt: feed.fetchedAt, error: null };
 }
 
-// ---------------- Preferred engine: the dashboard's own Jupiter module (js/market.js) ----------------
+// ---------------- Preferred engine: the dashboard's own Polymarket module (js/market.js) ----------------
 const fs = require('fs'), path = require('path');
 const { DASH } = require('./model');
 const MARKET_JS = path.join(DASH, 'js', 'market.js');
 const LSMarket = fs.existsSync(MARKET_JS) ? require(MARKET_JS) : null;
-const DASH_RULES = 'Only bets with outright win probability >50% and positive after-fee EV beyond Monte Carlo error and prior-season calibration stress qualify. Edge = our prob − no-vig mid; EV per $1 at the ask incl. Jupiter fee 0.07·p·(1−p); ' +
+const DASH_RULES = 'Only bets with outright win probability >50% and positive after-fee EV beyond Monte Carlo error and prior-season calibration stress qualify. Edge = our prob − no-vig mid; EV per $1 at the ask incl. the Polymarket taker fee 0.05·p·(1−p); ' +
   'Confidence-first among qualifying bets; fresh live prices required. ¼-Kelly capped at 2% bankroll (1u = 1%); thin (no bid, >4¢ bid-ask, volume <500) and tail (<12% / >88%) lines skipped; min EV +1¢.';
 const MIN_EV = 0.01; // need at least +1¢ EV per $1 to call it a bet
 let snapCache = null;
@@ -140,7 +159,7 @@ async function loadSnapshot() {
   // If the live feed fails, withhold recommendations until the next fresh run.
   const snap = await LSMarket.fetchLive(12000);
   if (!snap || snap.source !== 'live' || !Number.isFinite(Date.parse(snap.fetched_at)) ||
-      Math.abs(Date.now()-Date.parse(snap.fetched_at)) > 60000) throw new Error('fresh live Jupiter prices unavailable');
+      Math.abs(Date.now()-Date.parse(snap.fetched_at)) > 60000) throw new Error('fresh live Polymarket prices unavailable');
   snapCache = { t: Date.now(), v: snap };
   return snap;
 }
@@ -152,20 +171,20 @@ async function dashboardBestBets(day) {
   if (!pending.length) return { results, source: null, error: null, rules: DASH_RULES };
   let snap;
   try { snap = await loadSnapshot(); }
-  catch (e) { for (const x of pending) results[x.game.game_id] = { best: null, cands: [], reason: 'Jupiter unavailable' }; return { results, source: null, error: String(e.message || e), rules: DASH_RULES }; }
+  catch (e) { for (const x of pending) results[x.game.game_id] = { best: null, cands: [], reason: 'Polymarket unavailable' }; return { results, source: null, error: String(e.message || e), rules: DASH_RULES }; }
   for (const x of pending) {
     const ev = LSMarket.matchEvent(x.game, snap);
-    if (!ev) { results[x.game.game_id] = { best: null, cands: [], reason: 'no open Jupiter market' }; continue; }
+    if (!ev) { results[x.game.game_id] = { best: null, cands: [], reason: 'no open Polymarket market' }; continue; }
     if (ev.isLive || ev.isActive === false) { results[x.game.game_id] = { best: null, cands: [], live: !!ev.isLive, reason: 'market live or inactive — no pregame bet' }; continue; }
     const rows = LSMarket.evaluate(x.game, x.res, ev, { fees: true });
     const keep = rows.filter((r) => !r.thin && !r.tail);
-    const map = (r) => ({ type: r.type, team: r.team, line: r.line, label: niceLabel(r), q: r.our, winProbability: r.winProbability, sampleN: x.res.N, ask: r.ask, bid: r.bid, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
+    const map = (r) => ({ type: r.type, team: r.team, line: r.line, label: niceLabel(r), q: r.our, winProbability: r.winProbability, sampleN: x.res.N, ask: r.ask, bid: r.bid, cost: r.cost, tokenId: r.tokenId || null, noVig: r.fair, edge: r.edge != null ? r.edge : r.our - r.ask, ev: r.ev, kelly: r.kelly, units: r.kelly * 100, volume: r.volume });
     const ok = keep.map(map).filter((c) => eligible(c, MIN_EV) && require('./bet-policy').scoreSupports(c,x.game,x.primary) && c.kelly > 0).sort(confidenceOrder);
     for(const c of ok)c.probabilityStress=probabilityStress(c);
-    results[x.game.game_id] = { best: ok[0] || null, others: ok.slice(1, 3), cands: rows, reason: ok.length ? null : (rows.length ? 'no line with model probability >50% and +1¢ EV or better after fees' : 'no priced Jupiter market'),
-      link: `https://jup.ag/prediction/${ev.eventId}`, live: ev.isLive };
+    results[x.game.game_id] = { best: ok[0] || null, others: ok.slice(1, 3), cands: rows, reason: ok.length ? null : (rows.length ? 'no line with model probability >50% and +1¢ EV or better after fees' : 'no priced Polymarket market'),
+      link: ev.slug ? `https://polymarket.com/event/${ev.slug}` : null, live: ev.isLive };
   }
-  return { results, source: `${snap.source === 'live' ? 'Jupiter API (live)' : 'Jupiter snapshot'}`, fetchedAt: snap.fetched_at, error: null, rules: DASH_RULES, engine: 'dashboard js/market.js' };
+  return { results, source: `${snap.source === 'live' ? 'Polymarket API (live)' : 'Polymarket snapshot'}`, fetchedAt: snap.fetched_at, error: null, rules: DASH_RULES, engine: 'dashboard js/market.js' };
 }
 
 /** Entry point. Called only after model.simulateDay() has finished. */
@@ -189,6 +208,6 @@ async function bestBets(day, probsFn) {
   }));
   return result;
 }
-const BUILTIN_RULES = 'Edge = our prob − market no-vig prob. EV per $1 after Jupiter fee (0.07·p·(1−p)). ¼-Kelly, 1u = 1% bankroll, max 3u. Only sides the model rates >50%, traded, ≤6¢ bid-ask; alt spreads/totals limited to 35–65% market lines.';
+const BUILTIN_RULES = 'Edge = our prob − market no-vig prob. EV per $1 after the Polymarket taker fee (0.05·p·(1−p)). ¼-Kelly, 1u = 1% bankroll, max 3u. Only sides the model rates >50%, traded, ≤6¢ bid-ask; alt spreads/totals limited to 35–65% market lines.';
 
-module.exports = { clearCache: () => { snapCache = null; evCache = null; }, ALT_BAND, bestBets, builtinBestBets, dashboardBestBets, usingDashboardModule: !!LSMarket, evaluate, parseEvent, matchEvent, fetchEvents, FEE, MIN_PROB, KELLY_FRACTION, UNIT };
+module.exports = { clearCache: () => { snapCache = null; evCache = null; }, ALT_BAND, bestBets, adaptGammaEvent, builtinBestBets, dashboardBestBets, usingDashboardModule: !!LSMarket, evaluate, parseEvent, matchEvent, fetchEvents, FEE, MIN_PROB, KELLY_FRACTION, UNIT };
