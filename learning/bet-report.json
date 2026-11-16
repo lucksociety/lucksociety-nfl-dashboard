@@ -25,8 +25,11 @@
       }
     }
   },
+  "model_vs_market": {
+    "n": 0
+  },
   "pending_or_ungradable": 0,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-15T21:17:37.597238+00:00",
-  "records": 17
+  "generated_at": "2026-11-16T19:22:13.940652+00:00",
+  "records": 18
 }
