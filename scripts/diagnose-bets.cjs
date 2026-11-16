@@ -16,6 +16,7 @@ const pct = (x) => (x == null || !Number.isFinite(x) ? '—' : (100 * x).toFixed
       const g = x.game, r = bets.results[g.game_id] || {}, a = g.availability || {};
       console.log(`\n== ${g.away} @ ${g.home} ${g.gameday} ${g.gametime} | pick ${JSON.stringify(x.primary)} | liveStatus ${g.liveStatus || '—'}`);
       console.log(`   availability: blockReason=${a.blockReason || 'none'} | warnings=${JSON.stringify(a.warnings || [])} | source=${a.source || '—'} | officialUnavailable=${a.officialReportUnavailable || '—'}`);
+      console.log(`   QBs: model lists ${g.sides?.away?.qb_name} / ${g.sides?.home?.qb_name}; live ${JSON.stringify(a.sides?.away?.quarterback)} / ${JSON.stringify(a.sides?.home?.quarterback)}; QB injury rows ${JSON.stringify(['away','home'].flatMap(s=>(a.sides?.[s]?.injuries||[]).filter(i=>i.position==='QB')))}`);
       console.log(`   result: ${r.best ? 'BET ' + r.best.label : 'NO BET'} | reason=${r.reason || '—'} | live=${r.live}`);
       const rows = (r.cands || []).filter((c) => c && c.our != null).map((c) => ({ ...c, scoreConsistent: policy.scoreSupports({ type: c.type, team: c.team, line: c.line, label: c.label, q: c.our, winProbability: c.winProbability }, g, x.primary) }));
       if (!rows.length) { console.log(`   no priced dashboard rows (cands=${(r.cands || []).length})`); continue; }

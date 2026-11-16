@@ -32,6 +32,6 @@ jobs:
         run: python scripts/update_data.py --manifest out/refresh.json
       - name: Run the real pipeline without posting and print why each game is bet or blocked
         env:
-          DATES: '2026-11-16,2026-11-22'
+          DATES: '2026-11-16,2026-11-22,2026-11-19,2026-11-23'
           NFL_REFRESH_REQUIRED: '1'
         run: node scripts/diagnose-bets.cjs
