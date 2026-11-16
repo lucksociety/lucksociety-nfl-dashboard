@@ -24,6 +24,13 @@ class State:
     def vector(self,bout):
         v=self.profile(bout['a'],bout['date'])-self.profile(bout['b'],bout['date'])
         return np.r_[v,v[0]*(bout['rounds']==5),v[7]*(bout['rounds']==5)]
+    def method_context(self,bout):
+        # Symmetric absolute matchup information: differences alone erase two similar styles.
+        profiles=[self.profile(k,bout['date'])for k in [bout['a'],bout['b']]]
+        total=profiles[0]+profiles[1];total[21:24]=0
+        weights=['Flyweight','Bantamweight','Featherweight','Lightweight','Welterweight','Middleweight','Light Heavyweight','Heavyweight']
+        weight=bout.get('weight','').replace('UFC Interim ','').replace('UFC ','').replace('Title','').strip()
+        return np.r_[total,[float(weight==w)for w in weights]]
     def update(self,bout):
         day=bout['date'];keys=[bout['a'],bout['b']];old=[self.profile(k,day)for k in keys]
         states=[self.fighters[k]for k in keys];p=1/(1+10**((states[1]['elo']-states[0]['elo'])/400));change=32*(bout['y']-p)
@@ -47,7 +54,7 @@ def build(bouts,physical=None):
         group=list(group)
         # No same-event/tournament result leaks; updates are performed after all feature rows exist.
         for b in group:
-            b=copy.deepcopy(b);b['experience']=[state.fighters.get(k,blank())['n']for k in [b['a'],b['b']]];features.append(state.vector(b));ordered.append(b)
+            b=copy.deepcopy(b);b['experience']=[state.fighters.get(k,blank())['n']for k in [b['a'],b['b']]];b['method_context']=state.method_context(b).tolist();features.append(state.vector(b));ordered.append(b)
         # Multiple same-day appearances are rare modern UFC anomalies; reject rather than leak/order them.
         ids=[x for b in group for x in [b['a'],b['b']]]
         if len(ids)!=len(set(ids)):raise ValueError('Duplicate same-day fighter; review source identity')

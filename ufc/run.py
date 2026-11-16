@@ -5,7 +5,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 import numpy as np
 from . import data,features,model
-OUT=Path('out/ufc');ET=ZoneInfo('America/New_York');VERSION='ufc-1.1.0'
+OUT=Path('out/ufc');ET=ZoneInfo('America/New_York');VERSION='ufc-1.2.0'
 def canonical(x):return json.dumps(x,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
 def seal(x):return hashlib.sha256(canonical({k:v for k,v in x.items()if k!='sha256'})).hexdigest()
 def load(name):return json.loads((OUT/name).read_text())
@@ -48,14 +48,14 @@ def forecast(day,refresh=True):
         if any(not state.physical.get(k,{}).get('dob')or not state.physical.get(k,{}).get('reach')for k in [b['a'],b['b']]):quality.append('Physical profile incomplete; priors shown, betting withheld')
         if (now.date()-datetime.fromisoformat(state.cutoff).date()).days>21:quality.append('Historical source more than 21 days old')
         if report['test']['log_loss']>=report['elo_test']['log_loss']:quality.append('Historical evaluation did not beat Elo log loss; research forecasts only')
-        x=state.vector(b);pred=m.predict(x,b['rounds']);joint=np.array(list(pred['methods'].values()))
+        x=state.vector(b);pred=m.predict(x,b['rounds'],context=state.method_context(b));joint=np.array(list(pred['methods'].values()))
         # Categorical Monte Carlo samples model outcomes, not a claim to simulate physical exchanges.
         seed=int(hashlib.sha256((b['id']+VERSION).encode()).hexdigest()[:8],16);rng=np.random.default_rng(seed);sample=rng.multinomial(100000,joint)
         top=[]
         if m.kind=='logistic':
             coeff=m.base[-1].coef_[0];scaled=m.base[0].transform(model.strength_inputs(x))[0];effects=coeff*scaled/m.temperature
             top=[dict(feature=features.NAMES[i],log_odds_contribution=float(effects[i]))for i in np.argsort(abs(effects))[-3:][::-1]]
-        rows.append(dict(bout=b,state='forecast',prediction=pred,ufc_bouts=counts,career_evidence=career,profile_recoveries=[r for r in enrichment.get('recovered',[])if data.norm(r['name'])in [b['a'],b['b']]],quality=quality,features=x.tolist(),top_factors=top,simulations=100000,seed=seed,simulated_method_counts=sample.tolist()))
+        rows.append(dict(bout=b,state='forecast',prediction=pred,ufc_bouts=counts,career_evidence=career,profile_recoveries=[r for r in enrichment.get('recovered',[])if data.norm(r['name'])in [b['a'],b['b']]],quality=quality,method_context=state.method_context(b).tolist(),features=x.tolist(),top_factors=top,simulations=100000,seed=seed,simulated_method_counts=sample.tolist()))
     f=dict(version=VERSION,requested=day,date=selected_day,frozen_at=datetime.now(timezone.utc).isoformat(),market_inputs='NONE',source_download=data.ROOT.joinpath('data/source.json').read_text()if data.ROOT.joinpath('data/source.json').exists()else'local test inputs',results_through=state.cutoff,training_bouts=len(history),supplement=state.enrichment,selected_model=m.kind,evaluation=report,rows=rows)
     f['sha256']=seal(f);(OUT/'frozen.json').write_text(json.dumps(f,indent=2)+'\n')
     with (OUT/'predictions.csv').open('w')as file:
@@ -123,26 +123,16 @@ def learn():
         d=json.loads(delivery.read_text());f=verify(load('frozen.json'))
         for record in publication_records(f,d):
             if not any(r['key']==record['key']for r in rows):rows.append(record)
+    from .grading import results_for,grade
     results={}
     for day in sorted({r['bout']['date']for r in rows}):
         if day>=datetime.now(ET).date().isoformat():continue
         raw=json.loads(data.get('https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates='+day.replace('-','')))
-        for event in raw.get('events',[]):
-            for b in event.get('competitions',[]):
-                if b.get('status',{}).get('type',{}).get('completed'):
-                    winners=[p for p in b.get('competitors',[])if p.get('winner')]
-                    if len(winners)==1:results[str(b['id'])]=dict(names=[p['athlete']['displayName']for p in b['competitors']],winner=winners[0]['athlete']['displayName'],status=b['status']['type']['name'])
+        results.update(results_for(raw,lambda url:json.loads(data.get(url))))
     final={}
-    for r in sorted(rows,key=lambda x:x['sent_at']):final[r['bout']['id']]=r
-    correct=settled=0;betwins=betlosses=0;ys=[];ps=[]
-    for r in final.values():
-        result=results.get(r['bout']['id'])
-        if not result or result['status']!='STATUS_FINAL':continue
-        if {data.norm(n)for n in result['names']}!={data.norm(n)for n in r['bout']['names']}:continue
-        names=r['bout']['names'];winner=result['winner'];pick=names[int(r['prediction']['win'][1]>r['prediction']['win'][0])];settled+=1;correct+=data.norm(pick)==data.norm(winner);ys.append(int(data.norm(names[0])==data.norm(winner)));ps.append(r['prediction']['win'][0])
-        for b in r['bets']:
-            won=data.norm(names[b['side']])==data.norm(winner);betwins+=won;betlosses+=not won
-    pub.write_text(json.dumps(rows,indent=2)+'\n');(folder/'learning.json').write_text(json.dumps(dict(settled=settled,winner_correct=correct,bet_wins=betwins,bet_losses=betlosses,results=results,probability_metrics=model.metrics(ys,ps),updated_at=datetime.now(timezone.utc).isoformat()),indent=2)+'\n')
+    for r in sorted(rows,key=lambda x:datetime.fromisoformat(x['sent_at'].replace('Z','+00:00'))):final[r['bout']['id']]=r
+    report=grade(final,results);report.update(results=results,updated_at=datetime.now(timezone.utc).isoformat())
+    pub.write_text(json.dumps(rows,indent=2)+'\n');(folder/'learning.json').write_text(json.dumps(report,indent=2)+'\n')
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('command',choices=['forecast','scan','render','evaluate','learn']);p.add_argument('--date',default=datetime.now(ET).date().isoformat());p.add_argument('--offline',action='store_true');args=p.parse_args();OUT.mkdir(parents=True,exist_ok=True)

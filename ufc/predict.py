@@ -10,5 +10,5 @@ if __name__=='__main__':
     m,report,state,bouts=build_model(a.refresh)
     keys=[data.norm(a.fighter_a),data.norm(a.fighter_b)]
     if keys[0]==keys[1]or any(state.physical.get(k,{}).get('ambiguous')for k in keys):raise ValueError('Fighter identity ambiguous')
-    b=dict(a=keys[0],b=keys[1],date=a.date,rounds=a.rounds)
-    print(json.dumps(dict(fighters=[a.fighter_a,a.fighter_b],prediction=m.predict(state.vector(b),a.rounds),history=[state.fighters.get(k,features.blank())['n']for k in keys],model=m.kind,results_through=state.cutoff),indent=2))
+    b=dict(a=keys[0],b=keys[1],date=a.date,rounds=a.rounds,weight=a.weight)
+    print(json.dumps(dict(fighters=[a.fighter_a,a.fighter_b],prediction=m.predict(state.vector(b),a.rounds,context=state.method_context(b)),history=[state.fighters.get(k,features.blank())['n']for k in keys],model=m.kind,results_through=state.cutoff),indent=2))

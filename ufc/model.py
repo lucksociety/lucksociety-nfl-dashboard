@@ -44,20 +44,30 @@ def temperature(y,p):
     return min(grid,key=lambda t:log_loss(y,expit(logit(np.clip(p,1e-6,1-1e-6))/t),labels=[0,1]))
 
 class Model:
-    def __init__(self,kind,base,temp,method_model,method_prior):self.kind=kind;self.base=base;self.temperature=temp;self.method_model=method_model;self.method_prior=method_prior
-    def predict(self,x,rounds):
+    def __init__(self,kind,base,temp,method_model,method_prior,method_kind='legacy'):self.kind=kind;self.base=base;self.temperature=temp;self.method_model=method_model;self.method_prior=method_prior;self.method_kind=method_kind
+    def predict(self,x,rounds,context=None):
         p=float(probability(self.base,x,self.kind,self.temperature)[0]);conds=[]
         for sign in [1,-1]:
             if self.method_model is None:q=self.method_prior
             else:
-                raw=self.method_model.predict_proba(np.r_[sign*strength_inputs(x)[0],rounds==5].reshape(1,-1))[0];q=np.array([raw[list(self.method_model.classes_).index(k)]if k in self.method_model.classes_ else 0 for k in METHODS])
+                z=np.r_[sign*strength_inputs(x)[0],rounds==5]
+                if getattr(self,'method_kind','legacy')=='matchup-context-v1':
+                    if context is None or np.asarray(context).shape!=(32,)or not np.isfinite(context).all():raise ValueError('Verified pre-bout method context missing')
+                    context=np.array(context,copy=True);context[21:24]=0;z=np.r_[z,context]
+                raw=self.method_model.predict_proba(z.reshape(1,-1))[0];q=np.array([raw[list(self.method_model.classes_).index(k)]if k in self.method_model.classes_ else 0 for k in METHODS])
             conds.append(q)
         joint=np.r_[p*conds[0],(1-p)*conds[1]]
         return dict(win=[p,1-p],methods=dict(zip(['A_'+k for k in METHODS]+['B_'+k for k in METHODS],map(float,joint))),distance=float(joint[2]+joint[5]))
 
-def fit_method(X,bouts):
+def method_design(X,bouts,kind='legacy'):
     # Method conditional on the winner; no red/blue shortcut and no post-fight features.
     y=np.array([b['method']for b in bouts]);z=np.array([np.r_[x if b['y']else-x,b['rounds']==5]for x,b in zip(strength_inputs(X),bouts)])
+    if kind=='matchup-context-v1':
+        context=np.array([b['method_context']for b in bouts]);context[:,21:24]=0;z=np.column_stack([z,context])
+    return z,y
+
+def fit_method(X,bouts,kind='legacy'):
+    z,y=method_design(X,bouts,kind)
     prior=np.array([(sum(y==k)+2)/(len(y)+6)for k in METHODS])
     if len(set(y))<3:return None,prior
     m=make_pipeline(StandardScaler(),LogisticRegression(C=.05,max_iter=1000));m.fit(z,y);return m,prior
@@ -78,13 +88,26 @@ def train(X,bouts,output,now_day):
     best=min(results,key=lambda k:results[k]['validation']['log_loss'])
     threshold=results[best]['validation']['log_loss']+results[best]['event_logloss_se']
     chosen=next(k for k in ['elo','logistic','boosting']if results[k]['validation']['log_loss']<=threshold)
+    # Independent method-head selection: only Jan-Oct 2024 development outcomes, never November 2026.
+    method_reports={};method_losses_valid={};method_train=days<'2024-01-01'
+    for family in ['legacy','matchup-context-v1']:
+        mb,mp=fit_method(X[method_train],[b for b,ok in zip(bouts,method_train)if ok],family)
+        z,my=method_design(X[valid],[b for b,ok in zip(bouts,valid)if ok],family)
+        probs=mb.predict_proba(z);classes=list(mb.classes_);loss=-np.log([probs[i,classes.index(k)]for i,k in enumerate(my)])
+        method_reports[family]=dict(n=len(my),log_loss=float(loss.mean()),accuracy=float(np.mean(mb.predict(z)==my)));method_losses_valid[family]=loss
+    change=method_losses_valid['matchup-context-v1']-method_losses_valid['legacy']
+    by_event=[change[days[valid]==day].mean()for day in np.unique(days[valid])];method_se=float(np.std(by_event,ddof=1)/np.sqrt(len(by_event)))
+    method_kind='matchup-context-v1'if change.mean()<-method_se else'legacy'
+    method_selection=dict(selected=method_kind,candidates=method_reports,paired_log_loss_change=float(change.mean()),paired_event_se=method_se,rule='Promote context only when development conditional method log-loss improves by more than one paired event SE; no diagnostic/test selection')
     # The final test is evaluated only AFTER architecture/temperature selection is complete.
     all_development=days<'2024-11-01';base=fit(chosen,X[all_development],y[all_development]);t=results[chosen]['temperature'];p=probability(base,X[test],chosen,t)
     elo_p=probability(None,X[test],'elo',results['elo']['temperature'])
-    method_model,prior=fit_method(X[all_development],[b for b,m in zip(bouts,all_development)if m]);test_model=Model(chosen,base,t,method_model,prior)
-    method_losses=[]
+    method_model,prior=fit_method(X[all_development],[b for b,m in zip(bouts,all_development)if m],method_kind);test_model=Model(chosen,base,t,method_model,prior,method_kind)
+    legacy_base,legacy_prior=fit_method(X[all_development],[b for b,m in zip(bouts,all_development)if m],'legacy');legacy_model=Model(chosen,base,t,legacy_base,legacy_prior)
+    method_losses=[];legacy_losses=[];method_right=legacy_right=0;method_n=0
     for x,b in zip(X[test],[b for b,m in zip(bouts,test)if m]):
-        pred=test_model.predict(x,b['rounds']);key=('A_'if b['y']else'B_')+b['method'];method_losses.append(-math.log(max(1e-9,pred['methods'][key])))
+        pred=test_model.predict(x,b['rounds'],context=b['method_context']);key=('A_'if b['y']else'B_')+b['method'];method_losses.append(-math.log(max(1e-9,pred['methods'][key])))
+        old=legacy_model.predict(x,b['rounds']);legacy_losses.append(-math.log(max(1e-9,old['methods'][key])));method_right+=max(pred['methods'],key=pred['methods'].get)==key;legacy_right+=max(old['methods'],key=old['methods'].get)==key;method_n+=1
     segments={}
     selected=[b for b,m in zip(bouts,test)if m]
     for weight in sorted({b['weight']for b in selected}):
@@ -93,15 +116,15 @@ def train(X,bouts,output,now_day):
     for label,mask in [('five_round',np.array([b['rounds']==5 for b in selected])),('debutant',np.array([min(b['experience'])==0 for b in selected])),('heavy_favorite',np.maximum(p,1-p)>=.75)]:segments[label]=metrics(y[test][mask],p[mask])
     report=dict(selection_rule='Simplest candidate within one event-level standard error of best validation log loss; no test-based selection',
                 holdout_status='Historical diagnostic: initial development test was inspected during construction; future published forecasts are the untouched prospective test.',
-                protocol='Architecture/temperature chosen on 2023 calibration + Jan–Oct 2024 validation; final frozen-model test Nov 2024 onward, then refit for live use',boundaries={'training_before':'2023-01-01','calibration_before':'2024-01-01','validation_before':'2024-11-01','test_before':now_day},candidates=results,selected=chosen,test=metrics(y[test],p),elo_test=metrics(y[test],elo_p),joint_method_log_loss=float(np.mean(method_losses)),segments=segments,market_benchmark={'available':False,'reason':'No independently verified timestamped closing-odds series was found; no market-superiority or historical betting ROI claim.'},limitations=['Men only; standard modern 3/5-round UFC bouts; draws/NC/DQ excluded','Dated pre-UFC evidence is collected separately; it is not yet a validated scoring feature. No injury/weight-cut clearance or short-notice timestamps','Debutants use explicit shrunk priors; no bets with fewer than two UFC bouts each','Method model is conditional multinomial regression; finish-round and totals models are not supplied','Historical physical metadata comes from current source snapshots; career aggregate stats are never used','Direct UFCStats challenge is not bypassed; source is a third-party snapshot with content hashes'])
+                protocol='Architecture/temperature chosen on 2023 calibration + Jan–Oct 2024 validation; final frozen-model test Nov 2024 onward, then refit for live use',boundaries={'training_before':'2023-01-01','calibration_before':'2024-01-01','validation_before':'2024-11-01','test_before':now_day},candidates=results,selected=chosen,test=metrics(y[test],p),elo_test=metrics(y[test],elo_p),method_selection=method_selection,method_diagnostic=dict(n=method_n,legacy_joint_log_loss=float(np.mean(legacy_losses)),legacy_joint_accuracy=legacy_right/method_n,joint_accuracy=method_right/method_n),joint_method_log_loss=float(np.mean(method_losses)),segments=segments,market_benchmark={'available':False,'reason':'No independently verified timestamped closing-odds series was found; no market-superiority or historical betting ROI claim.'},limitations=['Men only; standard modern 3/5-round UFC bouts; draws/NC/DQ excluded','Dated pre-UFC evidence is collected separately; it is not yet a validated scoring feature. No injury/weight-cut clearance or short-notice timestamps','Debutants use explicit shrunk priors; no bets with fewer than two UFC bouts each','Method model is conditional multinomial regression; finish-round and totals models are not supplied','Historical physical metadata comes from current source snapshots; career aggregate stats are never used','Direct UFCStats challenge is not bypassed; source is a third-party snapshot with content hashes'])
     # Final test report is a versioned artifact, never a signal for automatic model selection.
     (output/'evaluation.json').write_text(json.dumps(report,indent=2)+'\n')
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     fig,ax=plt.subplots(figsize=(5,5));bins=report['test']['reliability'];ax.plot([0,1],[0,1],'--',color='gray');ax.plot([b['probability']for b in bins],[b['frequency']for b in bins],'o-');ax.set(xlabel='Predicted P(A wins)',ylabel='Observed A win rate',title='UFC held-out calibration');fig.tight_layout();fig.savefig(output/'calibration.png');plt.close(fig)
-    live=fit(chosen,X,y);method_model,prior=fit_method(X,bouts);model=Model(chosen,live,t,method_model,prior)
+    live=fit(chosen,X,y);method_model,prior=fit_method(X,bouts,method_kind);model=Model(chosen,live,t,method_model,prior,method_kind)
     import joblib
     joblib.dump(model,output/'model.joblib')
-    (output/'model.json').write_text(json.dumps(dict(version='ufc-1.1.0',selected=chosen,temperature=t,features=NAMES,train_bouts=len(bouts),data_through=max(days),methods=METHODS),indent=2))
+    (output/'model.json').write_text(json.dumps(dict(version='ufc-1.2.0',method_family=method_kind,selected=chosen,temperature=t,features=NAMES,train_bouts=len(bouts),data_through=max(days),methods=METHODS),indent=2))
     return model,report
