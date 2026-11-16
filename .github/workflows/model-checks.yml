@@ -38,6 +38,7 @@ jobs:
           node discord-bot/test/official-injuries.test.js
           node discord-bot/test/selection-freshness.test.js
           node discord-bot/test/polymarket-source.test.js
+          node discord-bot/test/traded-quarterback.test.js
           node discord-worker/worker.test.mjs
           node scripts/test-discord-delivery.mjs
       - name: Prospective evaluation regressions
