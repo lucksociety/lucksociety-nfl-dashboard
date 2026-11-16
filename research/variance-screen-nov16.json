@@ -1,0 +1,61 @@
+{
+  "selection_2025_w1_9": {
+    "baseline": {
+      "brier": 0.22065932193287036,
+      "margin_crps": 7.353470293402777,
+      "total_crps": 7.496492659143518
+    },
+    "sd012": {
+      "brier": 0.22070708773148148,
+      "margin_crps": 7.353629559259259,
+      "total_crps": 7.489576126388889
+    },
+    "sd016": {
+      "brier": 0.22063400028935187,
+      "margin_crps": 7.351337164814814,
+      "total_crps": 7.492411787037037
+    }
+  },
+  "confirmation_2025_w10_18": {
+    "baseline": {
+      "brier": 0.22057100376368613,
+      "margin_crps": 7.123280811359489,
+      "total_crps": 7.637052255930657
+    },
+    "sd012": {
+      "brier": 0.22069212420164236,
+      "margin_crps": 7.1237409811815695,
+      "total_crps": 7.641885849110401
+    },
+    "sd016": {
+      "brier": 0.22089417224566607,
+      "margin_crps": 7.1304943242472625,
+      "total_crps": 7.642432667769161
+    }
+  },
+  "diagnostic_2026": {
+    "baseline": {
+      "brier": 0.23412514244186047,
+      "margin_crps": 6.595462270348836,
+      "total_crps": 6.858111485465117
+    },
+    "sd012": {
+      "brier": 0.23416943068677326,
+      "margin_crps": 6.5961607943313965,
+      "total_crps": 6.860193114098837
+    },
+    "sd016": {
+      "brier": 0.2340601059229651,
+      "margin_crps": 6.615835934593024,
+      "total_crps": 6.872106200581395
+    }
+  },
+  "selected": "sd016",
+  "confirmation": {
+    "margin_crps_change": 0.007539418929811347,
+    "week_se": 0.008708247217265553,
+    "promote": false
+  },
+  "protocol": "Early/late 2025 split of existing inspected chronological replay; confirmation requires 95% week-cluster improvement and no worse winner Brier/total CRPS. 2026 diagnostic not used for selection; no Nov 2026 outcomes.",
+  "input_sha256": "2d6a1b7a207c411a9e5576e29bc0b6b030cce4d99a0f6b79ca7b1e693df316a9"
+}
