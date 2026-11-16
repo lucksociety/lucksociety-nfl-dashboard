@@ -1,5 +1,6 @@
 {
-  "version": "ufc-1.1.0",
+  "version": "ufc-1.2.0",
+  "method_family": "matchup-context-v1",
   "selected": "logistic",
   "temperature": 0.8,
   "features": [

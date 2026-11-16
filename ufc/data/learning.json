@@ -1,106 +1,12 @@
 {
   "settled": 10,
   "winner_correct": 5,
+  "draws_excluded": 1,
+  "no_contests_or_dq_excluded": 0,
+  "unresolved": 0,
   "bet_wins": 0,
   "bet_losses": 0,
-  "results": {
-    "401932013": {
-      "names": [
-        "Evan Elder",
-        "Samuel Sanches"
-      ],
-      "winner": "Evan Elder",
-      "status": "STATUS_FINAL"
-    },
-    "401933936": {
-      "names": [
-        "Alatengheili",
-        "Juan Diaz"
-      ],
-      "winner": "Juan Diaz",
-      "status": "STATUS_FINAL"
-    },
-    "401922645": {
-      "names": [
-        "Macy Chiasson",
-        "Bia Mesquita"
-      ],
-      "winner": "Bia Mesquita",
-      "status": "STATUS_FINAL"
-    },
-    "401931774": {
-      "names": [
-        "Jared Gordon",
-        "Melquizael Costa"
-      ],
-      "winner": "Melquizael Costa",
-      "status": "STATUS_FINAL"
-    },
-    "401931773": {
-      "names": [
-        "Cesar Almeida",
-        "Donte Johnson"
-      ],
-      "winner": "Cesar Almeida",
-      "status": "STATUS_FINAL"
-    },
-    "401922643": {
-      "names": [
-        "Jim Miller",
-        "Terrance McKinney"
-      ],
-      "winner": "Terrance McKinney",
-      "status": "STATUS_FINAL"
-    },
-    "401922642": {
-      "names": [
-        "Drew Dober",
-        "Chris Duncan"
-      ],
-      "winner": "Chris Duncan",
-      "status": "STATUS_FINAL"
-    },
-    "401913647": {
-      "names": [
-        "Stephen Thompson",
-        "Charles Radtke"
-      ],
-      "winner": "Stephen Thompson",
-      "status": "STATUS_FINAL"
-    },
-    "401922641": {
-      "names": [
-        "Luis Gurule",
-        "Bilal Hasan"
-      ],
-      "winner": "Luis Gurule",
-      "status": "STATUS_FINAL"
-    },
-    "401922639": {
-      "names": [
-        "Caio Borralho",
-        "Yousri Belgaroui"
-      ],
-      "winner": "Caio Borralho",
-      "status": "STATUS_FINAL"
-    },
-    "401922638": {
-      "names": [
-        "Amanda Nunes",
-        "Kayla Harrison"
-      ],
-      "winner": "Kayla Harrison",
-      "status": "STATUS_FINAL"
-    },
-    "401913646": {
-      "names": [
-        "Josh Hokit",
-        "Ciryl Gane"
-      ],
-      "winner": "Ciryl Gane",
-      "status": "STATUS_FINAL"
-    }
-  },
+  "bet_outcomes_requiring_venue_settlement": 0,
   "probability_metrics": {
     "n": 10,
     "log_loss": 0.8777679847094557,
@@ -131,5 +37,185 @@
       }
     ]
   },
-  "updated_at": "2026-11-15T19:07:17.247279+00:00"
+  "method_metrics": {
+    "n": 10,
+    "winner_and_method_correct": 2,
+    "joint_log_loss": 1.7822561906113754
+  },
+  "favorite_reliability": [
+    {
+      "lower": 0.5,
+      "upper": 0.6,
+      "n": 3,
+      "mean_probability": 0.569035329694278,
+      "win_rate": 0.6666666666666666
+    },
+    {
+      "lower": 0.6,
+      "upper": 0.7,
+      "n": 1,
+      "mean_probability": 0.646811392424328,
+      "win_rate": 0.0
+    },
+    {
+      "lower": 0.7,
+      "upper": 0.8,
+      "n": 4,
+      "mean_probability": 0.7625694895278523,
+      "win_rate": 0.75
+    },
+    {
+      "lower": 0.8,
+      "upper": 0.9,
+      "n": 2,
+      "mean_probability": 0.8427387539701263,
+      "win_rate": 0.0
+    }
+  ],
+  "results": {
+    "401932013": {
+      "names": [
+        "Evan Elder",
+        "Samuel Sanches"
+      ],
+      "winner": "Evan Elder",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "DEC",
+      "method_source_error": null
+    },
+    "401933936": {
+      "names": [
+        "Alatengheili",
+        "Juan Diaz"
+      ],
+      "winner": "Juan Diaz",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "DEC",
+      "method_source_error": null
+    },
+    "401922645": {
+      "names": [
+        "Macy Chiasson",
+        "Bia Mesquita"
+      ],
+      "winner": "Bia Mesquita",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "SUB",
+      "method_source_error": null
+    },
+    "401931774": {
+      "names": [
+        "Jared Gordon",
+        "Melquizael Costa"
+      ],
+      "winner": "Melquizael Costa",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "DEC",
+      "method_source_error": null
+    },
+    "401931773": {
+      "names": [
+        "Cesar Almeida",
+        "Donte Johnson"
+      ],
+      "winner": "Cesar Almeida",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "KO",
+      "method_source_error": null
+    },
+    "401922643": {
+      "names": [
+        "Jim Miller",
+        "Terrance McKinney"
+      ],
+      "winner": "Terrance McKinney",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "KO",
+      "method_source_error": null
+    },
+    "401922642": {
+      "names": [
+        "Drew Dober",
+        "Chris Duncan"
+      ],
+      "winner": "Chris Duncan",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "DEC",
+      "method_source_error": null
+    },
+    "401913647": {
+      "names": [
+        "Stephen Thompson",
+        "Charles Radtke"
+      ],
+      "winner": "Stephen Thompson",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "KO",
+      "method_source_error": null
+    },
+    "401922641": {
+      "names": [
+        "Luis Gurule",
+        "Bilal Hasan"
+      ],
+      "winner": "Luis Gurule",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "DEC",
+      "method_source_error": null
+    },
+    "401922640": {
+      "names": [
+        "Kevin Holland",
+        "Uro\u0161 Medi\u0107"
+      ],
+      "winner": null,
+      "status": "STATUS_FINAL",
+      "outcome": "DRAW",
+      "method": null,
+      "method_source_error": null
+    },
+    "401922639": {
+      "names": [
+        "Caio Borralho",
+        "Yousri Belgaroui"
+      ],
+      "winner": "Caio Borralho",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "DEC",
+      "method_source_error": null
+    },
+    "401922638": {
+      "names": [
+        "Amanda Nunes",
+        "Kayla Harrison"
+      ],
+      "winner": "Kayla Harrison",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "SUB",
+      "method_source_error": null
+    },
+    "401913646": {
+      "names": [
+        "Josh Hokit",
+        "Ciryl Gane"
+      ],
+      "winner": "Ciryl Gane",
+      "status": "STATUS_FINAL",
+      "outcome": "DECISIVE",
+      "method": "DEC",
+      "method_source_error": null
+    }
+  },
+  "updated_at": "2026-11-16T17:09:28.864772+00:00"
 }
