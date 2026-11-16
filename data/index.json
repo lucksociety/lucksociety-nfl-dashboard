@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "model": "v6",
- "generated_et": "2026-11-15 15:23",
+ "generated_et": "2026-11-15 19:19",
  "data_through": {
   "season": 2026,
   "week": 10,
@@ -117,7 +117,7 @@
     "2026-11-16"
    ],
    "n_games": 14,
-   "n_final": 2
+   "n_final": 11
   },
   {
    "week": 11,
