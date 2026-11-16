@@ -32,16 +32,21 @@ def fetch(url, dest):
 def exported_inputs():
     """Hash only exported model data; ignore the human-facing rebuild timestamp."""
     files = [Path(ROOT) / 'data/index.json', *sorted((Path(ROOT) / 'data/weeks').glob('*.json'))]
+    evidence=Path(ROOT)/'data/availability-baseline.json'
+    if evidence.exists():files.append(evidence)
     snapshot = {}
     for file in files:
         if file.exists():
             value = json.loads(file.read_text())
             if file.name == 'index.json': value.pop('generated_et', None)
+            if file.name == 'availability-baseline.json': value.pop('generated_at',None)
             snapshot[str(file.relative_to(ROOT))] = value
     return hashlib.sha256(json.dumps(snapshot, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 
 def write_manifest(path, started, previous, live):
     files = [Path(ROOT) / 'data/index.json', *sorted((Path(ROOT) / 'data/weeks').glob('*.json'))]
+    evidence=Path(ROOT)/'data/availability-baseline.json'
+    if evidence.exists():files.append(evidence)
     index = json.loads(files[0].read_text())
     current = exported_inputs()
     manifest = dict(schema=1, started_at=started, completed_at=datetime.now(timezone.utc).isoformat(),
@@ -69,6 +74,7 @@ def main():
     run = lambda *a: subprocess.check_call([sys.executable, *a], cwd=MODEL)
     run('-c', 'import data; T,Q=data.build(); print("teamgames", T.shape, "qbgames", Q.shape)')
     run(os.path.join(ROOT, 'scripts', 'build_data.py'), '--season', str(SEASON))
+    run(os.path.join(ROOT, 'scripts', 'build_availability_baseline.py'))
     if manifest: write_manifest(manifest, started, previous, '--skip-download' not in sys.argv)
     if '--validate' in sys.argv: run(os.path.join(ROOT, 'tests', 'validate.py'), '--nsim', '100000')
 

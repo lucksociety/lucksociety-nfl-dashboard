@@ -23,3 +23,6 @@ ufc/data/*.part
 
 ufc/data/cache/
 ufc/data/supplement.json
+
+# Rebuilt, source-hashed availability evidence is archived per command, not committed.
+data/availability-baseline.json

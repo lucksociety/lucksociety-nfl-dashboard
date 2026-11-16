@@ -65,7 +65,9 @@ async function simulateDay(date, { teamFilter, N = 100000 } = {}) {
   let games = wk.games.filter((g) => g.gameday === date).sort((a, b) => a.gametime.localeCompare(b.gametime) || a.game_id.localeCompare(b.game_id));
   if (teamFilter) games = games.filter((g) => g.away === teamFilter || g.home === teamFilter);
   try {games=require('./expected-lineups').attach(games,await getJSON('expected_lineups/'+date+'.json'));} catch (_) { /* optional scenario annotation */ }
-  if (date >= todayET() && games.length) games = await require("./availability").refreshGames(games, wk, {dataThrough:idx.data_through});
+  let availabilityEvidence=null;
+  try {availabilityEvidence=await getJSON('availability-baseline.json');}catch{}
+  if (date >= todayET() && games.length) games = await require('./availability').refreshGames(games,wk,{dataThrough:idx.data_through,evidence:availabilityEvidence});
   let manual = {};
   try { manual = await getJSON('manual_adj.json'); } catch (_) { manual = {}; } // optional sourced injury tweaks (points)
   const out = [];

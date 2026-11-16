@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - scripts/update_data.py
+      - scripts/build_availability_baseline.py
       - model/data.py
       - model/season.py
       - .github/workflows/update.yml

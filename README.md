@@ -127,3 +127,14 @@ The shared college JSON client negotiates and decodes gzip. This is required by
 Gamma /events for page limits greater than 50; without it, inventory requests
 fail HTTP 406 rather than establishing that the slate is empty. Transport
 regressions cover compressed inventory and ordinary uncompressed ESPN responses.
+
+
+### NFL availability evidence fix (November 15, 2026)
+
+Report `updatedAt` timestamps do not establish when a player became unavailable. Commands now rebuild a source-hashed nflverse prior-game injury/snap-count baseline alongside the team/QB inputs. Only completed games from **earlier weeks** can enter that baseline, matching the weekly points model's cutoff; current-week scores/snap counts and current-week injury reports never clear a pregame block.
+
+The selector distinguishes unresolved changes from two narrowly verified cases: an explicit previous out report plus two prior covered games with no participation (ongoing absence), or a non-starter with below 10% usage in every snap category across three covered games and observed participation in at least two. This is a conservative data-quality rule, not an estimated player point value or a demonstrated accuracy gain. Missing/ambiguous roles, newly absent/high-usage players, possible returns and uncertain starters remain blocked. Snap coverage needs at least 40 distinct reported players per team/game; missing rows alone never establish absence without the prior out report. Baselines expire after 24 hours and the most recent prior game must be within 21 days.
+
+Full-name identity matching recognizes generational suffixes (`Thomas Booker IV` / `Thomas Booker`) without fuzzy initial matching. Distinct source IDs and conflicting duplicate statuses remain ambiguous. Official active designations can still reconcile stale provider flags, while newer game-day conflicts remain blocked. Unrated/uncertain QB changes, missing live feeds, kickoff, score consistency, >50% probability and positive-EV requirements are unchanged. No player point penalties or outcome-driven parameter changes were introduced.
+
+`data/availability-baseline.json` is generated locally on each refresh, included in input-integrity checks, and archived under `out/`; it is not committed. Source failures write an explicit unavailable snapshot rather than reusing yesterday's evidence. Discord cards explain which injury flags are ongoing/limited-role and which still block recommendations. A retrospective replay removed 11 redundant injury flags on the November 15 card; all games still had other unresolved availability flags. This is not a prospective backtest or permission to force bets.
