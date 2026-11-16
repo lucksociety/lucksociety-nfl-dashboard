@@ -2,7 +2,7 @@
 const {key}=require('./player-identity');
 const out=s=>/^(out|inactive|injured reserve|suspension|suspended|reserve|physically unable)/i.test(s||'');
 function assess(row,evidence,{starter=false,gameDate}={}){
- const unknown=reason=>({name:row.name,decision:'block',reason});
+ const unknown=reason=>({name:row.name,decision:'unresolved',reason});
  if(row.identityConflict)return unknown('conflicting player identity/status');
  const games=evidence?.games||[];
  if(games.length<2||games.some(g=>!g.coverage||g.date>=gameDate))return unknown('prior participation coverage unavailable');

@@ -53,7 +53,7 @@ module.exports={parse,load,liveText};
 
 function reconcile(provider,report,game){
  const norm=require('./player-identity').key;
- const result=structuredClone(provider),corrections=[],conflicts=[];
+ const result=structuredClone(provider),corrections=[],conflicts=[],conflictDetails=[];
  for(const team of [game.home,game.away]){
   const rows=result[team]=require('./player-identity').dedupe(result[team]||[]);
   for(const official of report.teams[team]){
@@ -63,13 +63,13 @@ function reconcile(provider,report,game){
    if(old&&official.status==='Active'&&/out|questionable|doubtful|reserve/i.test(old.status)){
     const stamp=Date.parse(old.updatedAt),day=Number.isFinite(stamp)?new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(stamp):null;
     // Preserve a possible game-day scratch until the conflicting sources resolve it.
-    if(day&&day>=game.gameday){conflicts.push(team+' '+old.name+' has a newer game-day provider flag');continue;}
+    if(day&&day>=game.gameday){const reason=team+' '+old.name+' has a newer game-day provider flag';conflicts.push(reason);conflictDetails.push({team,name:old.name,position:official.position||old.position,reason});continue;}
     corrections.push({team,name:old.name,from:old.status,to:official.designation});
    }
    const row={...(old||{}),...official,providerStatus:old?.status||null,source:'official final team report',updatedAt:old?.updatedAt||report.finalReportDate+'T23:59:59Z'};
    if(old)rows[rows.indexOf(old)]=row;else rows.push(row);
   }
  }
- return {injuries:result,corrections,conflicts};
+ return {injuries:result,corrections,conflicts,conflictDetails};
 }
 module.exports.reconcile=reconcile;

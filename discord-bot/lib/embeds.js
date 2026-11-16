@@ -1,6 +1,7 @@
 /* Luck Society branded Discord embeds (gold #E8B931, clover green #1F8A3A, black). */
 'use strict';
-const { pregameResult } = require('./bet-policy');
+const { pregameResult,gameStartMs } = require('./bet-policy');
+const closed=g=>!!g.final||/IN_PROGRESS|FINAL|CANCELED|POSTPONED/.test(g.liveStatus||'')||!Number.isFinite(gameStartMs(g))||Date.now()>=gameStartMs(g);
 const GOLD = 0xE8B931, GREEN = 0x1F8A3A, BLACK = 0x0B0B0B;
 const SITE = 'https://lucksociety.github.io/lucksociety-nfl-dashboard/';
 const LOGO = SITE + 'assets/logo-96.jpg';
@@ -38,13 +39,15 @@ function gameEmbed(x, teams, bet) {
     { name: 'QBs', value: `${g.sides.away.qb_name || 'recent mix'} / ${g.sides.home.qb_name || 'recent mix'}`, inline: true },
   ];
   if (g.availability) fields.push({name:'Live availability',value:(`Checked ${g.availability.checkedAt} · depth-chart QBs are expected, not confirmed. ` + (g.availability.blockReason || 'Current injury/depth feeds checked.')).slice(0,1024),inline:false});
-  const checks=Object.values(g.availability?.sides||{}).flatMap(s=>s.availabilityChecks||[]).filter(c=>c.decision!=='block');
+  const checks=Object.values(g.availability?.sides||{}).flatMap(s=>s.availabilityChecks||[]).filter(c=>['ongoing_absence','limited_role'].includes(c.decision));
   if(checks.length)fields.push({name:'Availability evidence',value:checks.map(c=>c.name+': '+(c.decision==='ongoing_absence'?'already absent in prior games':'verified limited recent role')).join('; ').slice(0,1024),inline:false});
+  if(g.availability?.warnings?.length)fields.push({name:'Availability caveat — team-level forecast',value:(g.availability.warnings.join('; ')+'. Individual non-QB effects are not included; probability and EV stress checks still apply.').slice(0,1024),inline:false});
   if(g.availability?.officialReport)fields.push({name:'Official report reconciliation',value:(`Final report ${g.availability.officialReport.finalReportDate}; ${g.availability.officialReport.corrections.map(p=>p.name+': '+p.from+' → '+p.to).join('; ')||'no provider corrections needed'}. No game designation is not a final active-list confirmation.`).slice(0,1024),inline:false});
   if(g.expectedLineup)fields.push({name:'Expected starters — user-supplied screenshot',value:['away','home'].map(side=>g[side]+': '+g.expectedLineup.sides[side].map(p=>p.position+' '+p.name).join(' · ')).join('\n').slice(0,1024)+'\nExpected lineup only; inactive status is not shown. Non-QB players are represented by team ratings, not individual point adjustments.',inline:false});
   if (g.final) fields.push({ name: 'Final', value: `${g.away} ${g.final.away} – ${g.final.home} ${g.home}${g.final.ot ? ' (OT)' : ''}`, inline: false });
   let betVal;
   if (bet && bet.best) betVal = '🎯 ' + betLine(bet.best) + (bet.link ? `\n[Jupiter market](${bet.link})` : '');
+  else if(closed(g))betVal='NO PREGAME BET — game finished, live, postponed, or scheduled kickoff passed.';
   else if(g.availability?.blockReason)betVal=`BETTING BLOCKED — ${g.availability.blockReason}. Prediction above is still available.`;
   else betVal = `No edge — pass${bet && bet.reason ? ` (${bet.reason})` : ''}`;
   fields.push({ name: '💰 Best Bet (Jupiter, after sim)', value: betVal.slice(0, 1024), inline: false });
@@ -78,7 +81,7 @@ function summaryEmbed(day, bets, teams) {
   all.sort((a, b) => b.b.ev - a.b.ev);
   let desc;
   if (bets.error) desc = `Jupiter market data unavailable right now (${bets.error}). **No edge — pass.**`;
-  else if (!all.length) {const blocked=day.games.filter(x=>x.game.availability?.blockReason).length;desc=blocked?`**No bets.** ${blocked} of ${day.games.length} games blocked by availability verification. Forecasts are shown below; a block does not establish that market edge is absent.`:'**No edge — pass.** No Jupiter line clears the edge rules below.';}
+  else if (!all.length) {const pending=day.games.filter(x=>!closed(x.game)),blocked=pending.filter(x=>x.game.availability?.blockReason).length,finished=day.games.length-pending.length;desc=blocked?`**No bets.** ${blocked} of ${pending.length} pregame games blocked by QB/source verification. ${finished} games already started or closed.`:pending.length?`**No edge — pass.** No eligible pregame line clears the probability, EV and price checks. ${finished} games already started or closed.`:'**No pregame games remain.** All selected games have started or closed.';}
   else {
     const t = all[0];
     desc = `🏆 **${t.x.game.away} @ ${t.x.game.home}** · pick **${shortPick(t.x)}**\n` + betLine(t.b) + (t.link ? `\n[Open on Jupiter](${t.link})` : '');

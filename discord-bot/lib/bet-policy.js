@@ -69,11 +69,11 @@ function gameStartMs(g) {
 }
 function pregameResult(game, result, now = Date.now(), primary) {
   if (!result) return result;
-  if (game.availability?.blockReason) return {...result,best:null,others:[],reason:game.availability.blockReason};
   const start = gameStartMs(game);
-  if (game.final || result.live || !Number.isFinite(start) || now >= start) {
+  if (game.final || result.live || /IN_PROGRESS|FINAL|CANCELED|POSTPONED/.test(game.liveStatus||'') || !Number.isFinite(start) || now >= start) {
     return { ...result, best: null, others: [], reason: 'scheduled kickoff passed, live market, or start unavailable — no pregame bet' };
   }
+  if (game.availability?.blockReason) return {...result,best:null,others:[],reason:game.availability.blockReason};
   return sanitizeBetResult(result,game,primary);
 }
 module.exports = { SELECTION_POLICY, probabilityStress, confidenceOrder, scoreSupports, samplingEligible, MIN_PROB, eligible, sanitizeBetResult, gameStartMs, pregameResult };
