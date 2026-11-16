@@ -17,9 +17,9 @@ const late=structuredClone(provider);late.NYG[0].updatedAt='2026-11-12T12:00:00Z
  };
  const officialLoader=async()=>({...report,sources:[{url:'https://www.giants.com/team/injury-report/',sha256:report.sha256}]});
  const [g]=await A.refreshGames([game],wk,{now,dataThrough:'2026-11-09',fetchJSON,officialLoader});
- assert(!g.availability.blockReason.includes('quarterback availability uncertain'),'official no-designation replaces stale depth-chart flag');
- assert(!g.availability.blockReason.includes('Treylon Burks'));assert(!g.availability.blockReason.includes('Cam Skattebo'));
- assert.match(g.availability.blockReason,/Lucas Patrick/);assert.match(g.availability.blockReason,/Malik Harrison/);
+ assert(!(g.availability.blockReason||'').includes('quarterback availability uncertain'),'official no-designation replaces stale depth-chart flag');
+ assert(!g.availability.warnings.join().includes('Treylon Burks'));assert(!g.availability.warnings.join().includes('Cam Skattebo'));
+ assert.equal(g.availability.blockReason,null);assert.match(g.availability.warnings.join(),/Lucas Patrick/);assert.match(g.availability.warnings.join(),/Malik Harrison/);
  assert.equal(g.availability.officialReport.corrections.length,3);
  const [fallback]=await A.refreshGames([game],wk,{now,dataThrough:'2026-11-09',fetchJSON,officialLoader:async()=>{throw Error('bad report')}});assert.match(fallback.availability.blockReason,/quarterback availability uncertain/);
  console.log('NFL official report identity/finality, stale provider reconciliation, late-scratch conflicts and genuine injury blocks: passed');

@@ -48,12 +48,12 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
   const loader=officialLoader||(fetchJSON===liveJSON?require('./official-injuries').load:null);
   if(loader)await Promise.all(games.map(async g=>{try{primary[g.game_id]=await loader(g,wk,{now});}catch(e){primary[g.game_id]={error:e.message};}}));
   return games.map(original=>{
-    const g=structuredClone(original),reasons=[];if(leagueError)reasons.push('live injury/schedule feed unavailable');
+    const g=structuredClone(original),reasons=[],warnings=[];if(leagueError)reasons.push('live injury/schedule feed unavailable');
     const event=(board?.events||[]).find(e=>{const c=e.competitions?.[0]?.competitors||[];return c.some(x=>x.homeAway==='away'&&alias(x.team?.abbreviation)===g.away)&&c.some(x=>x.homeAway==='home'&&alias(x.team?.abbreviation)===g.home);});
     if(!event)reasons.push('current schedule not verified');
     else {
       const c=event.competitions?.[0],status=c?.status?.type||event.status?.type;g.liveStatus=status?.name;
-      if(status?.state!=='pre')reasons.push('game is not pregame');
+      // Game status is enforced by the pregame selector, separately from availability.
       const start=new Date(c?.date||event.date);
       if(Number.isFinite(+start)){
         const parts=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(start).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));
@@ -65,7 +65,7 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
     let currentInjuries=injuries,official=null;
     const report=primary[g.game_id];
     if(report&&!report.error){
-      try{const r=require('./official-injuries').reconcile(injuries,report,g);currentInjuries=r.injuries;official={sources:report.sources,finalReportDate:report.finalReportDate,corrections:r.corrections,conflicts:r.conflicts};reasons.push(...r.conflicts);}
+      try{const r=require('./official-injuries').reconcile(injuries,report,g);currentInjuries=r.injuries;official={sources:report.sources,finalReportDate:report.finalReportDate,corrections:r.corrections,conflicts:r.conflicts};for(const conflict of r.conflictDetails||r.conflicts.map(reason=>({reason,position:'UNKNOWN'}))){if(conflict.position==='QB'||conflict.position==='UNKNOWN')reasons.push(conflict.reason);else warnings.push(conflict.reason);}}
       catch(e){reasons.push('official injury reconciliation failed');}
     }
     const sides={};
@@ -89,10 +89,10 @@ async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThro
       const evidenceFresh=evidence?.available===true&&Date.parse(evidence.generated_at)<=+now&&+now-Date.parse(evidence.generated_at)<24*3600000;
       const checks=rows.filter(x=>x.position!=='QB'&&(unavailable(x.status)||uncertain(x.status))).map(row=>assess(row,evidenceFresh?evidence.games?.[g.game_id]?.[team]:null,{starter:!depthCoverage[team]||starters[team]?.includes(norm(row.name)),now,gameDate:g.gameday}));
       sides[side].availabilityChecks=checks;
-      const blocked=checks.filter(x=>x.decision==='block');
-      if(blocked.length)reasons.push(`${team} unresolved non-QB availability: ${blocked.slice(0,3).map(x=>x.name+' ('+x.reason+')').join(', ')}`);
+      const unresolved=checks.filter(x=>x.decision==='unresolved');
+      if(unresolved.length)warnings.push(`${team} non-QB changes not individually priced by the team-level model: ${unresolved.slice(0,3).map(x=>x.name).join(', ')}`);
     }
-    g.availability={evidence:evidence?{available:evidence.available,generatedAt:evidence.generated_at,sources:evidence.sources}:null,checkedAt:at,source:official?'Official final team reports reconciled with ESPN live injuries/depth/schedule':'ESPN live injuries + team depth charts + scoreboard',officialReport:official,officialReportUnavailable:report?.error||null,sides,blockReason:reasons.join('; ')||null};
+    g.availability={policy:'team-level-warnings-v1',warnings,evidence:evidence?{available:evidence.available,generatedAt:evidence.generated_at,sources:evidence.sources}:null,checkedAt:at,source:official?'Official final team reports reconciled with ESPN live injuries/depth/schedule':'ESPN live injuries + team depth charts + scoreboard',officialReport:official,officialReportUnavailable:report?.error||null,sides,blockReason:reasons.join('; ')||null};
     return g;
   });
 }

@@ -12,7 +12,7 @@ const A=require('../lib/availability'),L=require('../lib/expected-lineups'),E=re
  };
  const [g]=await A.refreshGames([game],{},{fetchJSON,dataThrough:{last_game_date:'2098-12-30'}});
  assert(calls.some(x=>x.includes('/wsh/depthcharts')));assert(!g.availability.blockReason.includes('depth chart unavailable'));
- assert.match(g.availability.blockReason,/Recent Receiver/);assert.match(g.availability.blockReason,/quarterback availability uncertain/);
+ assert.match(g.availability.warnings.join('; '),/Recent Receiver/);assert.match(g.availability.blockReason,/quarterback availability uncertain/);
  const slots=['QB','RB','WR','WR','WR','TE','K'].map(position=>({position,name:'Expected Player'}));
  const doc={schema:1,date:game.gameday,source:'user screenshot',expires_at:'2099-01-02T01:15:00Z',games:{x:{away:'WAS',home:'NYG',sides:{away:slots,home:slots}}}};
  const now=Date.parse('2099-01-01T12:00:00Z');
@@ -21,7 +21,7 @@ const A=require('../lib/availability'),L=require('../lib/expected-lineups'),E=re
  assert(!L.attach([{...g,gameday:'2099-01-02'}],doc,{now})[0].expectedLineup);
  assert(!L.attach([{...g,home:'BUF'}],doc,{now})[0].expectedLineup);
  const summary=E.summaryEmbed({games:[{game:g,primary:{a:21,h:25}}]},{results:{},rules:''},{});
- assert.match(summary.description,/blocked by availability/);assert(!summary.description.includes('No Jupiter line clears'));
+ assert.match(summary.description,/blocked by QB\/source/);assert(!summary.description.includes('No Jupiter line clears'));
  assert.equal(game.sides.away.qb_name,'Jayden Daniels');
  console.log('NFL provider aliases, object data cutoff, retained injury blocks and dated scenario annotations: passed');
 })().catch(e=>{console.error(e);process.exitCode=1});
