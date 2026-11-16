@@ -32,8 +32,14 @@ function quarterbacks(body) {
 }
 function ratingFor(name, team, wk) {
   const n=norm(name), initial=n[0], surname=String(name).trim().split(/\s+/).pop().toLowerCase();
-  const candidates=(wk.qbs||[]).filter(q=>q.team===team && (norm(q.name)===n || (norm(q.name).startsWith(initial)&&norm(q.name).endsWith(norm(surname)))));
-  return candidates.length===1 ? candidates[0] : null;
+  const same=q=>norm(q.name)===n || (norm(q.name).startsWith(initial)&&norm(q.name).endsWith(norm(surname)));
+  const candidates=(wk.qbs||[]).filter(q=>q.team===team && same(q));
+  if(candidates.length===1) return candidates[0];
+  if(candidates.length>1) return null;
+  // A quarterback who changed teams keeps his fitted rating under the old team code.
+  // Accept it only when exactly one rated quarterback in the league matches.
+  const elsewhere=(wk.qbs||[]).filter(same);
+  return elsewhere.length===1 ? elsewhere[0] : null;
 }
 async function refreshGames(games,wk,{fetchJSON=liveJSON,now=new Date(),dataThrough,officialLoader,evidence}={}) {
   const at=now.toISOString(),day=games[0]?.gameday;
