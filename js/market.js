@@ -132,7 +132,7 @@
         const ev1 = o.p / cost - 1; // expected profit per $1 staked at the ask (incl. fee)
         const kelly = o.p > cost ? Math.min(kCap, kFrac * (o.p - cost) / (1 - cost)) : 0;
         const spreadW = s.sell > 0 ? s.buy - s.sell : null;
-        const thin = !(s.sell > 0) || (spreadW != null && spreadW > 0.04) || (s.volume != null && s.volume < 500);
+        const thin = !(s.sell > 0) || (spreadW != null && spreadW > 0.04) || !(s.volume >= 500);
         const tail = fair != null && (fair < 0.12 || fair > 0.88);
         rows.push({ scoreConsistent: scoreSupports(g,r,mkt,s), tokenId: s.tokenId || null, game_id: g.game_id, matchup: `${g.away} @ ${g.home}`, type: mkt.type, marketId: s.id, label: s.label, team: s.team, line: mkt.type === 'spreads' ? o.hcp : s.line,
           ask: s.buy, bid: s.sell > 0 ? s.sell : null, spread: spreadW, volume: s.volume, overround, fair, our: o.p, winProbability: o.win, edge: fair == null ? null : o.p - fair,
