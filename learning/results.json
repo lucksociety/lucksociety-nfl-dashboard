@@ -1159,11 +1159,27 @@
   ],
   "source": "data/weeks/2026_w10.json"
  },
+ "2026_10_PIT_CIN": {
+  "label": "H",
+  "scores": [
+   38,
+   18
+  ],
+  "source": "data/weeks/2026_w10.json"
+ },
  "2026_10_SEA_LV": {
   "label": "A",
   "scores": [
    13,
    21
+  ],
+  "source": "data/weeks/2026_w10.json"
+ },
+ "2026_10_SF_DAL": {
+  "label": "A",
+  "scores": [
+   40,
+   46
   ],
   "source": "data/weeks/2026_w10.json"
  },
