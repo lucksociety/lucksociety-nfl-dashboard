@@ -1127,6 +1127,14 @@
   ],
   "source": "data/weeks/2026_w10.json"
  },
+ "2026_10_LAC_BAL": {
+  "label": "A",
+  "scores": [
+   20,
+   23
+  ],
+  "source": "data/weeks/2026_w10.json"
+ },
  "2026_10_LA_ARI": {
   "label": "A",
   "scores": [

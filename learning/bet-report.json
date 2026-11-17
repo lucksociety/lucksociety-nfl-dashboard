@@ -26,10 +26,17 @@
     }
   },
   "model_vs_market": {
-    "n": 0
+    "n": 1,
+    "model_log_loss": 1.0483232483749418,
+    "market_log_loss": 1.1239300966523997,
+    "log_loss_diff": -0.0756068482774579,
+    "log_loss_diff_se": null,
+    "model_accuracy": 0,
+    "market_accuracy": 0,
+    "verdict": "too few games to say"
   },
   "pending_or_ungradable": 0,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-17T00:29:56.249491+00:00",
+  "generated_at": "2026-11-17T23:39:32.227461+00:00",
   "records": 19
 }
