@@ -6,7 +6,7 @@
     "training_before": "2023-01-01",
     "calibration_before": "2024-01-01",
     "validation_before": "2024-11-01",
-    "test_before": "2026-11-17"
+    "test_before": "2026-11-18"
   },
   "candidates": {
     "elo": {
