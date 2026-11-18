@@ -18,6 +18,14 @@ function betLine(b) {
     `Price ${cents(b.ask)} · edge **${sgn(b.edge * 100)} pts** · EV **${b.ev >= 0 ? '+' : '−'}$${Math.abs(b.ev).toFixed(2)}** per $1 · ¼-Kelly **${b.units.toFixed(1)}u**`;
 }
 
+/** The model's most likely winner as a plain pick, shown when no value bet qualifies. `market` is the no-vig price of that side. */
+function topPick(name, p, market) {
+  if (!(p >= 0.55)) return `🎯 Top pick: none, too close to call (${name} ${pct(p, 0)})`;
+  const price = !Number.isFinite(market) ? 'no price available'
+    : `price about ${cents(Math.round(market * 100) / 100)}` + (p - market >= 0.02 ? ' · model rates it above the price' : p - market <= -0.02 ? ' · price is above the model’s number' : ' · in line with the price');
+  return `🎯 **Top pick: ${name} to win** · model ${pct(p, 0)} · ${price}\n_A pick is the model’s most likely winner, not a value bet._`;
+}
+
 const nick = (teams, ab) => (teams[ab] && teams[ab].nick) || ab;
 /** e.g. "🏈 Panthers (CAR) 21 — Packers (GB) 25" */
 function scoreLine(g, p, teams) { return `🏈 ${nick(teams, g.away)} (${g.away}) ${p.a} — ${nick(teams, g.home)} (${g.home}) ${p.h}`; }
@@ -50,6 +58,10 @@ function gameEmbed(x, teams, bet) {
   else if(closed(g))betVal='NO PREGAME BET — game finished, live, postponed, or scheduled kickoff passed.';
   else if(g.availability?.blockReason)betVal=`BETTING BLOCKED — ${g.availability.blockReason}. Prediction above is still available.`;
   else betVal = `No edge — pass${bet && bet.reason ? ` (${bet.reason})` : ''}`;
+  if (!(bet && bet.best) && !closed(g)) {
+    const side = r.p_home >= r.p_away ? g.home : g.away, row = ((bet && bet.cands) || []).find((c) => c && c.type === 'moneyline' && c.team === side);
+    betVal += '\n' + topPick(side, Math.max(r.p_home, r.p_away), row ? row.fair : null);
+  }
   fields.push({ name: '💰 Best Bet (Polymarket, after sim)', value: betVal.slice(0, 1024), inline: false });
   return {
     color: bet && bet.best ? GOLD : GREEN,
@@ -101,4 +113,4 @@ function pack(embeds) {
   return msgs;
 }
 
-module.exports = { scoreLine, gameEmbed, headerEmbed, summaryEmbed, pack, fmtDate, DISCLAIMER, GOLD, GREEN, BLACK };
+module.exports = { topPick, scoreLine, gameEmbed, headerEmbed, summaryEmbed, pack, fmtDate, DISCLAIMER, GOLD, GREEN, BLACK };

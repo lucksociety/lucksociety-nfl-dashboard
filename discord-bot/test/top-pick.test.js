@@ -1,0 +1,10 @@
+'use strict';
+const assert = require('node:assert');
+const { topPick } = require('../lib/embeds');
+assert.match(topPick('BAL', 0.65, 0.675), /Top pick: BAL to win\*\* · model 65% · price about 68¢ · price is above the model’s number/);
+assert.match(topPick('KC', 0.86, 0.80), /model rates it above the price/);
+assert.match(topPick('KC', 0.60, 0.61), /in line with the price/);
+assert.match(topPick('KC', 0.60, null), /no price available/);
+assert.match(topPick('MIN', 0.52, 0.5), /none, too close to call \(MIN 52%\)/);
+assert.match(topPick('KC', 0.60, 0.61), /not a value bet/);
+console.log('top-pick: ok');
