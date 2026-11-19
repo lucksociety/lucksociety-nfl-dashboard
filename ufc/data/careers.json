@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "refreshed_at": "2026-11-18T20:54:26.388998+00:00",
+  "refreshed_at": "2026-11-19T20:58:50.133185+00:00",
   "bouts": [
     {
       "id": "espn:401614040",
@@ -136,6 +136,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060398/competitions/401879411?lang=en&region=us"
     },
     {
+      "id": "espn:401498577",
+      "date": "2016-10-01T16:00:00+00:00",
+      "event": "ACB 47: Braveheart",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4024131",
+        "4712356"
+      ],
+      "names": [
+        "Denis Ahern",
+        "Shoaib Yousaf"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "Submission (Armbar)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400942510/competitions/401498577?lang=en&region=us"
+    },
+    {
+      "id": "espn:401498578",
+      "date": "2017-03-11T17:00:00+00:00",
+      "event": "ACB 54: Supersonic",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "5105321"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Javonne Morrison"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400945886/competitions/401498578?lang=en&region=us"
+    },
+    {
       "id": "espn:401879432",
       "date": "2017-04-09T04:00:00+00:00",
       "event": "Moscow Pankration Federation: International Festival of Pankration 2017",
@@ -174,6 +212,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060400/competitions/401879433?lang=en&region=us"
     },
     {
+      "id": "espn:401276617",
+      "date": "2017-09-23T16:00:00+00:00",
+      "event": "ACB 70: Barnatt vs. Askham",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712353",
+        "4712356"
+      ],
+      "names": [
+        "Jordan Vucenic",
+        "Shoaib Yousaf"
+      ],
+      "winner_id": "4712353",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400985449/competitions/401276617?lang=en&region=us"
+    },
+    {
       "id": "espn:401830779",
       "date": "2017-10-14T04:00:00+00:00",
       "event": "Hualsur FC: Sosa vs. Barbosa",
@@ -210,6 +267,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600028239/competitions/401879434?lang=en&region=us"
+    },
+    {
+      "id": "espn:401498579",
+      "date": "2018-02-23T17:00:00+00:00",
+      "event": "ACB 81: Carneiro vs. Saidov",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "5105322"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Kadir Dalkiran"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401017488/competitions/401498579?lang=en&region=us"
     },
     {
       "id": "espn:255159",
@@ -269,6 +345,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035679/competitions/401879435?lang=en&region=us"
     },
     {
+      "id": "espn:401498580",
+      "date": "2018-11-30T17:00:00+00:00",
+      "event": "Celtic Gladiator 22: Manchester",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "4876267"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Ricardo Moraes"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "KO (Punch)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401131968/competitions/401498580?lang=en&region=us"
+    },
+    {
       "id": "espn:401830781",
       "date": "2018-12-08T05:00:00+00:00",
       "event": "Hualsur FC 83: Da Silva vs. Diaz",
@@ -286,6 +381,25 @@
       "outcome": "DRAW",
       "method": "Draw",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056312/competitions/401830781?lang=en&region=us"
+    },
+    {
+      "id": "espn:401498581",
+      "date": "2019-03-23T16:00:00+00:00",
+      "event": "UK Fighting Championships 9",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4576846",
+        "4712356"
+      ],
+      "names": [
+        "Martin Fouda Afana",
+        "Shoaib Yousaf"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "TKO (Doctor's Stoppage)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401207295/competitions/401498581?lang=en&region=us"
     },
     {
       "id": "espn:401830782",
@@ -326,6 +440,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/m1/events/401162356/competitions/401879436?lang=en&region=us"
     },
     {
+      "id": "espn:401498582",
+      "date": "2019-07-13T04:00:00+00:00",
+      "event": "Caged Steel Fighting Championship 23",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "5099881"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Gregorio Davide La Torre"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600004644/competitions/401498582?lang=en&region=us"
+    },
+    {
       "id": "espn:401830783",
       "date": "2019-09-28T04:00:00+00:00",
       "event": "Fortis Fight Cage 2",
@@ -343,6 +476,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056218/competitions/401830783?lang=en&region=us"
+    },
+    {
+      "id": "espn:401461570",
+      "date": "2019-11-09T20:00:00+00:00",
+      "event": "Cage Warriors 110",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080719",
+        "5080723"
+      ],
+      "names": [
+        "Eric Nolan",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/401180475/competitions/401461570?lang=en&region=us"
     },
     {
       "id": "espn:401830784",
@@ -364,6 +516,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046017/competitions/401830784?lang=en&region=us"
     },
     {
+      "id": "espn:401498583",
+      "date": "2019-12-27T17:00:00+00:00",
+      "event": "Brave CF 33",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "5105323"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Hassan Talal"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401220808/competitions/401498583?lang=en&region=us"
+    },
+    {
       "id": "espn:401879437",
       "date": "2020-07-18T04:00:00+00:00",
       "event": "MMA Series 10: WKG & M-1 Online",
@@ -381,6 +552,44 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060401/competitions/401879437?lang=en&region=us"
+    },
+    {
+      "id": "espn:401498584",
+      "date": "2020-08-24T16:00:00+00:00",
+      "event": "Brave CF 40",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "5105324"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Mochamed Machaev"
+      ],
+      "winner_id": "5105324",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600009430/competitions/401498584?lang=en&region=us"
+    },
+    {
+      "id": "espn:401461571",
+      "date": "2020-09-24T19:00:00+00:00",
+      "event": "Cage Warriors 114",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080720",
+        "5080723"
+      ],
+      "names": [
+        "Alan Brykalski",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/401221184/competitions/401461571?lang=en&region=us"
     },
     {
       "id": "espn:401830785",
@@ -459,6 +668,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060402/competitions/401879438?lang=en&region=us"
     },
     {
+      "id": "espn:401498585",
+      "date": "2021-04-01T16:00:00+00:00",
+      "event": "Brave CF 50",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4696545",
+        "4712356"
+      ],
+      "names": [
+        "Steven Goncalves",
+        "Shoaib Yousaf"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600009431/competitions/401498585?lang=en&region=us"
+    },
+    {
       "id": "espn:401783435",
       "date": "2021-05-08T04:00:00+00:00",
       "event": "Caged Aggression 31: Chain Reaction 2",
@@ -476,6 +704,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600025373/competitions/401783435?lang=en&region=us"
+    },
+    {
+      "id": "espn:401461572",
+      "date": "2021-06-19T16:00:00+00:00",
+      "event": "UAE Warriors 20",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080721",
+        "5080723"
+      ],
+      "names": [
+        "Arbi Emiev",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "TKO - Doctor's Stoppage",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600013708/competitions/401461572?lang=en&region=us"
     },
     {
       "id": "espn:401830786",
@@ -573,6 +820,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600014967/competitions/401424276?lang=en&region=us"
     },
     {
+      "id": "espn:401461573",
+      "date": "2021-10-29T16:00:00+00:00",
+      "event": "UAE Warriors 24",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080722",
+        "5080723"
+      ],
+      "names": [
+        "Konstantinos Ntelis",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600014967/competitions/401461573?lang=en&region=us"
+    },
+    {
       "id": "espn:401801819",
       "date": "2021-11-07T17:00:00+00:00",
       "event": "Jardim Fight 3",
@@ -609,6 +875,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600039935/competitions/401613937?lang=en&region=us"
+    },
+    {
+      "id": "espn:401498586",
+      "date": "2021-12-19T05:00:00+00:00",
+      "event": "FCC: Full Contact Contender 27",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "4883586"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Matthew Camilleri"
+      ],
+      "winner_id": "4883586",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600025509/competitions/401498586?lang=en&region=us"
     },
     {
       "id": "espn:401565020",
@@ -668,6 +953,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600021207/competitions/401565019?lang=en&region=us"
     },
     {
+      "id": "espn:401461574",
+      "date": "2022-03-26T04:00:00+00:00",
+      "event": "UAE Warriors 28: International",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4794133",
+        "5080723"
+      ],
+      "names": [
+        "Mariusz Mazur",
+        "John Mitchell"
+      ],
+      "winner_id": "4794133",
+      "outcome": "DECISIVE",
+      "method": "Submission (Guillotine)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600019178/competitions/401461574?lang=en&region=us"
+    },
+    {
       "id": "espn:401801820",
       "date": "2022-03-27T16:00:00+00:00",
       "event": "Jardim Fight 4",
@@ -723,6 +1027,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035341/competitions/401766310?lang=en&region=us"
+    },
+    {
+      "id": "espn:401498587",
+      "date": "2022-05-27T17:00:00+00:00",
+      "event": "Cage Warriors 137",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "5105325"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Michael Folc"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600018492/competitions/401498587?lang=en&region=us"
     },
     {
       "id": "espn:401565018",
@@ -818,6 +1141,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600033855/competitions/401801822?lang=en&region=us"
+    },
+    {
+      "id": "espn:401528472",
+      "date": "2022-11-26T05:00:00+00:00",
+      "event": "Sangai MMA: Fight Night 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080723",
+        "5349730"
+      ],
+      "names": [
+        "John Mitchell",
+        "Basel Shalaan"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600030192/competitions/401528472?lang=en&region=us"
     },
     {
       "id": "espn:401752413",
@@ -953,6 +1295,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035977/competitions/401801823?lang=en&region=us"
     },
     {
+      "id": "espn:401739412",
+      "date": "2023-03-31T04:00:00+00:00",
+      "event": "Matrix Fight Night 11",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5073867",
+        "5080723"
+      ],
+      "names": [
+        "Srikant Sekhar",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600052322/competitions/401739412?lang=en&region=us"
+    },
+    {
       "id": "espn:401819804",
       "date": "2023-04-28T04:00:00+00:00",
       "event": "UWC Mexico 43: Ramos vs. Penaloza",
@@ -1008,6 +1369,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053696/competitions/401766313?lang=en&region=us"
+    },
+    {
+      "id": "espn:401543931",
+      "date": "2023-07-08T16:00:00+00:00",
+      "event": "2023 PFL Europe Regular Season: Germany",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4425005",
+        "5080723"
+      ],
+      "names": [
+        "Geysim Derouiche",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600030033/competitions/401543931?lang=en&region=us"
     },
     {
       "id": "espn:401879440",
@@ -1162,6 +1542,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053697/competitions/401766314?lang=en&region=us"
     },
     {
+      "id": "espn:401582440",
+      "date": "2023-09-30T15:00:00+00:00",
+      "event": "2023 PFL Europe Playoffs",
+      "promotion": "non_ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "4425005",
+        "5080723"
+      ],
+      "names": [
+        "Geysim Derouiche",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600030034/competitions/401582440?lang=en&region=us"
+    },
+    {
       "id": "espn:401819806",
       "date": "2023-10-27T04:00:00+00:00",
       "event": "UWC Mexico 49: Oviedo vs. Zadruzynski",
@@ -1219,6 +1618,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053699/competitions/401766317?lang=en&region=us"
     },
     {
+      "id": "espn:401624921",
+      "date": "2023-11-04T17:00:00+00:00",
+      "event": "OKTAGON 48: Aby vs Garcia",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4320694",
+        "4712356"
+      ],
+      "names": [
+        "Konmon Deh",
+        "Shoaib Yousaf"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600041653/competitions/401624921?lang=en&region=us"
+    },
+    {
       "id": "espn:401830792",
       "date": "2023-12-01T05:00:00+00:00",
       "event": "Lux Fight League 38",
@@ -1236,6 +1654,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056220/competitions/401830792?lang=en&region=us"
+    },
+    {
+      "id": "espn:401526849",
+      "date": "2023-12-08T17:00:00+00:00",
+      "event": "2023 PFL Europe Championship",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080723",
+        "5127822"
+      ],
+      "names": [
+        "John Mitchell",
+        "Jakub Kaszuba"
+      ],
+      "winner_id": "5127822",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600030035/competitions/401526849?lang=en&region=us"
     },
     {
       "id": "espn:401801825",
@@ -1388,6 +1825,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600047303/competitions/401801826?lang=en&region=us"
+    },
+    {
+      "id": "espn:401739411",
+      "date": "2024-05-04T04:00:00+00:00",
+      "event": "971 Fighting Championship 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080723",
+        "5260263"
+      ],
+      "names": [
+        "John Mitchell",
+        "Adham Mohamed"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046904/competitions/401739411?lang=en&region=us"
     },
     {
       "id": "espn:401879441",
@@ -1635,6 +2091,25 @@
       "outcome": "DECISIVE",
       "method": "Submission (Rear Naked Choke)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053702/competitions/401766321?lang=en&region=us"
+    },
+    {
+      "id": "espn:401748521",
+      "date": "2025-01-25T16:00:00+00:00",
+      "event": "PFL Champions Series Dubai: Nurmagomedov vs. Hughes",
+      "promotion": "non_ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "4819856",
+        "5080723"
+      ],
+      "names": [
+        "Souhil Tairi",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/pfl/events/600052645/competitions/401748521?lang=en&region=us"
     },
     {
       "id": "espn:401882015",
@@ -1998,6 +2473,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600053664/competitions/401820050?lang=en&region=us"
     },
     {
+      "id": "espn:401813470",
+      "date": "2025-10-03T15:30:00+00:00",
+      "event": "PFL Champions Series Dubai: Nurmagomedov vs. Hughes 2",
+      "promotion": "non_ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "4601137",
+        "5080723"
+      ],
+      "names": [
+        "Makkasharip Zaynukov",
+        "John Mitchell"
+      ],
+      "winner_id": "4601137",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/pfl/events/600055484/competitions/401813470?lang=en&region=us"
+    },
+    {
       "id": "espn:401830384",
       "date": "2025-10-15T00:00:00+00:00",
       "event": "Dana White's Contender Series: Season 9, Week 10",
@@ -2281,6 +2775,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600059254/competitions/401879449?lang=en&region=us"
+    },
+    {
+      "id": "espn:401935761",
+      "date": "2026-07-04T04:00:00+00:00",
+      "event": "Cage Conflict 18: Summer Slam",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5080723",
+        "5310987"
+      ],
+      "names": [
+        "John Mitchell",
+        "Kallew dos Santos"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600062940/competitions/401935761?lang=en&region=us"
     },
     {
       "id": "espn:401903468",
