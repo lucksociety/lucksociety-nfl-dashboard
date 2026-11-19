@@ -35,8 +35,8 @@
     "market_accuracy": 0,
     "verdict": "too few games to say"
   },
-  "pending_or_ungradable": 0,
+  "pending_or_ungradable": 1,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-18T23:08:14.261454+00:00",
-  "records": 19
+  "generated_at": "2026-11-19T23:14:22.883147+00:00",
+  "records": 20
 }
