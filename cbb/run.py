@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import numpy as np
 from . import availability as av
-from .model import VERSION,SIMS,Ratings,walk_forward,residuals_before,forecast,digest,evaluate,phase
+from .model import VERSION,SIMS,Ratings,walk_forward,residuals_before,residual_context_before,forecast,digest,evaluate,phase
 from .sources import UTC,ET,ESPN,get_json,instant,daily_schedule,polymarket_inventory,history as refresh_history
 ROOT=Path(__file__).resolve().parent
 OUT=Path('out/cbb')
@@ -35,6 +35,7 @@ def make_forecasts(date,now=None):
     fit=Ratings(games,now,**params)
     residual_rows=walk_forward(games,**params,first_season=2024)
     error_pools={p:residuals_before(residual_rows,now,p)for p in ['opening','established']};rows=[];inputs=[]
+    context_pools={p:residual_context_before(residual_rows,now,p)for p in ['opening','established']}
     quality=json.loads((ROOT/'data/quality.json').read_text())
     for event in inventory:
         g=join_fixture(event,schedule)
@@ -58,12 +59,14 @@ def make_forecasts(date,now=None):
     frozen_at=dt.datetime.now(UTC).isoformat();used=set(fit.used_ids)
     snapshot={'version':VERSION,'requested_date':date,'frozen_at':frozen_at,'parameters':params,
               'training_hash':digest([g for g in games if g['id'] in used]),'training_games':len(used),
-              'residual_count':{p:len(e)for p,e in error_pools.items()},'residual_hash':digest({p:e.tolist()for p,e in error_pools.items()}),'inputs':inputs,'source_quality':quality}
+              'error_model':'matchup-margin-v1','residual_count':{p:len(e)for p,e in error_pools.items()},
+              'residual_hash':digest({p:{'errors':e.tolist(),'contexts':context_pools[p].tolist()}for p,e in error_pools.items()}),'inputs':inputs,'source_quality':quality}
     h=digest(snapshot);arrays={}
     for row in rows:
         if row['state']!='pending_forecast':continue
         try:
-            pred,draws=forecast(row['game'],fit,error_pools[phase(row['game']['date'])],h)
+            stage=phase(row['game']['date'])
+            pred,draws=forecast(row['game'],fit,error_pools[stage],h,contexts=context_pools[stage])
             row.update(prediction=pred,state='forecast');arrays[pred['id']]=draws
             blockers=[]
             if quality.get('current_archive_missing'):blockers.append('Current-season archive has not been published; preseason-only baseline')

@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '22'
       - run: pip install -r cbb/requirements.txt
-      - run: python -m pytest -q cbb/test_cbb.py
+      - run: python -m pytest -q cbb
       - run: node cbb/worker.test.mjs
       - run: node cbb/delivery.test.mjs
       - run: node discord-worker/worker.test.mjs

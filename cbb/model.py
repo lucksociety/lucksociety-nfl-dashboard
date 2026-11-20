@@ -7,7 +7,7 @@ from scipy import sparse
 from scipy.sparse.linalg import spsolve
 from cfb.model import digest
 from .sources import instant,season_for
-VERSION='cbb-1.0.0'
+VERSION='cbb-1.1.0'
 SIMS=300_000
 
 
@@ -67,20 +67,48 @@ def residuals_before(rows,cutoff,stage=None):
                      if instant(r['date'])+dt.timedelta(hours=4)<cutoff and (stage is None or r['phase']==stage)])
 
 
-def simulate(mu,errors,seed,count=SIMS):
+def residual_context_before(rows,cutoff,stage=None):
+    return np.array([r['mu'] for r in rows
+                     if instant(r['date'])+dt.timedelta(hours=4)<cutoff and (stage is None or r['phase']==stage)])
+
+
+def matchup_weights(mu,contexts):
+    """75% similar predicted margins, 25% full phase pool. No odds or results.
+
+    Bandwidth 20 selected on chronological 2025 error evaluation. Retain the
+    paired team residuals to preserve score/total correlation and empirical tails.
+    """
+    contexts=np.asarray(contexts,dtype=float);mu=np.asarray(mu,dtype=float)
+    if contexts.ndim!=2 or contexts.shape[1]!=2 or len(contexts)<200 or not np.isfinite(contexts).all():
+        raise ValueError('Insufficient valid residual matchup context')
+    distance=(contexts[:,0]-contexts[:,1]-(mu[0]-mu[1]))/20.
+    local=np.exp(-.5*distance**2);mass=local.sum()
+    if mass<=1e-12:return np.full(len(contexts),1/len(contexts))
+    return .25/len(contexts)+.75*local/mass
+
+
+def simulate(mu,errors,seed,count=SIMS,weights=None):
     if len(errors)<200:raise ValueError('Insufficient chronological phase-specific errors')
     rng=np.random.default_rng(seed)
-    draws=np.maximum(0,np.rint(mu+errors[rng.integers(0,len(errors),count)]+rng.uniform(-.5,.5,(count,2)))).astype(int)
+    if weights is not None:
+        weights=np.asarray(weights,dtype=float)
+        if weights.shape!=(len(errors),)or not np.isfinite(weights).all()or np.any(weights<0)or not np.isclose(weights.sum(),1):
+            raise ValueError('Invalid residual sampling weights')
+    indices=rng.integers(0,len(errors),count)if weights is None else rng.choice(len(errors),count,p=weights)
+    draws=np.maximum(0,np.rint(mu+errors[indices]+rng.uniform(-.5,.5,(count,2)))).astype(int)
     ties=np.flatnonzero(draws[:,0]==draws[:,1]);draws[ties,rng.integers(0,2,len(ties))]+=rng.integers(1,8,len(ties))
     return draws
 
 
-def forecast(g,fit,errors,snapshot_hash,count=SIMS):
+def forecast(g,fit,errors,snapshot_hash,count=SIMS,contexts=None):
     mu,pace,eff=fit.predict(g);seed=int(hashlib.sha256((snapshot_hash+g['id']).encode()).hexdigest()[:16],16)
-    draws=simulate(mu,errors,seed,count);score=np.rint(np.mean(draws,axis=0)).astype(int)
+    weights=matchup_weights(mu,contexts)if contexts is not None else None
+    draws=simulate(mu,errors,seed,count,weights=weights);score=np.rint(np.mean(draws,axis=0)).astype(int)
     if score[0]==score[1]:score[int(np.mean(draws[:,0]>draws[:,1])<.5)]+=1
     return {'id':g['id'],'mean':np.mean(draws,axis=0).round(3).tolist(),'score':score.tolist(),'home_win':float(np.mean(draws[:,0]>draws[:,1])),
             'simulations':len(draws),'pace':pace,'efficiency':eff.tolist(),'phase':phase(g['date']),
+            'error_model':'matchup-margin-v1'if weights is not None else'phase-pool-v1',
+            'effective_residuals':float(1/np.sum(weights**2))if weights is not None else len(errors),
             'current_games':{s:fit.counts[g[s]]for s in ['home','away']},'interval80':np.quantile(draws,[.1,.9],axis=0).round(1).tolist()},draws
 
 
@@ -89,10 +117,10 @@ def evaluate(rows,season):
     for r in rows:
         if r['season']!=season:continue
         key=(r['cutoff'],r['phase'])
-        if key not in pools:pools[key]=residuals_before(rows,instant(r['cutoff']),r['phase'])
-        errors=pools[key]
+        if key not in pools:pools[key]=(residuals_before(rows,instant(r['cutoff']),r['phase']),residual_context_before(rows,instant(r['cutoff']),r['phase']))
+        errors,contexts=pools[key]
         if len(errors)<200:continue
-        draws=simulate(np.array(r['mu']),errors,int(r['id']),4000);p=np.clip(np.mean(draws[:,0]>draws[:,1]),.005,.995)
+        draws=simulate(np.array(r['mu']),errors,int(r['id']),4000,weights=matchup_weights(r['mu'],contexts));p=np.clip(np.mean(draws[:,0]>draws[:,1]),.005,.995)
         h,a=r['actual'];y=int(h>a);pred=draws.mean(axis=0);lo,hi=np.quantile(draws[:,0]-draws[:,1],[.1,.9])
         metrics.append([(p-y)**2,-y*np.log(p)-(1-y)*np.log(1-p),(p>.5)==bool(y),abs(pred[0]-pred[1]-h+a),abs(sum(pred)-h-a),lo<=h-a<=hi])
     if not metrics:return {'games':0}
