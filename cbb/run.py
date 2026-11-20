@@ -54,6 +54,9 @@ def make_forecasts(date,now=None):
             from cfb.roster_continuity import check
             try:report=check(g,games,ESPN,get_json,now,basketball=True)
             except (ValueError,KeyError,TypeError)as e:report={'state':'unknown','reason':'Roster continuity not verified: '+str(e)}
+            # A roster or box-score page that cannot be fetched (e.g. HTTP 404) leaves this one game unverified.
+            # It must not abort the forecasts for every other game on the date.
+            except OSError as e:report={'state':'unknown','reason':'Roster continuity not verified: source unavailable ('+type(e).__name__+')'}
         inputs.append({'game':g,'availability':report})
         rows.append({'game':g,'availability':report,'state':'pending_forecast'})
     frozen_at=dt.datetime.now(UTC).isoformat();used=set(fit.used_ids)

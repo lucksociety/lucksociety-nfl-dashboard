@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luck Society · College Basketball Oracle</title>
+<meta name="description" content="Men's college basketball score forecasts from an independent tempo and efficiency model, with a single-game simulator.">
+<meta name="theme-color" content="#050807">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/style.css">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+</head>
+<body>
+<nav class="topbar">
+  <a class="tb-brand" href="./"><img src="../assets/logo-96.jpg" alt="Luck Society" style="border-radius:50%"><span>LUCK SOCIETY</span></a>
+  <div class="badges">
+    <span class="badge fw" title="Forecasts are frozen before any price is read. This page fetches no prices.">No prices on this page</span>
+    <span class="badge warn" id="fresh" title="When the forecasts on this page were last rebuilt">Loading…</span>
+  </div>
+</nav>
+<header class="hero">
+  <div class="hero-inner">
+    <img class="hero-coin" src="../assets/logo-96.jpg" alt="Luck Society clover coin" style="border-radius:50%">
+    <div class="eyebrow"><span></span>LUCK SOCIETY PRESENTS<span></span></div>
+    <h1 class="hero-title">COLLEGE HOOPS <em>ORACLE</em></h1>
+    <div class="hero-sub"><span class="ver" id="ver">CBB</span> Men's college basketball · tempo and efficiency model · 300,000 simulations per game</div>
+  </div>
+</header>
+
+<main>
+  <nav class="tabs card" role="tablist">
+    <div class="tab-btns">
+      <button data-tab="simulator" class="active">Simulator</button>
+      <button data-tab="forecasts">Forecasts</button>
+      <button data-tab="record">Results &amp; Record</button>
+      <button data-tab="model">How it works</button>
+    </div>
+    <div class="field"><label for="date">Game date (ET)</label><input type="date" id="date"></div>
+  </nav>
+
+  <section id="tab-simulator" class="tab active">
+    <div class="card sim-controls">
+      <div class="field sim-grow"><label for="sim-game">Game</label><select id="sim-game"><option value="">Loading games…</option></select></div>
+      <button id="sim-run" class="small-btn sim-go" disabled>Run 100,000 simulations</button>
+    </div>
+    <div id="sim-note" class="card sim-note">Loading forecasts…</div>
+    <div class="grid2 sim-grid">
+      <div class="sim-col">
+        <div class="card">
+          <h2 id="sim-title">Simulation <small id="sim-info"></small></h2>
+          <div class="sim-prog"><i id="sim-prog"></i></div>
+          <div class="probbar sim-bar" id="sim-bar"></div>
+          <div class="probtxt sim-bar" id="sim-bartxt"></div>
+          <div class="table-wrap"><table><thead><tr><th>Result</th><th class="num">Simulated</th><th class="num" title="The model's own figure from its 300,000 simulations">Forecast</th><th class="num" title="Type a price in cents to compare. Nothing is fetched: this page reads no prices.">Your price ¢</th><th class="num">Gap</th></tr></thead><tbody id="sim-odds"></tbody></table></div>
+          <p class="muted sim-small">Each run draws 100,000 games from the model's simulated results for this matchup, so it lands within about a third of a point of the forecast. This page fetches no prices; type one in to see the gap.</p>
+          <div class="sim-kv" id="sim-kv"></div>
+        </div>
+        <div class="card">
+          <h2>Who plays <small>what the model could confirm</small></h2>
+          <div id="sim-avail"></div>
+        </div>
+      </div>
+      <div class="sim-col">
+        <div class="card">
+          <h2>Final margin</h2>
+          <div id="sim-margin" class="sim-bands"></div>
+          <h2 style="margin-top:18px">Total points</h2>
+          <div id="sim-total" class="sim-bands"></div>
+          <p class="muted sim-small" id="sim-band-note"></p>
+        </div>
+        <div class="card">
+          <h2>Most likely exact scores</h2>
+          <div class="table-wrap"><table><thead><tr><th>Score</th><th class="num">Chance</th></tr></thead><tbody id="sim-top"></tbody></table></div>
+          <p class="muted sim-small">Basketball has thousands of possible scores, so each one is rare. The predicted score is the average of the simulated games.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-forecasts" class="tab">
+    <div class="card">
+      <h2>Every game <small id="fc-sub"></small></h2>
+      <div class="table-wrap"><table id="fc-table"></table></div>
+      <p class="muted sim-small" id="fc-note"></p>
+    </div>
+    <div class="card hidden" id="fc-skipped"></div>
+  </section>
+
+  <section id="tab-record" class="tab"><div id="record"><div class="card"><p class="muted">Loading record…</p></div></div></section>
+
+  <section id="tab-model" class="tab">
+    <section class="card about">
+      <h2>How it works</h2>
+      <p>Several times a day a GitHub Action refreshes the season's results, refits the team ratings and simulates every listed men's game 300,000 times. The ratings estimate each team's offence and defence per 100 possessions, adjusted for opponents, plus its tempo and home advantage; neutral-site games get no home advantage. The spread of simulated scores comes from how far the model's own past forecasts missed at the same stage of earlier seasons.</p>
+      <p>The Simulator tab draws 100,000 games from those stored results for one matchup. It cannot change who plays: this model rates teams, not players. Instead it shows what the model could confirm about availability, which decides whether a bet may be posted in Discord.</p>
+      <p><strong>What it covers.</strong> Only men's games that Polymarket lists, because the Discord command prices those. Polymarket is read here for the list of games only. Once a game tips off, the page keeps the last forecast made before the tip.</p>
+      <p><strong>Honesty notes.</strong> Early in the season most teams have played only a few games, so forecasts lean on last season and are less certain. Exact scores and the displayed point totals are approximations. Bets are posted only in Discord by <code>/cbb</code>; nothing on this page is betting advice.</p>
+    </section>
+  </section>
+</main>
+<footer>
+  <img src="../assets/logo-96.jpg" alt="" class="foot-coin" style="border-radius:50%">
+  <div class="foot-name">LUCK SOCIETY</div>
+  <div>College Basketball Oracle · data: ESPN box scores via SportsDataverse, ESPN schedule · <a href="https://github.com/lucksociety/lucksociety-nfl-dashboard/tree/main/cbb" target="_blank" rel="noopener">source</a> · <a href="https://x.com/lucksociety" target="_blank" rel="noopener">@LuckSociety</a></div>
+  <div class="foot-note">Model forecasts only — not a guarantee. Bet responsibly.</div>
+</footer>
+<script src="site/app.js"></script>
+</body>
+</html>
