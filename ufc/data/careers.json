@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "refreshed_at": "2026-11-19T20:58:50.133185+00:00",
+  "refreshed_at": "2026-11-20T20:44:21.410837+00:00",
   "bouts": [
     {
       "id": "espn:401614040",
@@ -1276,6 +1276,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600036112/competitions/401565016?lang=en&region=us"
     },
     {
+      "id": "espn:401935770",
+      "date": "2023-03-18T12:00:00+00:00",
+      "event": "UAE Warriors 39",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "4713474"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Christiano Marques"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035252/competitions/401935770?lang=en&region=us"
+    },
+    {
       "id": "espn:401801823",
       "date": "2023-03-25T04:00:00+00:00",
       "event": "Demo Fight 16",
@@ -2511,6 +2530,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600055055/competitions/401830384?lang=en&region=us"
     },
     {
+      "id": "espn:401935771",
+      "date": "2025-10-18T04:00:00+00:00",
+      "event": "FightStar Championship 34",
+      "promotion": "non_ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "4712356",
+        "5158159"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Cristiano Cruz"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600062941/competitions/401935771?lang=en&region=us"
+    },
+    {
       "id": "espn:401780825",
       "date": "2025-10-18T20:00:00+00:00",
       "event": "UFC Fight Night: de Ridder vs. Allen",
@@ -2623,6 +2661,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600057025/competitions/401838933?lang=en&region=us"
+    },
+    {
+      "id": "espn:401935772",
+      "date": "2026-02-14T05:00:00+00:00",
+      "event": "FightStar Championship 36",
+      "promotion": "non_ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "4712356",
+        "5369673"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Arley Figueiredo"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600062942/competitions/401935772?lang=en&region=us"
     },
     {
       "id": "espn:401847041",
@@ -2889,6 +2946,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600060772/competitions/401914463?lang=en&region=us"
+    },
+    {
+      "id": "espn:401935773",
+      "date": "2026-09-26T04:00:00+00:00",
+      "event": "Full Contact Contender 47",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4712356",
+        "5277053"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "Tariel Abbasov"
+      ],
+      "winner_id": "4712356",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600062943/competitions/401935773?lang=en&region=us"
     }
   ]
 }
