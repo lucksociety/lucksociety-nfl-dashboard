@@ -17,14 +17,15 @@
   // ---------- simulation: draw from the stored margin and total results
   function sampler(h) { const c = new Float64Array(h.p.length); let s = 0; h.p.forEach((v, i) => { s += v; c[i] = s; }); for (let i = 0; i < c.length; i++) c[i] /= s;
     return () => { const r = Math.random(); let lo = 0, hi = c.length - 1; while (lo < hi) { const m = (lo + hi) >> 1; if (c[m] < r) lo = m + 1; else hi = m; } return h.min + lo; }; }
-  const mBand = m => (m <= -20 ? 0 : m <= -15 ? 1 : m <= -10 ? 2 : m <= -5 ? 3 : m < 0 ? 4 : m < 5 ? 5 : m < 10 ? 6 : m < 15 ? 7 : m < 20 ? 8 : 9);
+  // Five-point bands out to 30, so the open-ended last band is a true tail and does not swallow every big win.
+  const mBand = m => (m <= -30 ? 0 : m >= 30 ? 13 : m < 0 ? 6 - Math.floor(-m / 5) : 7 + Math.floor(m / 5));
   function run() {
     const g = game(); if (!g) return;
     if (running) { again = true; return; }
     running = true; again = false; const btn = $('sim-run'); btn.disabled = true; btn.textContent = 'Running…';
     const d = g.distribution, drawM = sampler(d.margin), drawT = sampler(d.total), mine = cur;
     const med = (() => { let s = 0, tot = d.total.p.reduce((a, b) => a + b, 0); for (let i = 0; i < d.total.p.length; i++) { s += d.total.p[i]; if (s >= tot / 2) return d.total.min + i; } return d.total.min; })();
-    const base = Math.floor(med / 10) * 10 - 20, o = { n: 0, home: 0, sumM: 0, sumT: 0, close: 0, margin: new Array(10).fill(0), total: new Array(7).fill(0), base };
+    const base = Math.floor(med / 10) * 10 - 20, o = { n: 0, home: 0, sumM: 0, sumT: 0, close: 0, margin: new Array(14).fill(0), total: new Array(7).fill(0), base };
     (function step() {
       for (let k = 0; k < 4000; k++) { const m = drawM(), t = drawT(); o.n++; if (m > 0) o.home++; o.sumM += m; o.sumT += t; if (Math.abs(m) <= 5) o.close++; o.margin[mBand(m)]++; o.total[Math.max(0, Math.min(6, Math.floor((t - base) / 10) + 1))]++; }
       $('sim-prog').style.width = o.n / N * 100 + '%'; $('sim-info').textContent = `${o.n.toLocaleString()} of ${N.toLocaleString()}`;
@@ -50,10 +51,11 @@
     rows.forEach(([k, , s]) => { const f = () => { price[k] = $('sim-price-' + k).value; const v = parseFloat(price[k]), el = $('sim-gap-' + k);
         if (!(v > 0)) { el.textContent = '—'; el.className = 'num'; return; } const d = s * 100 - v; el.textContent = (d >= 0 ? '+' : '−') + Math.abs(d).toFixed(1) + ' pts'; el.className = 'num ' + (d > 0 ? 'pos' : 'neg'); };
       $('sim-price-' + k).addEventListener('input', f); f(); });
-    const mH = o.sumM / o.n, fav = pH >= 0.5 ? H : A, by10 = (pH >= 0.5 ? o.margin.slice(7) : o.margin.slice(0, 3)).reduce((a, b) => a + b, 0) / o.n;
+    const mH = o.sumM / o.n, fav = pH >= 0.5 ? H : A, by10 = (pH >= 0.5 ? o.margin.slice(9) : o.margin.slice(0, 5)).reduce((a, b) => a + b, 0) / o.n;
     $('sim-kv').innerHTML = [[`${A} ${p.score[1]} – ${p.score[0]} ${H}`, 'Predicted score'], [`${mH >= 0 ? H : A} by ${f1(Math.abs(mH))}`, 'Expected margin'], [f1(o.sumT / o.n), 'Expected total'],
       [f1(p.pace), 'Possessions each'], [pct(o.close / o.n), 'Decided by 5 or fewer'], [pct(by10), `${fav} by 10 or more`]].map(([b, l]) => `<div><span>${esc(l)}</span><b>${esc(b)}</b></div>`).join('');
-    bands('sim-margin', [`${A} by 20+`, `${A} by 15–19`, `${A} by 10–14`, `${A} by 5–9`, `${A} by 1–4`, `${H} by 1–4`, `${H} by 5–9`, `${H} by 10–14`, `${H} by 15–19`, `${H} by 20+`], o.margin, o.n, 5);
+    const R = ['1–4', '5–9', '10–14', '15–19', '20–24', '25–29', '30+'];
+    bands('sim-margin', [...R.slice().reverse().map(r => `${A} by ${r}`), ...R.map(r => `${H} by ${r}`)], o.margin, o.n, 7);
     bands('sim-total', [`Under ${o.base}`, ...[0, 1, 2, 3, 4].map(k => `${o.base + 10 * k}–${o.base + 10 * k + 9}`), `${o.base + 50} or more`], o.total, o.n, 0);
     const i80 = p.interval80;
     $('sim-band-note').textContent = `Eight games in ten: ${H} scores ${Math.round(i80[0][0])} to ${Math.round(i80[1][0])}, ${A} scores ${Math.round(i80[0][1])} to ${Math.round(i80[1][1])}. Margin and total are drawn separately here, so only the forecast's own exact scores are listed.`;
