@@ -1,6 +1,6 @@
 {
   "policy": "Last successfully delivered pregame card per game and version, including NO BET; recommendations, not actual user wagers",
-  "publications": 86,
+  "publications": 137,
   "settled_forecasts": 86,
   "settled_bets": 10,
   "winner_accuracy": 0.7325581395348837,
@@ -1224,7 +1224,7 @@
       "profit": -0.422095
     }
   ],
-  "generated_at": "2026-11-20T16:11:40.500633+00:00",
+  "generated_at": "2026-11-20T19:14:48.134659+00:00",
   "version": "cbb-1.1.0",
   "training_results": 26112,
   "chronological_holdouts": {
