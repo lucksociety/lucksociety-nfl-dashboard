@@ -1198,5 +1198,13 @@
    24
   ],
   "source": "data/weeks/2026_w10.json"
+ },
+ "2026_11_IND_HOU": {
+  "label": "H",
+  "scores": [
+   26,
+   3
+  ],
+  "source": "data/weeks/2026_w11.json"
  }
 }

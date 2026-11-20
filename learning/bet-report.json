@@ -1,12 +1,12 @@
 {
   "settled_by_model_and_market": {
     "nfl-v6 / confidence-first-calibration-stress-v2 / spreads": {
-      "n": 1,
+      "n": 2,
       "wins": 0,
       "win_rate": 0,
-      "mean_probability": 0.64903,
-      "brier": 0.4212399409,
-      "log_loss": 1.0470545292545173,
+      "mean_probability": 0.7621800000000001,
+      "brier": 0.5937212749,
+      "log_loss": 1.5645697809398855,
       "flat_cost_roi": -1.0,
       "reliability": [
         {
@@ -14,6 +14,13 @@
           "upper_inclusive": 0.7,
           "n": 1,
           "mean_probability": 0.64903,
+          "win_rate": 0
+        },
+        {
+          "lower_exclusive": 0.8,
+          "upper_inclusive": 0.9,
+          "n": 1,
+          "mean_probability": 0.87533,
           "win_rate": 0
         }
       ],
@@ -26,17 +33,23 @@
     }
   },
   "model_vs_market": {
-    "n": 1,
-    "model_log_loss": 1.0483232483749418,
-    "market_log_loss": 1.1239300966523997,
-    "log_loss_diff": -0.0756068482774579,
-    "log_loss_diff_se": null,
-    "model_accuracy": 0,
-    "market_accuracy": 0,
+    "n": 2,
+    "model_log_loss": 0.7134247440637241,
+    "market_log_loss": 0.6461743741386815,
+    "log_loss_diff": 0.06725036992504267,
+    "log_loss_diff_se": 0.14285721820250055,
+    "model_accuracy": 0.5,
+    "market_accuracy": 0.5,
+    "disagree_over_5pts": {
+      "n": 1,
+      "model_side_won": 0,
+      "model_said": 0.31513,
+      "market_said": 0.15500000000000003
+    },
     "verdict": "too few games to say"
   },
-  "pending_or_ungradable": 1,
+  "pending_or_ungradable": 0,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-19T23:14:22.883147+00:00",
+  "generated_at": "2026-11-20T22:49:20.486418+00:00",
   "records": 20
 }
