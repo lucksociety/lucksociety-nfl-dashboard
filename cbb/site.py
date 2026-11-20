@@ -92,5 +92,6 @@ if __name__=='__main__':
             page=build(d);print(d,sum(g['state']=='forecast'for g in page['games']),'forecasts of',len(page['games']),'listed games')
         except Exception as e:  # one bad date must not stop the other, and must not erase the stored copy
             print(d,'failed:',type(e).__name__,e)
+            import traceback;traceback.print_exc()
             if k==0 and a.days==1:raise
     print(index(today.isoformat()))
