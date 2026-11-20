@@ -2,6 +2,17 @@
 
 `/cbb [date:YYYY-MM-DD]` uses the dedicated College Basketball Discord app and shared Worker/Actions transport, with its own basketball model, workflow and channel restriction: `1299433532401254410`. The default is today's Eastern date; autocomplete works locally. `/cfb` and `/nfl` retain their separate routing. Its signed endpoint is `/cbb/interactions`, verified with the basketball app’s own public key and app ID. A bot token is used only to register commands, never at runtime.
 
+## Dashboard
+
+**https://lucksociety.github.io/lucksociety-nfl-dashboard/cbb/** (`cbb/index.html`, `cbb/site/`), laid out like the NBA dashboard:
+
+* **Simulator** (front page): pick a game and it draws 100,000 games from that matchup's stored simulation results. Win chances beside the forecast, predicted score, margin and total bands, most likely exact scores, and what the model could confirm about availability. A price can be typed in to see the gap; the page fetches none.
+* **Forecasts**: every listed game on the date, plus the games that could not be forecast and why.
+* **Results & Record**: the delivered-forecast and bet record (`data/daily-report.json`) and the past-season tests.
+* **How it works**.
+
+`cbb-site.yml` rebuilds the page data five times a day for today and tomorrow (Eastern) with `python -m cbb.site --days 2`: the same refresh, refit and 300,000 simulations per game as `/cbb`, without the price scan or any Discord delivery. Each game's simulated margins and totals are stored as compact histograms in `cbb/site/data/<date>.json` (three weeks are kept). After a game tips off the page keeps the last forecast made before the tip. The model rates teams, not players, so unlike the NBA page there is no "sit a player out" control.
+
 ## Independent basketball protocol
 
 Every invocation refreshes current-season ESPN box scores and schedules from SportsDataverse's men's-only release, overlays newer official ESPN finals, refits ratings, obtains fresh supported availability, and runs 300,000 simulations per modeled unstarted game. Historical result caches contain no predictions or odds. Forecast snapshots, input hashes and score projections are written before any execution prices are fetched.

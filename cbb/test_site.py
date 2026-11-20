@@ -21,7 +21,8 @@ def test_distribution_matches_the_simulated_games():
 
 
 def row(state='forecast',gid='1'):
-    g={'id':gid,'date':'2026-11-21T00:00Z','neutral':False,'conference_game':False,'home':'10','away':'20','home_name':'Home U','away_name':'Away State'}
+    g={'id':gid,'date':'2026-11-21T00:00Z','neutral':False,'conference_game':False,'home':'10','away':'20','home_name':'Middle Tennessee Blue Raiders','away_name':'Away State',
+       'home_aliases':['MTSU','Middle Tennessee','Middle Tennessee Blue Raiders'],'away_aliases':['AWY']}
     if state!='forecast':return {'game':g,'state':state,'reason':'Already started; no new pregame prediction or bet'}
     return {'game':g,'state':'forecast','availability':{'state':'unknown','reason':'No supported official report','extra':'dropped'},'bet_blockers':['x'],
             'prediction':{'id':gid,'mean':[76.0,70.0],'score':[76,70],'home_win':.66,'simulations':50000,'pace':68.0,'efficiency':[110.,102.],'phase':'opening',
@@ -40,6 +41,7 @@ def test_page_file_keeps_the_pregame_forecast_after_tipoff(tmp_path,monkeypatch)
     g=[x for x in page['games']if x['state']=='forecast'][0]
     assert g['prediction']['home_win']==.66 and 'error_model'not in g['prediction']and g['availability']=={'state':'unknown','reason':'No supported official report'}
     assert g['distribution']['simulations']==50000 and page['training_games']==123
+    assert g['game']['home_short']=='Middle Tennessee'and g['game']['away_short']=='Away State'
     assert any(x['state']=='unmodeled'and x['game']['title']=='A vs. B'for x in page['games'])
     assert 'ask'not in json.dumps(page)and'price'not in json.dumps(page)
     later=site.build('2026-11-20',forecaster=fake([row('started')]))

@@ -34,10 +34,17 @@ def distribution(draws):
             'top_scores':[{'home':h,'away':a,'p':round(c/n,5)}for (h,a),c in top]}
 
 
+def short_name(name,aliases):
+    """School name without the mascot: the longest official alias that begins the full name ("Middle Tennessee")."""
+    fits=[a for a in aliases or[]if a!=name and name.startswith(a+' ')]
+    return max(fits,key=len)if fits else name
+
+
 def game_record(row,arrays):
     g=row.get('game')or{};market=row.get('market')or{}
     out={'state':row['state'],'reason':row.get('reason'),
-         'game':{k:g.get(k)for k in ['id','date','neutral','conference_game','home','away','home_name','away_name']}if g else
+         'game':dict({k:g.get(k)for k in ['id','date','neutral','conference_game','home','away','home_name','away_name']},
+                     **{s+'_short':short_name(g.get(s+'_name')or'',g.get(s+'_aliases'))for s in ['home','away']})if g else
                 {'id':None,'title':market.get('title')}}
     if row['state']=='forecast':
         p=row['prediction']
@@ -86,11 +93,13 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--date');p.add_argument('--days',type=int,default=2);a=p.parse_args()
     today=dt.datetime.now(UTC).astimezone(ET).date()
     first=dt.date.fromisoformat(a.date)if a.date else today
+    failed=[]
     for k in range(a.days):
         d=(first+dt.timedelta(days=k)).isoformat()
         try:
             page=build(d);print(d,sum(g['state']=='forecast'for g in page['games']),'forecasts of',len(page['games']),'listed games')
-        except Exception as e:  # one bad date must not stop the other, and must not erase the stored copy
-            print(d,'failed:',type(e).__name__,e)
-            if k==0 and a.days==1:raise
+        except Exception as e:  # one bad date must not stop the others, and must not erase the stored copy
+            import traceback
+            failed.append(d);print(d,'failed:',type(e).__name__,e);traceback.print_exc()
     print(index(today.isoformat()))
+    if first.isoformat()in failed:raise SystemExit(f'The first date ({first}) could not be built')
