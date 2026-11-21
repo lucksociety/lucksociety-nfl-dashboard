@@ -1,12 +1,12 @@
 {
   "policy": "Last successfully delivered pregame card per game and version, including NO BET; recommendations, not actual user wagers",
-  "publications": 137,
-  "settled_forecasts": 86,
-  "settled_bets": 10,
-  "winner_accuracy": 0.7325581395348837,
-  "winner_brier": 0.17892571094599485,
-  "bet_win_rate": 0.4,
-  "bet_roi": -0.27809040473861457,
+  "publications": 187,
+  "settled_forecasts": 137,
+  "settled_bets": 23,
+  "winner_accuracy": 0.7226277372262774,
+  "winner_brier": 0.18245394376066504,
+  "bet_win_rate": 0.43478260869565216,
+  "bet_roi": -0.2072828509913721,
   "calibration": "Monitor only; require independent holdout evidence before changing the frozen protocol",
   "settled": [
     {
@@ -811,7 +811,7 @@
       ],
       "winner_correct": true,
       "brier": 0.007185387777777776,
-      "log_loss": 0.0885762371084434
+      "log_loss": 0.08857623710844338
     },
     {
       "game_id": "401902280",
@@ -1040,6 +1040,618 @@
       "winner_correct": true,
       "brier": 0.22342638239999998,
       "log_loss": 0.6399477040923679
+    },
+    {
+      "game_id": "401912710",
+      "version": "cbb-1.1.0",
+      "publication_key": "02d901128cd11525369933c4e4dcc086cd3e5360df83dfd7e6176f9cc644253e",
+      "actual": [
+        88,
+        72
+      ],
+      "winner_correct": true,
+      "brier": 0.012559684900000001,
+      "log_loss": 0.11886236792595124
+    },
+    {
+      "game_id": "401916299",
+      "version": "cbb-1.1.0",
+      "publication_key": "3513b2b9ddd15c747fcdce98312c4de7387c9fb012af563f21f6f82f66fa24a3",
+      "actual": [
+        62,
+        45
+      ],
+      "winner_correct": true,
+      "brier": 0.012305464899999993,
+      "log_loss": 0.11757930641059561
+    },
+    {
+      "game_id": "401916290",
+      "version": "cbb-1.1.0",
+      "publication_key": "473208789c4cb46f31d4b683a52f2dab32f4e89ed20e8ebce05dbd569c0e4409",
+      "actual": [
+        90,
+        76
+      ],
+      "winner_correct": true,
+      "brier": 0.15530955537777774,
+      "log_loss": 0.5010293201759526
+    },
+    {
+      "game_id": "401913529",
+      "version": "cbb-1.1.0",
+      "publication_key": "ff41086f017beac351b03e150ab9c3934df70fb6c95f22dc5e99fd8d96d351af",
+      "actual": [
+        114,
+        52
+      ],
+      "winner_correct": true,
+      "brier": 4.524804444444434e-05,
+      "log_loss": 0.0067493926596759735
+    },
+    {
+      "game_id": "401909799",
+      "version": "cbb-1.1.0",
+      "publication_key": "2dfe1a90a475c8fa1a1caff6fc256434824090673ed3af86edb81aa4d18b78fd",
+      "actual": [
+        70,
+        80
+      ],
+      "winner_correct": false,
+      "brier": 0.7191944561777778,
+      "log_loss": 1.8842256969006486
+    },
+    {
+      "game_id": "401911252",
+      "version": "cbb-1.1.0",
+      "publication_key": "6e5b589a98aa69452944726e85b01b66513f01411956063eb22c821bea091f75",
+      "actual": [
+        95,
+        78
+      ],
+      "winner_correct": true,
+      "brier": 0.030478176399999984,
+      "log_loss": 0.1918629312811778
+    },
+    {
+      "game_id": "401909545",
+      "version": "cbb-1.1.0",
+      "publication_key": "7bfd28b8d9f04d564cedab52f9007e4a6b3c1d12c3233c6b1b7702139d1e555f",
+      "actual": [
+        65,
+        83
+      ],
+      "winner_correct": false,
+      "brier": 0.5070721681,
+      "log_loss": 1.245107347684491
+    },
+    {
+      "game_id": "401909709",
+      "version": "cbb-1.1.0",
+      "publication_key": "ba578ebebb42b98832b6781d63f151d21c17ab51085fbe319c8ceedb867a040f",
+      "actual": [
+        104,
+        82
+      ],
+      "winner_correct": true,
+      "brier": 0.02146420337777778,
+      "log_loss": 0.15841754775256664
+    },
+    {
+      "game_id": "401909698",
+      "version": "cbb-1.1.0",
+      "publication_key": "cf041724ddd6d02b7a0d31235f67339f6db408867963e609ef582f05ee7769a6",
+      "actual": [
+        87,
+        63
+      ],
+      "winner_correct": true,
+      "brier": 0.0168186315111111,
+      "log_loss": 0.13890197891641912
+    },
+    {
+      "game_id": "401919019",
+      "version": "cbb-1.1.0",
+      "publication_key": "1e3ea5a84eb0da843979b67674bb32cc9bbdcdb51cd2cddc3e10222d319d65d4",
+      "actual": [
+        76,
+        81
+      ],
+      "winner_correct": false,
+      "brier": 0.5730691868444444,
+      "log_loss": 1.4147487068314841
+    },
+    {
+      "game_id": "401906852",
+      "version": "cbb-1.1.0",
+      "publication_key": "4e4c7d8ba40a56a0463056a3b806ae7284ab56ea9c6c70fb63c209c1a6ee230f",
+      "actual": [
+        78,
+        51
+      ],
+      "winner_correct": true,
+      "brier": 0.001362840277777781,
+      "log_loss": 0.03761533579469609
+    },
+    {
+      "game_id": "401916122",
+      "version": "cbb-1.1.0",
+      "publication_key": "652dd5bb4d6fb352d0a70923ee61dc23e30934ee9c71483fd8275d7eb106bafa",
+      "actual": [
+        76,
+        85
+      ],
+      "winner_correct": false,
+      "brier": 0.42894640359999997,
+      "log_loss": 1.064036964028419
+    },
+    {
+      "game_id": "401906784",
+      "version": "cbb-1.1.0",
+      "publication_key": "d01b85614984d1a59360338959b9f07530bf16c0d7163ae04af069df3e8377da",
+      "actual": [
+        82,
+        88
+      ],
+      "winner_correct": false,
+      "brier": 0.31187012551111115,
+      "log_loss": 0.8174715642597511
+    },
+    {
+      "game_id": "401919784",
+      "version": "cbb-1.1.0",
+      "publication_key": "104d3c709bfba1cf28995a3c537846846e85d09be094fbe47e1226fdb39ba3f5",
+      "actual": [
+        91,
+        64
+      ],
+      "winner_correct": true,
+      "brier": 0.001270447211111113,
+      "log_loss": 0.03629406663085488
+    },
+    {
+      "game_id": "401916123",
+      "version": "cbb-1.1.0",
+      "publication_key": "5f0c2b29e348f7e979394ebbf8dfd0cc5087be84b74c600205dcfac47b74e8c9",
+      "actual": [
+        86,
+        76
+      ],
+      "winner_correct": true,
+      "brier": 0.06624103271111112,
+      "log_loss": 0.2975618280176654
+    },
+    {
+      "game_id": "401917903",
+      "version": "cbb-1.1.0",
+      "publication_key": "9ebdca3d10a0c358429b86a707d1d17cb08c9e50e94149b883d95b3c35e2dd9c",
+      "actual": [
+        105,
+        56
+      ],
+      "winner_correct": true,
+      "brier": 0.022118629877777775,
+      "log_loss": 0.16101809552841317
+    },
+    {
+      "game_id": "401916125",
+      "version": "cbb-1.1.0",
+      "publication_key": "b2fc83e64d994dd43a840dbae5c8330bd75403608de43fe8b6c70fff1fe8a1d3",
+      "actual": [
+        90,
+        79
+      ],
+      "winner_correct": false,
+      "brier": 0.44724439601111116,
+      "log_loss": 1.1049221540641483
+    },
+    {
+      "game_id": "401916124",
+      "version": "cbb-1.1.0",
+      "publication_key": "d125ed669039d45bd1d0a3e0ea7827ab2922e509940ed553fdc158f7caeee4b9",
+      "actual": [
+        73,
+        76
+      ],
+      "winner_correct": false,
+      "brier": 0.28010203417777774,
+      "log_loss": 0.7534210305706704
+    },
+    {
+      "game_id": "401920195",
+      "version": "cbb-1.1.0",
+      "publication_key": "87474e7abc405067d517c14b3fa8b5b6a9e8b96eb7acdbbdbc336213a780b6bf",
+      "actual": [
+        75,
+        64
+      ],
+      "winner_correct": true,
+      "brier": 0.07204750694444442,
+      "log_loss": 0.3125441438439286
+    },
+    {
+      "game_id": "401920427",
+      "version": "cbb-1.1.0",
+      "publication_key": "9038d08cb49cb2a557070de60941e645ebb71ae28a98f73646636e70fa28385b",
+      "actual": [
+        103,
+        61
+      ],
+      "winner_correct": true,
+      "brier": 0.0007754368444444456,
+      "log_loss": 0.028241736620039423
+    },
+    {
+      "game_id": "401920380",
+      "version": "cbb-1.1.0",
+      "publication_key": "c776ac1d2700dcb6f860bc74fd2ddf885d3e7b5a76035003df867c0679eb263f",
+      "actual": [
+        87,
+        70
+      ],
+      "winner_correct": true,
+      "brier": 0.09799612854444445,
+      "log_loss": 0.3754840649257867
+    },
+    {
+      "game_id": "401920357",
+      "version": "cbb-1.1.0",
+      "publication_key": "d2bb0f6de0def053d5f172d462861978f225176773482ee554e6adf0fbe263d2",
+      "actual": [
+        65,
+        77
+      ],
+      "winner_correct": false,
+      "brier": 0.30107168999999995,
+      "log_loss": 0.7956229721491814
+    },
+    {
+      "game_id": "401920066",
+      "version": "cbb-1.1.0",
+      "publication_key": "ee955e48ec61a08e106d199aff87e1bfec6a8da34acd34f28402166f1c59c1d7",
+      "actual": [
+        71,
+        68
+      ],
+      "winner_correct": true,
+      "brier": 0.09713195560000003,
+      "log_loss": 0.373472377071991
+    },
+    {
+      "game_id": "401921007",
+      "version": "cbb-1.1.0",
+      "publication_key": "1453b00429045d4790ea9c73c179927eb0bc909d553d3462049ca7aa01d887cf",
+      "actual": [
+        62,
+        61
+      ],
+      "winner_correct": true,
+      "brier": 0.014811701344444457,
+      "log_loss": 0.12977085327671165
+    },
+    {
+      "game_id": "401920707",
+      "version": "cbb-1.1.0",
+      "publication_key": "7eb5a3b716ade2fdbf158bf2d900611480dcc170da3e703ee743bf4cdff2e5df",
+      "actual": [
+        85,
+        69
+      ],
+      "winner_correct": true,
+      "brier": 0.1623713888444445,
+      "log_loss": 0.5157600000236603
+    },
+    {
+      "game_id": "401921107",
+      "version": "cbb-1.1.0",
+      "publication_key": "9f64627523aaf0d780b1568388e0086e8ba3c74ef402d6571233397999a879c7",
+      "actual": [
+        76,
+        79
+      ],
+      "winner_correct": false,
+      "brier": 0.8272751388444444,
+      "log_loss": 2.402921215046708
+    },
+    {
+      "game_id": "401920137",
+      "version": "cbb-1.1.0",
+      "publication_key": "a372efec4b9faf5daf440df76666e772441c6f1bb3a051f2c5676d4e3073d153",
+      "actual": [
+        84,
+        81
+      ],
+      "winner_correct": true,
+      "brier": 0.012383980277777769,
+      "log_loss": 0.11797680442833941
+    },
+    {
+      "game_id": "401920922",
+      "version": "cbb-1.1.0",
+      "publication_key": "f6914a3d3324e70ed8eeab715b6e13805078d96a44bf8a71fc3ee13b1bfe68eb",
+      "actual": [
+        67,
+        73
+      ],
+      "winner_correct": false,
+      "brier": 0.32228329,
+      "log_loss": 0.8386354873085509
+    },
+    {
+      "game_id": "401921419",
+      "version": "cbb-1.1.0",
+      "publication_key": "59c8e5ddfb1da20939985ce2ab32e10f71caa33e003efec2db3cb5fc9cfac72b",
+      "actual": [
+        46,
+        63
+      ],
+      "winner_correct": true,
+      "brier": 0.2300129626777778,
+      "log_loss": 0.653151127035067
+    },
+    {
+      "game_id": "401921418",
+      "version": "cbb-1.1.0",
+      "publication_key": "60bd7660ad85925d69567674ffa0238ad222d8a93665c09eff9e661c8074100a",
+      "actual": [
+        85,
+        70
+      ],
+      "winner_correct": true,
+      "brier": 0.14588325617777778,
+      "log_loss": 0.4811805253559426
+    },
+    {
+      "game_id": "401921757",
+      "version": "cbb-1.1.0",
+      "publication_key": "686c0ee6a3743926970f30b8a2d18ce9015244978c8d7c7ef260b4af9d3eb992",
+      "actual": [
+        82,
+        74
+      ],
+      "winner_correct": true,
+      "brier": 0.0023104044444444477,
+      "log_loss": 0.04926027465405191
+    },
+    {
+      "game_id": "401921723",
+      "version": "cbb-1.1.0",
+      "publication_key": "b32647385cce57c481a440beaf714dc8b7071afde340c9bea8adeeeb975c06fc",
+      "actual": [
+        106,
+        54
+      ],
+      "winner_correct": true,
+      "brier": 0.0006362165444444466,
+      "log_loss": 0.025546894051559216
+    },
+    {
+      "game_id": "401924844",
+      "version": "cbb-1.1.0",
+      "publication_key": "f0d0e32525c60e2c6214c6879fa2e8326b8aa70944167b253c4717c322de53ff",
+      "actual": [
+        101,
+        103
+      ],
+      "winner_correct": false,
+      "brier": 0.7164437449000001,
+      "log_loss": 1.8735987898445357
+    },
+    {
+      "game_id": "401922022",
+      "version": "cbb-1.1.0",
+      "publication_key": "f86ba7eb0929a23d519be3416666f0e3f4c7f2c911e11991879bc6f6cd10dac5",
+      "actual": [
+        86,
+        71
+      ],
+      "winner_correct": true,
+      "brier": 0.1407625336111111,
+      "log_loss": 0.47029700560970616
+    },
+    {
+      "game_id": "401926134",
+      "version": "cbb-1.1.0",
+      "publication_key": "1305a2e04d1b0018d26ec9a578a6323484e272dadff3ba90c3413a8a36426328",
+      "actual": [
+        95,
+        49
+      ],
+      "winner_correct": true,
+      "brier": 0.002931861511111112,
+      "log_loss": 0.05566776070969958
+    },
+    {
+      "game_id": "401925927",
+      "version": "cbb-1.1.0",
+      "publication_key": "260ed08b2e8aacb6bb5e4267f0a0914165e299ec8813c498ddbd0e7c64e04da4",
+      "actual": [
+        79,
+        63
+      ],
+      "winner_correct": true,
+      "brier": 0.0417807226777778,
+      "log_loss": 0.2286629217211689
+    },
+    {
+      "game_id": "401925080",
+      "version": "cbb-1.1.0",
+      "publication_key": "9613f66bd38d03c31914091f4dd1f44c661fd95147e6bd2a67bccaceb3f241ed",
+      "actual": [
+        62,
+        69
+      ],
+      "winner_correct": false,
+      "brier": 0.4232499992111111,
+      "log_loss": 1.0514711023633068
+    },
+    {
+      "game_id": "401919826",
+      "version": "cbb-1.1.0",
+      "publication_key": "c0e7ead6e0a798c9e34cf69bbc59815e1d9bc99b2bbe0bb691c4b0e5917f1b6f",
+      "actual": [
+        60,
+        65
+      ],
+      "winner_correct": false,
+      "brier": 0.5306199773444443,
+      "log_loss": 1.3035598948658376
+    },
+    {
+      "game_id": "401924736",
+      "version": "cbb-1.1.0",
+      "publication_key": "dd0cb70a71fe2e51b3718733462a8a398d1bff7e9cdf216b1605c8e89f45d04a",
+      "actual": [
+        75,
+        64
+      ],
+      "winner_correct": true,
+      "brier": 0.0466416011111111,
+      "log_loss": 0.24330374252874876
+    },
+    {
+      "game_id": "401925740",
+      "version": "cbb-1.1.0",
+      "publication_key": "208d76834424227b14559b637ed3375a0a084e1a9dc3da1ed1658fc2188d97f5",
+      "actual": [
+        92,
+        48
+      ],
+      "winner_correct": true,
+      "brier": 2.7005344444444036e-05,
+      "log_loss": 0.005210216301230043
+    },
+    {
+      "game_id": "401926755",
+      "version": "cbb-1.1.0",
+      "publication_key": "4ce63563a7b8d15e699938872477fc0cf2ca5ccbc2e64a3ade7e4eaf1cf99030",
+      "actual": [
+        79,
+        38
+      ],
+      "winner_correct": true,
+      "brier": 0.02545620249999999,
+      "log_loss": 0.1738178163027338
+    },
+    {
+      "game_id": "401925664",
+      "version": "cbb-1.1.0",
+      "publication_key": "737ebbb3d435f1bce50873c64a7f23f7f8d3bed2e3226dc7325a66be6fc7f05f",
+      "actual": [
+        80,
+        68
+      ],
+      "winner_correct": true,
+      "brier": 0.020060945344444435,
+      "log_loss": 0.15272780370688743
+    },
+    {
+      "game_id": "401925865",
+      "version": "cbb-1.1.0",
+      "publication_key": "9ad5d0f6bcf43117d7a4043196e0e534d27e8e9cc4c2c908249781656a2cc856",
+      "actual": [
+        72,
+        61
+      ],
+      "winner_correct": true,
+      "brier": 0.2385475841777778,
+      "log_loss": 0.6702382716446957
+    },
+    {
+      "game_id": "401919827",
+      "version": "cbb-1.1.0",
+      "publication_key": "16b24da609dba8d2fb4f5bcf8aba14933187d1e00d68c981431ba305a2e8366f",
+      "actual": [
+        63,
+        56
+      ],
+      "winner_correct": true,
+      "brier": 0.1206242361,
+      "log_loss": 0.4266529944327466
+    },
+    {
+      "game_id": "401928795",
+      "version": "cbb-1.1.0",
+      "publication_key": "318abb34b48c3113fc1c5f3fab161007f220b751a8f59c4bdce74ce5e8c3a914",
+      "actual": [
+        69,
+        83
+      ],
+      "winner_correct": false,
+      "brier": 0.7127974613777778,
+      "log_loss": 1.8596529452717054
+    },
+    {
+      "game_id": "401926782",
+      "version": "cbb-1.1.0",
+      "publication_key": "a895b965e518c4b58df4257d379e15a8a13b8afc7932833cd119690df69d9474",
+      "actual": [
+        82,
+        77
+      ],
+      "winner_correct": true,
+      "brier": 0.021008569877777772,
+      "log_loss": 0.15658753543846818
+    },
+    {
+      "game_id": "401929460",
+      "version": "cbb-1.1.0",
+      "publication_key": "d899f896bc33b2223051e6470e29578f4a419263598189986aa4567644a47239",
+      "actual": [
+        75,
+        61
+      ],
+      "winner_correct": true,
+      "brier": 0.02912369787777778,
+      "log_loss": 0.18712105598605883
+    },
+    {
+      "game_id": "401927396",
+      "version": "cbb-1.1.0",
+      "publication_key": "f0a26355be7389dec6f70caa82627e13aec6465e2357501bde9ff5d35aee5c7f",
+      "actual": [
+        68,
+        82
+      ],
+      "winner_correct": false,
+      "brier": 0.3862415336111112,
+      "log_loss": 0.9714951736086446
+    },
+    {
+      "game_id": "401921692",
+      "version": "cbb-1.1.0",
+      "publication_key": "5f98bfcec279232f0999dc2fb688d78c41e116aefa4b5c8242f2e5d560de2ca5",
+      "actual": [
+        70,
+        53
+      ],
+      "winner_correct": true,
+      "brier": 0.23661414490000002,
+      "log_loss": 0.6663689395273404
+    },
+    {
+      "game_id": "401929459",
+      "version": "cbb-1.1.0",
+      "publication_key": "e10a9ff97c157a569528c704a4d10fcf09bafc0b1741a3b3ab764ad9402f7687",
+      "actual": [
+        101,
+        55
+      ],
+      "winner_correct": true,
+      "brier": 0.02114406810000001,
+      "log_loss": 0.15713345722143715
+    },
+    {
+      "game_id": "401935675",
+      "version": "cbb-1.1.0",
+      "publication_key": "f6a2f74493b246b1dd57a00f4042a6293d2760a7baf6a848e82c784e8185b422",
+      "actual": [
+        140,
+        54
+      ],
+      "winner_correct": true,
+      "brier": 3.952217777777773e-05,
+      "log_loss": 0.006306510968949698
     }
   ],
   "bets": [
@@ -1222,11 +1834,245 @@
       "probability": 0.5591533333333333,
       "cost": 0.422095,
       "profit": -0.422095
+    },
+    {
+      "game_id": "401913529",
+      "version": "cbb-1.1.0",
+      "publication_key": "ff41086f017beac351b03e150ab9c3934df70fb6c95f22dc5e99fd8d96d351af",
+      "actual": [
+        114,
+        52
+      ],
+      "winner_correct": true,
+      "brier": 0.03597850239999999,
+      "log_loss": 0.0067493926596759735,
+      "kind": "total",
+      "label": "Under 170.5",
+      "won": true,
+      "probability": 0.81032,
+      "cost": 0.661375,
+      "profit": 0.33862499999999995
+    },
+    {
+      "game_id": "401909545",
+      "version": "cbb-1.1.0",
+      "publication_key": "7bfd28b8d9f04d564cedab52f9007e4a6b3c1d12c3233c6b1b7702139d1e555f",
+      "actual": [
+        65,
+        83
+      ],
+      "winner_correct": false,
+      "brier": 0.2819220613444445,
+      "log_loss": 1.245107347684491,
+      "kind": "total",
+      "label": "Over 150.5",
+      "won": false,
+      "probability": 0.5309633333333333,
+      "cost": 0.381655,
+      "profit": -0.381655
+    },
+    {
+      "game_id": "401909698",
+      "version": "cbb-1.1.0",
+      "publication_key": "cf041724ddd6d02b7a0d31235f67339f6db408867963e609ef582f05ee7769a6",
+      "actual": [
+        87,
+        63
+      ],
+      "winner_correct": true,
+      "brier": 0.38411072111111116,
+      "log_loss": 0.13890197891641912,
+      "kind": "spread",
+      "label": "Green Bay Phoenix +21.5",
+      "won": false,
+      "probability": 0.6197666666666667,
+      "cost": 0.48245499999999997,
+      "profit": -0.48245499999999997
+    },
+    {
+      "game_id": "401906852",
+      "version": "cbb-1.1.0",
+      "publication_key": "4e4c7d8ba40a56a0463056a3b806ae7284ab56ea9c6c70fb63c209c1a6ee230f",
+      "actual": [
+        78,
+        51
+      ],
+      "winner_correct": true,
+      "brier": 0.12930017361111112,
+      "log_loss": 0.03761533579469609,
+      "kind": "total",
+      "label": "Under 145.5",
+      "won": true,
+      "probability": 0.6404166666666666,
+      "cost": 0.49248,
+      "profit": 0.50752
+    },
+    {
+      "game_id": "401916122",
+      "version": "cbb-1.1.0",
+      "publication_key": "652dd5bb4d6fb352d0a70923ee61dc23e30934ee9c71483fd8275d7eb106bafa",
+      "actual": [
+        76,
+        85
+      ],
+      "winner_correct": false,
+      "brier": 0.6069500649,
+      "log_loss": 1.064036964028419,
+      "kind": "spread",
+      "label": "Middle Tennessee Blue Raiders +5.5",
+      "won": false,
+      "probability": 0.77907,
+      "cost": 0.612,
+      "profit": -0.612
+    },
+    {
+      "game_id": "401906784",
+      "version": "cbb-1.1.0",
+      "publication_key": "d01b85614984d1a59360338959b9f07530bf16c0d7163ae04af069df3e8377da",
+      "actual": [
+        82,
+        88
+      ],
+      "winner_correct": false,
+      "brier": 0.02261514694444444,
+      "log_loss": 0.8174715642597511,
+      "kind": "spread",
+      "label": "Georgia Tech Yellow Jackets +12.5",
+      "won": true,
+      "probability": 0.8496166666666667,
+      "cost": 0.6810550000000001,
+      "profit": 0.3189449999999999
+    },
+    {
+      "game_id": "401916123",
+      "version": "cbb-1.1.0",
+      "publication_key": "5f0c2b29e348f7e979394ebbf8dfd0cc5087be84b74c600205dcfac47b74e8c9",
+      "actual": [
+        86,
+        76
+      ],
+      "winner_correct": true,
+      "brier": 0.15193364551111108,
+      "log_loss": 0.2975618280176654,
+      "kind": "spread",
+      "label": "Stephen F. Austin Lumberjacks -5.5",
+      "won": true,
+      "probability": 0.6102133333333334,
+      "cost": 0.45232,
+      "profit": 0.54768
+    },
+    {
+      "game_id": "401916124",
+      "version": "cbb-1.1.0",
+      "publication_key": "d125ed669039d45bd1d0a3e0ea7827ab2922e509940ed553fdc158f7caeee4b9",
+      "actual": [
+        73,
+        76
+      ],
+      "winner_correct": false,
+      "brier": 0.2987169025,
+      "log_loss": 0.7534210305706704,
+      "kind": "total",
+      "label": "Under 144.5",
+      "won": false,
+      "probability": 0.54655,
+      "cost": 0.422095,
+      "profit": -0.422095
+    },
+    {
+      "game_id": "401920066",
+      "version": "cbb-1.1.0",
+      "publication_key": "ee955e48ec61a08e106d199aff87e1bfec6a8da34acd34f28402166f1c59c1d7",
+      "actual": [
+        71,
+        68
+      ],
+      "winner_correct": true,
+      "brier": 0.11470188454444441,
+      "log_loss": 0.373472377071991,
+      "kind": "spread",
+      "label": "Liberty Flames -1.5",
+      "won": true,
+      "probability": 0.6613233333333334,
+      "cost": 0.49248,
+      "profit": 0.50752
+    },
+    {
+      "game_id": "401921107",
+      "version": "cbb-1.1.0",
+      "publication_key": "9f64627523aaf0d780b1568388e0086e8ba3c74ef402d6571233397999a879c7",
+      "actual": [
+        76,
+        79
+      ],
+      "winner_correct": false,
+      "brier": 0.7475735085444444,
+      "log_loss": 2.402921215046708,
+      "kind": "spread",
+      "label": "Eastern Kentucky Colonels -3.5",
+      "won": false,
+      "probability": 0.8646233333333333,
+      "cost": 0.700695,
+      "profit": -0.700695
+    },
+    {
+      "game_id": "401920922",
+      "version": "cbb-1.1.0",
+      "publication_key": "f6914a3d3324e70ed8eeab715b6e13805078d96a44bf8a71fc3ee13b1bfe68eb",
+      "actual": [
+        67,
+        73
+      ],
+      "winner_correct": false,
+      "brier": 0.026090864044444457,
+      "log_loss": 0.8386354873085509,
+      "kind": "spread",
+      "label": "Mount St. Mary's Mountaineers +11.5",
+      "won": true,
+      "probability": 0.8384733333333333,
+      "cost": 0.700695,
+      "profit": 0.29930500000000004
+    },
+    {
+      "game_id": "401921723",
+      "version": "cbb-1.1.0",
+      "publication_key": "b32647385cce57c481a440beaf714dc8b7071afde340c9bea8adeeeb975c06fc",
+      "actual": [
+        106,
+        54
+      ],
+      "winner_correct": true,
+      "brier": 0.4736926508444445,
+      "log_loss": 0.025546894051559216,
+      "kind": "spread",
+      "label": "Manhattan Jaspers +37.5",
+      "won": false,
+      "probability": 0.6882533333333334,
+      "cost": 0.55242,
+      "profit": -0.55242
+    },
+    {
+      "game_id": "401927396",
+      "version": "cbb-1.1.0",
+      "publication_key": "f0a26355be7389dec6f70caa82627e13aec6465e2357501bde9ff5d35aee5c7f",
+      "actual": [
+        68,
+        82
+      ],
+      "winner_correct": false,
+      "brier": 0.3136970741777777,
+      "log_loss": 0.9714951736086446,
+      "kind": "spread",
+      "label": "Western Kentucky Hilltoppers -2.5",
+      "won": false,
+      "probability": 0.5600866666666666,
+      "cost": 0.442255,
+      "profit": -0.442255
     }
   ],
-  "generated_at": "2026-11-20T19:14:48.134659+00:00",
+  "generated_at": "2026-11-21T18:10:24.013898+00:00",
   "version": "cbb-1.1.0",
-  "training_results": 26112,
+  "training_results": 26170,
   "chronological_holdouts": {
     "2026": {
       "games": 6192,
@@ -1238,13 +2084,13 @@
       "margin_interval80_coverage": 0.8131459948320413
     },
     "2027": {
-      "games": 1009,
-      "winner_brier": 0.13609779534192265,
-      "winner_log_loss": 0.4241812082167748,
-      "winner_accuracy": 0.8077304261645193,
-      "margin_mae": 14.800391476709605,
-      "total_mae": 14.298140733399423,
-      "margin_interval80_coverage": 0.777998017839445
+      "games": 1067,
+      "winner_brier": 0.1385049913894095,
+      "winner_log_loss": 0.4296991127922565,
+      "winner_accuracy": 0.8013120899718837,
+      "margin_mae": 14.710346766635405,
+      "total_mae": 14.347641049671967,
+      "margin_interval80_coverage": 0.7806935332708529
     }
   }
 }
