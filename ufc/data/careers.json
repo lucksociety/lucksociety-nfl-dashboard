@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "refreshed_at": "2026-11-20T20:44:21.410837+00:00",
+  "refreshed_at": "2026-11-21T19:47:27.035855+00:00",
   "bouts": [
     {
       "id": "espn:401614040",
@@ -2965,6 +2965,101 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600062943/competitions/401935773?lang=en&region=us"
+    },
+    {
+      "id": "espn:401927853",
+      "date": "2026-11-21T15:00:00+00:00",
+      "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
+      "promotion": "ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "3089915",
+        "4394753"
+      ],
+      "names": [
+        "Jake Matthews",
+        "Tahir Abdullayev"
+      ],
+      "winner_id": "4394753",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061665/competitions/401927853?lang=en&region=us"
+    },
+    {
+      "id": "espn:401927854",
+      "date": "2026-11-21T15:00:00+00:00",
+      "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
+      "promotion": "ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5185662",
+        "5307799"
+      ],
+      "names": [
+        "Aleksandre Topuria",
+        "Santiago Luna"
+      ],
+      "winner_id": "5307799",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061665/competitions/401927854?lang=en&region=us"
+    },
+    {
+      "id": "espn:401934355",
+      "date": "2026-11-21T15:00:00+00:00",
+      "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
+      "promotion": "ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "3897242",
+        "5157806"
+      ],
+      "names": [
+        "Nikolas Motta",
+        "Dom Mar Fan"
+      ],
+      "winner_id": "5157806",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061665/competitions/401934355?lang=en&region=us"
+    },
+    {
+      "id": "espn:401934356",
+      "date": "2026-11-21T15:00:00+00:00",
+      "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
+      "promotion": "ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5213352",
+        "5220971"
+      ],
+      "names": [
+        "Diyar Nurgozhay",
+        "Alik Lorenz"
+      ],
+      "winner_id": "5213352",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061665/competitions/401934356?lang=en&region=us"
+    },
+    {
+      "id": "espn:401935762",
+      "date": "2026-11-21T15:00:00+00:00",
+      "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
+      "promotion": "ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "4712356",
+        "5080723"
+      ],
+      "names": [
+        "Shoaib Yousaf",
+        "John Mitchell"
+      ],
+      "winner_id": "5080723",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061665/competitions/401935762?lang=en&region=us"
     }
   ]
 }
