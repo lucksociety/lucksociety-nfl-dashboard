@@ -1076,7 +1076,7 @@
       "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.007185387777777776,
-      "log_loss": 0.0885762371084434,
+      "log_loss": 0.08857623710844338,
       "score_mae_per_team": 5.1205,
       "total_mae": 10.240999999999985,
       "margin_mae": 8.623000000000005
@@ -3868,7 +3868,7 @@
       "total_mae": 13.026053475935829
     }
   },
-  "generated_at": "2026-11-22T15:19:03.002935+00:00",
+  "generated_at": "2026-11-22T18:37:58.451192+00:00",
   "version": "cbb-1.2.0",
   "training_results": 26228,
   "chronological_holdouts_scope": "Rating and calibrated error baseline without the role correction",
