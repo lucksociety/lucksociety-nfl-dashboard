@@ -1,12 +1,12 @@
 {
   "settled_by_model_and_market": {
     "nfl-v6 / confidence-first-calibration-stress-v2 / spreads": {
-      "n": 2,
+      "n": 3,
       "wins": 0,
       "win_rate": 0,
-      "mean_probability": 0.7621800000000001,
-      "brier": 0.5937212749,
-      "log_loss": 1.5645697809398855,
+      "mean_probability": 0.7459766666666667,
+      "brier": 0.5655415649000001,
+      "log_loss": 1.4598002208859393,
       "flat_cost_roi": -1.0,
       "reliability": [
         {
@@ -14,6 +14,13 @@
           "upper_inclusive": 0.7,
           "n": 1,
           "mean_probability": 0.64903,
+          "win_rate": 0
+        },
+        {
+          "lower_exclusive": 0.7,
+          "upper_inclusive": 0.8,
+          "n": 1,
+          "mean_probability": 0.71357,
           "win_rate": 0
         },
         {
@@ -33,23 +40,23 @@
     }
   },
   "model_vs_market": {
-    "n": 2,
-    "model_log_loss": 0.7134247440637241,
-    "market_log_loss": 0.6461743741386815,
-    "log_loss_diff": 0.06725036992504267,
-    "log_loss_diff_se": 0.14285721820250055,
-    "model_accuracy": 0.5,
-    "market_accuracy": 0.5,
+    "n": 3,
+    "model_log_loss": 0.5455216174853993,
+    "market_log_loss": 0.4603933206613262,
+    "log_loss_diff": 0.0851282968240731,
+    "log_loss_diff_se": 0.08439400769244636,
+    "model_accuracy": 0.6666666666666666,
+    "market_accuracy": 0.6666666666666666,
     "disagree_over_5pts": {
-      "n": 1,
+      "n": 2,
       "model_side_won": 0,
-      "model_said": 0.31513,
-      "market_said": 0.15500000000000003
+      "model_said": 0.25215750000000003,
+      "market_said": 0.12
     },
     "verdict": "too few games to say"
   },
-  "pending_or_ungradable": 0,
+  "pending_or_ungradable": 7,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-21T21:53:19.465845+00:00",
-  "records": 20
+  "generated_at": "2026-11-22T22:01:58.220735+00:00",
+  "records": 31
 }
