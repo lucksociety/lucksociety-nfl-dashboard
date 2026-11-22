@@ -1,0 +1,40 @@
+{
+  "id": "recent-role-ridge-v1",
+  "trained_through": "2025-06-30",
+  "features": [
+    "own_points",
+    "own_assists",
+    "own_oreb",
+    "own_dreb",
+    "own_steals",
+    "own_blocks",
+    "own_turnovers",
+    "opponent_points",
+    "opponent_assists",
+    "opponent_oreb",
+    "opponent_dreb",
+    "opponent_steals",
+    "opponent_blocks",
+    "opponent_turnovers"
+  ],
+  "coefficients": [
+    0.5048564894336505,
+    0.3898073372920724,
+    0.5149730798843246,
+    -0.1955638980886543,
+    0.9997757764065066,
+    -0.8757300723013746,
+    -1.0877696418718095,
+    0.21196858233125834,
+    -0.47545129565866745,
+    -0.46381236263064163,
+    -0.3324428487485584,
+    -0.4073701827246666,
+    -1.0709032800705194,
+    0.535745536537003
+  ],
+  "cap": 8,
+  "ridge": 100.0,
+  "recent_weight": 0.8,
+  "note": "Small bounded role correction; retains v1.1 phase/matchup error pools. No current-game minutes or odds."
+}

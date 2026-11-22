@@ -1,0 +1,128 @@
+{
+  "0.0": {
+    "2024": {
+      "blind": {
+        "n": 5850,
+        "misallocated_minutes_per_team": 55.007203111849066
+      },
+      "active_proxy": {
+        "n": 5850,
+        "misallocated_minutes_per_team": 32.740711946446034
+      }
+    },
+    "2025": {
+      "blind": {
+        "n": 6016,
+        "misallocated_minutes_per_team": 58.7491457397707
+      },
+      "active_proxy": {
+        "n": 6016,
+        "misallocated_minutes_per_team": 32.84839083417226
+      }
+    },
+    "2026": {
+      "blind": {
+        "n": 6073,
+        "misallocated_minutes_per_team": 63.67851013987508
+      },
+      "active_proxy": {
+        "n": 6073,
+        "misallocated_minutes_per_team": 32.502755542942445
+      }
+    },
+    "2027": {
+      "blind": {
+        "n": 1056,
+        "misallocated_minutes_per_team": 143.03831062680067
+      },
+      "active_proxy": {
+        "n": 1056,
+        "misallocated_minutes_per_team": 51.36891054944413
+      }
+    }
+  },
+  "0.5": {
+    "2024": {
+      "blind": {
+        "n": 5850,
+        "misallocated_minutes_per_team": 42.63851318552497
+      },
+      "active_proxy": {
+        "n": 5850,
+        "misallocated_minutes_per_team": 27.114772177715537
+      }
+    },
+    "2025": {
+      "blind": {
+        "n": 6016,
+        "misallocated_minutes_per_team": 45.45228158589575
+      },
+      "active_proxy": {
+        "n": 6016,
+        "misallocated_minutes_per_team": 27.782529163821735
+      }
+    },
+    "2026": {
+      "blind": {
+        "n": 6073,
+        "misallocated_minutes_per_team": 48.781720465074635
+      },
+      "active_proxy": {
+        "n": 6073,
+        "misallocated_minutes_per_team": 28.091108535250875
+      }
+    },
+    "2027": {
+      "blind": {
+        "n": 1056,
+        "misallocated_minutes_per_team": 108.14881363895248
+      },
+      "active_proxy": {
+        "n": 1056,
+        "misallocated_minutes_per_team": 43.80504271019239
+      }
+    }
+  },
+  "0.8": {
+    "2024": {
+      "blind": {
+        "n": 5850,
+        "misallocated_minutes_per_team": 37.495981869842154
+      },
+      "active_proxy": {
+        "n": 5850,
+        "misallocated_minutes_per_team": 26.406477396262375
+      }
+    },
+    "2025": {
+      "blind": {
+        "n": 6016,
+        "misallocated_minutes_per_team": 39.75771710665355
+      },
+      "active_proxy": {
+        "n": 6016,
+        "misallocated_minutes_per_team": 27.18993951527487
+      }
+    },
+    "2026": {
+      "blind": {
+        "n": 6073,
+        "misallocated_minutes_per_team": 42.26355590638458
+      },
+      "active_proxy": {
+        "n": 6073,
+        "misallocated_minutes_per_team": 27.683847073283122
+      }
+    },
+    "2027": {
+      "blind": {
+        "n": 1056,
+        "misallocated_minutes_per_team": 90.12762829223051
+      },
+      "active_proxy": {
+        "n": 1056,
+        "misallocated_minutes_per_team": 41.10161987094295
+      }
+    }
+  }
+}
