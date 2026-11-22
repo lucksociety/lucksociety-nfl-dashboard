@@ -136,8 +136,9 @@ def build_context(games,root,now,refresh=True):
 def actual_rotations(games,root):
     """Regulation-normalized actual minutes for completed, identity-matched games."""
     final={g['id']:g for g in games if g['complete']};grouped=defaultdict(lambda:defaultdict(dict))
-    for year in sorted({g['season']for g in final.values()}):
-        for p in frame(year,root).to_dict('records'):
+    years=sorted({g['season']for g in final.values()})
+    for year in years:
+        for p in frame(year,root,refresh=year==max(years)).to_dict('records'):
             gid=str(int(p['game_id']));team=str(int(p['team_id']));m=float(p['minutes']or 0)
             if gid not in final or team not in [final[gid]['home'],final[gid]['away']]or not math.isfinite(m)or m<=0:continue
             grouped[gid][team][str(int(p['athlete_id']))]=m
