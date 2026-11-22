@@ -1,7 +1,159 @@
 {
   "schema": 1,
-  "refreshed_at": "2026-11-21T19:47:27.035855+00:00",
+  "refreshed_at": "2026-11-22T19:58:36.084050+00:00",
   "bouts": [
+    {
+      "id": "espn:211998",
+      "date": "2012-07-27T04:00:00+00:00",
+      "event": "EF 2: Encontro Fight 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3895533",
+        "3895544"
+      ],
+      "names": [
+        "Alexander Valenzuela",
+        "Bruno Silva"
+      ],
+      "winner_id": null,
+      "outcome": "DRAW",
+      "method": "Draw",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400540317/competitions/211998?lang=en&region=us"
+    },
+    {
+      "id": "espn:249694",
+      "date": "2013-08-17T04:00:00+00:00",
+      "event": "League S-70: Plotforma S-70",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "2966177",
+        "4275020"
+      ],
+      "names": [
+        "Vadim Sandulitskiy",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400556184/competitions/249694?lang=en&region=us"
+    },
+    {
+      "id": "espn:211996",
+      "date": "2013-11-05T05:00:00+00:00",
+      "event": "Team Nogueira: MMA Circuit 4",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3895535",
+        "3895544"
+      ],
+      "names": [
+        "Julio Cesar Moraes",
+        "Bruno Silva"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "KO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400795904/competitions/211996?lang=en&region=us"
+    },
+    {
+      "id": "espn:249693",
+      "date": "2013-12-08T17:00:00+00:00",
+      "event": "GEFC: Warriors Empire",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4275020",
+        "4348598"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Valeri Shpak"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (Armbar)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400546958/competitions/249693?lang=en&region=us"
+    },
+    {
+      "id": "espn:211995",
+      "date": "2014-04-12T04:00:00+00:00",
+      "event": "Talent MMA Circuit 8: Valinhos 2014",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3895536",
+        "3895544"
+      ],
+      "names": [
+        "Soslenis Carvalho",
+        "Bruno Silva"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400598408/competitions/211995?lang=en&region=us"
+    },
+    {
+      "id": "espn:240265",
+      "date": "2014-12-12T17:00:00+00:00",
+      "event": "Tech-Krep FC: Battle of Heroes",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4274911",
+        "4275020"
+      ],
+      "names": [
+        "Oleg Olenichev",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400789747/competitions/240265?lang=en&region=us"
+    },
+    {
+      "id": "espn:249688",
+      "date": "2015-03-05T17:00:00+00:00",
+      "event": "ECSF: Steel Warriors",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4275020",
+        "4348602"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Avtandil Gachechiladze"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (Armbar)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401012069/competitions/249688?lang=en&region=us"
+    },
+    {
+      "id": "espn:249687",
+      "date": "2015-04-03T16:00:00+00:00",
+      "event": "Tech-Krep FC - Ermak Prime Challenge",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4275020",
+        "4348603"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Ravil Risaev"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (North-South Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400798129/competitions/249687?lang=en&region=us"
+    },
     {
       "id": "espn:401614040",
       "date": "2015-04-04T04:00:00+00:00",
@@ -79,6 +231,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600039936/competitions/401613938?lang=en&region=us"
     },
     {
+      "id": "espn:249686",
+      "date": "2015-07-24T16:00:00+00:00",
+      "event": "Tech-Krep FC: Prime Selection 4 Grandmasters",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "2499261",
+        "4275020"
+      ],
+      "names": [
+        "Diego Gonzalez",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "KO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400848414/competitions/249686?lang=en&region=us"
+    },
+    {
       "id": "espn:401879447",
       "date": "2015-09-19T04:00:00+00:00",
       "event": "JFC: Jushkuch Fighting Championship",
@@ -96,6 +267,101 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400899211/competitions/401879447?lang=en&region=us"
+    },
+    {
+      "id": "espn:249685",
+      "date": "2015-10-09T16:00:00+00:00",
+      "event": "Tech-Krep FC: Prime Selection 7",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4275020",
+        "4348605"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Islam Berzegov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401011167/competitions/249685?lang=en&region=us"
+    },
+    {
+      "id": "espn:267343",
+      "date": "2015-11-07T17:00:00+00:00",
+      "event": "WFF: World Fighting Federation 25",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3031283",
+        "3895544"
+      ],
+      "names": [
+        "Matt Betzold",
+        "Bruno Silva"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400950826/competitions/267343?lang=en&region=us"
+    },
+    {
+      "id": "espn:249684",
+      "date": "2016-02-12T17:00:00+00:00",
+      "event": "Tech-Krep FC: Battle in Siberia",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4275020",
+        "4348606"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Maxim Konovalov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (Anaconda Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401036015/competitions/249684?lang=en&region=us"
+    },
+    {
+      "id": "espn:249683",
+      "date": "2016-03-03T17:00:00+00:00",
+      "event": "Tech-Krep FC: Southern Front 3",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4275020",
+        "4348607"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Khasanbek Abdulaev"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401036016/competitions/249683?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331890",
+      "date": "2016-04-03T04:00:00+00:00",
+      "event": "GMMAF - Gardabani Fight Night",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867740"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Kamran Suleymanli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007060/competitions/401331890?lang=en&region=us"
     },
     {
       "id": "espn:401879410",
@@ -136,6 +402,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060398/competitions/401879411?lang=en&region=us"
     },
     {
+      "id": "espn:240229",
+      "date": "2016-06-18T16:00:00+00:00",
+      "event": "Tech-Krep FC: Prime Selection 8",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4274796",
+        "4275020"
+      ],
+      "names": [
+        "Roberto Soldi\u0107",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400987641/competitions/240229?lang=en&region=us"
+    },
+    {
+      "id": "espn:267342",
+      "date": "2016-09-10T16:00:00+00:00",
+      "event": "AFC: Aspera Fighting Championship 44",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3895544",
+        "4209423"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Adalto Prado"
+      ],
+      "winner_id": "4209423",
+      "outcome": "DECISIVE",
+      "method": "KO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400947456/competitions/267342?lang=en&region=us"
+    },
+    {
       "id": "espn:401498577",
       "date": "2016-10-01T16:00:00+00:00",
       "event": "ACB 47: Braveheart",
@@ -153,6 +457,44 @@
       "outcome": "DECISIVE",
       "method": "Submission (Armbar)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400942510/competitions/401498577?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873449",
+      "date": "2016-11-26T05:00:00+00:00",
+      "event": "Cage 37",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5351512"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Andre Colazingari"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400969011/competitions/401873449?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873450",
+      "date": "2017-02-18T05:00:00+00:00",
+      "event": "Cage 38",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5351513"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Stefan Serghei"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059710/competitions/401873450?lang=en&region=us"
     },
     {
       "id": "espn:401498578",
@@ -174,6 +516,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/400945886/competitions/401498578?lang=en&region=us"
     },
     {
+      "id": "espn:249682",
+      "date": "2017-03-18T04:00:00+00:00",
+      "event": "Tech-Krep FC: Prime Selection 12",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4245600",
+        "4275020"
+      ],
+      "names": [
+        "Diogo Cavalcanti",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (North-South Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401036017/competitions/249682?lang=en&region=us"
+    },
+    {
       "id": "espn:401879432",
       "date": "2017-04-09T04:00:00+00:00",
       "event": "Moscow Pankration Federation: International Festival of Pankration 2017",
@@ -193,6 +554,82 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060399/competitions/401879432?lang=en&region=us"
     },
     {
+      "id": "espn:267341",
+      "date": "2017-05-05T16:00:00+00:00",
+      "event": "LFA 11: Frincu vs. Mendonca",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3895544",
+        "4030197"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Casey Kenney"
+      ],
+      "winner_id": null,
+      "outcome": "DRAW",
+      "method": "Decision - Split (Draw)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/400949166/competitions/267341?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331889",
+      "date": "2017-07-25T04:00:00+00:00",
+      "event": "GMMAF - GMMAF Fight Night",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867739"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Xuta Qobalia"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007061/competitions/401331889?lang=en&region=us"
+    },
+    {
+      "id": "espn:249681",
+      "date": "2017-08-18T04:00:00+00:00",
+      "event": "Tech-Krep FC: Prime Selection 17",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4275020",
+        "4348609"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Nathan Oliveira"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (Anaconda Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401036018/competitions/249681?lang=en&region=us"
+    },
+    {
+      "id": "espn:267340",
+      "date": "2017-08-19T04:00:00+00:00",
+      "event": "WFF: World Fighting Federation 35",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3153257",
+        "3895544"
+      ],
+      "names": [
+        "Joe Madrid",
+        "Bruno Silva"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401135654/competitions/267340?lang=en&region=us"
+    },
+    {
       "id": "espn:401879433",
       "date": "2017-09-09T04:00:00+00:00",
       "event": "Orion Fighter 3",
@@ -210,6 +647,25 @@
       "outcome": "DECISIVE",
       "method": "Submission (Heel Hook)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060400/competitions/401879433?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873451",
+      "date": "2017-09-09T16:00:00+00:00",
+      "event": "Cage 40",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5351514"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Ilhom Aliev"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Guillotine)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401088681/competitions/401873451?lang=en&region=us"
     },
     {
       "id": "espn:401276617",
@@ -250,6 +706,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056214/competitions/401830779?lang=en&region=us"
     },
     {
+      "id": "espn:401873452",
+      "date": "2017-11-25T17:00:00+00:00",
+      "event": "Cage 41",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4299756",
+        "4905308"
+      ],
+      "names": [
+        "Yari Orsini",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401053694/competitions/401873452?lang=en&region=us"
+    },
+    {
       "id": "espn:401879434",
       "date": "2018-02-19T17:00:00+00:00",
       "event": "The King Fighting Championship: Fedorov vs. Yao",
@@ -288,6 +763,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401017488/competitions/401498579?lang=en&region=us"
     },
     {
+      "id": "espn:401657122",
+      "date": "2018-03-02T17:00:00+00:00",
+      "event": "Brave CF 10",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "4385256",
+        "4905308"
+      ],
+      "names": [
+        "Nawras Abzakh",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4385256",
+      "outcome": "DECISIVE",
+      "method": "Submission (Guillotine)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401033278/competitions/401657122?lang=en&region=us"
+    },
+    {
       "id": "espn:255159",
       "date": "2018-03-30T16:00:00+00:00",
       "event": "M-1 Challenge 90: Kunchenko vs. Butenko",
@@ -305,6 +799,82 @@
       "outcome": "DECISIVE",
       "method": "Submission (Arm Triangle)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/m1/events/401027548/competitions/255159?lang=en&region=us"
+    },
+    {
+      "id": "espn:401793725",
+      "date": "2018-06-10T04:00:00+00:00",
+      "event": "Valuyki Forpost: MMA Tournament",
+      "promotion": "non_ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5292007",
+        "5292008"
+      ],
+      "names": [
+        "Ivan Gnizditskiy",
+        "Maxim Navrazhniy"
+      ],
+      "winner_id": "5292007",
+      "outcome": "DECISIVE",
+      "method": "TKO - Retirement",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055014/competitions/401793725?lang=en&region=us"
+    },
+    {
+      "id": "espn:249493",
+      "date": "2018-07-13T16:00:00+00:00",
+      "event": "Bellator 202: Budd vs. Nogueira",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "2502712",
+        "4275020"
+      ],
+      "names": [
+        "Gerald Harris",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/401029339/competitions/249493?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331888",
+      "date": "2018-07-20T04:00:00+00:00",
+      "event": "Georgia MMA - Georgia MMA",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867738"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Orkhan Valiev"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007062/competitions/401331888?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331887",
+      "date": "2018-08-01T04:00:00+00:00",
+      "event": "GMMAF - GMMAF Fight Night",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867737"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Farhad Meshed"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007063/competitions/401331887?lang=en&region=us"
     },
     {
       "id": "espn:401830780",
@@ -345,6 +915,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035679/competitions/401879435?lang=en&region=us"
     },
     {
+      "id": "espn:267339",
+      "date": "2018-10-27T04:00:00+00:00",
+      "event": "WFF 40: Night of Champions",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "2514198",
+        "3895544"
+      ],
+      "names": [
+        "Ralph Acosta",
+        "Bruno Silva"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401135653/competitions/267339?lang=en&region=us"
+    },
+    {
       "id": "espn:401498580",
       "date": "2018-11-30T17:00:00+00:00",
       "event": "Celtic Gladiator 22: Manchester",
@@ -383,6 +972,139 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056312/competitions/401830781?lang=en&region=us"
     },
     {
+      "id": "espn:401873453",
+      "date": "2018-12-08T17:00:00+00:00",
+      "event": "Brave CF 19",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5077665"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Sylvester Chipfumbu"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401129971/competitions/401873453?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331886",
+      "date": "2018-12-15T17:00:00+00:00",
+      "event": "Mglebi 5 - Battle for the title",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867736"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Mehdi Bagheri"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007064/competitions/401331886?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331885",
+      "date": "2019-01-19T05:00:00+00:00",
+      "event": "World Jaguar Federation Series 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867735"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Milad Omrani"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007065/competitions/401331885?lang=en&region=us"
+    },
+    {
+      "id": "espn:262737",
+      "date": "2019-02-17T00:00:00+00:00",
+      "event": "Bellator 216: MVP vs. Daley",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "2559966",
+        "4275020"
+      ],
+      "names": [
+        "Erick Silva",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/401102047/competitions/262737?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331884",
+      "date": "2019-03-10T05:00:00+00:00",
+      "event": "World Jaguar Federation Series 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867734"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Shahram Haghi"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007066/competitions/401331884?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873454",
+      "date": "2019-03-15T16:00:00+00:00",
+      "event": "Brave CF 22",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4346487",
+        "4905308"
+      ],
+      "names": [
+        "John Cris Corton",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Guillotine)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600004927/competitions/401873454?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408943",
+      "date": "2019-03-16T04:00:00+00:00",
+      "event": "XFMMA: XForce MMA 9",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915934"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Phelipe Silva"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "TKO (Corner Stoppage)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401158120/competitions/401408943?lang=en&region=us"
+    },
+    {
       "id": "espn:401498581",
       "date": "2019-03-23T16:00:00+00:00",
       "event": "UK Fighting Championships 9",
@@ -400,6 +1122,63 @@
       "outcome": "DECISIVE",
       "method": "TKO (Doctor's Stoppage)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401207295/competitions/401498581?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408942",
+      "date": "2019-03-24T16:00:00+00:00",
+      "event": "MMA Brutus 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915933"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Alan Ferreira"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "TKO (Retirement)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401141359/competitions/401408942?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408941",
+      "date": "2019-04-05T16:00:00+00:00",
+      "event": "Shooto Brazil: Shooto Brazil 91",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915932"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Micael Braga"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/shooto-japan/events/401221888/competitions/401408941?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408940",
+      "date": "2019-06-08T04:00:00+00:00",
+      "event": "Spartano's Fight MMA 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4876269",
+        "4914573"
+      ],
+      "names": [
+        "Nicolas Savio",
+        "Mairon Santos"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600015533/competitions/401408940?lang=en&region=us"
     },
     {
       "id": "espn:401830782",
@@ -440,6 +1219,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/m1/events/401162356/competitions/401879436?lang=en&region=us"
     },
     {
+      "id": "espn:401408938",
+      "date": "2019-06-29T16:00:00+00:00",
+      "event": "Sicario MMA - Sicario 05",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4371921",
+        "4914573"
+      ],
+      "names": [
+        "Vinicius Morinishi Pontes",
+        "Mairon Santos"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007677/competitions/401408938?lang=en&region=us"
+    },
+    {
       "id": "espn:401498582",
       "date": "2019-07-13T04:00:00+00:00",
       "event": "Caged Steel Fighting Championship 23",
@@ -459,6 +1257,101 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600004644/competitions/401498582?lang=en&region=us"
     },
     {
+      "id": "espn:401331883",
+      "date": "2019-08-15T04:00:00+00:00",
+      "event": "Mglebi 8 - Battle for Batumi",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4867651",
+        "4867733"
+      ],
+      "names": [
+        "Levan Chokheli",
+        "Ali Moradi"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "TKO (Strikes)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007067/competitions/401331883?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408934",
+      "date": "2019-08-17T04:00:00+00:00",
+      "event": "DC Pro 3: Cyborg vs. Verner",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915928"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Paulo Ricardo Rodrigues"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600015532/competitions/401408934?lang=en&region=us"
+    },
+    {
+      "id": "espn:270186",
+      "date": "2019-08-25T01:00:00+00:00",
+      "event": "Bellator 225: Mitrione vs. Kharitonov 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "2557338",
+        "4275020"
+      ],
+      "names": [
+        "David Rickels",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/401139826/competitions/270186?lang=en&region=us"
+    },
+    {
+      "id": "espn:401673800",
+      "date": "2019-09-07T16:00:00+00:00",
+      "event": "GMC 21: German MMA Championship 21",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5212748",
+        "5213348"
+      ],
+      "names": [
+        "Islam Dulatov",
+        "Gjoni Palokaj"
+      ],
+      "winner_id": "5213348",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401222325/competitions/401673800?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408930",
+      "date": "2019-09-28T04:00:00+00:00",
+      "event": "CTF: Curitiba Top Fight 12",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4869285",
+        "4914573"
+      ],
+      "names": [
+        "Willian Telles",
+        "Mairon Santos"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600005343/competitions/401408930?lang=en&region=us"
+    },
+    {
       "id": "espn:401830783",
       "date": "2019-09-28T04:00:00+00:00",
       "event": "Fortis Fight Cage 2",
@@ -476,6 +1369,82 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056218/competitions/401830783?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408929",
+      "date": "2019-10-12T04:00:00+00:00",
+      "event": "Favela Kombat: Favela Kombat 33",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915899"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Robert Wilson"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600015531/competitions/401408929?lang=en&region=us"
+    },
+    {
+      "id": "espn:401426954",
+      "date": "2019-10-19T04:00:00+00:00",
+      "event": "100% Fight 41: Bosuku vs. Vallee",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5013914"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Wissame Akhmouch"
+      ],
+      "winner_id": "5013914",
+      "outcome": "DECISIVE",
+      "method": "Submission (Heel Hook)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600010951/competitions/401426954?lang=en&region=us"
+    },
+    {
+      "id": "espn:401673799",
+      "date": "2019-10-26T04:00:00+00:00",
+      "event": "GEMMAF: National Fighting Championship 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5212748",
+        "5213347"
+      ],
+      "names": [
+        "Islam Dulatov",
+        "Kolja Predojevic"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046062/competitions/401673799?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873683",
+      "date": "2019-10-26T04:00:00+00:00",
+      "event": "Ultimax Fight Night 2",
+      "promotion": "non_ufc",
+      "weight": "Catchweight",
+      "athlete_ids": [
+        "5345640",
+        "5353063"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Islam Betirsultanov"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Guillotine)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059739/competitions/401873683?lang=en&region=us"
     },
     {
       "id": "espn:401461570",
@@ -516,6 +1485,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046017/competitions/401830784?lang=en&region=us"
     },
     {
+      "id": "espn:401873455",
+      "date": "2019-12-07T05:00:00+00:00",
+      "event": "Brave CF 31",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5293757"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Martin De Beer"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Guillotine)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600036832/competitions/401873455?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408928",
+      "date": "2019-12-14T17:00:00+00:00",
+      "event": "ARES FC 1: Ares Fighting Championship",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915897"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Baba Boundjou Nadjombe"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401221128/competitions/401408928?lang=en&region=us"
+    },
+    {
       "id": "espn:401498583",
       "date": "2019-12-27T17:00:00+00:00",
       "event": "Brave CF 33",
@@ -535,6 +1542,139 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/401220808/competitions/401498583?lang=en&region=us"
     },
     {
+      "id": "espn:401331882",
+      "date": "2020-01-18T17:00:00+00:00",
+      "event": "WLMMA - We Love MMA 52",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4683526",
+        "4867651"
+      ],
+      "names": [
+        "Issa Isakov",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "TKO - Doctor's Stoppage",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007068/competitions/401331882?lang=en&region=us"
+    },
+    {
+      "id": "espn:401822380",
+      "date": "2020-02-08T05:00:00+00:00",
+      "event": "WTE Fight Championship 9",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4876267",
+        "5236383"
+      ],
+      "names": [
+        "Ricardo Moraes",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055864/competitions/401822380?lang=en&region=us"
+    },
+    {
+      "id": "espn:275439",
+      "date": "2020-02-22T03:00:00+00:00",
+      "event": "Bellator 239: Ruth vs. Amosov",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4065003",
+        "4275020"
+      ],
+      "names": [
+        "Ed Ruth",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/401187573/competitions/275439?lang=en&region=us"
+    },
+    {
+      "id": "espn:401648979",
+      "date": "2020-02-22T05:00:00+00:00",
+      "event": "Alash Pride: Turkestan 2020",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5206516",
+        "5206547"
+      ],
+      "names": [
+        "Uran Satybaldiev",
+        "Manarbek Shaikhenov"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600043977/competitions/401648979?lang=en&region=us"
+    },
+    {
+      "id": "espn:401673798",
+      "date": "2020-02-29T17:00:00+00:00",
+      "event": "EMC 4: Elite MMA Championship 4",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5212748",
+        "5213346"
+      ],
+      "names": [
+        "Islam Dulatov",
+        "Vladan Maksic"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600007069/competitions/401673798?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408927",
+      "date": "2020-03-01T17:00:00+00:00",
+      "event": "Shooto Brazil: Grand Prix",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915891"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Julio Pereira"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/shooto-japan/events/600003166/competitions/401408927?lang=en&region=us"
+    },
+    {
+      "id": "espn:277439",
+      "date": "2020-03-14T19:00:00+00:00",
+      "event": "UFC Fight Night: Lee vs. Oliveira",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "4601431"
+      ],
+      "names": [
+        "Bruno Silva",
+        "David Dvorak"
+      ],
+      "winner_id": "4601431",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/401197169/competitions/277439?lang=en&region=us"
+    },
+    {
       "id": "espn:401879437",
       "date": "2020-07-18T04:00:00+00:00",
       "event": "MMA Series 10: WKG & M-1 Online",
@@ -552,6 +1692,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060401/competitions/401879437?lang=en&region=us"
+    },
+    {
+      "id": "espn:401236323",
+      "date": "2020-08-22T00:00:00+00:00",
+      "event": "Bellator 244: Bader vs. Nemkov",
+      "promotion": "non_ufc",
+      "weight": "Catch Weight",
+      "athlete_ids": [
+        "4275020",
+        "4611362"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Mark Lemminger"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "TKO - Doctor's Stoppage",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/401221804/competitions/401236323?lang=en&region=us"
     },
     {
       "id": "espn:401498584",
@@ -592,6 +1751,82 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/401221184/competitions/401461571?lang=en&region=us"
     },
     {
+      "id": "espn:401249074",
+      "date": "2020-10-10T21:00:00+00:00",
+      "event": "UFC Fight Night: Moraes vs. Sandhagen",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "4294924"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Tagir Ulanbekov"
+      ],
+      "winner_id": "4294924",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/401223164/competitions/401249074?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655910",
+      "date": "2020-10-24T04:00:00+00:00",
+      "event": "FFC: Selection 4",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210150"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Kurbon Aminov"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044981/competitions/401655910?lang=en&region=us"
+    },
+    {
+      "id": "espn:401408926",
+      "date": "2020-11-08T17:00:00+00:00",
+      "event": "Shooto Brazil: Shooto Brazil 103",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915883"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Andre Borges"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/shooto-japan/events/600015529/competitions/401408926?lang=en&region=us"
+    },
+    {
+      "id": "espn:401251953",
+      "date": "2020-11-13T00:00:00+00:00",
+      "event": "Bellator 252: Pitbull vs. Carvalho",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4234873",
+        "4275020"
+      ],
+      "names": [
+        "Logan Storley",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/401223784/competitions/401251953?lang=en&region=us"
+    },
+    {
       "id": "espn:401830785",
       "date": "2020-12-10T05:00:00+00:00",
       "event": "FFC 44: Basurto vs. Ribovics",
@@ -609,6 +1844,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600021841/competitions/401830785?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655909",
+      "date": "2020-12-12T05:00:00+00:00",
+      "event": "FFC: Selection 5",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210149"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Asadulla Rustamov"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044980/competitions/401655909?lang=en&region=us"
     },
     {
       "id": "espn:401565022",
@@ -630,6 +1884,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600005828/competitions/401565022?lang=en&region=us"
     },
     {
+      "id": "espn:401408925",
+      "date": "2021-02-20T05:00:00+00:00",
+      "event": "Showtime Fights 4",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4914573",
+        "4915882"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Paulo Roberto Aquiles"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600015528/competitions/401408925?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916278",
+      "date": "2021-03-13T05:00:00+00:00",
+      "event": "Eagles FC: Reset",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5445620",
+        "5447082"
+      ],
+      "names": [
+        "Pavel Andrusca",
+        "Bogdan Nelu"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061542/competitions/401916278?lang=en&region=us"
+    },
+    {
       "id": "espn:401565021",
       "date": "2021-03-19T16:00:00+00:00",
       "event": "UAE Warriors 17",
@@ -649,6 +1941,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600005829/competitions/401565021?lang=en&region=us"
     },
     {
+      "id": "espn:401673797",
+      "date": "2021-03-20T04:00:00+00:00",
+      "event": "GMC Fight Night: German MMA Championship",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5212748",
+        "5213345"
+      ],
+      "names": [
+        "Islam Dulatov",
+        "Laith Najjar"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600030299/competitions/401673797?lang=en&region=us"
+    },
+    {
       "id": "espn:401879438",
       "date": "2021-03-20T04:00:00+00:00",
       "event": "MMA Series 28: Time of New Heroes 15",
@@ -666,6 +1977,44 @@
       "outcome": "DECISIVE",
       "method": "Submission (Guillotine)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060402/competitions/401879438?lang=en&region=us"
+    },
+    {
+      "id": "espn:401312002",
+      "date": "2021-03-20T23:30:00+00:00",
+      "event": "UFC Fight Night: Brunson vs. Holland",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "4249185"
+      ],
+      "names": [
+        "Bruno Silva",
+        "JP Buys"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600003480/competitions/401312002?lang=en&region=us"
+    },
+    {
+      "id": "espn:401388434",
+      "date": "2021-03-25T16:00:00+00:00",
+      "event": "Brave CF 49",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905261",
+        "4905308"
+      ],
+      "names": [
+        "Muhammad Mokaev",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4905261",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600011562/competitions/401388434?lang=en&region=us"
     },
     {
       "id": "espn:401498585",
@@ -706,6 +2055,139 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600025373/competitions/401783435?lang=en&region=us"
     },
     {
+      "id": "espn:401648955",
+      "date": "2021-05-22T04:00:00+00:00",
+      "event": "Open Fighting Championship 4",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5206516",
+        "5206545"
+      ],
+      "names": [
+        "Uran Satybaldiev",
+        "Vladislav Kuznetsov"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600043975/competitions/401648955?lang=en&region=us"
+    },
+    {
+      "id": "espn:401673796",
+      "date": "2021-05-22T04:00:00+00:00",
+      "event": "GMC 25: German MMA Championship",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5212748",
+        "5213344"
+      ],
+      "names": [
+        "Islam Dulatov",
+        "Ibrahim Celik"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046061/competitions/401673796?lang=en&region=us"
+    },
+    {
+      "id": "espn:401326940",
+      "date": "2021-05-22T20:00:00+00:00",
+      "event": "UFC Fight Night: Font vs. Garbrandt",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "4700271"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Victor Rodriguez"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600004801/competitions/401326940?lang=en&region=us"
+    },
+    {
+      "id": "espn:401331879",
+      "date": "2021-06-11T22:00:00+00:00",
+      "event": "Bellator 260: Lima vs. Amasov",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4706976",
+        "4867651"
+      ],
+      "names": [
+        "Kyle Crutchmer",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4706976",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600005660/competitions/401331879?lang=en&region=us"
+    },
+    {
+      "id": "espn:401321593",
+      "date": "2021-06-12T01:00:00+00:00",
+      "event": "Bellator 260: Lima vs. Amasov",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "2500691",
+        "4275020"
+      ],
+      "names": [
+        "Douglas Lima",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600005660/competitions/401321593?lang=en&region=us"
+    },
+    {
+      "id": "espn:401673795",
+      "date": "2021-06-19T04:00:00+00:00",
+      "event": "GMC Fight Night: German MMA Championship",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5212748",
+        "5213343"
+      ],
+      "names": [
+        "Islam Dulatov",
+        "Giorgi Kankava"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046060/competitions/401673795?lang=en&region=us"
+    },
+    {
+      "id": "espn:401822381",
+      "date": "2021-06-19T04:00:00+00:00",
+      "event": "European Pro Fighting 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5236383",
+        "5308876"
+      ],
+      "names": [
+        "Hecher Sosa",
+        "Joao Pinguinha"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Submission (Arm Triangle)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600014753/competitions/401822381?lang=en&region=us"
+    },
+    {
       "id": "espn:401461572",
       "date": "2021-06-19T16:00:00+00:00",
       "event": "UAE Warriors 20",
@@ -723,6 +2205,63 @@
       "outcome": "DECISIVE",
       "method": "TKO - Doctor's Stoppage",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600013708/competitions/401461572?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655908",
+      "date": "2021-06-20T04:00:00+00:00",
+      "event": "WEF Selection 33",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210148"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Tolkunbek Mamatov"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044979/competitions/401655908?lang=en&region=us"
+    },
+    {
+      "id": "espn:401426955",
+      "date": "2021-07-10T04:00:00+00:00",
+      "event": "FFAC: FFA Challenge 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5013876"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Lois Laurent"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "Decision",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600015750/competitions/401426955?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873684",
+      "date": "2021-07-26T04:00:00+00:00",
+      "event": "WJF 13: World Jaguar Federation Series 13",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5345640",
+        "5353064"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Elnar Makhmudov"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059740/competitions/401873684?lang=en&region=us"
     },
     {
       "id": "espn:401830786",
@@ -744,6 +2283,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600015967/competitions/401830786?lang=en&region=us"
     },
     {
+      "id": "espn:401648954",
+      "date": "2021-08-14T04:00:00+00:00",
+      "event": "Open Fighting Championship 8",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5206516",
+        "5206544"
+      ],
+      "names": [
+        "Uran Satybaldiev",
+        "Khusan Rakhimov"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600019378/competitions/401648954?lang=en&region=us"
+    },
+    {
       "id": "espn:401801818",
       "date": "2021-08-14T18:00:00+00:00",
       "event": "Imperium MMA Pro 15",
@@ -761,6 +2319,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600037956/competitions/401801818?lang=en&region=us"
+    },
+    {
+      "id": "espn:401608845",
+      "date": "2021-10-01T17:00:00+00:00",
+      "event": "Cage Warriors 128",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5146696",
+        "5176910"
+      ],
+      "names": [
+        "Luke Riley",
+        "Kamil Wincenciak"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600010507/competitions/401608845?lang=en&region=us"
     },
     {
       "id": "espn:401783436",
@@ -839,6 +2416,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600014967/competitions/401461573?lang=en&region=us"
     },
     {
+      "id": "espn:401648953",
+      "date": "2021-11-04T04:00:00+00:00",
+      "event": "Open Fighting Championship 11",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4231939",
+        "5206516"
+      ],
+      "names": [
+        "Ilya Bochkov",
+        "Uran Satybaldiev"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "TKO - Retirement",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600043974/competitions/401648953?lang=en&region=us"
+    },
+    {
       "id": "espn:401801819",
       "date": "2021-11-07T17:00:00+00:00",
       "event": "Jardim Fight 3",
@@ -856,6 +2452,63 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035972/competitions/401801819?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916279",
+      "date": "2021-11-13T05:00:00+00:00",
+      "event": "Eagles FC: Danger Zone",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5445620",
+        "5447083"
+      ],
+      "names": [
+        "Pavel Andrusca",
+        "Andrei Jovteak"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061543/competitions/401916279?lang=en&region=us"
+    },
+    {
+      "id": "espn:401822382",
+      "date": "2021-11-20T05:00:00+00:00",
+      "event": "Fight Club Rush 10",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210879",
+        "5236383"
+      ],
+      "names": [
+        "Jonny Touma",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600018211/competitions/401822382?lang=en&region=us"
+    },
+    {
+      "id": "espn:401384686",
+      "date": "2021-12-04T00:00:00+00:00",
+      "event": "Bellator 272: Pettis vs. Horiguchi",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4313457",
+        "4867651"
+      ],
+      "names": [
+        "Vinicius de Jesus",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600012247/competitions/401384686?lang=en&region=us"
     },
     {
       "id": "espn:401613937",
@@ -877,6 +2530,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600039935/competitions/401613937?lang=en&region=us"
     },
     {
+      "id": "espn:401608844",
+      "date": "2021-12-10T17:00:00+00:00",
+      "event": "Cage Warriors 131",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5146696",
+        "5176909"
+      ],
+      "names": [
+        "Luke Riley",
+        "Yuki Angdembe"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600012727/competitions/401608844?lang=en&region=us"
+    },
+    {
       "id": "espn:401498586",
       "date": "2021-12-19T05:00:00+00:00",
       "event": "FCC: Full Contact Contender 27",
@@ -894,6 +2566,44 @@
       "outcome": "DECISIVE",
       "method": "Decision - Split",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600025509/competitions/401498586?lang=en&region=us"
+    },
+    {
+      "id": "espn:401890092",
+      "date": "2021-12-22T05:00:00+00:00",
+      "event": "Maraa Combat 1",
+      "promotion": "non_ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "5364355",
+        "5369639"
+      ],
+      "names": [
+        "Modestino Rodrigues",
+        "Matheus de Almeida"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060687/competitions/401890092?lang=en&region=us"
+    },
+    {
+      "id": "espn:401398410",
+      "date": "2022-02-05T02:00:00+00:00",
+      "event": "LFA 123: Argueta vs. Santos",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4815973",
+        "4914573"
+      ],
+      "names": [
+        "Dan Argueta",
+        "Mairon Santos"
+      ],
+      "winner_id": "4815973",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/600014607/competitions/401398410?lang=en&region=us"
     },
     {
       "id": "espn:401565020",
@@ -932,6 +2642,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600039934/competitions/401613936?lang=en&region=us"
+    },
+    {
+      "id": "espn:401677166",
+      "date": "2022-03-20T04:00:00+00:00",
+      "event": "YFC 1: Your Fight Club",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5215111"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Mathias Rieucros"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "TKO - Corner Stoppage",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046537/competitions/401677166?lang=en&region=us"
     },
     {
       "id": "espn:401565019",
@@ -991,6 +2720,63 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600033860/competitions/401801820?lang=en&region=us"
     },
     {
+      "id": "espn:401673794",
+      "date": "2022-04-02T16:00:00+00:00",
+      "event": "NFC 8 - National Fighting Championship 8",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4079329",
+        "5212748"
+      ],
+      "names": [
+        "Michael Rirsch",
+        "Islam Dulatov"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "Submission (D'Arce Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600023931/competitions/401673794?lang=en&region=us"
+    },
+    {
+      "id": "espn:401552655",
+      "date": "2022-04-02T17:00:00+00:00",
+      "event": "Cage Warriors 136",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5146694",
+        "5146696"
+      ],
+      "names": [
+        "Jack Eglin",
+        "Luke Riley"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600015608/competitions/401552655?lang=en&region=us"
+    },
+    {
+      "id": "espn:401424722",
+      "date": "2022-04-24T00:30:00+00:00",
+      "event": "Bellator 279: Cyborg vs. Blencowe 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3076910",
+        "4867651"
+      ],
+      "names": [
+        "Goiti Yamauchi",
+        "Levan Chokheli"
+      ],
+      "winner_id": "3076910",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600017288/competitions/401424722?lang=en&region=us"
+    },
+    {
       "id": "espn:401830789",
       "date": "2022-04-29T04:00:00+00:00",
       "event": "UWC Mexico 33: Sabori vs. Rodriguez",
@@ -1008,6 +2794,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600023670/competitions/401830789?lang=en&region=us"
+    },
+    {
+      "id": "espn:401426950",
+      "date": "2022-05-06T17:00:00+00:00",
+      "event": "Bellator 280: Bader vs. Kongo 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013614",
+        "5013686"
+      ],
+      "names": [
+        "Youcef Ouabbas",
+        "Matthieu Letho Duclos"
+      ],
+      "winner_id": "5013614",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600015727/competitions/401426950?lang=en&region=us"
     },
     {
       "id": "espn:401766310",
@@ -1029,6 +2834,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035341/competitions/401766310?lang=en&region=us"
     },
     {
+      "id": "espn:401822383",
+      "date": "2022-05-07T04:00:00+00:00",
+      "event": "Fight Club Rush 12",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5202204",
+        "5236383"
+      ],
+      "names": [
+        "Karlen Minasyan",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5202204",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600022991/competitions/401822383?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873685",
+      "date": "2022-05-20T04:00:00+00:00",
+      "event": "Iron Fist FC 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5345640",
+        "5353065"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Zura Chabakauri"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Triangle Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600045774/competitions/401873685?lang=en&region=us"
+    },
+    {
       "id": "espn:401498587",
       "date": "2022-05-27T17:00:00+00:00",
       "event": "Cage Warriors 137",
@@ -1046,6 +2889,44 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600018492/competitions/401498587?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655907",
+      "date": "2022-06-25T04:00:00+00:00",
+      "event": "RCC: Intro 21",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210147"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Konstantin Simonov"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044978/competitions/401655907?lang=en&region=us"
+    },
+    {
+      "id": "espn:401648952",
+      "date": "2022-07-03T04:00:00+00:00",
+      "event": "Open Fighting Championship 20",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5206516",
+        "5206543"
+      ],
+      "names": [
+        "Uran Satybaldiev",
+        "Vladimir Seliverstov"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600043973/competitions/401648952?lang=en&region=us"
     },
     {
       "id": "espn:401565018",
@@ -1086,6 +2967,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055229/competitions/401801821?lang=en&region=us"
     },
     {
+      "id": "espn:401673793",
+      "date": "2022-08-06T16:00:00+00:00",
+      "event": "Brave CF 61",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4921716",
+        "5212748"
+      ],
+      "names": [
+        "Kleverson Cruz",
+        "Islam Dulatov"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600023930/competitions/401673793?lang=en&region=us"
+    },
+    {
+      "id": "espn:401608843",
+      "date": "2022-08-13T16:00:00+00:00",
+      "event": "Cage Warriors 142",
+      "promotion": "non_ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5146696",
+        "5149128"
+      ],
+      "names": [
+        "Luke Riley",
+        "Cherif Larossi"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600023036/competitions/401608843?lang=en&region=us"
+    },
+    {
       "id": "espn:401582791",
       "date": "2022-08-20T04:00:00+00:00",
       "event": "Eternal MMA 68",
@@ -1103,6 +3022,25 @@
       "outcome": "DECISIVE",
       "method": "Submission (Rear Naked Choke)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600037420/competitions/401582791?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873686",
+      "date": "2022-08-28T04:00:00+00:00",
+      "event": "Nurlan Fight Arena 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5345640",
+        "5353067"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Feroz Nejrabi"
+      ],
+      "winner_id": "5353067",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046343/competitions/401873686?lang=en&region=us"
     },
     {
       "id": "espn:401677709",
@@ -1124,6 +3062,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600025532/competitions/401677709?lang=en&region=us"
     },
     {
+      "id": "espn:401655906",
+      "date": "2022-09-23T04:00:00+00:00",
+      "event": "RCC: Intro 23",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210146"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Alexander Treskin"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044977/competitions/401655906?lang=en&region=us"
+    },
+    {
+      "id": "espn:401677165",
+      "date": "2022-10-15T04:00:00+00:00",
+      "event": "HMMA 5: Hexagone MMA",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5215108"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Giorgi Egnatashvili"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600043542/competitions/401677165?lang=en&region=us"
+    },
+    {
       "id": "espn:401801822",
       "date": "2022-11-05T16:00:00+00:00",
       "event": "WS Fighting 6",
@@ -1141,6 +3117,101 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600033855/competitions/401801822?lang=en&region=us"
+    },
+    {
+      "id": "espn:401608842",
+      "date": "2022-11-12T17:30:00+00:00",
+      "event": "Cage Warriors 146",
+      "promotion": "non_ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5146696",
+        "5176908"
+      ],
+      "names": [
+        "Luke Riley",
+        "Karol Kuty\u0142a"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600024147/competitions/401608842?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655903",
+      "date": "2022-11-16T05:00:00+00:00",
+      "event": "WEF Selection 42",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210143"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Kyyalbek Keldibay Uulu"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044976/competitions/401655903?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655904",
+      "date": "2022-11-16T05:00:00+00:00",
+      "event": "WEF Selection 42",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210144"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Erbol Zholdoshbekov"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044976/competitions/401655904?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655905",
+      "date": "2022-11-16T05:00:00+00:00",
+      "event": "WEF Selection 42",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210145"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Omurbek Toktoali"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600044976/competitions/401655905?lang=en&region=us"
+    },
+    {
+      "id": "espn:401497753",
+      "date": "2022-11-19T02:00:00+00:00",
+      "event": "Bellator 288: Nemkov vs. Anderson 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4701830",
+        "4867651"
+      ],
+      "names": [
+        "Roman Faraldo",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600024127/competitions/401497753?lang=en&region=us"
     },
     {
       "id": "espn:401528472",
@@ -1162,6 +3233,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600030192/competitions/401528472?lang=en&region=us"
     },
     {
+      "id": "espn:401822384",
+      "date": "2022-11-26T05:00:00+00:00",
+      "event": "Fight Club Rush 14",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5179712",
+        "5236383"
+      ],
+      "names": [
+        "Bilal Tipsaev",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600032198/competitions/401822384?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873687",
+      "date": "2022-12-11T05:00:00+00:00",
+      "event": "Nurlan Fight Arena 2",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5345640",
+        "5353068"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Cebrail Demir"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046337/competitions/401873687?lang=en&region=us"
+    },
+    {
       "id": "espn:401752413",
       "date": "2022-12-16T17:00:00+00:00",
       "event": "CFFC 116: Torres vs. Mathison",
@@ -1179,6 +3288,25 @@
       "outcome": "DECISIVE",
       "method": "Decision - Split",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600036532/competitions/401752413?lang=en&region=us"
+    },
+    {
+      "id": "espn:401677164",
+      "date": "2023-01-22T05:00:00+00:00",
+      "event": "Hexagone MMA 6",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5215109"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Tobiasz Lewandowski"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600033292/competitions/401677164?lang=en&region=us"
     },
     {
       "id": "espn:401830790",
@@ -1276,6 +3404,82 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600036112/competitions/401565016?lang=en&region=us"
     },
     {
+      "id": "espn:401822385",
+      "date": "2023-02-25T05:00:00+00:00",
+      "event": "Fight Club Rush 15",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5236383",
+        "5308875"
+      ],
+      "names": [
+        "Hecher Sosa",
+        "Frederik Skov Strauss"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600032199/competitions/401822385?lang=en&region=us"
+    },
+    {
+      "id": "espn:401506470",
+      "date": "2023-02-25T21:00:00+00:00",
+      "event": "Bellator 291: Amosov vs. Storley 2",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4234873",
+        "4275020"
+      ],
+      "names": [
+        "Logan Storley",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600026907/competitions/401506470?lang=en&region=us"
+    },
+    {
+      "id": "espn:401673792",
+      "date": "2023-03-11T05:00:00+00:00",
+      "event": "Sparta Championship Fighting 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5212748",
+        "5213342"
+      ],
+      "names": [
+        "Islam Dulatov",
+        "Patrick Spirk"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "Submission (Arm Triangle)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046059/competitions/401673792?lang=en&region=us"
+    },
+    {
+      "id": "espn:401524703",
+      "date": "2023-03-11T20:00:00+00:00",
+      "event": "UFC Fight Night: Yan vs. Dvalishvili",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "2976026",
+        "3895544"
+      ],
+      "names": [
+        "Tyson Nam",
+        "Bruno Silva"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600027448/competitions/401524703?lang=en&region=us"
+    },
+    {
       "id": "espn:401935770",
       "date": "2023-03-18T12:00:00+00:00",
       "event": "UAE Warriors 39",
@@ -1293,6 +3497,44 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600035252/competitions/401935770?lang=en&region=us"
+    },
+    {
+      "id": "espn:401655902",
+      "date": "2023-03-25T00:00:00+00:00",
+      "event": "ONE Fight Night 8: Superlek vs. Williams",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5119017",
+        "5210077"
+      ],
+      "names": [
+        "Ho Taek Oh",
+        "Akbar Abdullaev"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ofc/events/600028572/competitions/401655902?lang=en&region=us"
+    },
+    {
+      "id": "espn:401533892",
+      "date": "2023-03-25T01:00:00+00:00",
+      "event": "LFA 155: Do Nascimento vs. Hodge",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4334759",
+        "4914573"
+      ],
+      "names": [
+        "Rafael Barbosa",
+        "Mairon Santos"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/600029592/competitions/401533892?lang=en&region=us"
     },
     {
       "id": "espn:401801823",
@@ -1333,6 +3575,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600052322/competitions/401739412?lang=en&region=us"
     },
     {
+      "id": "espn:401608841",
+      "date": "2023-04-15T16:30:00+00:00",
+      "event": "Cage Warriors 152",
+      "promotion": "non_ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5119189",
+        "5146696"
+      ],
+      "names": [
+        "Kallum Parker",
+        "Luke Riley"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600029073/competitions/401608841?lang=en&region=us"
+    },
+    {
+      "id": "espn:401534550",
+      "date": "2023-04-22T02:00:00+00:00",
+      "event": "Bellator 294: Carmouche vs. Bennett 2",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "2511778",
+        "4867651"
+      ],
+      "names": [
+        "Michael Lombardo",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600030212/competitions/401534550?lang=en&region=us"
+    },
+    {
       "id": "espn:401819804",
       "date": "2023-04-28T04:00:00+00:00",
       "event": "UWC Mexico 43: Ramos vs. Penaloza",
@@ -1352,6 +3632,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600049443/competitions/401819804?lang=en&region=us"
     },
     {
+      "id": "espn:401822386",
+      "date": "2023-05-06T04:00:00+00:00",
+      "event": "Hombres de Honor 119: Canarias Pro Fight II",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5236383",
+        "5308874"
+      ],
+      "names": [
+        "Hecher Sosa",
+        "Mariano Hernandez"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055869/competitions/401822386?lang=en&region=us"
+    },
+    {
       "id": "espn:401613935",
       "date": "2023-05-20T04:00:00+00:00",
       "event": "WOW 9: Way of Warriors FC",
@@ -1369,6 +3668,44 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600039933/competitions/401613935?lang=en&region=us"
+    },
+    {
+      "id": "espn:401793726",
+      "date": "2023-05-27T04:00:00+00:00",
+      "event": "LOB: League of Boxing",
+      "promotion": "non_ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5292007",
+        "5292009"
+      ],
+      "names": [
+        "Ivan Gnizditskiy",
+        "Rustam Baganaev"
+      ],
+      "winner_id": "5292007",
+      "outcome": "DECISIVE",
+      "method": "TKO (Knees and Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055015/competitions/401793726?lang=en&region=us"
+    },
+    {
+      "id": "espn:401677163",
+      "date": "2023-06-17T04:00:00+00:00",
+      "event": "Hexagone MMA 9",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5215110"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Geison Santana Moreno"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600043353/competitions/401677163?lang=en&region=us"
     },
     {
       "id": "espn:401766313",
@@ -1428,6 +3765,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056191/competitions/401879440?lang=en&region=us"
     },
     {
+      "id": "espn:401655901",
+      "date": "2023-07-15T00:00:00+00:00",
+      "event": "ONE Fight Night 12: Kryklia vs. Xhaja",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5210142"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Aaron Ca\u00f1arte"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ofc/events/600034712/competitions/401655901?lang=en&region=us"
+    },
+    {
       "id": "espn:401830791",
       "date": "2023-07-21T04:00:00+00:00",
       "event": "Lux Fight League 34",
@@ -1445,6 +3801,25 @@
       "outcome": "DECISIVE",
       "method": "Submission (Rear Naked Choke)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600043734/competitions/401830791?lang=en&region=us"
+    },
+    {
+      "id": "espn:401608840",
+      "date": "2023-07-21T16:30:00+00:00",
+      "event": "Cage Warriors 157",
+      "promotion": "non_ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5077312",
+        "5146696"
+      ],
+      "names": [
+        "Matheus Malta",
+        "Luke Riley"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600033492/competitions/401608840?lang=en&region=us"
     },
     {
       "id": "espn:401783438",
@@ -1504,6 +3879,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600047301/competitions/401801824?lang=en&region=us"
     },
     {
+      "id": "espn:401648951",
+      "date": "2023-08-19T02:00:00+00:00",
+      "event": "LFA 165: Compton vs. Valente",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5206516",
+        "5206542"
+      ],
+      "names": [
+        "Uran Satybaldiev",
+        "Gabriel Thimoteo"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/600035998/competitions/401648951?lang=en&region=us"
+    },
+    {
+      "id": "espn:401874344",
+      "date": "2023-08-27T04:00:00+00:00",
+      "event": "Hardcore MMA: VK Exclusive Card",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5360467",
+        "5360469"
+      ],
+      "names": [
+        "Magomed Tuchalov",
+        "Zhakhongir Khakimzhonov"
+      ],
+      "winner_id": "5360467",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059875/competitions/401874344?lang=en&region=us"
+    },
+    {
       "id": "espn:401581402",
       "date": "2023-08-30T00:00:00+00:00",
       "event": "Dana White's Contender Series: Season 7, Week 4",
@@ -1542,6 +3955,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600042474/competitions/401752415?lang=en&region=us"
     },
     {
+      "id": "espn:401890093",
+      "date": "2023-09-05T04:00:00+00:00",
+      "event": "Ultimate Fonte Boa 7",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5364355",
+        "5369633"
+      ],
+      "names": [
+        "Modestino Rodrigues",
+        "Salomao Silva de Melo"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060688/competitions/401890093?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873688",
+      "date": "2023-09-09T04:00:00+00:00",
+      "event": "NGF 3: New Generation Fighting 3",
+      "promotion": "non_ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "5345640",
+        "5353069"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Elkhan Hasanov"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059741/competitions/401873688?lang=en&region=us"
+    },
+    {
       "id": "espn:401766314",
       "date": "2023-09-23T04:00:00+00:00",
       "event": "Eternal MMA 79",
@@ -1561,6 +4012,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053697/competitions/401766314?lang=en&region=us"
     },
     {
+      "id": "espn:401580209",
+      "date": "2023-09-23T20:00:00+00:00",
+      "event": "Bellator 299: Eblen vs. Edwards",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "2517121",
+        "4867651"
+      ],
+      "names": [
+        "Sabah Homasi",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600034017/competitions/401580209?lang=en&region=us"
+    },
+    {
+      "id": "espn:401608839",
+      "date": "2023-09-29T18:00:00+00:00",
+      "event": "Cage Warriors 160",
+      "promotion": "non_ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5081032",
+        "5146696"
+      ],
+      "names": [
+        "Alexander L\u00f6\u00f6f",
+        "Luke Riley"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600037378/competitions/401608839?lang=en&region=us"
+    },
+    {
       "id": "espn:401582440",
       "date": "2023-09-30T15:00:00+00:00",
       "event": "2023 PFL Europe Playoffs",
@@ -1578,6 +4067,44 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600030034/competitions/401582440?lang=en&region=us"
+    },
+    {
+      "id": "espn:401673791",
+      "date": "2023-10-07T04:00:00+00:00",
+      "event": "Sparta Championship Fighting 3",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3082808",
+        "5212748"
+      ],
+      "names": [
+        "Will Chope",
+        "Islam Dulatov"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046058/competitions/401673791?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873456",
+      "date": "2023-10-14T04:00:00+00:00",
+      "event": "Carelia Fight 17",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5351515"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Ruslan Mammadov"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600049681/competitions/401873456?lang=en&region=us"
     },
     {
       "id": "espn:401819806",
@@ -1656,6 +4183,63 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600041653/competitions/401624921?lang=en&region=us"
     },
     {
+      "id": "espn:401873457",
+      "date": "2023-11-11T05:00:00+00:00",
+      "event": "Hamara MMA Vol. 4",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4214376",
+        "4905308"
+      ],
+      "names": [
+        "Carlos Eduardo de Azevedo",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Arm Triangle)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059711/competitions/401873457?lang=en&region=us"
+    },
+    {
+      "id": "espn:401598792",
+      "date": "2023-11-18T02:00:00+00:00",
+      "event": "Bellator 301: Amosov vs. Jackson",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3120931",
+        "4275020"
+      ],
+      "names": [
+        "Jason Jackson",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "3120931",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600038412/competitions/401598792?lang=en&region=us"
+    },
+    {
+      "id": "espn:401822387",
+      "date": "2023-11-25T05:00:00+00:00",
+      "event": "Fight Club Rush 18",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4063780",
+        "5236383"
+      ],
+      "names": [
+        "Aaron Robinson",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046513/competitions/401822387?lang=en&region=us"
+    },
+    {
       "id": "espn:401830792",
       "date": "2023-12-01T05:00:00+00:00",
       "event": "Lux Fight League 38",
@@ -1713,6 +4297,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600047302/competitions/401801825?lang=en&region=us"
     },
     {
+      "id": "espn:401890094",
+      "date": "2024-01-27T05:00:00+00:00",
+      "event": "Dominium Fighter Championship 22: New Chance",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4423433",
+        "5364355"
+      ],
+      "names": [
+        "Bruno Ferreira",
+        "Modestino Rodrigues"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060689/competitions/401890094?lang=en&region=us"
+    },
+    {
       "id": "espn:401752436",
       "date": "2024-02-10T02:00:00+00:00",
       "event": "CFFC 129: Kline vs. Romero",
@@ -1751,6 +4354,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600045894/competitions/401673062?lang=en&region=us"
     },
     {
+      "id": "espn:401673789",
+      "date": "2024-02-10T05:00:00+00:00",
+      "event": "OKTAGON 53: Dalisda vs. Dourthe",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4209420",
+        "5212748"
+      ],
+      "names": [
+        "Ioannis Palaiologos",
+        "Islam Dulatov"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046057/competitions/401673789?lang=en&region=us"
+    },
+    {
+      "id": "espn:401677162",
+      "date": "2024-02-10T05:00:00+00:00",
+      "event": "Hexagone MMA 14",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5087440"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Alexis Fontes"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "TKO - Injury",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046536/competitions/401677162?lang=en&region=us"
+    },
+    {
       "id": "espn:401675104",
       "date": "2024-02-18T05:00:00+00:00",
       "event": "Levels Fight League 11",
@@ -1768,6 +4409,139 @@
       "outcome": "DECISIVE",
       "method": "Decision - Unanimous",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046276/competitions/401675104?lang=en&region=us"
+    },
+    {
+      "id": "espn:401719288",
+      "date": "2024-02-24T05:00:00+00:00",
+      "event": "Fight Club Rush 19",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5119606",
+        "5236383"
+      ],
+      "names": [
+        "Tuomas Gr\u00f6nvall",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600049682/competitions/401719288?lang=en&region=us"
+    },
+    {
+      "id": "espn:401793727",
+      "date": "2024-02-24T05:00:00+00:00",
+      "event": "Russian Cagefighting Championship 18",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5292007",
+        "5292010"
+      ],
+      "names": [
+        "Ivan Gnizditskiy",
+        "Andrey Stolnik"
+      ],
+      "winner_id": "5292007",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055016/competitions/401793727?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873689",
+      "date": "2024-02-24T05:00:00+00:00",
+      "event": "Khan Fight: Grand Prix of Bursa",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5345640",
+        "5353071"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Amir Hossein Habibi"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Anaconda Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059742/competitions/401873689?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873690",
+      "date": "2024-02-24T05:00:00+00:00",
+      "event": "Khan Fight: Grand Prix of Bursa",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5345640",
+        "5353070"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Talha Derdiyok"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Ninja Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059742/competitions/401873690?lang=en&region=us"
+    },
+    {
+      "id": "espn:401648938",
+      "date": "2024-03-09T03:00:00+00:00",
+      "event": "LFA 178: Satybaldiev vs. Assis",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4081147",
+        "5206516"
+      ],
+      "names": [
+        "Bruno Assis",
+        "Uran Satybaldiev"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/600043945/competitions/401648938?lang=en&region=us"
+    },
+    {
+      "id": "espn:401649543",
+      "date": "2024-03-16T18:30:00+00:00",
+      "event": "Cage Warriors 168",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4295251",
+        "5146696"
+      ],
+      "names": [
+        "John de Jesus",
+        "Luke Riley"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600044036/competitions/401649543?lang=en&region=us"
+    },
+    {
+      "id": "espn:401890235",
+      "date": "2024-03-23T04:00:00+00:00",
+      "event": "Dominium Fighter Championship 23: New Season",
+      "promotion": "non_ufc",
+      "weight": "Middleweight",
+      "athlete_ids": [
+        "5364355",
+        "5369635"
+      ],
+      "names": [
+        "Modestino Rodrigues",
+        "Clayton Ferreira"
+      ],
+      "winner_id": "5369635",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060690/competitions/401890235?lang=en&region=us"
     },
     {
       "id": "espn:401699009",
@@ -1846,6 +4620,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600047303/competitions/401801826?lang=en&region=us"
     },
     {
+      "id": "espn:401655687",
+      "date": "2024-05-04T00:00:00+00:00",
+      "event": "ONE Fight Night 22: Sundell vs. Diachkova",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5094692",
+        "5210077"
+      ],
+      "names": [
+        "Halil Amir",
+        "Akbar Abdullaev"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ofc/events/600044935/competitions/401655687?lang=en&region=us"
+    },
+    {
       "id": "espn:401739411",
       "date": "2024-05-04T04:00:00+00:00",
       "event": "971 Fighting Championship 1",
@@ -1884,6 +4677,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600046093/competitions/401879441?lang=en&region=us"
     },
     {
+      "id": "espn:401916280",
+      "date": "2024-05-18T04:00:00+00:00",
+      "event": "Khan Fight 4: The War Code",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5445620",
+        "5447085"
+      ],
+      "names": [
+        "Pavel Andrusca",
+        "Balabek Abbas"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061544/competitions/401916280?lang=en&region=us"
+    },
+    {
+      "id": "espn:401822388",
+      "date": "2024-05-25T04:00:00+00:00",
+      "event": "WOW 14: Madrid",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5076073",
+        "5236383"
+      ],
+      "names": [
+        "Dayvison Silva",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Submission (D'Arce Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055865/competitions/401822388?lang=en&region=us"
+    },
+    {
       "id": "espn:401801827",
       "date": "2024-06-01T04:00:00+00:00",
       "event": "JuaFight 1",
@@ -1901,6 +4732,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055224/competitions/401801827?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873691",
+      "date": "2024-06-06T04:00:00+00:00",
+      "event": "NGF 4: New Generation Fighting 4",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5345640",
+        "5353072"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Omar Ashour"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059743/competitions/401873691?lang=en&region=us"
     },
     {
       "id": "espn:401752437",
@@ -1960,6 +4810,82 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/600048162/competitions/401783439?lang=en&region=us"
     },
     {
+      "id": "espn:401890236",
+      "date": "2024-07-20T04:00:00+00:00",
+      "event": "Jungle Fight 128",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4348609",
+        "5364355"
+      ],
+      "names": [
+        "Nathan Oliveira",
+        "Modestino Rodrigues"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600054692/competitions/401890236?lang=en&region=us"
+    },
+    {
+      "id": "espn:401678841",
+      "date": "2024-07-21T00:00:00+00:00",
+      "event": "UFC Fight Night: Lemos vs. Jandiroba",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "4686725"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Cody Durden"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600046020/competitions/401678841?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873458",
+      "date": "2024-07-28T04:00:00+00:00",
+      "event": "UAE Warriors 52",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5351516"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Mahmoud Abdel Raouf"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Technical Submission (Rear-Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600054290/competitions/401873458?lang=en&region=us"
+    },
+    {
+      "id": "espn:401874345",
+      "date": "2024-08-04T04:00:00+00:00",
+      "event": "Fight Nights: RDD Series 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3043696",
+        "5360467"
+      ],
+      "names": [
+        "Shamil Abdulmuslimov",
+        "Magomed Tuchalov"
+      ],
+      "winner_id": "5360467",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059876/competitions/401874345?lang=en&region=us"
+    },
+    {
       "id": "espn:401812307",
       "date": "2024-08-17T04:00:00+00:00",
       "event": "Anthony Pettis FC: Waukesha RMBL",
@@ -1977,6 +4903,44 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600054398/competitions/401812307?lang=en&region=us"
+    },
+    {
+      "id": "espn:401706845",
+      "date": "2024-08-25T02:00:00+00:00",
+      "event": "UFC Fight Night: Cannonier vs. Borralho",
+      "promotion": "ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "4914573",
+        "5204223"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Kaan Ofli"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600048324/competitions/401706845?lang=en&region=us"
+    },
+    {
+      "id": "espn:401698248",
+      "date": "2024-08-28T00:00:00+00:00",
+      "event": "Dana White's Contender Series: Season 8, Week 3",
+      "promotion": "dwcs",
+      "weight": "Middleweight",
+      "athlete_ids": [
+        "5013686",
+        "5138111"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Marco Tulio"
+      ],
+      "winner_id": "5138111",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600047774/competitions/401698248?lang=en&region=us"
     },
     {
       "id": "espn:401819808",
@@ -1998,6 +4962,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600050281/competitions/401819808?lang=en&region=us"
     },
     {
+      "id": "espn:401691136",
+      "date": "2024-09-08T00:00:00+00:00",
+      "event": "Bellator Champions Series San Diego: Nurmagomedov vs. Shabliy",
+      "promotion": "non_ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "2556793",
+        "4867651"
+      ],
+      "names": [
+        "Lorenz Larkin",
+        "Levan Chokheli"
+      ],
+      "winner_id": "2556793",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/bellator/events/600044094/competitions/401691136?lang=en&region=us"
+    },
+    {
       "id": "espn:401703288",
       "date": "2024-09-11T00:00:00+00:00",
       "event": "Dana White's Contender Series: Season 8, Week 5",
@@ -2017,6 +5000,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600047776/competitions/401703288?lang=en&region=us"
     },
     {
+      "id": "espn:401822389",
+      "date": "2024-09-14T04:00:00+00:00",
+      "event": "WOW 15: Madrid",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5158161",
+        "5236383"
+      ],
+      "names": [
+        "Douglas Felipe",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055866/competitions/401822389?lang=en&region=us"
+    },
+    {
+      "id": "espn:401724936",
+      "date": "2024-09-21T17:30:00+00:00",
+      "event": "Cage Warriors 178",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5146696",
+        "5238087"
+      ],
+      "names": [
+        "Luke Riley",
+        "Alexandre Junior"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600049963/competitions/401724936?lang=en&region=us"
+    },
+    {
       "id": "espn:401752438",
       "date": "2024-09-27T04:00:00+00:00",
       "event": "CFFC 136: Forest vs. Richards",
@@ -2034,6 +5055,120 @@
       "outcome": "DECISIVE",
       "method": "Submission (Rear Naked Choke)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600052732/competitions/401752438?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873459",
+      "date": "2024-09-28T04:00:00+00:00",
+      "event": "UAE Warriors 54",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5351517"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Hansraj Samota"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053166/competitions/401873459?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873692",
+      "date": "2024-09-28T04:00:00+00:00",
+      "event": "UAE Warriors 54",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5345640",
+        "5353073"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Shamil Boraev"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Anaconda Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053166/competitions/401873692?lang=en&region=us"
+    },
+    {
+      "id": "espn:401890237",
+      "date": "2024-09-28T04:00:00+00:00",
+      "event": "Jungle Fight 130",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5320396",
+        "5364355"
+      ],
+      "names": [
+        "Alvaro Luiz",
+        "Modestino Rodrigues"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600054313/competitions/401890237?lang=en&region=us"
+    },
+    {
+      "id": "espn:401724479",
+      "date": "2024-10-09T00:00:00+00:00",
+      "event": "Dana White's Contender Series: Season 8, Week 9",
+      "promotion": "dwcs",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4896556",
+        "5212748"
+      ],
+      "names": [
+        "Vanilto Antunes",
+        "Islam Dulatov"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600047780/competitions/401724479?lang=en&region=us"
+    },
+    {
+      "id": "espn:401793728",
+      "date": "2024-10-12T04:00:00+00:00",
+      "event": "Happy Elephant MMA Champions League",
+      "promotion": "non_ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5292007",
+        "5292011"
+      ],
+      "names": [
+        "Ivan Gnizditskiy",
+        "Liu Ce"
+      ],
+      "winner_id": "5292007",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053692/competitions/401793728?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916281",
+      "date": "2024-10-19T04:00:00+00:00",
+      "event": "Vendetta Fight Nights 41",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5445620",
+        "5447121"
+      ],
+      "names": [
+        "Pavel Andrusca",
+        "Ahmet Simsek"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061545/competitions/401916281?lang=en&region=us"
     },
     {
       "id": "espn:401879442",
@@ -2112,6 +5247,82 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053702/competitions/401766321?lang=en&region=us"
     },
     {
+      "id": "espn:401822673",
+      "date": "2024-11-30T05:00:00+00:00",
+      "event": "WAR MMA 4: Madrid",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5215591",
+        "5236383"
+      ],
+      "names": [
+        "Roger Blanque",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055123/competitions/401822673?lang=en&region=us"
+    },
+    {
+      "id": "espn:401731923",
+      "date": "2024-12-15T03:00:00+00:00",
+      "event": "UFC Fight Night: Covington vs. Buckley",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "4236504"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Manel Kape"
+      ],
+      "winner_id": "4236504",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600049126/competitions/401731923?lang=en&region=us"
+    },
+    {
+      "id": "espn:401903482",
+      "date": "2025-01-10T05:00:00+00:00",
+      "event": "Hexagone MMA 23",
+      "promotion": "non_ufc",
+      "weight": "Middleweight",
+      "athlete_ids": [
+        "5013686",
+        "5229938"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Daichi Mikami"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060955/competitions/401903482?lang=en&region=us"
+    },
+    {
+      "id": "espn:401735819",
+      "date": "2025-01-11T01:00:00+00:00",
+      "event": "ONE Fight Night 27: Tang vs. Abdullaev",
+      "promotion": "non_ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "4420538",
+        "5210077"
+      ],
+      "names": [
+        "Kai Tang",
+        "Akbar Abdullaev"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "TKO (Ground and Pound)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ofc/events/600051621/competitions/401735819?lang=en&region=us"
+    },
+    {
       "id": "espn:401748521",
       "date": "2025-01-25T16:00:00+00:00",
       "event": "PFL Champions Series Dubai: Nurmagomedov vs. Hughes",
@@ -2188,6 +5399,139 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056222/competitions/401830796?lang=en&region=us"
     },
     {
+      "id": "espn:401873460",
+      "date": "2025-02-22T05:00:00+00:00",
+      "event": "UAE Warriors 58",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5282629"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Eduardo Mora"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Bulldog Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600052905/competitions/401873460?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916282",
+      "date": "2025-02-22T05:00:00+00:00",
+      "event": "Vendetta Fight Nights 43",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5445620",
+        "5447122"
+      ],
+      "names": [
+        "Pavel Andrusca",
+        "Eriquis Camilo Soares"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061546/competitions/401916282?lang=en&region=us"
+    },
+    {
+      "id": "espn:401766539",
+      "date": "2025-03-06T05:00:00+00:00",
+      "event": "LFA 203: Satybaldiev vs. Soares",
+      "promotion": "non_ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5146965",
+        "5206516"
+      ],
+      "names": [
+        "Leon Soares De Deus",
+        "Uran Satybaldiev"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "Submission (Kimura)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/600053725/competitions/401766539?lang=en&region=us"
+    },
+    {
+      "id": "espn:401793729",
+      "date": "2025-03-07T05:00:00+00:00",
+      "event": "One Championship: One Friday Fights 99",
+      "promotion": "non_ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5292007",
+        "5292012"
+      ],
+      "names": [
+        "Ivan Gnizditskiy",
+        "Kevin Church"
+      ],
+      "winner_id": "5292007",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055017/competitions/401793729?lang=en&region=us"
+    },
+    {
+      "id": "espn:401734555",
+      "date": "2025-03-09T01:00:00+00:00",
+      "event": "UFC 313: Pereira vs. Ankalaev",
+      "promotion": "ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "4914573",
+        "5060394"
+      ],
+      "names": [
+        "Mairon Santos",
+        "Francis Marshall"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600051447/competitions/401734555?lang=en&region=us"
+    },
+    {
+      "id": "espn:401765760",
+      "date": "2025-03-14T04:00:00+00:00",
+      "event": "CFFC 140: Rzgoev vs. Roberts",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3153151",
+        "4275020"
+      ],
+      "names": [
+        "Curtis Millender",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission (Anaconda Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600053585/competitions/401765760?lang=en&region=us"
+    },
+    {
+      "id": "espn:401830359",
+      "date": "2025-03-15T04:00:00+00:00",
+      "event": "Cage Warriors 185: Manchester",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5146696",
+        "5277053"
+      ],
+      "names": [
+        "Luke Riley",
+        "Tariel Abbasov"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "TKO (Knees and Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/cage-warriors/events/600056253/competitions/401830359?lang=en&region=us"
+    },
+    {
       "id": "espn:401812308",
       "date": "2025-03-23T04:00:00+00:00",
       "event": "Anthony Pettis FC 16: Milwaukee Fight Night 7",
@@ -2205,6 +5549,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600054102/competitions/401812308?lang=en&region=us"
+    },
+    {
+      "id": "espn:401822674",
+      "date": "2025-03-29T04:00:00+00:00",
+      "event": "WOW 17: Madrid",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4404568",
+        "5236383"
+      ],
+      "names": [
+        "Thiago Henrique",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "TKO (Retirement)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055867/competitions/401822674?lang=en&region=us"
     },
     {
       "id": "espn:401801828",
@@ -2226,6 +5589,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055230/competitions/401801828?lang=en&region=us"
     },
     {
+      "id": "espn:401890238",
+      "date": "2025-04-05T04:00:00+00:00",
+      "event": "Mirmidoes Champions Fight 6",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5364355",
+        "5369636"
+      ],
+      "names": [
+        "Modestino Rodrigues",
+        "Uilton Correa"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060691/competitions/401890238?lang=en&region=us"
+    },
+    {
+      "id": "espn:401766498",
+      "date": "2025-04-05T22:00:00+00:00",
+      "event": "UFC Fight Night: Emmett vs. Murphy",
+      "promotion": "ufc",
+      "weight": "Heavyweight",
+      "athlete_ids": [
+        "4406574",
+        "5206516"
+      ],
+      "names": [
+        "Martin Buday",
+        "Uran Satybaldiev"
+      ],
+      "winner_id": "4406574",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600053226/competitions/401766498?lang=en&region=us"
+    },
+    {
       "id": "espn:401812309",
       "date": "2025-04-19T04:00:00+00:00",
       "event": "NAFC: Super Brawl",
@@ -2243,6 +5644,63 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055567/competitions/401812309?lang=en&region=us"
+    },
+    {
+      "id": "espn:401903483",
+      "date": "2025-04-25T04:00:00+00:00",
+      "event": "Hexagone MMA 27",
+      "promotion": "non_ufc",
+      "weight": "Middleweight",
+      "athlete_ids": [
+        "4915938",
+        "5013686"
+      ],
+      "names": [
+        "Thiago Hayne",
+        "Matthieu Letho Duclos"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060956/competitions/401903483?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916283",
+      "date": "2025-05-10T04:00:00+00:00",
+      "event": "Vendetta Fight Nights 45",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5445620",
+        "5447123"
+      ],
+      "names": [
+        "Pavel Andrusca",
+        "Thyago Silva"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061547/competitions/401916283?lang=en&region=us"
+    },
+    {
+      "id": "espn:401769262",
+      "date": "2025-05-17T23:00:00+00:00",
+      "event": "UFC Fight Night: Burns vs. Morales",
+      "promotion": "ufc",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "4289274",
+        "4914573"
+      ],
+      "names": [
+        "Sodiq Yusuff",
+        "Mairon Santos"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600053676/competitions/401769262?lang=en&region=us"
     },
     {
       "id": "espn:401819809",
@@ -2283,6 +5741,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600054351/competitions/401842915?lang=en&region=us"
     },
     {
+      "id": "espn:401875240",
+      "date": "2025-05-24T04:00:00+00:00",
+      "event": "Phoenix FC 4",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "3114249",
+        "4867651"
+      ],
+      "names": [
+        "Alexandre Goncalves",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059998/competitions/401875240?lang=en&region=us"
+    },
+    {
+      "id": "espn:401793730",
+      "date": "2025-05-30T04:00:00+00:00",
+      "event": "One Championship: One Friday Fights 110",
+      "promotion": "non_ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5292007",
+        "5292013"
+      ],
+      "names": [
+        "Ivan Gnizditskiy",
+        "Khurshidbek Bozarboev"
+      ],
+      "winner_id": "5292007",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055018/competitions/401793730?lang=en&region=us"
+    },
+    {
       "id": "espn:401882016",
       "date": "2025-06-06T04:00:00+00:00",
       "event": "CFFC 143: Hasan vs. Eastman",
@@ -2300,6 +5796,82 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059144/competitions/401882016?lang=en&region=us"
+    },
+    {
+      "id": "espn:401822683",
+      "date": "2025-06-07T04:00:00+00:00",
+      "event": "WOW 20: La Noche de los Campeones",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5236383",
+        "5308771"
+      ],
+      "names": [
+        "Hecher Sosa",
+        "Yaman Mjahed"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055868/competitions/401822683?lang=en&region=us"
+    },
+    {
+      "id": "espn:401766950",
+      "date": "2025-06-08T00:00:00+00:00",
+      "event": "UFC 316: Dvalishvili vs. O'Malley 2",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "5120301"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Joshua Van"
+      ],
+      "winner_id": "5120301",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600053672/competitions/401766950?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873461",
+      "date": "2025-06-12T04:00:00+00:00",
+      "event": "UAE Warriors 59",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4893618",
+        "4905308"
+      ],
+      "names": [
+        "Sami Yahia",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600056210/competitions/401873461?lang=en&region=us"
+    },
+    {
+      "id": "espn:401874346",
+      "date": "2025-06-13T04:00:00+00:00",
+      "event": "UAE Warriors 60",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5360467",
+        "5360471"
+      ],
+      "names": [
+        "Magomed Tuchalov",
+        "Tursunbek Sodikov"
+      ],
+      "winner_id": "5360467",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059192/competitions/401874346?lang=en&region=us"
     },
     {
       "id": "espn:401812310",
@@ -2338,6 +5910,63 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060404/competitions/401879443?lang=en&region=us"
+    },
+    {
+      "id": "espn:401890239",
+      "date": "2025-06-28T04:00:00+00:00",
+      "event": "Brazilian Cage Championship 1",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5364355",
+        "5369638"
+      ],
+      "names": [
+        "Modestino Rodrigues",
+        "Virgilio Ailton"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060692/competitions/401890239?lang=en&region=us"
+    },
+    {
+      "id": "espn:401769290",
+      "date": "2025-07-19T22:00:00+00:00",
+      "event": "UFC 318: Holloway vs. Poirier 3",
+      "promotion": "ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4408375",
+        "5212748"
+      ],
+      "names": [
+        "Adam Fugitt",
+        "Islam Dulatov"
+      ],
+      "winner_id": "5212748",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600053891/competitions/401769290?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873693",
+      "date": "2025-07-24T04:00:00+00:00",
+      "event": "UAE Warriors 62",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4566645",
+        "5345640"
+      ],
+      "names": [
+        "Faeez Jacobs",
+        "Mehemmedeli Osmanli"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059098/competitions/401873693?lang=en&region=us"
     },
     {
       "id": "espn:401812311",
@@ -2397,6 +6026,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600055487/competitions/401842916?lang=en&region=us"
     },
     {
+      "id": "espn:401792134",
+      "date": "2025-08-23T07:00:00+00:00",
+      "event": "UFC Fight Night: Walker vs. Zhang",
+      "promotion": "ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5206516",
+        "5213352"
+      ],
+      "names": [
+        "Uran Satybaldiev",
+        "Diyar Nurgozhay"
+      ],
+      "winner_id": "5206516",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600054141/competitions/401792134?lang=en&region=us"
+    },
+    {
       "id": "espn:401804267",
       "date": "2025-08-27T00:00:00+00:00",
       "event": "Dana White's Contender Series: Season 9, Week 3",
@@ -2435,6 +6083,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600055005/competitions/401813458?lang=en&region=us"
     },
     {
+      "id": "espn:401915977",
+      "date": "2025-09-05T04:00:00+00:00",
+      "event": "ONE Fight Night 35: Buntan vs. Hemetsberger",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5210077",
+        "5445681"
+      ],
+      "names": [
+        "Akbar Abdullaev",
+        "Ibragim Dauev"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061531/competitions/401915977?lang=en&region=us"
+    },
+    {
       "id": "espn:401808386",
       "date": "2025-09-10T00:00:00+00:00",
       "event": "Dana White's Contender Series: Season 9, Week 5",
@@ -2452,6 +6119,44 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600055007/competitions/401808386?lang=en&region=us"
+    },
+    {
+      "id": "espn:401874347",
+      "date": "2025-09-10T04:00:00+00:00",
+      "event": "UAE Warriors 63",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5360467",
+        "5360472"
+      ],
+      "names": [
+        "Magomed Tuchalov",
+        "Khabib Gaziev"
+      ],
+      "winner_id": "5360467",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059877/competitions/401874347?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873714",
+      "date": "2025-09-13T04:00:00+00:00",
+      "event": "New Generation Fighting 5",
+      "promotion": "non_ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5073915",
+        "5345640"
+      ],
+      "names": [
+        "Ali Yousefi",
+        "Mehemmedeli Osmanli"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059744/competitions/401873714?lang=en&region=us"
     },
     {
       "id": "espn:401879445",
@@ -2490,6 +6195,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600053664/competitions/401820050?lang=en&region=us"
+    },
+    {
+      "id": "espn:401819851",
+      "date": "2025-09-17T00:00:00+00:00",
+      "event": "Dana White's Contender Series: Season 9, Week 6",
+      "promotion": "dwcs",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5236383",
+        "5307813"
+      ],
+      "names": [
+        "Hecher Sosa",
+        "Mackson Lee"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600055031/competitions/401819851?lang=en&region=us"
     },
     {
       "id": "espn:401813470",
@@ -2568,6 +6292,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600054482/competitions/401780825?lang=en&region=us"
     },
     {
+      "id": "espn:401813753",
+      "date": "2025-10-18T20:00:00+00:00",
+      "event": "UFC Fight Night: de Ridder vs. Allen",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "5068545"
+      ],
+      "names": [
+        "Bruno Silva",
+        "HyunSung Park"
+      ],
+      "winner_id": "3895544",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600054482/competitions/401813753?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873462",
+      "date": "2025-10-22T04:00:00+00:00",
+      "event": "UAE Warriors 64",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "4905308",
+        "5351518"
+      ],
+      "names": [
+        "Abdul Hussein",
+        "Gift Walker"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission (Rear Naked Choke)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059712/competitions/401873462?lang=en&region=us"
+    },
+    {
       "id": "espn:401879446",
       "date": "2025-10-25T04:00:00+00:00",
       "event": "Georgian Fighting Championship 33",
@@ -2606,6 +6368,82 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600056045/competitions/401831790?lang=en&region=us"
     },
     {
+      "id": "espn:401903484",
+      "date": "2025-11-07T05:00:00+00:00",
+      "event": "Hexagone MMA 36",
+      "promotion": "non_ufc",
+      "weight": "Middleweight",
+      "athlete_ids": [
+        "4921799",
+        "5013686"
+      ],
+      "names": [
+        "Moacir Rocha",
+        "Matthieu Letho Duclos"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060715/competitions/401903484?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873715",
+      "date": "2025-11-15T05:00:00+00:00",
+      "event": "UAE Warriors 65",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5345640",
+        "5353074"
+      ],
+      "names": [
+        "Mehemmedeli Osmanli",
+        "Bakhtovar Yunusov"
+      ],
+      "winner_id": "5345640",
+      "outcome": "DECISIVE",
+      "method": "Submission (Guillotine)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059745/competitions/401873715?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916284",
+      "date": "2025-11-15T05:00:00+00:00",
+      "event": "UAE Warriors 65",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5137006",
+        "5445620"
+      ],
+      "names": [
+        "Daermisi Zhawupasi",
+        "Pavel Andrusca"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059745/competitions/401916284?lang=en&region=us"
+    },
+    {
+      "id": "espn:401830350",
+      "date": "2025-11-22T15:00:00+00:00",
+      "event": "UFC Fight Night: Tsarukyan vs. Hooker",
+      "promotion": "ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5144006",
+        "5146696"
+      ],
+      "names": [
+        "Bogdan Grad",
+        "Luke Riley"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600055175/competitions/401830350?lang=en&region=us"
+    },
+    {
       "id": "espn:401830351",
       "date": "2025-11-22T15:00:00+00:00",
       "event": "UFC Fight Night: Tsarukyan vs. Hooker",
@@ -2625,6 +6463,44 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600055175/competitions/401830351?lang=en&region=us"
     },
     {
+      "id": "espn:401831057",
+      "date": "2025-12-06T23:00:00+00:00",
+      "event": "UFC 323: Dvalishvili vs. Yan 2",
+      "promotion": "ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "4690540",
+        "4914573"
+      ],
+      "names": [
+        "Muhammad Naimov",
+        "Mairon Santos"
+      ],
+      "winner_id": "4914573",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600056375/competitions/401831057?lang=en&region=us"
+    },
+    {
+      "id": "espn:401838015",
+      "date": "2025-12-14T00:00:00+00:00",
+      "event": "UFC Fight Night: Royval vs. Kape",
+      "promotion": "ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "3001914",
+        "4275020"
+      ],
+      "names": [
+        "Neil Magny",
+        "Yaroslav Amosov"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600056266/competitions/401838015?lang=en&region=us"
+    },
+    {
       "id": "espn:401882017",
       "date": "2025-12-20T05:00:00+00:00",
       "event": "CFFC 149: Cafaro vs. Patton",
@@ -2642,6 +6518,44 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060559/competitions/401882017?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873463",
+      "date": "2025-12-26T05:00:00+00:00",
+      "event": "Ice Cage 6: Hussein vs. Nam",
+      "promotion": "non_ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "2976026",
+        "4905308"
+      ],
+      "names": [
+        "Tyson Nam",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059713/competitions/401873463?lang=en&region=us"
+    },
+    {
+      "id": "espn:401874348",
+      "date": "2026-01-31T05:00:00+00:00",
+      "event": "UAE Warriors 67",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5360467",
+        "5360473"
+      ],
+      "names": [
+        "Magomed Tuchalov",
+        "Siyaku Dumiso"
+      ],
+      "winner_id": "5360467",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600058946/competitions/401874348?lang=en&region=us"
     },
     {
       "id": "espn:401838933",
@@ -2739,6 +6653,101 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/lfa/events/600060026/competitions/401890767?lang=en&region=us"
     },
     {
+      "id": "espn:401859846",
+      "date": "2026-03-14T21:00:00+00:00",
+      "event": "UFC Fight Night: Emmett vs. Vallejos",
+      "promotion": "ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "4410005",
+        "5236383"
+      ],
+      "names": [
+        "Luan Lacerda",
+        "Hecher Sosa"
+      ],
+      "winner_id": "5236383",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600057364/competitions/401859846?lang=en&region=us"
+    },
+    {
+      "id": "espn:401859847",
+      "date": "2026-03-15T00:00:00+00:00",
+      "event": "UFC Fight Night: Emmett vs. Vallejos",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "4375156"
+      ],
+      "names": [
+        "Bruno Silva",
+        "Charles Johnson"
+      ],
+      "winner_id": "4375156",
+      "outcome": "DECISIVE",
+      "method": "Decision - Split",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600057364/competitions/401859847?lang=en&region=us"
+    },
+    {
+      "id": "espn:401838358",
+      "date": "2026-03-21T20:00:00+00:00",
+      "event": "UFC Fight Night: Evloev vs. Murphy",
+      "promotion": "ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "5146696",
+        "5212738"
+      ],
+      "names": [
+        "Luke Riley",
+        "Michael Aswell"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600057365/competitions/401838358?lang=en&region=us"
+    },
+    {
+      "id": "espn:401874349",
+      "date": "2026-03-28T04:00:00+00:00",
+      "event": "UAE Warriors 69",
+      "promotion": "non_ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "5007668",
+        "5360467"
+      ],
+      "names": [
+        "Caio Machado",
+        "Magomed Tuchalov"
+      ],
+      "winner_id": "5360467",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600059878/competitions/401874349?lang=en&region=us"
+    },
+    {
+      "id": "espn:401905371",
+      "date": "2026-03-28T04:00:00+00:00",
+      "event": "Chingi Tura: Romanov vs. Vasconcelos",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5292007",
+        "5360471"
+      ],
+      "names": [
+        "Ivan Gnizditskiy",
+        "Tursunbek Sodikov"
+      ],
+      "winner_id": "5292007",
+      "outcome": "DECISIVE",
+      "method": "TKO (Punches)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061002/competitions/401905371?lang=en&region=us"
+    },
+    {
       "id": "espn:401855750",
       "date": "2026-03-29T00:00:00+00:00",
       "event": "UFC Fight Night: Adesanya vs. Pyfer",
@@ -2756,6 +6765,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600057366/competitions/401855750?lang=en&region=us"
+    },
+    {
+      "id": "espn:401903487",
+      "date": "2026-04-11T04:00:00+00:00",
+      "event": "Hexagone MMA 43",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5013686",
+        "5287881"
+      ],
+      "names": [
+        "Matthieu Letho Duclos",
+        "Ilian Bouafia"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "TKO (Injury)",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600060957/competitions/401903487?lang=en&region=us"
     },
     {
       "id": "espn:401867333",
@@ -2777,6 +6805,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600058807/competitions/401867333?lang=en&region=us"
     },
     {
+      "id": "espn:401867371",
+      "date": "2026-05-09T23:00:00+00:00",
+      "event": "UFC 328: Chimaev vs. Strickland",
+      "promotion": "ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4275020",
+        "4411888"
+      ],
+      "names": [
+        "Yaroslav Amosov",
+        "Joel \u00c1lvarez"
+      ],
+      "winner_id": "4275020",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600058947/competitions/401867371?lang=en&region=us"
+    },
+    {
       "id": "espn:401869835",
       "date": "2026-05-17T00:00:00+00:00",
       "event": "UFC Fight Night: Allen vs. Costa",
@@ -2796,6 +6843,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600058948/competitions/401869835?lang=en&region=us"
     },
     {
+      "id": "espn:401867213",
+      "date": "2026-06-06T21:00:00+00:00",
+      "event": "UFC Fight Night: Muhammad vs. Bonfim",
+      "promotion": "ufc",
+      "weight": "Flyweight",
+      "athlete_ids": [
+        "3895544",
+        "5076027"
+      ],
+      "names": [
+        "Bruno Silva",
+        "\u00c9dgar Ch\u00e1irez"
+      ],
+      "winner_id": "5076027",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600058949/competitions/401867213?lang=en&region=us"
+    },
+    {
       "id": "espn:401874284",
       "date": "2026-06-07T00:00:00+00:00",
       "event": "UFC Fight Night: Muhammad vs. Bonfim",
@@ -2813,6 +6879,25 @@
       "outcome": "DECISIVE",
       "method": "Submission",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600058949/competitions/401874284?lang=en&region=us"
+    },
+    {
+      "id": "espn:401877161",
+      "date": "2026-06-20T21:00:00+00:00",
+      "event": "UFC Fight Night: Kape vs. Horiguchi 2",
+      "promotion": "ufc",
+      "weight": "Welterweight",
+      "athlete_ids": [
+        "4423215",
+        "4867651"
+      ],
+      "names": [
+        "Leon Shahbazyan",
+        "Levan Chokheli"
+      ],
+      "winner_id": "4867651",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600059467/competitions/401877161?lang=en&region=us"
     },
     {
       "id": "espn:401879449",
@@ -2851,6 +6936,82 @@
       "outcome": "DECISIVE",
       "method": "TKO (Punches)",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600062940/competitions/401935761?lang=en&region=us"
+    },
+    {
+      "id": "espn:401873378",
+      "date": "2026-07-11T23:00:00+00:00",
+      "event": "UFC 329: McGregor vs. Holloway 2",
+      "promotion": "ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "4688447",
+        "5146696"
+      ],
+      "names": [
+        "Kai Kamaka III",
+        "Luke Riley"
+      ],
+      "winner_id": "5146696",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600059148/competitions/401873378?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916285",
+      "date": "2026-07-23T04:00:00+00:00",
+      "event": "UAE Warriors 72",
+      "promotion": "non_ufc",
+      "weight": "Unknown (source omitted)",
+      "athlete_ids": [
+        "5445620",
+        "5447124"
+      ],
+      "names": [
+        "Pavel Andrusca",
+        "Gexipengchu"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600061548/competitions/401916285?lang=en&region=us"
+    },
+    {
+      "id": "espn:401874314",
+      "date": "2026-07-25T13:00:00+00:00",
+      "event": "UFC Fight Night: Ankalaev vs. Guskov",
+      "promotion": "ufc",
+      "weight": "Light Heavyweight",
+      "athlete_ids": [
+        "4379328",
+        "5360467"
+      ],
+      "names": [
+        "Brendson Ribeiro",
+        "Magomed Tuchalov"
+      ],
+      "winner_id": "5360467",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600059667/competitions/401874314?lang=en&region=us"
+    },
+    {
+      "id": "espn:401898030",
+      "date": "2026-07-25T13:00:00+00:00",
+      "event": "UFC Fight Night: Ankalaev vs. Guskov",
+      "promotion": "ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "2591306",
+        "4905308"
+      ],
+      "names": [
+        "Cody Gibson",
+        "Abdul Hussein"
+      ],
+      "winner_id": "4905308",
+      "outcome": "DECISIVE",
+      "method": "Submission",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600059667/competitions/401898030?lang=en&region=us"
     },
     {
       "id": "espn:401903468",
@@ -2929,6 +7090,63 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600060620/competitions/401913129?lang=en&region=us"
     },
     {
+      "id": "espn:401911589",
+      "date": "2026-09-01T23:00:00+00:00",
+      "event": "Dana White's Contender Series: Season 10, Week 4",
+      "promotion": "dwcs",
+      "weight": "Middleweight",
+      "athlete_ids": [
+        "5296762",
+        "5364355"
+      ],
+      "names": [
+        "Brandon Holmes",
+        "Modestino Rodrigues"
+      ],
+      "winner_id": "5364355",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600060735/competitions/401911589?lang=en&region=us"
+    },
+    {
+      "id": "espn:401902948",
+      "date": "2026-09-05T16:00:00+00:00",
+      "event": "UFC Fight Night: Hooker vs. Parnasse",
+      "promotion": "ufc",
+      "weight": "Middleweight",
+      "athlete_ids": [
+        "4693161",
+        "5013686"
+      ],
+      "names": [
+        "Luis Felipe Dias",
+        "Matthieu Letho Duclos"
+      ],
+      "winner_id": "5013686",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600059993/competitions/401902948?lang=en&region=us"
+    },
+    {
+      "id": "espn:401916275",
+      "date": "2026-09-05T16:00:00+00:00",
+      "event": "UFC Fight Night: Hooker vs. Parnasse",
+      "promotion": "ufc",
+      "weight": "Featherweight",
+      "athlete_ids": [
+        "3950354",
+        "5445620"
+      ],
+      "names": [
+        "Nathaniel Wood",
+        "Pavel Andrusca"
+      ],
+      "winner_id": "5445620",
+      "outcome": "DECISIVE",
+      "method": "Decision - Unanimous",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600059993/competitions/401916275?lang=en&region=us"
+    },
+    {
       "id": "espn:401914463",
       "date": "2026-09-12T18:00:00+00:00",
       "event": "Noche UFC: Silva vs. Delgado",
@@ -2948,6 +7166,25 @@
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600060772/competitions/401914463?lang=en&region=us"
     },
     {
+      "id": "espn:401918030",
+      "date": "2026-09-15T23:00:00+00:00",
+      "event": "Dana White's Contender Series: Season 10, Week 6",
+      "promotion": "dwcs",
+      "weight": "Lightweight",
+      "athlete_ids": [
+        "5113920",
+        "5210077"
+      ],
+      "names": [
+        "Ednilson Santos",
+        "Akbar Abdullaev"
+      ],
+      "winner_id": "5210077",
+      "outcome": "DECISIVE",
+      "method": "KO/TKO",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600060737/competitions/401918030?lang=en&region=us"
+    },
+    {
       "id": "espn:401935773",
       "date": "2026-09-26T04:00:00+00:00",
       "event": "Full Contact Contender 47",
@@ -2965,6 +7202,25 @@
       "outcome": "DECISIVE",
       "method": "KO/TKO",
       "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/other/events/600062943/competitions/401935773?lang=en&region=us"
+    },
+    {
+      "id": "espn:401914465",
+      "date": "2026-09-27T00:00:00+00:00",
+      "event": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+      "promotion": "ufc",
+      "weight": "Bantamweight",
+      "athlete_ids": [
+        "5345639",
+        "5345640"
+      ],
+      "names": [
+        "Ilimbek Akylbek Uulu",
+        "Mehemmedeli Osmanli"
+      ],
+      "winner_id": "5345639",
+      "outcome": "DQ",
+      "method": "DQ",
+      "source": "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061266/competitions/401914465?lang=en&region=us"
     },
     {
       "id": "espn:401927853",
