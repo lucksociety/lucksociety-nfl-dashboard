@@ -29,6 +29,11 @@ def make_forecasts(date,now=None):
         result={'version':VERSION,'date':date,'frozen_at':now.isoformat(),'sha256':digest(snapshot),'snapshot':snapshot,'rows':[],'validation':{}}
         write(OUT/'frozen.json',result);np.savez_compressed(OUT/'simulations.npz');return result
     games=history(now)
+    try:
+        from .rotation import build_context
+        rotations=build_context(games,ROOT/'data',now);rotation_error=None
+    except Exception as e:
+        rotations=None;rotation_error=type(e).__name__
     try:reports=av.load_reports();report_error=None
     except Exception as e:reports={};report_error=type(e).__name__
     params=json.loads((ROOT/'data/validation.json').read_text())['parameters']
@@ -62,6 +67,7 @@ def make_forecasts(date,now=None):
     frozen_at=dt.datetime.now(UTC).isoformat();used=set(fit.used_ids)
     snapshot={'version':VERSION,'requested_date':date,'frozen_at':frozen_at,'parameters':params,
               'training_hash':digest([g for g in games if g['id'] in used]),'training_games':len(used),
+              'rotation_context':rotations.digest.hexdigest()if rotations else None,'rotation_error':rotation_error,
               'error_model':'matchup-margin-v1','residual_count':{p:len(e)for p,e in error_pools.items()},
               'residual_hash':digest({p:{'errors':e.tolist(),'contexts':context_pools[p].tolist()}for p,e in error_pools.items()}),'inputs':inputs,'source_quality':quality}
     h=digest(snapshot);arrays={}
@@ -69,7 +75,12 @@ def make_forecasts(date,now=None):
         if row['state']!='pending_forecast':continue
         try:
             stage=phase(row['game']['date'])
-            pred,draws=forecast(row['game'],fit,error_pools[stage],h,contexts=context_pools[stage])
+            role_error=rotation_error
+            try:role=rotations.matchup(row['game'],row['availability'])if rotations else None
+            except(ValueError,KeyError,TypeError)as exc:role=None;role_error=str(exc)
+            pred,draws=forecast(row['game'],fit,error_pools[stage],h,contexts=context_pools[stage],rotation=role)
+            pred['rotation_status']='adjusted'if role else'baseline_fallback'
+            if role_error:pred['rotation_reason']=role_error
             row.update(prediction=pred,state='forecast');arrays[pred['id']]=draws
             blockers=[]
             if quality.get('current_archive_missing'):blockers.append('Current-season archive has not been published; preseason-only baseline')
@@ -81,6 +92,7 @@ def make_forecasts(date,now=None):
     snapshot['forecasts']=[r['prediction'] for r in rows if r['state']=='forecast']
     snapshot['frozen_at']=frozen_at=dt.datetime.now(UTC).isoformat();h=digest(snapshot)
     result={'version':VERSION,'date':date,'frozen_at':frozen_at,'sha256':h,'snapshot':snapshot,'rows':rows,
+            'validation_scope':'Rating and calibrated error baseline; role correction evaluated separately in rotation-confirmation.json',
             'validation':{'2026':evaluate(residual_rows,2026),'2027':evaluate(residual_rows,2027)}}
     write(OUT/'frozen.json',result)
     np.savez_compressed(OUT/'simulations.npz',**arrays)
@@ -124,6 +136,8 @@ def messages(report,now=None):
         pred=row['prediction'];hs,aws=pred['score'];p=pred['home_win']
         content=title+f"\nProjected score: {aws}–{hs} (away–home)\nWin: away {(1-p)*100:.1f}% · home {p*100:.1f}%"
         content+=f"\nEstimated tempo: {pred['pace']:.1f} possessions/40 min"
+        if pred.get('rotation'):content+='\nRotation roles modeled from prior minutes; 200 projected regulation minutes per team. Health remains subject to the availability report.'
+        elif pred.get('rotation_status')=='baseline_fallback':content+='\nRotation estimate unavailable; using the baseline team forecast.'
         bets=[b for b in row.get('bets',[]) if not row.get('bet_blockers') and b['probability']>.5
               and b['ev_per_share']>0 and b['conservative_ev']>.02 and wins(b,np.array([pred['score']]))[0]
               and dt.timedelta(0)<=now-instant(b['quoted_at'])<=dt.timedelta(minutes=3)

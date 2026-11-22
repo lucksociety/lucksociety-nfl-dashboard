@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [cfb/github_artifacts.py, cbb/learning.py, cbb/model.py, cbb/run.py, .github/workflows/cbb-learning.yml]
+    paths: [cfb/github_artifacts.py, cbb/learning.py, cbb/model.py, cbb/run.py, cbb/rotation.py, cbb/data/rotation-model.json, .github/workflows/cbb-learning.yml]
 permissions:
   contents: write
   actions: read

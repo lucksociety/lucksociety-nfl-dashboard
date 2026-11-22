@@ -66,5 +66,6 @@ def check(game,history,base,get,now,basketball=False):
         if changes:raise ValueError('Unmodeled contributor change: '+', '.join(changes[:5]))
         evidence[side]={'team_id':tid,'roster_size':len(current),'participants_checked':len(contributors),
                         'baseline_games':[g['id']for g in recent],'roster_at':stamp.isoformat()}
+        if basketball:evidence[side]['rotation_roster']=[{'id':pid,'name':p['displayName']}for pid,p in sorted(current.items())]
     return {'state':'roster_checked','reason':'Fresh roster/rotation continuity verified; game-day health and starting lineup unconfirmed',
             'health_confirmed':False,'checked_at':now.isoformat(),'evidence':evidence,'selection_reserve':.07}

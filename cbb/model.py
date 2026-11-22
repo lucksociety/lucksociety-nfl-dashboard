@@ -7,7 +7,7 @@ from scipy import sparse
 from scipy.sparse.linalg import spsolve
 from cfb.model import digest
 from .sources import instant,season_for
-VERSION='cbb-1.1.0'
+VERSION='cbb-1.2.0'
 SIMS=300_000
 
 
@@ -100,12 +100,19 @@ def simulate(mu,errors,seed,count=SIMS,weights=None):
     return draws
 
 
-def forecast(g,fit,errors,snapshot_hash,count=SIMS,contexts=None):
+def forecast(g,fit,errors,snapshot_hash,count=SIMS,contexts=None,rotation=None):
     mu,pace,eff=fit.predict(g);seed=int(hashlib.sha256((snapshot_hash+g['id']).encode()).hexdigest()[:16],16)
+    original=mu.copy()
+    if rotation is not None:
+        correction=np.asarray(rotation['score_delta'],dtype=float)
+        if correction.shape!=(2,)or not np.isfinite(correction).all()or np.max(np.abs(correction))>8.000001:raise ValueError('Invalid role correction')
+        mu=mu+correction
+        rotation=dict(rotation,base_targets=original.tolist(),adjusted_targets=mu.tolist())
     weights=matchup_weights(mu,contexts)if contexts is not None else None
     draws=simulate(mu,errors,seed,count,weights=weights);score=np.rint(np.mean(draws,axis=0)).astype(int)
     if score[0]==score[1]:score[int(np.mean(draws[:,0]>draws[:,1])<.5)]+=1
     return {'id':g['id'],'mean':np.mean(draws,axis=0).round(3).tolist(),'score':score.tolist(),'home_win':float(np.mean(draws[:,0]>draws[:,1])),
+            'rotation':rotation,
             'simulations':len(draws),'pace':pace,'efficiency':eff.tolist(),'phase':phase(g['date']),
             'error_model':'matchup-margin-v1'if weights is not None else'phase-pool-v1',
             'effective_residuals':float(1/np.sum(weights**2))if weights is not None else len(errors),
