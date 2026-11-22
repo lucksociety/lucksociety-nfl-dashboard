@@ -1,12 +1,12 @@
 {
   "policy": "Last successfully delivered pregame card per game and version, including NO BET; recommendations, not actual user wagers",
   "publications": 187,
-  "settled_forecasts": 137,
-  "settled_bets": 23,
-  "winner_accuracy": 0.7226277372262774,
-  "winner_brier": 0.18245394376066504,
-  "bet_win_rate": 0.43478260869565216,
-  "bet_roi": -0.2072828509913721,
+  "settled_forecasts": 187,
+  "settled_bets": 38,
+  "winner_accuracy": 0.732620320855615,
+  "winner_brier": 0.17380410121687462,
+  "bet_win_rate": 0.47368421052631576,
+  "bet_roi": -0.11462397711401355,
   "calibration": "Monitor only; require independent holdout evidence before changing the frozen protocol",
   "settled": [
     {
@@ -17,9 +17,13 @@
         88,
         64
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.047713121111111124,
-      "log_loss": 0.2464548267235567
+      "log_loss": 0.2464548267235567,
+      "score_mae_per_team": 6.988000000000007,
+      "total_mae": 13.975999999999999,
+      "margin_mae": 10.866
     },
     {
       "game_id": "401912209",
@@ -29,9 +33,13 @@
         64,
         66
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6361019536000001,
-      "log_loss": 1.59731173263626
+      "log_loss": 1.59731173263626,
+      "score_mae_per_team": 7.972999999999999,
+      "total_mae": 13.638000000000005,
+      "margin_mae": 15.945999999999998
     },
     {
       "game_id": "401918452",
@@ -41,9 +49,13 @@
         95,
         90
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.05389052721111113,
-      "log_loss": 0.26415219519681793
+      "log_loss": 0.26415219519681793,
+      "score_mae_per_team": 9.951500000000003,
+      "total_mae": 19.90300000000002,
+      "margin_mae": 7.527000000000001
     },
     {
       "game_id": "401911012",
@@ -53,9 +65,13 @@
         72,
         62
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.04216040890000001,
-      "log_loss": 0.22982834484293133
+      "log_loss": 0.22982834484293133,
+      "score_mae_per_team": 11.869,
+      "total_mae": 23.738,
+      "margin_mae": 3.7479999999999905
     },
     {
       "game_id": "401918978",
@@ -65,9 +81,13 @@
         72,
         67
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.04798144217777776,
-      "log_loss": 0.24723988338181868
+      "log_loss": 0.24723988338181868,
+      "score_mae_per_team": 7.901499999999999,
+      "total_mae": 15.802999999999997,
+      "margin_mae": 8.176999999999992
     },
     {
       "game_id": "401917901",
@@ -77,9 +97,13 @@
         70,
         73
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.5377044469444444,
-      "log_loss": 1.3215683575582473
+      "log_loss": 1.3215683575582473,
+      "score_mae_per_team": 6.996000000000002,
+      "total_mae": 9.716000000000008,
+      "margin_mae": 13.992000000000004
     },
     {
       "game_id": "401909524",
@@ -89,21 +113,29 @@
         84,
         70
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.005470081600000004,
-      "log_loss": 0.0768378487246251
+      "log_loss": 0.0768378487246251,
+      "score_mae_per_team": 4.2280000000000015,
+      "total_mae": 0.5099999999999909,
+      "margin_mae": 8.456000000000003
     },
     {
       "game_id": "401918992",
       "version": "cbb-1.0.0",
       "publication_key": "d030da11ced70da33a181855cf5eabd6c324ff61967c13a754efe19eccf8994d",
       "actual": [
-        83,
-        80
+        80,
+        83
       ],
-      "winner_correct": true,
-      "brier": 0.07647805884444447,
-      "log_loss": 0.3237192362578839
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.523384725511111,
+      "log_loss": 1.2853756958895688,
+      "score_mae_per_team": 6.786999999999999,
+      "total_mae": 7.4220000000000255,
+      "margin_mae": 13.573999999999998
     },
     {
       "game_id": "401911230",
@@ -113,9 +145,13 @@
         107,
         93
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.13276306777777774,
-      "log_loss": 0.4531334018096655
+      "log_loss": 0.4531334018096655,
+      "score_mae_per_team": 27.324499999999993,
+      "total_mae": 54.649,
+      "margin_mae": 6.984999999999999
     },
     {
       "game_id": "401920202",
@@ -125,9 +161,13 @@
         87,
         49
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0006649521777777756,
-      "log_loss": 0.0261249712597756
+      "log_loss": 0.0261249712597756,
+      "score_mae_per_team": 7.197500000000002,
+      "total_mae": 14.39500000000001,
+      "margin_mae": 8.163000000000004
     },
     {
       "game_id": "401921105",
@@ -137,9 +177,13 @@
         99,
         82
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.030052533877777794,
-      "log_loss": 0.19038195469602612
+      "log_loss": 0.19038195469602612,
+      "score_mae_per_team": 12.14,
+      "total_mae": 24.28,
+      "margin_mae": 1.578000000000003
     },
     {
       "game_id": "401920740",
@@ -149,9 +193,13 @@
         68,
         53
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.014801966677777782,
-      "log_loss": 0.12972531161557163
+      "log_loss": 0.12972531161557163,
+      "score_mae_per_team": 15.422000000000004,
+      "total_mae": 30.843999999999994,
+      "margin_mae": 3.646000000000001
     },
     {
       "game_id": "401921286",
@@ -161,9 +209,13 @@
         67,
         80
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.2530626561777778,
-      "log_loss": 0.699272569173541
+      "log_loss": 0.699272569173541,
+      "score_mae_per_team": 7.4950000000000045,
+      "total_mae": 5.352000000000004,
+      "margin_mae": 14.990000000000009
     },
     {
       "game_id": "401921175",
@@ -173,9 +225,13 @@
         74,
         70
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.05017599999999999,
-      "log_loss": 0.25360275879891825
+      "log_loss": 0.25360275879891825,
+      "score_mae_per_team": 8.152499999999996,
+      "total_mae": 16.305000000000007,
+      "margin_mae": 8.888999999999996
     },
     {
       "game_id": "401920680",
@@ -185,9 +241,13 @@
         90,
         59
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.003019868844444441,
-      "log_loss": 0.05652096999163106
+      "log_loss": 0.05652096999163106,
+      "score_mae_per_team": 3.5635000000000048,
+      "total_mae": 7.1270000000000095,
+      "margin_mae": 6.209000000000003
     },
     {
       "game_id": "401921821",
@@ -197,9 +257,13 @@
         77,
         41
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0163277284,
-      "log_loss": 0.13671359331584854
+      "log_loss": 0.13671359331584854,
+      "score_mae_per_team": 10.307000000000002,
+      "total_mae": 20.614000000000004,
+      "margin_mae": 17.849999999999994
     },
     {
       "game_id": "401920903",
@@ -209,9 +273,13 @@
         61,
         71
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6087588529,
-      "log_loss": 1.5151737340440175
+      "log_loss": 1.5151737340440175,
+      "score_mae_per_team": 11.569000000000003,
+      "total_mae": 17.966000000000008,
+      "margin_mae": 23.138000000000005
     },
     {
       "game_id": "401921181",
@@ -221,9 +289,13 @@
         81,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.019059643211111126,
-      "log_loss": 0.14856574907174072
+      "log_loss": 0.14856574907174072,
+      "score_mae_per_team": 6.261000000000003,
+      "total_mae": 8.77600000000001,
+      "margin_mae": 12.522000000000006
     },
     {
       "game_id": "401922282",
@@ -233,9 +305,13 @@
         104,
         49
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.001409001344444444,
-      "log_loss": 0.038259308783935006
+      "log_loss": 0.038259308783935006,
+      "score_mae_per_team": 13.909499999999994,
+      "total_mae": 3.405000000000001,
+      "margin_mae": 27.81899999999999
     },
     {
       "game_id": "401925011",
@@ -245,9 +321,13 @@
         122,
         57
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0068134018777777725,
-      "log_loss": 0.08614992995987239
+      "log_loss": 0.08614992995987239,
+      "score_mae_per_team": 21.668,
+      "total_mae": 27.694000000000017,
+      "margin_mae": 43.336
     },
     {
       "game_id": "401923311",
@@ -257,9 +337,13 @@
         114,
         55
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.025078945344444433,
-      "log_loss": 0.17240687014038988
+      "log_loss": 0.17240687014038988,
+      "score_mae_per_team": 21.378,
+      "total_mae": 20.813999999999993,
+      "margin_mae": 42.756
     },
     {
       "game_id": "401924735",
@@ -269,9 +353,13 @@
         69,
         59
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.035278856711111126,
-      "log_loss": 0.2080414969045823
+      "log_loss": 0.2080414969045823,
+      "score_mae_per_team": 7.329999999999998,
+      "total_mae": 14.659999999999997,
+      "margin_mae": 4.6440000000000055
     },
     {
       "game_id": "401926206",
@@ -281,9 +369,13 @@
         136,
         68
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 3.402777777778324e-07,
-      "log_loss": 0.0005835035384163533
+      "log_loss": 0.0005835035384163533,
+      "score_mae_per_team": 14.396000000000004,
+      "total_mae": 28.792,
+      "margin_mae": 17.580000000000013
     },
     {
       "game_id": "401925895",
@@ -293,9 +385,13 @@
         60,
         71
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.5757673227111111,
-      "log_loss": 1.4221011749311945
+      "log_loss": 1.4221011749311945,
+      "score_mae_per_team": 11.579,
+      "total_mae": 20.194000000000017,
+      "margin_mae": 23.158
     },
     {
       "game_id": "401925717",
@@ -305,9 +401,13 @@
         88,
         75
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.004002671111111114,
-      "log_loss": 0.06535663347800694
+      "log_loss": 0.06535663347800694,
+      "score_mae_per_team": 6.306999999999995,
+      "total_mae": 12.613999999999976,
+      "margin_mae": 10.712000000000003
     },
     {
       "game_id": "401926202",
@@ -317,9 +417,13 @@
         65,
         51
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.06488227839999998,
-      "log_loss": 0.2939952922861608
+      "log_loss": 0.2939952922861608,
+      "score_mae_per_team": 18.580499999999994,
+      "total_mae": 37.161,
+      "margin_mae": 2.472999999999999
     },
     {
       "game_id": "401925858",
@@ -329,9 +433,13 @@
         81,
         91
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.49702499999999994,
-      "log_loss": 1.220779922642317
+      "log_loss": 1.220779922642317,
+      "score_mae_per_team": 9.978500000000004,
+      "total_mae": 19.956999999999994,
+      "margin_mae": 19.765
     },
     {
       "game_id": "401925682",
@@ -341,9 +449,13 @@
         99,
         59
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.013364130677777766,
-      "log_loss": 0.12284959903956837
+      "log_loss": 0.12284959903956837,
+      "score_mae_per_team": 10.466499999999996,
+      "total_mae": 6.0190000000000055,
+      "margin_mae": 20.932999999999993
     },
     {
       "game_id": "401926211",
@@ -353,9 +465,13 @@
         91,
         47
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.008576612099999995,
-      "log_loss": 0.09718293231112615
+      "log_loss": 0.09718293231112615,
+      "score_mae_per_team": 11.615000000000002,
+      "total_mae": 19.44999999999999,
+      "margin_mae": 23.230000000000004
     },
     {
       "game_id": "401926863",
@@ -365,9 +481,13 @@
         91,
         73
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.02585449604444445,
-      "log_loss": 0.17529827785788263
+      "log_loss": 0.17529827785788263,
+      "score_mae_per_team": 3.3705,
+      "total_mae": 6.7409999999999854,
+      "margin_mae": 1.9549999999999983
     },
     {
       "game_id": "401917522",
@@ -377,9 +497,13 @@
         71,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.5663565877777779,
-      "log_loss": 1.3966140935267457
+      "log_loss": 1.3966140935267457,
+      "score_mae_per_team": 8.4435,
+      "total_mae": 3.405000000000001,
+      "margin_mae": 16.887
     },
     {
       "game_id": "401919030",
@@ -389,9 +513,13 @@
         113,
         60
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.007527876011111106,
-      "log_loss": 0.09076021328557543
+      "log_loss": 0.09076021328557543,
+      "score_mae_per_team": 15.8765,
+      "total_mae": 20.526999999999987,
+      "margin_mae": 31.753
     },
     {
       "game_id": "401930177",
@@ -401,9 +529,13 @@
         106,
         37
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0004273867111111106,
-      "log_loss": 0.020890018291534338
+      "log_loss": 0.020890018291534338,
+      "score_mae_per_team": 18.661499999999997,
+      "total_mae": 14.646999999999991,
+      "margin_mae": 37.32299999999999
     },
     {
       "game_id": "401926868",
@@ -413,9 +545,13 @@
         73,
         82
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6837139969,
-      "log_loss": 1.7537125215911522
+      "log_loss": 1.7537125215911522,
+      "score_mae_per_team": 12.212000000000003,
+      "total_mae": 1.9519999999999982,
+      "margin_mae": 24.424000000000007
     },
     {
       "game_id": "401921037",
@@ -425,9 +561,13 @@
         84,
         80
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.003171566944444446,
-      "log_loss": 0.05796462109063783
+      "log_loss": 0.05796462109063783,
+      "score_mae_per_team": 10.267,
+      "total_mae": 12.0,
+      "margin_mae": 20.534
     },
     {
       "game_id": "401911391",
@@ -437,9 +577,13 @@
         88,
         66
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.02561386854444444,
-      "log_loss": 0.17440497577703565
+      "log_loss": 0.17440497577703565,
+      "score_mae_per_team": 3.3574999999999946,
+      "total_mae": 6.714999999999975,
+      "margin_mae": 5.837000000000003
     },
     {
       "game_id": "401925863",
@@ -449,9 +593,13 @@
         80,
         71
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0032186711111111075,
-      "log_loss": 0.058406250888394774
+      "log_loss": 0.058406250888394774,
+      "score_mae_per_team": 7.763000000000005,
+      "total_mae": 4.530000000000001,
+      "margin_mae": 15.52600000000001
     },
     {
       "game_id": "401925702",
@@ -461,9 +609,13 @@
         92,
         46
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.003999297599999996,
-      "log_loss": 0.06532816615848774
+      "log_loss": 0.06532816615848774,
+      "score_mae_per_team": 11.165499999999998,
+      "total_mae": 2.5589999999999975,
+      "margin_mae": 22.33099999999999
     },
     {
       "game_id": "401911275",
@@ -473,9 +625,13 @@
         62,
         87
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.7073819236000001,
-      "log_loss": 1.839228506470104
+      "log_loss": 1.839228506470104,
+      "score_mae_per_team": 20.5865,
+      "total_mae": 0.09499999999999886,
+      "margin_mae": 41.173
     },
     {
       "game_id": "401928801",
@@ -485,9 +641,13 @@
         78,
         51
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.004135776099999997,
-      "log_loss": 0.06647105394344205
+      "log_loss": 0.06647105394344205,
+      "score_mae_per_team": 14.345000000000006,
+      "total_mae": 28.689999999999998,
+      "margin_mae": 3.402000000000001
     },
     {
       "game_id": "401926067",
@@ -497,9 +657,13 @@
         102,
         44
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.030730090000000005,
-      "log_loss": 0.19273559514282734
+      "log_loss": 0.19273559514282734,
+      "score_mae_per_team": 21.333499999999994,
+      "total_mae": 1.7889999999999873,
+      "margin_mae": 42.66699999999999
     },
     {
       "game_id": "401928794",
@@ -509,9 +673,13 @@
         85,
         77
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.007197825600000004,
-      "log_loss": 0.08865636560545781
+      "log_loss": 0.08865636560545781,
+      "score_mae_per_team": 6.6905,
+      "total_mae": 1.782999999999987,
+      "margin_mae": 13.381
     },
     {
       "game_id": "401928996",
@@ -521,9 +689,13 @@
         81,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.03491665960000001,
-      "log_loss": 0.2068519825373239
+      "log_loss": 0.2068519825373239,
+      "score_mae_per_team": 2.656500000000001,
+      "total_mae": 5.312999999999988,
+      "margin_mae": 2.7209999999999894
     },
     {
       "game_id": "401928824",
@@ -533,9 +705,13 @@
         76,
         53
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0048613432111111144,
-      "log_loss": 0.07227324603709409
+      "log_loss": 0.07227324603709409,
+      "score_mae_per_team": 14.880000000000003,
+      "total_mae": 29.75999999999999,
+      "margin_mae": 0.016000000000005343
     },
     {
       "game_id": "401917963",
@@ -545,9 +721,13 @@
         71,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.29021923839999997,
-      "log_loss": 0.7737500450920449
+      "log_loss": 0.7737500450920449,
+      "score_mae_per_team": 4.226499999999994,
+      "total_mae": 1.228999999999985,
+      "margin_mae": 8.452999999999989
     },
     {
       "game_id": "401911346",
@@ -557,9 +737,13 @@
         99,
         71
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.007812202844444435,
-      "log_loss": 0.0925393554194871
+      "log_loss": 0.0925393554194871,
+      "score_mae_per_team": 3.4209999999999994,
+      "total_mae": 3.966000000000008,
+      "margin_mae": 6.841999999999999
     },
     {
       "game_id": "401926062",
@@ -569,9 +753,13 @@
         94,
         60
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.011485408899999997,
-      "log_loss": 0.11335908576909252
+      "log_loss": 0.11335908576909252,
+      "score_mae_per_team": 7.143500000000003,
+      "total_mae": 3.7549999999999955,
+      "margin_mae": 14.287000000000006
     },
     {
       "game_id": "401925915",
@@ -581,9 +769,13 @@
         87,
         71
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0412943041,
-      "log_loss": 0.22716412299130623
+      "log_loss": 0.22716412299130623,
+      "score_mae_per_team": 4.747500000000002,
+      "total_mae": 9.495000000000005,
+      "margin_mae": 2.134999999999991
     },
     {
       "game_id": "401911454",
@@ -593,9 +785,13 @@
         76,
         63
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.05824821351111113,
-      "log_loss": 0.2762103472509049
+      "log_loss": 0.2762103472509049,
+      "score_mae_per_team": 4.852000000000004,
+      "total_mae": 9.704000000000008,
+      "margin_mae": 0.8640000000000043
     },
     {
       "game_id": "401928814",
@@ -605,9 +801,13 @@
         111,
         79
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.005814570844444437,
-      "log_loss": 0.07931741520616388
+      "log_loss": 0.07931741520616388,
+      "score_mae_per_team": 15.012500000000003,
+      "total_mae": 30.025000000000006,
+      "margin_mae": 9.718999999999994
     },
     {
       "game_id": "401925738",
@@ -617,9 +817,13 @@
         100,
         66
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0005071503999999993,
-      "log_loss": 0.022777447689988448
+      "log_loss": 0.022777447689988448,
+      "score_mae_per_team": 9.555500000000002,
+      "total_mae": 19.11099999999999,
+      "margin_mae": 2.9609999999999985
     },
     {
       "game_id": "401919734",
@@ -629,9 +833,13 @@
         62,
         81
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.8646210225,
-      "log_loss": 2.6571194724336666
+      "log_loss": 2.6571194724336666,
+      "score_mae_per_team": 20.968,
+      "total_mae": 0.132000000000005,
+      "margin_mae": 41.936
     },
     {
       "game_id": "401917523",
@@ -641,9 +849,13 @@
         62,
         59
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.11084238489999997,
-      "log_loss": 0.40486029104688276
+      "log_loss": 0.40486029104688276,
+      "score_mae_per_team": 11.292500000000004,
+      "total_mae": 22.585000000000008,
+      "margin_mae": 5.179000000000002
     },
     {
       "game_id": "401917521",
@@ -653,9 +865,13 @@
         59,
         86
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.9251105367111112,
-      "log_loss": 3.265618087420334
+      "log_loss": 3.265618087420334,
+      "score_mae_per_team": 27.0615,
+      "total_mae": 1.7630000000000052,
+      "margin_mae": 54.123
     },
     {
       "game_id": "401929625",
@@ -665,9 +881,13 @@
         90,
         40
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 4.4934677777777107e-05,
-      "log_loss": 0.006725901583766795
+      "log_loss": 0.006725901583766795,
+      "score_mae_per_team": 15.6615,
+      "total_mae": 31.323000000000008,
+      "margin_mae": 11.940999999999995
     },
     {
       "game_id": "401918054",
@@ -677,9 +897,13 @@
         65,
         77
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6485886225,
-      "log_loss": 1.6365522049256724
+      "log_loss": 1.6365522049256724,
+      "score_mae_per_team": 13.134500000000003,
+      "total_mae": 19.601,
+      "margin_mae": 26.269000000000005
     },
     {
       "game_id": "401918950",
@@ -689,9 +913,13 @@
         83,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0006572386777777765,
-      "log_loss": 0.025971012729057
+      "log_loss": 0.025971012729057,
+      "score_mae_per_team": 8.160499999999999,
+      "total_mae": 7.465000000000003,
+      "margin_mae": 16.320999999999998
     },
     {
       "game_id": "401919050",
@@ -701,9 +929,13 @@
         92,
         97
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.5930745461777778,
-      "log_loss": 1.4701688451250925
+      "log_loss": 1.4701688451250925,
+      "score_mae_per_team": 15.587499999999999,
+      "total_mae": 31.17500000000001,
+      "margin_mae": 17.668999999999997
     },
     {
       "game_id": "401918056",
@@ -713,9 +945,13 @@
         86,
         54
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.014164966944444442,
-      "log_loss": 0.12671657112123313
+      "log_loss": 0.12671657112123313,
+      "score_mae_per_team": 6.525500000000001,
+      "total_mae": 12.548999999999978,
+      "margin_mae": 13.051000000000002
     },
     {
       "game_id": "401919005",
@@ -725,9 +961,13 @@
         74,
         67
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.014373612100000013,
-      "log_loss": 0.12770837932173398
+      "log_loss": 0.12770837932173398,
+      "score_mae_per_team": 5.917500000000004,
+      "total_mae": 0.5889999999999986,
+      "margin_mae": 11.835000000000008
     },
     {
       "game_id": "401916318",
@@ -737,9 +977,13 @@
         101,
         62
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.008780314677777783,
-      "log_loss": 0.09838857988616251
+      "log_loss": 0.09838857988616251,
+      "score_mae_per_team": 9.135000000000005,
+      "total_mae": 7.572000000000003,
+      "margin_mae": 18.27000000000001
     },
     {
       "game_id": "401911021",
@@ -749,9 +993,13 @@
         78,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.017954213377777768,
-      "log_loss": 0.14386267221992582
+      "log_loss": 0.14386267221992582,
+      "score_mae_per_team": 4.488500000000002,
+      "total_mae": 7.197000000000003,
+      "margin_mae": 8.977000000000004
     },
     {
       "game_id": "401911534",
@@ -761,9 +1009,13 @@
         69,
         84
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6868099876,
-      "log_loss": 1.7645724093840913
+      "log_loss": 1.7645724093840913,
+      "score_mae_per_team": 15.3005,
+      "total_mae": 11.317000000000007,
+      "margin_mae": 30.601
     },
     {
       "game_id": "401917536",
@@ -773,9 +1025,13 @@
         77,
         83
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6638555847111112,
-      "log_loss": 1.6861749786544828
+      "log_loss": 1.6861749786544828,
+      "score_mae_per_team": 10.424499999999995,
+      "total_mae": 3.149000000000001,
+      "margin_mae": 20.84899999999999
     },
     {
       "game_id": "401920413",
@@ -785,9 +1041,13 @@
         85,
         74
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.011940661377777778,
-      "log_loss": 0.1157176699931872
+      "log_loss": 0.1157176699931872,
+      "score_mae_per_team": 4.6030000000000015,
+      "total_mae": 9.206000000000017,
+      "margin_mae": 8.634
     },
     {
       "game_id": "401912211",
@@ -797,9 +1057,13 @@
         82,
         51
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.004294180899999997,
-      "log_loss": 0.06777575533055506
+      "log_loss": 0.06777575533055506,
+      "score_mae_per_team": 7.321499999999997,
+      "total_mae": 14.643,
+      "margin_mae": 7.347000000000001
     },
     {
       "game_id": "401920349",
@@ -809,9 +1073,13 @@
         78,
         65
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.007185387777777776,
-      "log_loss": 0.08857623710844338
+      "log_loss": 0.0885762371084434,
+      "score_mae_per_team": 5.1205,
+      "total_mae": 10.240999999999985,
+      "margin_mae": 8.623000000000005
     },
     {
       "game_id": "401902280",
@@ -821,9 +1089,13 @@
         84,
         77
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.009228804444444438,
-      "log_loss": 0.1009996676220379
+      "log_loss": 0.1009996676220379,
+      "score_mae_per_team": 6.805499999999995,
+      "total_mae": 4.094999999999999,
+      "margin_mae": 13.61099999999999
     },
     {
       "game_id": "401906867",
@@ -833,9 +1105,13 @@
         92,
         68
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0028930055111111093,
-      "log_loss": 0.0552872244308395
+      "log_loss": 0.0552872244308395,
+      "score_mae_per_team": 1.2590000000000003,
+      "total_mae": 2.5180000000000007,
+      "margin_mae": 0.9840000000000089
     },
     {
       "game_id": "401923304",
@@ -845,9 +1121,13 @@
         67,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.7505565468444445,
-      "log_loss": 2.0125058959425437
+      "log_loss": 2.0125058959425437,
+      "score_mae_per_team": 9.963000000000005,
+      "total_mae": 6.391999999999996,
+      "margin_mae": 19.92600000000001
     },
     {
       "game_id": "401921028",
@@ -857,9 +1137,13 @@
         79,
         86
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6861968569000001,
-      "log_loss": 1.7624142820335902
+      "log_loss": 1.7624142820335902,
+      "score_mae_per_team": 11.286000000000001,
+      "total_mae": 9.46799999999999,
+      "margin_mae": 22.572000000000003
     },
     {
       "game_id": "401920845",
@@ -869,9 +1153,13 @@
         93,
         61
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.022463015211111107,
-      "log_loss": 0.16237384198426155
+      "log_loss": 0.16237384198426155,
+      "score_mae_per_team": 7.585500000000003,
+      "total_mae": 3.937000000000012,
+      "margin_mae": 15.171000000000006
     },
     {
       "game_id": "401920878",
@@ -881,9 +1169,13 @@
         72,
         78
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6632745069444445,
-      "log_loss": 1.6842512615127698
+      "log_loss": 1.6842512615127698,
+      "score_mae_per_team": 10.424999999999997,
+      "total_mae": 1.25,
+      "margin_mae": 20.849999999999994
     },
     {
       "game_id": "401920888",
@@ -893,9 +1185,13 @@
         69,
         74
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.48204786134444444,
-      "log_loss": 1.1851401462084747
+      "log_loss": 1.1851401462084747,
+      "score_mae_per_team": 7.108499999999999,
+      "total_mae": 1.7769999999999868,
+      "margin_mae": 14.216999999999999
     },
     {
       "game_id": "401926773",
@@ -905,9 +1201,13 @@
         96,
         51
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.004534675599999994,
-      "log_loss": 0.06971456041319761
+      "log_loss": 0.06971456041319761,
+      "score_mae_per_team": 10.810499999999998,
+      "total_mae": 7.867000000000019,
+      "margin_mae": 21.620999999999995
     },
     {
       "game_id": "401925941",
@@ -917,9 +1217,13 @@
         82,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.01453230250000001,
-      "log_loss": 0.12845856690380333
+      "log_loss": 0.12845856690380333,
+      "score_mae_per_team": 2.902000000000001,
+      "total_mae": 4.671999999999997,
+      "margin_mae": 5.804000000000002
     },
     {
       "game_id": "401927375",
@@ -929,9 +1233,13 @@
         123,
         48
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.00020697617777777754,
-      "log_loss": 0.014491158155858015
+      "log_loss": 0.014491158155858015,
+      "score_mae_per_team": 20.448,
+      "total_mae": 21.687999999999988,
+      "margin_mae": 40.896
     },
     {
       "game_id": "401926814",
@@ -941,9 +1249,13 @@
         86,
         70
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.06984039471111113,
-      "log_loss": 0.3068966060423014
+      "log_loss": 0.3068966060423014,
+      "score_mae_per_team": 2.4495000000000005,
+      "total_mae": 0.9230000000000018,
+      "margin_mae": 4.899000000000001
     },
     {
       "game_id": "401928354",
@@ -953,9 +1265,13 @@
         80,
         88
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.44265070240000004,
-      "log_loss": 1.0945804275547393
+      "log_loss": 1.0945804275547393,
+      "score_mae_per_team": 8.021500000000003,
+      "total_mae": 15.525000000000006,
+      "margin_mae": 16.043000000000006
     },
     {
       "game_id": "401928826",
@@ -965,9 +1281,13 @@
         83,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.025260864011111096,
-      "log_loss": 0.1730883146706326
+      "log_loss": 0.1730883146706326,
+      "score_mae_per_team": 4.634499999999996,
+      "total_mae": 7.836999999999989,
+      "margin_mae": 9.268999999999991
     },
     {
       "game_id": "401929409",
@@ -977,9 +1297,13 @@
         91,
         66
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.00674807484444445,
-      "log_loss": 0.0857176687365989
+      "log_loss": 0.0857176687365989,
+      "score_mae_per_team": 3.9375,
+      "total_mae": 7.875,
+      "margin_mae": 3.1570000000000107
     },
     {
       "game_id": "401929373",
@@ -989,9 +1313,13 @@
         74,
         67
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.03094667361111113,
-      "log_loss": 0.1934836215001466
+      "log_loss": 0.1934836215001466,
+      "score_mae_per_team": 4.456499999999998,
+      "total_mae": 8.913000000000011,
+      "margin_mae": 8.337000000000003
     },
     {
       "game_id": "401930884",
@@ -1001,9 +1329,13 @@
         71,
         82
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.3860633956,
-      "log_loss": 0.971116574157934
+      "log_loss": 0.971116574157934,
+      "score_mae_per_team": 8.710500000000003,
+      "total_mae": 1.8290000000000077,
+      "margin_mae": 17.421000000000006
     },
     {
       "game_id": "401920517",
@@ -1013,9 +1345,13 @@
         72,
         85
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.1679114529,
-      "log_loss": 0.5272429875380685
+      "log_loss": 0.5272429875380685,
+      "score_mae_per_team": 5.533000000000001,
+      "total_mae": 8.948000000000008,
+      "margin_mae": 11.066000000000003
     },
     {
       "game_id": "401920519",
@@ -1025,9 +1361,13 @@
         73,
         78
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.49365612804444453,
-      "log_loss": 1.212699661705879
+      "log_loss": 1.212699661705879,
+      "score_mae_per_team": 7.298499999999997,
+      "total_mae": 8.490999999999985,
+      "margin_mae": 14.596999999999994
     },
     {
       "game_id": "401920518",
@@ -1037,9 +1377,13 @@
         83,
         92
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.22342638239999998,
-      "log_loss": 0.6399477040923679
+      "log_loss": 0.6399477040923679,
+      "score_mae_per_team": 14.223500000000001,
+      "total_mae": 28.447000000000003,
+      "margin_mae": 9.766999999999996
     },
     {
       "game_id": "401912710",
@@ -1049,9 +1393,13 @@
         88,
         72
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.012559684900000001,
-      "log_loss": 0.11886236792595124
+      "log_loss": 0.11886236792595124,
+      "score_mae_per_team": 1.7905000000000015,
+      "total_mae": 1.3410000000000082,
+      "margin_mae": 3.581000000000003
     },
     {
       "game_id": "401916299",
@@ -1061,9 +1409,13 @@
         62,
         45
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.012305464899999993,
-      "log_loss": 0.11757930641059561
+      "log_loss": 0.11757930641059561,
+      "score_mae_per_team": 21.146,
+      "total_mae": 42.292,
+      "margin_mae": 2.6699999999999875
     },
     {
       "game_id": "401916290",
@@ -1073,9 +1425,13 @@
         90,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.15530955537777774,
-      "log_loss": 0.5010293201759526
+      "log_loss": 0.5010293201759526,
+      "score_mae_per_team": 4.1229999999999976,
+      "total_mae": 7.627999999999986,
+      "margin_mae": 8.245999999999995
     },
     {
       "game_id": "401913529",
@@ -1085,9 +1441,13 @@
         114,
         52
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 4.524804444444434e-05,
-      "log_loss": 0.0067493926596759735
+      "log_loss": 0.0067493926596759735,
+      "score_mae_per_team": 11.790500000000002,
+      "total_mae": 10.956999999999994,
+      "margin_mae": 23.581000000000003
     },
     {
       "game_id": "401909799",
@@ -1097,9 +1457,13 @@
         70,
         80
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.7191944561777778,
-      "log_loss": 1.8842256969006486
+      "log_loss": 1.8842256969006486,
+      "score_mae_per_team": 13.383500000000005,
+      "total_mae": 11.300999999999988,
+      "margin_mae": 26.76700000000001
     },
     {
       "game_id": "401911252",
@@ -1109,9 +1473,13 @@
         95,
         78
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.030478176399999984,
-      "log_loss": 0.1918629312811778
+      "log_loss": 0.1918629312811778,
+      "score_mae_per_team": 7.613499999999995,
+      "total_mae": 15.226999999999975,
+      "margin_mae": 1.5450000000000017
     },
     {
       "game_id": "401909545",
@@ -1121,9 +1489,13 @@
         65,
         83
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.5070721681,
-      "log_loss": 1.245107347684491
+      "log_loss": 1.245107347684491,
+      "score_mae_per_team": 14.014499999999998,
+      "total_mae": 4.899000000000001,
+      "margin_mae": 28.028999999999996
     },
     {
       "game_id": "401909709",
@@ -1133,9 +1505,13 @@
         104,
         82
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.02146420337777778,
-      "log_loss": 0.15841754775256664
+      "log_loss": 0.15841754775256664,
+      "score_mae_per_team": 18.645500000000006,
+      "total_mae": 37.291,
+      "margin_mae": 4.813000000000002
     },
     {
       "game_id": "401909698",
@@ -1145,9 +1521,13 @@
         87,
         63
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0168186315111111,
-      "log_loss": 0.13890197891641912
+      "log_loss": 0.13890197891641912,
+      "score_mae_per_team": 3.947499999999998,
+      "total_mae": 7.894999999999982,
+      "margin_mae": 5.734999999999999
     },
     {
       "game_id": "401919019",
@@ -1157,9 +1537,13 @@
         76,
         81
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.5730691868444444,
-      "log_loss": 1.4147487068314841
+      "log_loss": 1.4147487068314841,
+      "score_mae_per_team": 8.530000000000001,
+      "total_mae": 0.23400000000000887,
+      "margin_mae": 17.060000000000002
     },
     {
       "game_id": "401906852",
@@ -1169,9 +1553,13 @@
         78,
         51
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.001362840277777781,
-      "log_loss": 0.03761533579469609
+      "log_loss": 0.03761533579469609,
+      "score_mae_per_team": 5.662999999999997,
+      "total_mae": 11.325999999999993,
+      "margin_mae": 0.6899999999999977
     },
     {
       "game_id": "401916122",
@@ -1181,9 +1569,13 @@
         76,
         85
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.42894640359999997,
-      "log_loss": 1.064036964028419
+      "log_loss": 1.064036964028419,
+      "score_mae_per_team": 8.301000000000002,
+      "total_mae": 9.873999999999995,
+      "margin_mae": 16.602000000000004
     },
     {
       "game_id": "401906784",
@@ -1193,9 +1585,13 @@
         82,
         88
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.31187012551111115,
-      "log_loss": 0.8174715642597511
+      "log_loss": 0.8174715642597511,
+      "score_mae_per_team": 5.032499999999999,
+      "total_mae": 5.842999999999989,
+      "margin_mae": 10.064999999999998
     },
     {
       "game_id": "401919784",
@@ -1205,9 +1601,13 @@
         91,
         64
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.001270447211111113,
-      "log_loss": 0.03629406663085488
+      "log_loss": 0.03629406663085488,
+      "score_mae_per_team": 1.1014999999999944,
+      "total_mae": 2.2029999999999745,
+      "margin_mae": 1.0390000000000015
     },
     {
       "game_id": "401916123",
@@ -1217,9 +1617,13 @@
         86,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.06624103271111112,
-      "log_loss": 0.2975618280176654
+      "log_loss": 0.2975618280176654,
+      "score_mae_per_team": 6.143499999999996,
+      "total_mae": 12.286999999999978,
+      "margin_mae": 1.3850000000000051
     },
     {
       "game_id": "401917903",
@@ -1229,21 +1633,29 @@
         105,
         56
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.022118629877777775,
-      "log_loss": 0.16101809552841317
+      "log_loss": 0.16101809552841317,
+      "score_mae_per_team": 16.014499999999998,
+      "total_mae": 9.84899999999999,
+      "margin_mae": 32.028999999999996
     },
     {
       "game_id": "401916125",
       "version": "cbb-1.1.0",
       "publication_key": "b2fc83e64d994dd43a840dbae5c8330bd75403608de43fe8b6c70fff1fe8a1d3",
       "actual": [
-        90,
-        79
+        79,
+        90
       ],
-      "winner_correct": false,
-      "brier": 0.44724439601111116,
-      "log_loss": 1.1049221540641483
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.10971772934444446,
+      "log_loss": 0.40232504327596985,
+      "score_mae_per_team": 8.9805,
+      "total_mae": 17.961000000000013,
+      "margin_mae": 5.713000000000008
     },
     {
       "game_id": "401916124",
@@ -1253,9 +1665,13 @@
         73,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.28010203417777774,
-      "log_loss": 0.7534210305706704
+      "log_loss": 0.7534210305706704,
+      "score_mae_per_team": 3.0005000000000024,
+      "total_mae": 5.606999999999999,
+      "margin_mae": 6.001000000000005
     },
     {
       "game_id": "401920195",
@@ -1265,9 +1681,13 @@
         75,
         64
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.07204750694444442,
-      "log_loss": 0.3125441438439286
+      "log_loss": 0.3125441438439286,
+      "score_mae_per_team": 1.6839999999999975,
+      "total_mae": 3.367999999999995,
+      "margin_mae": 0.14400000000000546
     },
     {
       "game_id": "401920427",
@@ -1277,9 +1697,13 @@
         103,
         61
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0007754368444444456,
-      "log_loss": 0.028241736620039423
+      "log_loss": 0.028241736620039423,
+      "score_mae_per_team": 6.158000000000001,
+      "total_mae": 11.530000000000001,
+      "margin_mae": 12.316000000000003
     },
     {
       "game_id": "401920380",
@@ -1289,9 +1713,13 @@
         87,
         70
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.09799612854444445,
-      "log_loss": 0.3754840649257867
+      "log_loss": 0.3754840649257867,
+      "score_mae_per_team": 4.763499999999993,
+      "total_mae": 9.526999999999987,
+      "margin_mae": 8.131
     },
     {
       "game_id": "401920357",
@@ -1301,9 +1729,13 @@
         65,
         77
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.30107168999999995,
-      "log_loss": 0.7956229721491814
+      "log_loss": 0.7956229721491814,
+      "score_mae_per_team": 7.848500000000001,
+      "total_mae": 3.257000000000005,
+      "margin_mae": 15.697000000000003
     },
     {
       "game_id": "401920066",
@@ -1313,9 +1745,13 @@
         71,
         68
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.09713195560000003,
-      "log_loss": 0.373472377071991
+      "log_loss": 0.373472377071991,
+      "score_mae_per_team": 4.561500000000002,
+      "total_mae": 9.12299999999999,
+      "margin_mae": 6.000999999999991
     },
     {
       "game_id": "401921007",
@@ -1325,9 +1761,13 @@
         62,
         61
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.014811701344444457,
-      "log_loss": 0.12977085327671165
+      "log_loss": 0.12977085327671165,
+      "score_mae_per_team": 12.9345,
+      "total_mae": 25.869,
+      "margin_mae": 17.977000000000004
     },
     {
       "game_id": "401920707",
@@ -1337,9 +1777,13 @@
         85,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.1623713888444445,
-      "log_loss": 0.5157600000236603
+      "log_loss": 0.5157600000236603,
+      "score_mae_per_team": 5.293500000000002,
+      "total_mae": 2.502999999999986,
+      "margin_mae": 10.587000000000003
     },
     {
       "game_id": "401921107",
@@ -1349,9 +1793,13 @@
         76,
         79
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.8272751388444444,
-      "log_loss": 2.402921215046708
+      "log_loss": 2.402921215046708,
+      "score_mae_per_team": 12.140499999999996,
+      "total_mae": 6.295000000000016,
+      "margin_mae": 24.28099999999999
     },
     {
       "game_id": "401920137",
@@ -1361,9 +1809,13 @@
         84,
         81
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.012383980277777769,
-      "log_loss": 0.11797680442833941
+      "log_loss": 0.11797680442833941,
+      "score_mae_per_team": 8.313000000000002,
+      "total_mae": 6.295999999999992,
+      "margin_mae": 16.626000000000005
     },
     {
       "game_id": "401920922",
@@ -1373,9 +1825,13 @@
         67,
         73
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.32228329,
-      "log_loss": 0.8386354873085509
+      "log_loss": 0.8386354873085509,
+      "score_mae_per_team": 5.1845,
+      "total_mae": 7.091000000000008,
+      "margin_mae": 10.369
     },
     {
       "game_id": "401921419",
@@ -1385,9 +1841,13 @@
         46,
         63
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.2300129626777778,
-      "log_loss": 0.653151127035067
+      "log_loss": 0.653151127035067,
+      "score_mae_per_team": 20.7145,
+      "total_mae": 41.429,
+      "margin_mae": 18.11500000000001
     },
     {
       "game_id": "401921418",
@@ -1397,9 +1857,13 @@
         85,
         70
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.14588325617777778,
-      "log_loss": 0.4811805253559426
+      "log_loss": 0.4811805253559426,
+      "score_mae_per_team": 4.390500000000003,
+      "total_mae": 1.5349999999999966,
+      "margin_mae": 8.781000000000006
     },
     {
       "game_id": "401921757",
@@ -1409,9 +1873,13 @@
         82,
         74
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0023104044444444477,
-      "log_loss": 0.04926027465405191
+      "log_loss": 0.04926027465405191,
+      "score_mae_per_team": 9.021,
+      "total_mae": 8.262,
+      "margin_mae": 18.042
     },
     {
       "game_id": "401921723",
@@ -1421,9 +1889,13 @@
         106,
         54
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0006362165444444466,
-      "log_loss": 0.025546894051559216
+      "log_loss": 0.025546894051559216,
+      "score_mae_per_team": 10.578999999999997,
+      "total_mae": 5.936000000000007,
+      "margin_mae": 21.157999999999987
     },
     {
       "game_id": "401924844",
@@ -1433,9 +1905,13 @@
         101,
         103
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.7164437449000001,
-      "log_loss": 1.8735987898445357
+      "log_loss": 1.8735987898445357,
+      "score_mae_per_team": 33.494,
+      "total_mae": 66.988,
+      "margin_mae": 18.73599999999999
     },
     {
       "game_id": "401922022",
@@ -1445,9 +1921,13 @@
         86,
         71
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.1407625336111111,
-      "log_loss": 0.47029700560970616
+      "log_loss": 0.47029700560970616,
+      "score_mae_per_team": 4.297000000000004,
+      "total_mae": 6.389999999999986,
+      "margin_mae": 8.594000000000008
     },
     {
       "game_id": "401926134",
@@ -1457,9 +1937,13 @@
         95,
         49
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.002931861511111112,
-      "log_loss": 0.05566776070969958
+      "log_loss": 0.05566776070969958,
+      "score_mae_per_team": 10.347000000000001,
+      "total_mae": 14.350000000000023,
+      "margin_mae": 20.694000000000003
     },
     {
       "game_id": "401925927",
@@ -1469,9 +1953,13 @@
         79,
         63
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0417807226777778,
-      "log_loss": 0.2286629217211689
+      "log_loss": 0.2286629217211689,
+      "score_mae_per_team": 3.4790000000000063,
+      "total_mae": 6.958000000000027,
+      "margin_mae": 2.1099999999999994
     },
     {
       "game_id": "401925080",
@@ -1481,21 +1969,29 @@
         62,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.4232499992111111,
-      "log_loss": 1.0514711023633068
+      "log_loss": 1.0514711023633068,
+      "score_mae_per_team": 7.215499999999999,
+      "total_mae": 11.865000000000009,
+      "margin_mae": 14.430999999999997
     },
     {
       "game_id": "401919826",
       "version": "cbb-1.1.0",
       "publication_key": "c0e7ead6e0a798c9e34cf69bbc59815e1d9bc99b2bbe0bb691c4b0e5917f1b6f",
       "actual": [
-        60,
-        65
+        65,
+        60
       ],
-      "winner_correct": false,
-      "brier": 0.5306199773444443,
-      "log_loss": 1.3035598948658376
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.07374664401111114,
+      "log_loss": 0.3168545937538592,
+      "score_mae_per_team": 11.4985,
+      "total_mae": 22.997000000000014,
+      "margin_mae": 5.689000000000007
     },
     {
       "game_id": "401924736",
@@ -1505,9 +2001,13 @@
         75,
         64
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.0466416011111111,
-      "log_loss": 0.24330374252874876
+      "log_loss": 0.24330374252874876,
+      "score_mae_per_team": 2.532500000000006,
+      "total_mae": 5.064999999999998,
+      "margin_mae": 2.247
     },
     {
       "game_id": "401925740",
@@ -1517,9 +2017,13 @@
         92,
         48
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 2.7005344444444036e-05,
-      "log_loss": 0.005210216301230043
+      "log_loss": 0.005210216301230043,
+      "score_mae_per_team": 8.8005,
+      "total_mae": 17.601,
+      "margin_mae": 4.203000000000003
     },
     {
       "game_id": "401926755",
@@ -1529,9 +2033,13 @@
         79,
         38
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.02545620249999999,
-      "log_loss": 0.1738178163027338
+      "log_loss": 0.1738178163027338,
+      "score_mae_per_team": 16.1445,
+      "total_mae": 32.28899999999999,
+      "margin_mae": 24.608999999999995
     },
     {
       "game_id": "401925664",
@@ -1541,9 +2049,13 @@
         80,
         68
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.020060945344444435,
-      "log_loss": 0.15272780370688743
+      "log_loss": 0.15272780370688743,
+      "score_mae_per_team": 2.7545,
+      "total_mae": 5.488999999999976,
+      "margin_mae": 5.509
     },
     {
       "game_id": "401925865",
@@ -1553,9 +2065,13 @@
         72,
         61
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.2385475841777778,
-      "log_loss": 0.6702382716446957
+      "log_loss": 0.6702382716446957,
+      "score_mae_per_team": 13.631,
+      "total_mae": 27.262,
+      "margin_mae": 8.710000000000008
     },
     {
       "game_id": "401919827",
@@ -1565,9 +2081,13 @@
         63,
         56
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.1206242361,
-      "log_loss": 0.4266529944327466
+      "log_loss": 0.4266529944327466,
+      "score_mae_per_team": 10.121499999999997,
+      "total_mae": 20.242999999999995,
+      "margin_mae": 0.5130000000000052
     },
     {
       "game_id": "401928795",
@@ -1577,9 +2097,13 @@
         69,
         83
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.7127974613777778,
-      "log_loss": 1.8596529452717054
+      "log_loss": 1.8596529452717054,
+      "score_mae_per_team": 15.267500000000005,
+      "total_mae": 13.021000000000015,
+      "margin_mae": 30.53500000000001
     },
     {
       "game_id": "401926782",
@@ -1589,9 +2113,13 @@
         82,
         77
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.021008569877777772,
-      "log_loss": 0.15658753543846818
+      "log_loss": 0.15658753543846818,
+      "score_mae_per_team": 6.143000000000001,
+      "total_mae": 11.211999999999989,
+      "margin_mae": 12.286000000000001
     },
     {
       "game_id": "401929460",
@@ -1601,21 +2129,29 @@
         75,
         61
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.02912369787777778,
-      "log_loss": 0.18712105598605883
+      "log_loss": 0.18712105598605883,
+      "score_mae_per_team": 5.134,
+      "total_mae": 10.268,
+      "margin_mae": 1.6599999999999966
     },
     {
       "game_id": "401927396",
       "version": "cbb-1.1.0",
       "publication_key": "f0a26355be7389dec6f70caa82627e13aec6465e2357501bde9ff5d35aee5c7f",
       "actual": [
-        68,
-        82
+        82,
+        68
       ],
-      "winner_correct": false,
-      "brier": 0.3862415336111112,
-      "log_loss": 0.9714951736086446
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.1432748669444444,
+      "log_loss": 0.4756461852319252,
+      "score_mae_per_team": 3.8275000000000006,
+      "total_mae": 4.306999999999988,
+      "margin_mae": 7.655000000000001
     },
     {
       "game_id": "401921692",
@@ -1625,9 +2161,13 @@
         70,
         53
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.23661414490000002,
-      "log_loss": 0.6663689395273404
+      "log_loss": 0.6663689395273404,
+      "score_mae_per_team": 21.715000000000003,
+      "total_mae": 43.43000000000001,
+      "margin_mae": 14.668000000000006
     },
     {
       "game_id": "401929459",
@@ -1637,9 +2177,13 @@
         101,
         55
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.02114406810000001,
-      "log_loss": 0.15713345722143715
+      "log_loss": 0.15713345722143715,
+      "score_mae_per_team": 14.393,
+      "total_mae": 0.4819999999999993,
+      "margin_mae": 28.786
     },
     {
       "game_id": "401935675",
@@ -1649,9 +2193,813 @@
         140,
         54
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 3.952217777777773e-05,
-      "log_loss": 0.006306510968949698
+      "log_loss": 0.006306510968949698,
+      "score_mae_per_team": 23.5535,
+      "total_mae": 23.576999999999998,
+      "margin_mae": 47.107
+    },
+    {
+      "game_id": "401911394",
+      "version": "cbb-1.1.0",
+      "publication_key": "33e3866edacc927f0790ede0bfb154f06798739223500797ff9c6b80d8014150",
+      "actual": [
+        71,
+        68
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.009352824099999994,
+      "log_loss": 0.10171162540682517,
+      "score_mae_per_team": 8.889500000000005,
+      "total_mae": 13.454999999999984,
+      "margin_mae": 17.77900000000001
+    },
+    {
+      "game_id": "401919031",
+      "version": "cbb-1.1.0",
+      "publication_key": "48bd8cbae66551bfa88fcf5a1d762dadd3ba020326e462e6f485405d823ae286",
+      "actual": [
+        85,
+        60
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0646261136111111,
+      "log_loss": 0.29332015885460283,
+      "score_mae_per_team": 6.7485,
+      "total_mae": 11.476999999999975,
+      "margin_mae": 13.497
+    },
+    {
+      "game_id": "401917537",
+      "version": "cbb-1.1.0",
+      "publication_key": "619ac64fb6999cad7749cf7dda7cf693b38d95deb9ade15c6595faca5b80485a",
+      "actual": [
+        63,
+        62
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.022369190677777793,
+      "log_loss": 0.16200533591934285,
+      "score_mae_per_team": 7.988999999999997,
+      "total_mae": 12.079999999999984,
+      "margin_mae": 15.977999999999994
+    },
+    {
+      "game_id": "401918995",
+      "version": "cbb-1.1.0",
+      "publication_key": "cf6b8b7ccf2d757adf3aa5b8554316db839cd0dfa9a4252eb13163c3cd7d8949",
+      "actual": [
+        73,
+        62
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.06335456801111108,
+      "log_loss": 0.2899557664471506,
+      "score_mae_per_team": 8.106000000000002,
+      "total_mae": 16.21199999999999,
+      "margin_mae": 0.6340000000000003
+    },
+    {
+      "game_id": "401909730",
+      "version": "cbb-1.1.0",
+      "publication_key": "0f2cb43564d53cfdb32354fbeffe81b52a1145a20b50b4894958ce6ffb8c3c65",
+      "actual": [
+        90,
+        63
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.020085503211111105,
+      "log_loss": 0.1528287761492636,
+      "score_mae_per_team": 4.798000000000002,
+      "total_mae": 2.2419999999999902,
+      "margin_mae": 9.596000000000004
+    },
+    {
+      "game_id": "401911378",
+      "version": "cbb-1.1.0",
+      "publication_key": "139119204212d182c00b2a9269a04973248e0832afbb5b428eb2603fcddf0600",
+      "actual": [
+        69,
+        64
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0156675289,
+      "log_loss": 0.13372569721472266,
+      "score_mae_per_team": 15.665999999999997,
+      "total_mae": 31.331999999999994,
+      "margin_mae": 13.617999999999995
+    },
+    {
+      "game_id": "401911023",
+      "version": "cbb-1.1.0",
+      "publication_key": "56509755be5d25832acf4d16c940dfeef61429d86e278d144a8788c9579fc6fa",
+      "actual": [
+        76,
+        44
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0187479992111111,
+      "log_loss": 0.14725175445556293,
+      "score_mae_per_team": 11.026,
+      "total_mae": 22.051999999999992,
+      "margin_mae": 14.199999999999996
+    },
+    {
+      "game_id": "401911310",
+      "version": "cbb-1.1.0",
+      "publication_key": "5f3d457b308c58f0b3b685a43da8af750a6db073aa2afa211571b0202909d806",
+      "actual": [
+        84,
+        71
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.01652081777777779,
+      "log_loss": 0.13757766298456306,
+      "score_mae_per_team": 7.302499999999998,
+      "total_mae": 14.60499999999999,
+      "margin_mae": 5.399000000000001
+    },
+    {
+      "game_id": "401911022",
+      "version": "cbb-1.1.0",
+      "publication_key": "7a32e4145a30981fb533b94ee19737bced890e4e7f493ea8a702b818ad8d9c8c",
+      "actual": [
+        68,
+        86
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.8060927233777778,
+      "log_loss": 2.281084561548043,
+      "score_mae_per_team": 19.130499999999998,
+      "total_mae": 0.6069999999999993,
+      "margin_mae": 38.260999999999996
+    },
+    {
+      "game_id": "401911337",
+      "version": "cbb-1.1.0",
+      "publication_key": "e683e1a14eed76fb71ab84ddca0f3f8aaa0b04e7b59c89243a900b35407f9c5d",
+      "actual": [
+        90,
+        68
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.013017288711111121,
+      "log_loss": 0.12114367628863125,
+      "score_mae_per_team": 1.3305000000000007,
+      "total_mae": 0.03499999999999659,
+      "margin_mae": 2.6610000000000014
+    },
+    {
+      "game_id": "401909719",
+      "version": "cbb-1.1.0",
+      "publication_key": "5dc4dd260a3f0a36b4437ae4cb7e43f25e65b795eaad5e88e042e43abeb5c471",
+      "actual": [
+        84,
+        81
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.007904395377777781,
+      "log_loss": 0.09310993545149929,
+      "score_mae_per_team": 9.232500000000002,
+      "total_mae": 16.040999999999997,
+      "margin_mae": 18.465000000000003
+    },
+    {
+      "game_id": "401911199",
+      "version": "cbb-1.1.0",
+      "publication_key": "8124e4341e53e3f279e6f308a4d3e57d3841d89a903f28afd712b4f3b14ec1c5",
+      "actual": [
+        69,
+        87
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.30022728490000006,
+      "log_loss": 0.7939182438839644,
+      "score_mae_per_team": 10.838999999999999,
+      "total_mae": 1.891999999999996,
+      "margin_mae": 21.677999999999997
+    },
+    {
+      "game_id": "401911278",
+      "version": "cbb-1.1.0",
+      "publication_key": "98c969e89cba5eb7910db61a2b6fc0eb02857d8c51296e60e0231443050c5712",
+      "actual": [
+        67,
+        46
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.06504370134444445,
+      "log_loss": 0.29442027881601107,
+      "score_mae_per_team": 16.864999999999995,
+      "total_mae": 33.72999999999999,
+      "margin_mae": 9.542000000000002
+    },
+    {
+      "game_id": "401909517",
+      "version": "cbb-1.1.0",
+      "publication_key": "c2bd33c4ded2288d60275ebe43da15da35a77a34f3436f0cc0b8d41f8151f0a7",
+      "actual": [
+        84,
+        60
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0016058720444444413,
+      "log_loss": 0.04089838632692374,
+      "score_mae_per_team": 1.610000000000003,
+      "total_mae": 3.0740000000000123,
+      "margin_mae": 3.220000000000006
+    },
+    {
+      "game_id": "401909567",
+      "version": "cbb-1.1.0",
+      "publication_key": "c6491e70ff9fa73bd92d2efe59e9d0587088731b5a26a2275ab89f80f95981c1",
+      "actual": [
+        78,
+        74
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0061303680111111135,
+      "log_loss": 0.0815318714833259,
+      "score_mae_per_team": 9.247999999999998,
+      "total_mae": 4.862000000000023,
+      "margin_mae": 18.495999999999995
+    },
+    {
+      "game_id": "401917539",
+      "version": "cbb-1.1.0",
+      "publication_key": "80f964348fd2a5afe34f3abbef9c41e817e706ea0f21d5d09d92fb399408b3a6",
+      "actual": [
+        80,
+        73
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.07522220444444444,
+      "log_loss": 0.3205726410902018,
+      "score_mae_per_team": 4.811999999999998,
+      "total_mae": 9.623999999999995,
+      "margin_mae": 3.6299999999999955
+    },
+    {
+      "game_id": "401917918",
+      "version": "cbb-1.1.0",
+      "publication_key": "a129e86517bf6c588fee59136d7769f735de83871ef358be9658b6847b803aaa",
+      "actual": [
+        67,
+        82
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.4969498028444445,
+      "log_loss": 1.2205991480225817,
+      "score_mae_per_team": 12.334499999999998,
+      "total_mae": 1.5930000000000177,
+      "margin_mae": 24.668999999999997
+    },
+    {
+      "game_id": "401917966",
+      "version": "cbb-1.1.0",
+      "publication_key": "b63f10f8fadb90319f9edbd8f4800b086c9b170ee138bb654e23d53803f5d66d",
+      "actual": [
+        87,
+        68
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.004286320900000004,
+      "log_loss": 0.06771154987306918,
+      "score_mae_per_team": 2.441499999999998,
+      "total_mae": 2.951000000000022,
+      "margin_mae": 4.882999999999996
+    },
+    {
+      "game_id": "401917538",
+      "version": "cbb-1.1.0",
+      "publication_key": "c8389dba13440bd3b2ee6fc1255fcdd83da8fb08146f04a2b6400862f4658118",
+      "actual": [
+        67,
+        64
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.3941453961,
+      "log_loss": 0.9883508024105766,
+      "score_mae_per_team": 8.880500000000005,
+      "total_mae": 17.761000000000024,
+      "margin_mae": 6.448999999999998
+    },
+    {
+      "game_id": "401919849",
+      "version": "cbb-1.1.0",
+      "publication_key": "ef8ae1fb18b937bf156eccdd770c0279a3b8197ec81b7ba38c3fb63ac09ece6e",
+      "actual": [
+        95,
+        82
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0938584920111111,
+      "log_loss": 0.3658069906301038,
+      "score_mae_per_team": 12.975999999999999,
+      "total_mae": 25.951999999999998,
+      "margin_mae": 3.8400000000000034
+    },
+    {
+      "game_id": "401920964",
+      "version": "cbb-1.1.0",
+      "publication_key": "0718b5128e390ba7c3378055370c7f83be16ac44383f248d54337f21ba0946f0",
+      "actual": [
+        84,
+        61
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.020719683211111103,
+      "log_loss": 0.15541870565452995,
+      "score_mae_per_team": 3.478999999999999,
+      "total_mae": 6.957999999999998,
+      "margin_mae": 5.707999999999998
+    },
+    {
+      "game_id": "401920948",
+      "version": "cbb-1.1.0",
+      "publication_key": "475b36174972be2190ca56cbf36efeebc0a96f12d1c170da4180bf0f4d78df00",
+      "actual": [
+        70,
+        68
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.021540454444444457,
+      "log_loss": 0.1587222245436302,
+      "score_mae_per_team": 7.552500000000002,
+      "total_mae": 14.949000000000012,
+      "margin_mae": 15.105000000000004
+    },
+    {
+      "game_id": "401920846",
+      "version": "cbb-1.1.0",
+      "publication_key": "aff7bc366dcc74e76f10fe15fb3f3ae4c328f61ed76cf1c976896400245db82b",
+      "actual": [
+        70,
+        98
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.4475922205444444,
+      "log_loss": 1.1057073995440336,
+      "score_mae_per_team": 18.052999999999997,
+      "total_mae": 6.840000000000003,
+      "margin_mae": 36.105999999999995
+    },
+    {
+      "game_id": "401920125",
+      "version": "cbb-1.1.0",
+      "publication_key": "bba02f0f46b4220ddd1558e4f6880f84200e0dc0b758d814a395ec5cff621ff1",
+      "actual": [
+        89,
+        88
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.018423537777777787,
+      "log_loss": 0.14587391582290918,
+      "score_mae_per_team": 8.412999999999997,
+      "total_mae": 14.051999999999992,
+      "margin_mae": 16.825999999999993
+    },
+    {
+      "game_id": "401921183",
+      "version": "cbb-1.1.0",
+      "publication_key": "d4b30a3f6dcd3e6bf200bb1f7c12e8ca3abce5f9180960d6e3d8294ca8fd5ceb",
+      "actual": [
+        73,
+        83
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.47874867361111106,
+      "log_loss": 1.1773849698335053,
+      "score_mae_per_team": 9.549999999999997,
+      "total_mae": 1.2839999999999918,
+      "margin_mae": 19.099999999999994
+    },
+    {
+      "game_id": "401921222",
+      "version": "cbb-1.1.0",
+      "publication_key": "2c730d587125f16de36236c5024612b656bd7d7aeb88e2e9e18929befdd7fb6d",
+      "actual": [
+        69,
+        66
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.2313353473777778,
+      "log_loss": 0.6558000162755703,
+      "score_mae_per_team": 2.714500000000001,
+      "total_mae": 5.429000000000002,
+      "margin_mae": 0.39699999999999136
+    },
+    {
+      "game_id": "401920975",
+      "version": "cbb-1.1.0",
+      "publication_key": "3e7ee8254db325dee67945262dc4bacd29bbf005e560c83484ac5d9715b261c8",
+      "actual": [
+        65,
+        73
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.7766955653444444,
+      "log_loss": 2.1311840597602596,
+      "score_mae_per_team": 13.515,
+      "total_mae": 20.951999999999998,
+      "margin_mae": 27.03
+    },
+    {
+      "game_id": "401921169",
+      "version": "cbb-1.1.0",
+      "publication_key": "423387f870af85e5219c6aa68682940a5f83e718dab42157d64eb9ee5987a385",
+      "actual": [
+        62,
+        69
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.45321170409999995,
+      "log_loss": 1.1184375162196731,
+      "score_mae_per_team": 15.390999999999998,
+      "total_mae": 30.781999999999982,
+      "margin_mae": 15.299999999999997
+    },
+    {
+      "game_id": "401920773",
+      "version": "cbb-1.1.0",
+      "publication_key": "af3cd69be2c4521596c8afd0c76ddfa86795c7e2409be113a12c9ed3e7b6da81",
+      "actual": [
+        87,
+        55
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.008429688177777773,
+      "log_loss": 0.09630534148015368,
+      "score_mae_per_team": 6.372,
+      "total_mae": 12.744,
+      "margin_mae": 10.888000000000005
+    },
+    {
+      "game_id": "401922284",
+      "version": "cbb-1.1.0",
+      "publication_key": "25ef1b9c94e5ce19abb6c19049b2af726d09e653d208cc39c61e8cc5129cce55",
+      "actual": [
+        85,
+        66
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.01564750810000001,
+      "log_loss": 0.13363425505753848,
+      "score_mae_per_team": 1.2270000000000039,
+      "total_mae": 2.4540000000000077,
+      "margin_mae": 0.42799999999999727
+    },
+    {
+      "game_id": "401921776",
+      "version": "cbb-1.1.0",
+      "publication_key": "58b7c0a5a85f606024685d85b79e7d794e73373c7dfa2c69d7a5b4dd0092157f",
+      "actual": [
+        79,
+        73
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.16153968640000005,
+      "log_loss": 0.5140307547149391,
+      "score_mae_per_team": 3.195999999999998,
+      "total_mae": 6.391999999999996,
+      "margin_mae": 0.5660000000000025
+    },
+    {
+      "game_id": "401922048",
+      "version": "cbb-1.1.0",
+      "publication_key": "5e81a2e971ab597d851f61085bab64667bfe96e0e3cc0620538668f5a28bb268",
+      "actual": [
+        74,
+        68
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.023762222500000003,
+      "log_loss": 0.16741324006083624,
+      "score_mae_per_team": 5.3215,
+      "total_mae": 6.010999999999996,
+      "margin_mae": 10.643
+    },
+    {
+      "game_id": "401922222",
+      "version": "cbb-1.1.0",
+      "publication_key": "c0452ccad5dcc67d456d5bb349441027646753d5eab6110c77ebb090f37106f7",
+      "actual": [
+        99,
+        87
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.06846770001111112,
+      "log_loss": 0.30335537050851563,
+      "score_mae_per_team": 11.612499999999997,
+      "total_mae": 23.224999999999994,
+      "margin_mae": 0.8170000000000073
+    },
+    {
+      "game_id": "401925099",
+      "version": "cbb-1.1.0",
+      "publication_key": "139b70fe2027382ee1838d62e2c8a00f2d8acbba056ad89d18831ca97e402c05",
+      "actual": [
+        78,
+        74
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.06612783684444445,
+      "log_loss": 0.2972656261314763,
+      "score_mae_per_team": 4.268499999999996,
+      "total_mae": 8.536999999999978,
+      "margin_mae": 7.388999999999996
+    },
+    {
+      "game_id": "401925065",
+      "version": "cbb-1.1.0",
+      "publication_key": "36df1417cf773d9d472a5ac87d3ef4f5673d3976cdf65ced0192545b771affd5",
+      "actual": [
+        69,
+        80
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.36111285871111115,
+      "log_loss": 0.9186100861647323,
+      "score_mae_per_team": 8.274000000000001,
+      "total_mae": 1.054000000000002,
+      "margin_mae": 16.548000000000002
+    },
+    {
+      "game_id": "401924884",
+      "version": "cbb-1.1.0",
+      "publication_key": "93152ad2974cc364e6951e42aadf56ca719badf153774430efc8506065596ae0",
+      "actual": [
+        87,
+        93
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.3569584516,
+      "log_loss": 0.9099608081792854,
+      "score_mae_per_team": 15.443999999999996,
+      "total_mae": 30.887999999999977,
+      "margin_mae": 11.414000000000001
+    },
+    {
+      "game_id": "401923312",
+      "version": "cbb-1.1.0",
+      "publication_key": "c63f0e0c8bf1fdbc06b8a8dce9bc74bdd5c652cf199464eb7c5cc135c433e516",
+      "actual": [
+        50,
+        47
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.07262126694444443,
+      "log_loss": 0.31400323262842456,
+      "score_mae_per_team": 19.633500000000005,
+      "total_mae": 39.266999999999996,
+      "margin_mae": 7.855000000000004
+    },
+    {
+      "game_id": "401923322",
+      "version": "cbb-1.1.0",
+      "publication_key": "d33bd1dcde8340df1723024dce95365f0e564aa9e1c76a86c39b12c09aca5662",
+      "actual": [
+        91,
+        81
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.11757812401111109,
+      "log_loss": 0.41991399229657883,
+      "score_mae_per_team": 13.958999999999996,
+      "total_mae": 27.918000000000006,
+      "margin_mae": 2.284000000000006
+    },
+    {
+      "game_id": "401924882",
+      "version": "cbb-1.1.0",
+      "publication_key": "14d067fb4c5b49273f51c1893a89a62511c0bca9cb8d5b3e2012b98a92fab2ab",
+      "actual": [
+        52,
+        67
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.43920221654444447,
+      "log_loss": 1.0868517161034834,
+      "score_mae_per_team": 11.473000000000003,
+      "total_mae": 16.152000000000015,
+      "margin_mae": 22.946000000000005
+    },
+    {
+      "game_id": "401926113",
+      "version": "cbb-1.1.0",
+      "publication_key": "21c4aa0d30be1a1390461ba627c2ca0b8d39ec7a8181b41df907936152922006",
+      "actual": [
+        108,
+        69
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0012737761,
+      "log_loss": 0.036342459302831115,
+      "score_mae_per_team": 11.965500000000002,
+      "total_mae": 23.93100000000001,
+      "margin_mae": 11.100999999999999
+    },
+    {
+      "game_id": "401925709",
+      "version": "cbb-1.1.0",
+      "publication_key": "4808b83fe229bdc48cb4068eba7775d5448e897bc3dfcafb4b61f46510dc39cf",
+      "actual": [
+        91,
+        86
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.024472430677777778,
+      "log_loss": 0.17012029583927574,
+      "score_mae_per_team": 5.783999999999999,
+      "total_mae": 9.507999999999981,
+      "margin_mae": 11.567999999999998
+    },
+    {
+      "game_id": "401924722",
+      "version": "cbb-1.1.0",
+      "publication_key": "e55722187b8c8ae276a8aaff3c26f956dc27f0514cabcac477f48e57bf4d2f02",
+      "actual": [
+        63,
+        84
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.4015714653444445,
+      "log_loss": 1.0042935092296732,
+      "score_mae_per_team": 13.884499999999996,
+      "total_mae": 20.788999999999987,
+      "margin_mae": 27.76899999999999
+    },
+    {
+      "game_id": "401927365",
+      "version": "cbb-1.1.0",
+      "publication_key": "1cbe5f2f5f9f26a237d893a6b25d9d969454c5918b2154f5f5db18233f13f224",
+      "actual": [
+        67,
+        65
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0456876375111111,
+      "log_loss": 0.24047623144282224,
+      "score_mae_per_team": 8.3615,
+      "total_mae": 16.723000000000013,
+      "margin_mae": 11.428999999999988
+    },
+    {
+      "game_id": "401926217",
+      "version": "cbb-1.1.0",
+      "publication_key": "4e0b8707c276dd9924a85c2b8cd45713f0f6ecd4fc3faed6c76adfdde18eb41c",
+      "actual": [
+        97,
+        69
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.013650806677777785,
+      "log_loss": 0.12424512002158987,
+      "score_mae_per_team": 4.441499999999998,
+      "total_mae": 8.882999999999981,
+      "margin_mae": 8.837000000000003
+    },
+    {
+      "game_id": "401928998",
+      "version": "cbb-1.1.0",
+      "publication_key": "4e31ca7bc29b58fbcd1dc6c72cbb0ad8353a846f9d49cc4800ff07d01802f78f",
+      "actual": [
+        77,
+        72
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.12420455537777778,
+      "log_loss": 0.4345232357081775,
+      "score_mae_per_team": 2.6679999999999993,
+      "total_mae": 5.336000000000013,
+      "margin_mae": 2.309999999999988
+    },
+    {
+      "game_id": "401925897",
+      "version": "cbb-1.1.0",
+      "publication_key": "de19c96515dd47dd148fa4d93c7a6f052700ed8760f46c2314bdc6e46cdae559",
+      "actual": [
+        80,
+        89
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.29614275609999996,
+      "log_loss": 0.7856792229640933,
+      "score_mae_per_team": 7.625,
+      "total_mae": 15.25,
+      "margin_mae": 12.548000000000002
+    },
+    {
+      "game_id": "401919828",
+      "version": "cbb-1.1.0",
+      "publication_key": "e9670a9c59d182468929431e71ec1c6ce161cfcf56637e710797566e26c8a684",
+      "actual": [
+        68,
+        65
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.0806370677777778,
+      "log_loss": 0.33402855817031574,
+      "score_mae_per_team": 3.587999999999994,
+      "total_mae": 6.5,
+      "margin_mae": 7.175999999999988
+    },
+    {
+      "game_id": "401920570",
+      "version": "cbb-1.1.0",
+      "publication_key": "09fa6b380184fdaed05c45d723ceccfebfe7f163539924ee6dd6384509544737",
+      "actual": [
+        69,
+        85
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.1558749361,
+      "log_loss": 0.5022128206677681,
+      "score_mae_per_team": 6.8095,
+      "total_mae": 3.5130000000000052,
+      "margin_mae": 13.619
+    },
+    {
+      "game_id": "401920569",
+      "version": "cbb-1.1.0",
+      "publication_key": "b5721df01748621700b0b2e06dae42382f7b50ede4b1a7dd3b22b82aa10b6aa6",
+      "actual": [
+        59,
+        69
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.3171979946777777,
+      "log_loss": 0.8282874858381911,
+      "score_mae_per_team": 13.6235,
+      "total_mae": 27.247000000000014,
+      "margin_mae": 14.166999999999987
+    },
+    {
+      "game_id": "401929452",
+      "version": "cbb-1.1.0",
+      "publication_key": "daaffbc6cc941d946211d900c5502d5c6d0f56d57cc3af1bb0b8021a51d654f5",
+      "actual": [
+        136,
+        45
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 6.41777777777749e-08,
+      "log_loss": 0.00025336542764270323,
+      "score_mae_per_team": 17.936500000000002,
+      "total_mae": 4.3729999999999905,
+      "margin_mae": 35.873000000000005
     }
   ],
   "bets": [
@@ -1663,9 +3011,13 @@
         92,
         97
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.36867564817777776,
       "log_loss": 1.4701688451250925,
+      "score_mae_per_team": 15.587499999999999,
+      "total_mae": 31.17500000000001,
+      "margin_mae": 17.668999999999997,
       "kind": "total",
       "label": "Under 161.5",
       "won": false,
@@ -1681,9 +3033,13 @@
         101,
         62
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.5790601216,
       "log_loss": 0.09838857988616251,
+      "score_mae_per_team": 9.135000000000005,
+      "total_mae": 7.572000000000003,
+      "margin_mae": 18.27000000000001,
       "kind": "spread",
       "label": "UMBC Retrievers +31.5",
       "won": false,
@@ -1699,9 +3055,13 @@
         78,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.3214738801777777,
       "log_loss": 0.14386267221992582,
+      "score_mae_per_team": 4.488500000000002,
+      "total_mae": 7.197000000000003,
+      "margin_mae": 8.977000000000004,
       "kind": "spread",
       "label": "St. Bonaventure Bonnies -13.5",
       "won": false,
@@ -1717,9 +3077,13 @@
         69,
         84
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.0716418756,
       "log_loss": 1.7645724093840913,
+      "score_mae_per_team": 15.3005,
+      "total_mae": 11.317000000000007,
+      "margin_mae": 30.601,
       "kind": "total",
       "label": "Over 130.5",
       "won": true,
@@ -1735,9 +3099,13 @@
         77,
         83
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.7253645002777778,
       "log_loss": 1.6861749786544828,
+      "score_mae_per_team": 10.424499999999995,
+      "total_mae": 3.149000000000001,
+      "margin_mae": 20.84899999999999,
       "kind": "spread",
       "label": "Santa Clara Broncos +2.5",
       "won": false,
@@ -1753,9 +3121,13 @@
         67,
         69
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.11347465960000003,
       "log_loss": 2.0125058959425437,
+      "score_mae_per_team": 9.963000000000005,
+      "total_mae": 6.391999999999996,
+      "margin_mae": 19.92600000000001,
       "kind": "total",
       "label": "Over 134.5",
       "won": true,
@@ -1771,9 +3143,13 @@
         86,
         70
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.047306250000000015,
       "log_loss": 0.3068966060423014,
+      "score_mae_per_team": 2.4495000000000005,
+      "total_mae": 0.9230000000000018,
+      "margin_mae": 4.899000000000001,
       "kind": "spread",
       "label": "Drake Bulldogs +2.5",
       "won": true,
@@ -1789,9 +3165,13 @@
         80,
         88
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.5462638826777777,
       "log_loss": 1.0945804275547393,
+      "score_mae_per_team": 8.021500000000003,
+      "total_mae": 15.525000000000006,
+      "margin_mae": 16.043000000000006,
       "kind": "spread",
       "label": "Pepperdine Waves +3.5",
       "won": false,
@@ -1807,9 +3187,13 @@
         83,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.07213342587777778,
       "log_loss": 0.1730883146706326,
+      "score_mae_per_team": 4.634499999999996,
+      "total_mae": 7.836999999999989,
+      "margin_mae": 9.268999999999991,
       "kind": "spread",
       "label": "Toledo Rockets -5.5",
       "won": true,
@@ -1825,9 +3209,13 @@
         73,
         78
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.3126524501777777,
       "log_loss": 1.212699661705879,
+      "score_mae_per_team": 7.298499999999997,
+      "total_mae": 8.490999999999985,
+      "margin_mae": 14.596999999999994,
       "kind": "spread",
       "label": "Auburn Tigers -5.5",
       "won": false,
@@ -1843,9 +3231,13 @@
         114,
         52
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.03597850239999999,
       "log_loss": 0.0067493926596759735,
+      "score_mae_per_team": 11.790500000000002,
+      "total_mae": 10.956999999999994,
+      "margin_mae": 23.581000000000003,
       "kind": "total",
       "label": "Under 170.5",
       "won": true,
@@ -1861,9 +3253,13 @@
         65,
         83
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.2819220613444445,
       "log_loss": 1.245107347684491,
+      "score_mae_per_team": 14.014499999999998,
+      "total_mae": 4.899000000000001,
+      "margin_mae": 28.028999999999996,
       "kind": "total",
       "label": "Over 150.5",
       "won": false,
@@ -1879,9 +3275,13 @@
         87,
         63
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.38411072111111116,
       "log_loss": 0.13890197891641912,
+      "score_mae_per_team": 3.947499999999998,
+      "total_mae": 7.894999999999982,
+      "margin_mae": 5.734999999999999,
       "kind": "spread",
       "label": "Green Bay Phoenix +21.5",
       "won": false,
@@ -1897,9 +3297,13 @@
         78,
         51
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.12930017361111112,
       "log_loss": 0.03761533579469609,
+      "score_mae_per_team": 5.662999999999997,
+      "total_mae": 11.325999999999993,
+      "margin_mae": 0.6899999999999977,
       "kind": "total",
       "label": "Under 145.5",
       "won": true,
@@ -1915,9 +3319,13 @@
         76,
         85
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.6069500649,
       "log_loss": 1.064036964028419,
+      "score_mae_per_team": 8.301000000000002,
+      "total_mae": 9.873999999999995,
+      "margin_mae": 16.602000000000004,
       "kind": "spread",
       "label": "Middle Tennessee Blue Raiders +5.5",
       "won": false,
@@ -1933,9 +3341,13 @@
         82,
         88
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.02261514694444444,
       "log_loss": 0.8174715642597511,
+      "score_mae_per_team": 5.032499999999999,
+      "total_mae": 5.842999999999989,
+      "margin_mae": 10.064999999999998,
       "kind": "spread",
       "label": "Georgia Tech Yellow Jackets +12.5",
       "won": true,
@@ -1951,9 +3363,13 @@
         86,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.15193364551111108,
       "log_loss": 0.2975618280176654,
+      "score_mae_per_team": 6.143499999999996,
+      "total_mae": 12.286999999999978,
+      "margin_mae": 1.3850000000000051,
       "kind": "spread",
       "label": "Stephen F. Austin Lumberjacks -5.5",
       "won": true,
@@ -1969,9 +3385,13 @@
         73,
         76
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.2987169025,
       "log_loss": 0.7534210305706704,
+      "score_mae_per_team": 3.0005000000000024,
+      "total_mae": 5.606999999999999,
+      "margin_mae": 6.001000000000005,
       "kind": "total",
       "label": "Under 144.5",
       "won": false,
@@ -1987,9 +3407,13 @@
         71,
         68
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.11470188454444441,
       "log_loss": 0.373472377071991,
+      "score_mae_per_team": 4.561500000000002,
+      "total_mae": 9.12299999999999,
+      "margin_mae": 6.000999999999991,
       "kind": "spread",
       "label": "Liberty Flames -1.5",
       "won": true,
@@ -2005,9 +3429,13 @@
         76,
         79
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.7475735085444444,
       "log_loss": 2.402921215046708,
+      "score_mae_per_team": 12.140499999999996,
+      "total_mae": 6.295000000000016,
+      "margin_mae": 24.28099999999999,
       "kind": "spread",
       "label": "Eastern Kentucky Colonels -3.5",
       "won": false,
@@ -2023,9 +3451,13 @@
         67,
         73
       ],
+      "rotation_status": "legacy",
       "winner_correct": false,
       "brier": 0.026090864044444457,
       "log_loss": 0.8386354873085509,
+      "score_mae_per_team": 5.1845,
+      "total_mae": 7.091000000000008,
+      "margin_mae": 10.369,
       "kind": "spread",
       "label": "Mount St. Mary's Mountaineers +11.5",
       "won": true,
@@ -2041,9 +3473,13 @@
         106,
         54
       ],
+      "rotation_status": "legacy",
       "winner_correct": true,
       "brier": 0.4736926508444445,
       "log_loss": 0.025546894051559216,
+      "score_mae_per_team": 10.578999999999997,
+      "total_mae": 5.936000000000007,
+      "margin_mae": 21.157999999999987,
       "kind": "spread",
       "label": "Manhattan Jaspers +37.5",
       "won": false,
@@ -2056,23 +3492,386 @@
       "version": "cbb-1.1.0",
       "publication_key": "f0a26355be7389dec6f70caa82627e13aec6465e2357501bde9ff5d35aee5c7f",
       "actual": [
-        68,
-        82
+        82,
+        68
       ],
-      "winner_correct": false,
-      "brier": 0.3136970741777777,
-      "log_loss": 0.9714951736086446,
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.1935237408444445,
+      "log_loss": 0.4756461852319252,
+      "score_mae_per_team": 3.8275000000000006,
+      "total_mae": 4.306999999999988,
+      "margin_mae": 7.655000000000001,
       "kind": "spread",
       "label": "Western Kentucky Hilltoppers -2.5",
-      "won": false,
+      "won": true,
       "probability": 0.5600866666666666,
+      "cost": 0.442255,
+      "profit": 0.5577449999999999
+    },
+    {
+      "game_id": "401911394",
+      "version": "cbb-1.1.0",
+      "publication_key": "33e3866edacc927f0790ede0bfb154f06798739223500797ff9c6b80d8014150",
+      "actual": [
+        71,
+        68
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.6397386933444444,
+      "log_loss": 0.10171162540682517,
+      "score_mae_per_team": 8.889500000000005,
+      "total_mae": 13.454999999999984,
+      "margin_mae": 17.77900000000001,
+      "kind": "spread",
+      "label": "VMI Keydets -6.5",
+      "won": false,
+      "probability": 0.7998366666666666,
+      "cost": 0.612,
+      "profit": -0.612
+    },
+    {
+      "game_id": "401918995",
+      "version": "cbb-1.1.0",
+      "publication_key": "cf6b8b7ccf2d757adf3aa5b8554316db839cd0dfa9a4252eb13163c3cd7d8949",
+      "actual": [
+        73,
+        62
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.08976814951111109,
+      "log_loss": 0.2899557664471506,
+      "score_mae_per_team": 8.106000000000002,
+      "total_mae": 16.21199999999999,
+      "margin_mae": 0.6340000000000003,
+      "kind": "spread",
+      "label": "George Mason Patriots -2.5",
+      "won": true,
+      "probability": 0.7003866666666667,
+      "cost": 0.57232,
+      "profit": 0.42767999999999995
+    },
+    {
+      "game_id": "401909719",
+      "version": "cbb-1.1.0",
+      "publication_key": "5dc4dd260a3f0a36b4437ae4cb7e43f25e65b795eaad5e88e042e43abeb5c471",
+      "actual": [
+        84,
+        81
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.14716174694444448,
+      "log_loss": 0.09310993545149929,
+      "score_mae_per_team": 9.232500000000002,
+      "total_mae": 16.040999999999997,
+      "margin_mae": 18.465000000000003,
+      "kind": "spread",
+      "label": "Lafayette Leopards +24.5",
+      "won": true,
+      "probability": 0.6163833333333333,
+      "cost": 0.48245499999999997,
+      "profit": 0.517545
+    },
+    {
+      "game_id": "401909567",
+      "version": "cbb-1.1.0",
+      "publication_key": "c6491e70ff9fa73bd92d2efe59e9d0587088731b5a26a2275ab89f80f95981c1",
+      "actual": [
+        78,
+        74
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.16633618454444446,
+      "log_loss": 0.0815318714833259,
+      "score_mae_per_team": 9.247999999999998,
+      "total_mae": 4.862000000000023,
+      "margin_mae": 18.495999999999995,
+      "kind": "spread",
+      "label": "Washington State Cougars +24.5",
+      "won": true,
+      "probability": 0.5921566666666667,
+      "cost": 0.46237500000000004,
+      "profit": 0.537625
+    },
+    {
+      "game_id": "401917539",
+      "version": "cbb-1.1.0",
+      "publication_key": "80f964348fd2a5afe34f3abbef9c41e817e706ea0f21d5d09d92fb399408b3a6",
+      "actual": [
+        80,
+        73
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.11245738684444445,
+      "log_loss": 0.3205726410902018,
+      "score_mae_per_team": 4.811999999999998,
+      "total_mae": 9.623999999999995,
+      "margin_mae": 3.6299999999999955,
+      "kind": "total",
+      "label": "Over 135.5",
+      "won": true,
+      "probability": 0.6646533333333333,
+      "cost": 0.502495,
+      "profit": 0.497505
+    },
+    {
+      "game_id": "401920964",
+      "version": "cbb-1.1.0",
+      "publication_key": "0718b5128e390ba7c3378055370c7f83be16ac44383f248d54337f21ba0946f0",
+      "actual": [
+        84,
+        61
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.10388373609999998,
+      "log_loss": 0.15541870565452995,
+      "score_mae_per_team": 3.478999999999999,
+      "total_mae": 6.957999999999998,
+      "margin_mae": 5.707999999999998,
+      "kind": "total",
+      "label": "Over 143.5",
+      "won": true,
+      "probability": 0.67769,
+      "cost": 0.5125,
+      "profit": 0.48750000000000004
+    },
+    {
+      "game_id": "401921222",
+      "version": "cbb-1.1.0",
+      "publication_key": "2c730d587125f16de36236c5024612b656bd7d7aeb88e2e9e18929befdd7fb6d",
+      "actual": [
+        69,
+        66
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.13048470471111112,
+      "log_loss": 0.6558000162755703,
+      "score_mae_per_team": 2.714500000000001,
+      "total_mae": 5.429000000000002,
+      "margin_mae": 0.39699999999999136,
+      "kind": "spread",
+      "label": "Rider Broncs +4.5",
+      "won": true,
+      "probability": 0.6387733333333333,
+      "cost": 0.5125,
+      "profit": 0.48750000000000004
+    },
+    {
+      "game_id": "401920975",
+      "version": "cbb-1.1.0",
+      "publication_key": "3e7ee8254db325dee67945262dc4bacd29bbf005e560c83484ac5d9715b261c8",
+      "actual": [
+        65,
+        73
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.5179824840999999,
+      "log_loss": 2.1311840597602596,
+      "score_mae_per_team": 13.515,
+      "total_mae": 20.951999999999998,
+      "margin_mae": 27.03,
+      "kind": "spread",
+      "label": "Chattanooga Mocs -8.5",
+      "won": false,
+      "probability": 0.71971,
+      "cost": 0.542455,
+      "profit": -0.542455
+    },
+    {
+      "game_id": "401921169",
+      "version": "cbb-1.1.0",
+      "publication_key": "423387f870af85e5219c6aa68682940a5f83e718dab42157d64eb9ee5987a385",
+      "actual": [
+        62,
+        69
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.6284419925444444,
+      "log_loss": 1.1184375162196731,
+      "score_mae_per_team": 15.390999999999998,
+      "total_mae": 30.781999999999982,
+      "margin_mae": 15.299999999999997,
+      "kind": "spread",
+      "label": "Cleveland State Vikings +5.5",
+      "won": false,
+      "probability": 0.7927433333333334,
+      "cost": 0.621895,
+      "profit": -0.621895
+    },
+    {
+      "game_id": "401922048",
+      "version": "cbb-1.1.0",
+      "publication_key": "5e81a2e971ab597d851f61085bab64667bfe96e0e3cc0620538668f5a28bb268",
+      "actual": [
+        74,
+        68
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.13641942249999997,
+      "log_loss": 0.16741324006083624,
+      "score_mae_per_team": 5.3215,
+      "total_mae": 6.010999999999996,
+      "margin_mae": 10.643,
+      "kind": "total",
+      "label": "Over 141.5",
+      "won": true,
+      "probability": 0.63065,
+      "cost": 0.49248,
+      "profit": 0.50752
+    },
+    {
+      "game_id": "401925065",
+      "version": "cbb-1.1.0",
+      "publication_key": "36df1417cf773d9d472a5ac87d3ef4f5673d3976cdf65ced0192545b771affd5",
+      "actual": [
+        69,
+        80
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.43243775999999995,
+      "log_loss": 0.9186100861647323,
+      "score_mae_per_team": 8.274000000000001,
+      "total_mae": 1.054000000000002,
+      "margin_mae": 16.548000000000002,
+      "kind": "spread",
+      "label": "Nicholls Colonels +2.5",
+      "won": false,
+      "probability": 0.6576,
+      "cost": 0.47242,
+      "profit": -0.47242
+    },
+    {
+      "game_id": "401924884",
+      "version": "cbb-1.1.0",
+      "publication_key": "93152ad2974cc364e6951e42aadf56ca719badf153774430efc8506065596ae0",
+      "actual": [
+        87,
+        93
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.41437972987777777,
+      "log_loss": 0.9099608081792854,
+      "score_mae_per_team": 15.443999999999996,
+      "total_mae": 30.887999999999977,
+      "margin_mae": 11.414000000000001,
+      "kind": "total",
+      "label": "Under 154.5",
+      "won": false,
+      "probability": 0.6437233333333333,
+      "cost": 0.47242,
+      "profit": -0.47242
+    },
+    {
+      "game_id": "401924882",
+      "version": "cbb-1.1.0",
+      "publication_key": "14d067fb4c5b49273f51c1893a89a62511c0bca9cb8d5b3e2012b98a92fab2ab",
+      "actual": [
+        52,
+        67
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": false,
+      "brier": 0.4330166415999999,
+      "log_loss": 1.0868517161034834,
+      "score_mae_per_team": 11.473000000000003,
+      "total_mae": 16.152000000000015,
+      "margin_mae": 22.946000000000005,
+      "kind": "total",
+      "label": "Over 127.5",
+      "won": false,
+      "probability": 0.65804,
+      "cost": 0.48245499999999997,
+      "profit": -0.48245499999999997
+    },
+    {
+      "game_id": "401925709",
+      "version": "cbb-1.1.0",
+      "publication_key": "4808b83fe229bdc48cb4068eba7775d5448e897bc3dfcafb4b61f46510dc39cf",
+      "actual": [
+        91,
+        86
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.5075090106777778,
+      "log_loss": 0.17012029583927574,
+      "score_mae_per_team": 5.783999999999999,
+      "total_mae": 9.507999999999981,
+      "margin_mae": 11.567999999999998,
+      "kind": "spread",
+      "label": "Wofford Terriers -6.5",
+      "won": false,
+      "probability": 0.7123966666666667,
+      "cost": 0.5324800000000001,
+      "profit": -0.5324800000000001
+    },
+    {
+      "game_id": "401927365",
+      "version": "cbb-1.1.0",
+      "publication_key": "1cbe5f2f5f9f26a237d893a6b25d9d969454c5918b2154f5f5db18233f13f224",
+      "actual": [
+        67,
+        65
+      ],
+      "rotation_status": "legacy",
+      "winner_correct": true,
+      "brier": 0.3290666738777777,
+      "log_loss": 0.24047623144282224,
+      "score_mae_per_team": 8.3615,
+      "total_mae": 16.723000000000013,
+      "margin_mae": 11.428999999999988,
+      "kind": "total",
+      "label": "Over 144.5",
+      "won": false,
+      "probability": 0.5736433333333333,
       "cost": 0.442255,
       "profit": -0.442255
     }
   ],
-  "generated_at": "2026-11-21T18:10:24.013898+00:00",
-  "version": "cbb-1.1.0",
-  "training_results": 26170,
+  "identity_gaps": [],
+  "score_mae_per_team": 9.68973796791444,
+  "margin_mae": 13.863347593582887,
+  "total_mae": 13.026053475935829,
+  "settled_by_version": {
+    "cbb-1.0.0": {
+      "n": 86,
+      "winner_accuracy": 0.7209302325581395,
+      "score_mae_per_team": 10.09839534883721,
+      "margin_mae": 15.34518604651163,
+      "total_mae": 12.517720930232556
+    },
+    "cbb-1.1.0": {
+      "n": 101,
+      "winner_accuracy": 0.7425742574257426,
+      "score_mae_per_team": 9.341772277227722,
+      "margin_mae": 12.60158415841584,
+      "total_mae": 13.458891089108908
+    }
+  },
+  "scores_by_rotation_status": {
+    "legacy": {
+      "n": 187,
+      "score_mae_per_team": 9.68973796791444,
+      "margin_mae": 13.863347593582887,
+      "total_mae": 13.026053475935829
+    }
+  },
+  "generated_at": "2026-11-22T15:19:03.002935+00:00",
+  "version": "cbb-1.2.0",
+  "training_results": 26228,
+  "chronological_holdouts_scope": "Rating and calibrated error baseline without the role correction",
   "chronological_holdouts": {
     "2026": {
       "games": 6192,
@@ -2084,13 +3883,13 @@
       "margin_interval80_coverage": 0.8131459948320413
     },
     "2027": {
-      "games": 1067,
-      "winner_brier": 0.1385049913894095,
-      "winner_log_loss": 0.4296991127922565,
-      "winner_accuracy": 0.8013120899718837,
-      "margin_mae": 14.710346766635405,
-      "total_mae": 14.347641049671967,
-      "margin_interval80_coverage": 0.7806935332708529
+      "games": 1124,
+      "winner_brier": 0.14086385792927042,
+      "winner_log_loss": 0.4349641592395668,
+      "winner_accuracy": 0.7944839857651246,
+      "margin_mae": 14.63601067615656,
+      "total_mae": 14.247823843416356,
+      "margin_interval80_coverage": 0.7838078291814946
     }
   }
 }
