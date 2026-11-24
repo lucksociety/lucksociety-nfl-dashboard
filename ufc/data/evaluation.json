@@ -6,7 +6,7 @@
     "training_before": "2023-01-01",
     "calibration_before": "2024-01-01",
     "validation_before": "2024-11-01",
-    "test_before": "2026-11-22"
+    "test_before": "2026-11-23"
   },
   "candidates": {
     "elo": {
@@ -51,21 +51,21 @@
         "brier": 0.2244338669168479,
         "accuracy": 0.6131805157593123,
         "auc": 0.6777799893842889,
-        "ece": 0.06505634309406114,
+        "ece": 0.06505634309406116,
         "reliability": [
           {
             "n": 9,
-            "probability": 0.1705859733571339,
+            "probability": 0.17058597335713396,
             "frequency": 0.2222222222222222
           },
           {
             "n": 30,
-            "probability": 0.2589966466754186,
+            "probability": 0.25899664667541866,
             "frequency": 0.36666666666666664
           },
           {
             "n": 51,
-            "probability": 0.35187486560065545,
+            "probability": 0.3518748656006555,
             "frequency": 0.3333333333333333
           },
           {
@@ -80,7 +80,7 @@
           },
           {
             "n": 53,
-            "probability": 0.6483320562829706,
+            "probability": 0.6483320562829707,
             "frequency": 0.6226415094339622
           },
           {
@@ -146,44 +146,44 @@
   "test": {
     "n": 900,
     "log_loss": 0.6472122293261034,
-    "brier": 0.2271492718857298,
+    "brier": 0.22714927188572984,
     "accuracy": 0.6355555555555555,
     "auc": 0.6750513551783969,
-    "ece": 0.04105477762108927,
+    "ece": 0.041054777621089125,
     "reliability": [
       {
         "n": 1,
-        "probability": 0.08039668943284557,
+        "probability": 0.0803966894328458,
         "frequency": 0.0
       },
       {
         "n": 29,
-        "probability": 0.1535903534938025,
+        "probability": 0.15359035349380276,
         "frequency": 0.3103448275862069
       },
       {
         "n": 80,
-        "probability": 0.2546837485861486,
+        "probability": 0.2546837485861489,
         "frequency": 0.2875
       },
       {
         "n": 136,
-        "probability": 0.35936476164545883,
+        "probability": 0.3593647616454591,
         "frequency": 0.40441176470588236
       },
       {
         "n": 166,
-        "probability": 0.45218481786885556,
+        "probability": 0.4521848178688557,
         "frequency": 0.4819277108433735
       },
       {
         "n": 186,
-        "probability": 0.5497824579867048,
+        "probability": 0.5497824579867049,
         "frequency": 0.5913978494623656
       },
       {
         "n": 159,
-        "probability": 0.6475917117860368,
+        "probability": 0.6475917117860369,
         "frequency": 0.6918238993710691
       },
       {
@@ -238,73 +238,73 @@
     "candidates": {
       "legacy": {
         "n": 349,
-        "log_loss": 0.9636609571985738,
+        "log_loss": 0.9636609571985735,
         "accuracy": 0.4871060171919771
       },
       "matchup-context-v1": {
         "n": 349,
-        "log_loss": 0.9477155137252323,
+        "log_loss": 0.9477155137252224,
         "accuracy": 0.5214899713467048
       }
     },
-    "paired_log_loss_change": -0.01594544347334151,
-    "paired_event_se": 0.013183463642344984,
+    "paired_log_loss_change": -0.01594544347335122,
+    "paired_event_se": 0.013183463642340394,
     "rule": "Promote context only when development conditional method log-loss improves by more than one paired event SE; no diagnostic/test selection"
   },
   "method_diagnostic": {
     "n": 900,
-    "legacy_joint_log_loss": 1.6451861338324871,
+    "legacy_joint_log_loss": 1.6451861338324876,
     "legacy_joint_accuracy": 0.29444444444444445,
     "joint_accuracy": 0.33666666666666667
   },
-  "joint_method_log_loss": 1.5932862905170964,
+  "joint_method_log_loss": 1.5932862905170966,
   "segments": {
     "Bantamweight": {
       "n": 118,
       "log_loss": 0.6376758650625665,
-      "brier": 0.22397590274925222,
+      "brier": 0.22397590274925225,
       "accuracy": 0.6186440677966102,
       "auc": 0.6870689655172414,
-      "ece": 0.08740872480486622,
+      "ece": 0.08740872480486635,
       "reliability": [
         {
           "n": 3,
-          "probability": 0.18990254364666959,
+          "probability": 0.18990254364666995,
           "frequency": 0.6666666666666666
         },
         {
           "n": 15,
-          "probability": 0.2517983405762222,
+          "probability": 0.2517983405762225,
           "frequency": 0.2
         },
         {
           "n": 20,
-          "probability": 0.3663029687744742,
+          "probability": 0.36630296877447444,
           "frequency": 0.45
         },
         {
           "n": 17,
-          "probability": 0.44361099434512835,
+          "probability": 0.44361099434512846,
           "frequency": 0.4117647058823529
         },
         {
           "n": 24,
-          "probability": 0.5546855593540876,
+          "probability": 0.5546855593540879,
           "frequency": 0.4166666666666667
         },
         {
           "n": 18,
-          "probability": 0.6442324027989837,
+          "probability": 0.6442324027989839,
           "frequency": 0.6111111111111112
         },
         {
           "n": 16,
-          "probability": 0.7327481087773862,
+          "probability": 0.732748108777386,
           "frequency": 0.8125
         },
         {
           "n": 5,
-          "probability": 0.8586064827096875,
+          "probability": 0.8586064827096873,
           "frequency": 1.0
         }
       ]
@@ -312,10 +312,10 @@
     "Featherweight": {
       "n": 122,
       "log_loss": 0.6289200920533683,
-      "brier": 0.21876487359111457,
+      "brier": 0.21876487359111466,
       "accuracy": 0.6475409836065574,
       "auc": 0.7217273954116059,
-      "ece": 0.06748300845433318,
+      "ece": 0.06748300845433307,
       "reliability": [
         {
           "n": 6,
@@ -324,112 +324,112 @@
         },
         {
           "n": 11,
-          "probability": 0.25319197067215127,
+          "probability": 0.25319197067215143,
           "frequency": 0.36363636363636365
         },
         {
           "n": 18,
-          "probability": 0.36058351878064954,
+          "probability": 0.36058351878064965,
           "frequency": 0.3333333333333333
         },
         {
           "n": 27,
-          "probability": 0.4470112892836298,
+          "probability": 0.44701128928363043,
           "frequency": 0.48148148148148145
         },
         {
           "n": 26,
-          "probability": 0.5495235741662673,
+          "probability": 0.5495235741662676,
           "frequency": 0.5384615384615384
         },
         {
           "n": 25,
-          "probability": 0.6417884011706451,
+          "probability": 0.6417884011706453,
           "frequency": 0.8
         },
         {
           "n": 6,
-          "probability": 0.7255520529955931,
+          "probability": 0.7255520529955936,
           "frequency": 0.8333333333333334
         },
         {
           "n": 3,
-          "probability": 0.8470531045953621,
+          "probability": 0.8470531045953628,
           "frequency": 0.6666666666666666
         }
       ]
     },
     "Flyweight": {
       "n": 73,
-      "log_loss": 0.6605870375113692,
-      "brier": 0.23304776887343,
+      "log_loss": 0.6605870375113693,
+      "brier": 0.23304776887342996,
       "accuracy": 0.5616438356164384,
       "auc": 0.6359447004608295,
-      "ece": 0.1287046249232446,
+      "ece": 0.12870462492324453,
       "reliability": [
         {
           "n": 5,
-          "probability": 0.26727962200098,
+          "probability": 0.2672796220009793,
           "frequency": 0.2
         },
         {
           "n": 9,
-          "probability": 0.3674865502519644,
+          "probability": 0.36748655025196386,
           "frequency": 0.5555555555555556
         },
         {
           "n": 19,
-          "probability": 0.4559361595916016,
+          "probability": 0.4559361595916019,
           "frequency": 0.5789473684210527
         },
         {
           "n": 14,
-          "probability": 0.5503705349372062,
+          "probability": 0.5503705349372061,
           "frequency": 0.42857142857142855
         },
         {
           "n": 15,
-          "probability": 0.6557948796854,
+          "probability": 0.6557948796853998,
           "frequency": 0.7333333333333333
         },
         {
           "n": 7,
-          "probability": 0.7415394704038822,
+          "probability": 0.7415394704038825,
           "frequency": 0.8571428571428571
         },
         {
           "n": 4,
-          "probability": 0.837929373221839,
+          "probability": 0.8379293732218389,
           "frequency": 0.5
         }
       ]
     },
     "Heavyweight": {
       "n": 80,
-      "log_loss": 0.6492965343428837,
-      "brier": 0.2242264988391144,
+      "log_loss": 0.6492965343428838,
+      "brier": 0.22422649883911444,
       "accuracy": 0.625,
       "auc": 0.6905859117840685,
-      "ece": 0.16872360939064818,
+      "ece": 0.1687236093906481,
       "reliability": [
         {
           "n": 2,
-          "probability": 0.18279051328187562,
+          "probability": 0.1827905132818765,
           "frequency": 0.5
         },
         {
           "n": 5,
-          "probability": 0.23895790369485134,
+          "probability": 0.2389579036948517,
           "frequency": 0.2
         },
         {
           "n": 12,
-          "probability": 0.3489312029223965,
+          "probability": 0.34893120292239677,
           "frequency": 0.5
         },
         {
           "n": 16,
-          "probability": 0.46152098293732247,
+          "probability": 0.4615209829373227,
           "frequency": 0.5625
         },
         {
@@ -439,107 +439,107 @@
         },
         {
           "n": 12,
-          "probability": 0.6437249249551694,
+          "probability": 0.6437249249551696,
           "frequency": 0.9166666666666666
         },
         {
           "n": 11,
-          "probability": 0.7557787181849562,
+          "probability": 0.7557787181849561,
           "frequency": 1.0
         },
         {
           "n": 4,
-          "probability": 0.8486275523451987,
+          "probability": 0.8486275523451989,
           "frequency": 0.25
         }
       ]
     },
     "Light Heavyweight": {
       "n": 79,
-      "log_loss": 0.6915082094634813,
+      "log_loss": 0.6915082094634811,
       "brier": 0.24777887054043993,
       "accuracy": 0.6075949367088608,
       "auc": 0.5974967061923584,
-      "ece": 0.13046386150793085,
+      "ece": 0.1304638615079307,
       "reliability": [
         {
           "n": 4,
-          "probability": 0.1628031735182584,
+          "probability": 0.16280317351825882,
           "frequency": 0.25
         },
         {
           "n": 7,
-          "probability": 0.2728456366163136,
+          "probability": 0.2728456366163142,
           "frequency": 0.5714285714285714
         },
         {
           "n": 9,
-          "probability": 0.361203214893441,
+          "probability": 0.36120321489344137,
           "frequency": 0.5555555555555556
         },
         {
           "n": 10,
-          "probability": 0.443197272112427,
+          "probability": 0.44319727211242704,
           "frequency": 0.4
         },
         {
           "n": 16,
-          "probability": 0.548554590484858,
+          "probability": 0.5485545904848581,
           "frequency": 0.6875
         },
         {
           "n": 17,
-          "probability": 0.6549866696918821,
+          "probability": 0.654986669691882,
           "frequency": 0.5882352941176471
         },
         {
           "n": 13,
-          "probability": 0.752962690375428,
+          "probability": 0.7529626903754281,
           "frequency": 0.6153846153846154
         },
         {
           "n": 3,
-          "probability": 0.8199271631514548,
+          "probability": 0.8199271631514545,
           "frequency": 1.0
         }
       ]
     },
     "Lightweight": {
       "n": 141,
-      "log_loss": 0.6161348436279535,
-      "brier": 0.21357021963095663,
+      "log_loss": 0.6161348436279537,
+      "brier": 0.2135702196309567,
       "accuracy": 0.6737588652482269,
       "auc": 0.7192307692307692,
-      "ece": 0.11886779153969924,
+      "ece": 0.11886779153969937,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.08039668943284557,
+          "probability": 0.0803966894328458,
           "frequency": 0.0
         },
         {
           "n": 2,
-          "probability": 0.1150548743395512,
+          "probability": 0.11505487433955117,
           "frequency": 0.0
         },
         {
           "n": 18,
-          "probability": 0.25627471810846747,
+          "probability": 0.25627471810846786,
           "frequency": 0.16666666666666666
         },
         {
           "n": 21,
-          "probability": 0.36051780283249724,
+          "probability": 0.36051780283249785,
           "frequency": 0.2857142857142857
         },
         {
           "n": 25,
-          "probability": 0.45747093408601963,
+          "probability": 0.4574709340860197,
           "frequency": 0.6
         },
         {
           "n": 24,
-          "probability": 0.5549249042666851,
+          "probability": 0.5549249042666852,
           "frequency": 0.75
         },
         {
@@ -549,7 +549,7 @@
         },
         {
           "n": 16,
-          "probability": 0.7604284087713706,
+          "probability": 0.7604284087713709,
           "frequency": 0.5625
         },
         {
@@ -561,20 +561,20 @@
     },
     "Middleweight": {
       "n": 139,
-      "log_loss": 0.6292177059045436,
-      "brier": 0.21980143930015097,
+      "log_loss": 0.629217705904544,
+      "brier": 0.21980143930015106,
       "accuracy": 0.6834532374100719,
       "auc": 0.6941992433795713,
-      "ece": 0.08569015732643118,
+      "ece": 0.08569015732643132,
       "reliability": [
         {
           "n": 8,
-          "probability": 0.15477580183545056,
+          "probability": 0.1547758018354506,
           "frequency": 0.25
         },
         {
           "n": 6,
-          "probability": 0.2547942031353419,
+          "probability": 0.2547942031353414,
           "frequency": 0.3333333333333333
         },
         {
@@ -584,107 +584,107 @@
         },
         {
           "n": 22,
-          "probability": 0.4506921738930938,
+          "probability": 0.45069217389309413,
           "frequency": 0.36363636363636365
         },
         {
           "n": 29,
-          "probability": 0.5521980231792495,
+          "probability": 0.5521980231792493,
           "frequency": 0.7241379310344828
         },
         {
           "n": 23,
-          "probability": 0.6508427784891182,
+          "probability": 0.6508427784891184,
           "frequency": 0.5652173913043478
         },
         {
           "n": 16,
-          "probability": 0.7400244191741564,
+          "probability": 0.7400244191741565,
           "frequency": 0.75
         },
         {
           "n": 12,
-          "probability": 0.8466223572650241,
+          "probability": 0.8466223572650242,
           "frequency": 0.9166666666666666
         }
       ]
     },
     "UFC Bantamweight": {
       "n": 5,
-      "log_loss": 0.8363738987369127,
-      "brier": 0.3141072391884569,
+      "log_loss": 0.836373898736911,
+      "brier": 0.3141072391884562,
       "accuracy": 0.4,
       "auc": 0.0,
-      "ece": 0.5420550413133143,
+      "ece": 0.5420550413133134,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.39662302922097553,
+          "probability": 0.39662302922097625,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.4507897711543057,
+          "probability": 0.45078977115430646,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.5399007703873168,
+          "probability": 0.5399007703873181,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.6642768300129015,
+          "probability": 0.6642768300129026,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.7618656073420705,
+          "probability": 0.7618656073420706,
           "frequency": 0.0
         }
       ]
     },
     "UFC Featherweight": {
       "n": 3,
-      "log_loss": 0.7621858490290837,
-      "brier": 0.2844967670318021,
+      "log_loss": 0.7621858490290819,
+      "brier": 0.2844967670318012,
       "accuracy": 0.3333333333333333,
       "auc": null,
-      "ece": 0.5162996423305786,
+      "ece": 0.5162996423305777,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.3611863000565867,
+          "probability": 0.3611863000565872,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.4198978054470054,
+          "probability": 0.41989780544700633,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.6700169675046723,
+          "probability": 0.6700169675046735,
           "frequency": 1.0
         }
       ]
     },
     "UFC Flyweight": {
       "n": 5,
-      "log_loss": 0.5872320359184589,
-      "brier": 0.19928394806875444,
+      "log_loss": 0.5872320359184597,
+      "brier": 0.19928394806875482,
       "accuracy": 0.8,
       "auc": 0.75,
-      "ece": 0.2495819297292458,
+      "ece": 0.24958192972924556,
       "reliability": [
         {
           "n": 2,
-          "probability": 0.4460114636724861,
+          "probability": 0.4460114636724867,
           "frequency": 0.5
         },
         {
           "n": 1,
-          "probability": 0.5066045614350463,
+          "probability": 0.5066045614350465,
           "frequency": 1.0
         },
         {
@@ -696,85 +696,85 @@
     },
     "UFC Heavyweight": {
       "n": 2,
-      "log_loss": 0.34701411228820805,
-      "brier": 0.09638875668918687,
+      "log_loss": 0.3470141122882069,
+      "brier": 0.09638875668918633,
       "accuracy": 1.0,
       "auc": null,
-      "ece": 0.28096983234767403,
+      "ece": 0.28096983234767325,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.5869517439802258,
+          "probability": 0.5869517439802269,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.8511085913244262,
+          "probability": 0.8511085913244266,
           "frequency": 1.0
         }
       ]
     },
     "UFC Interim Heavyweight": {
       "n": 1,
-      "log_loss": 0.5106489702277237,
-      "brier": 0.15991521004795234,
+      "log_loss": 0.5106489702277243,
+      "brier": 0.15991521004795256,
       "accuracy": 1.0,
       "auc": null,
-      "ece": 0.39989399851454677,
+      "ece": 0.39989399851454704,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.39989399851454677,
+          "probability": 0.39989399851454704,
           "frequency": 0.0
         }
       ]
     },
     "UFC Interim Lightweight": {
       "n": 1,
-      "log_loss": 1.6329641149281233,
-      "brier": 0.6474621435625031,
+      "log_loss": 1.6329641149281198,
+      "brier": 0.6474621435625021,
       "accuracy": 0.0,
       "auc": null,
-      "ece": 0.804650323782016,
+      "ece": 0.8046503237820153,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.195349676217984,
+          "probability": 0.19534967621798469,
           "frequency": 1.0
         }
       ]
     },
     "UFC Light Heavyweight": {
       "n": 3,
-      "log_loss": 0.6786084583670359,
-      "brier": 0.2427359374949202,
+      "log_loss": 0.6786084583670351,
+      "brier": 0.2427359374949198,
       "accuracy": 0.6666666666666666,
       "auc": null,
-      "ece": 0.4921623138411511,
+      "ece": 0.49216231384115067,
       "reliability": [
         {
           "n": 2,
-          "probability": 0.4761898469243543,
+          "probability": 0.4761898469243532,
           "frequency": 0.0
         },
         {
           "n": 1,
-          "probability": 0.5241072476747447,
+          "probability": 0.5241072476747457,
           "frequency": 0.0
         }
       ]
     },
     "UFC Lightweight": {
       "n": 3,
-      "log_loss": 0.9004425778889494,
-      "brier": 0.317516923472845,
+      "log_loss": 0.9004425778889491,
+      "brier": 0.3175169234728449,
       "accuracy": 0.6666666666666666,
       "auc": 0.0,
-      "ece": 0.5128831087883033,
+      "ece": 0.5128831087883032,
       "reliability": [
         {
           "n": 2,
-          "probability": 0.6514900918975104,
+          "probability": 0.6514900918975106,
           "frequency": 1.0
         },
         {
@@ -786,110 +786,110 @@
     },
     "UFC Middleweight": {
       "n": 3,
-      "log_loss": 0.8167500289543433,
-      "brier": 0.3058238448244183,
+      "log_loss": 0.8167500289543445,
+      "brier": 0.30582384482441866,
       "accuracy": 0.3333333333333333,
       "auc": 0.5,
-      "ece": 0.3290208313404643,
+      "ece": 0.3290208313404644,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.5413399177529249,
+          "probability": 0.5413399177529243,
           "frequency": 0.0
         },
         {
           "n": 2,
-          "probability": 0.722861288134234,
+          "probability": 0.7228612881342344,
           "frequency": 0.5
         }
       ]
     },
     "UFC Welterweight": {
       "n": 3,
-      "log_loss": 0.6614215589606612,
-      "brier": 0.23574388064961652,
+      "log_loss": 0.661421558960659,
+      "brier": 0.2357438806496155,
       "accuracy": 0.3333333333333333,
       "auc": 0.5,
-      "ece": 0.4747063138445495,
+      "ece": 0.4747063138445487,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.3309567728360108,
+          "probability": 0.33095677283601244,
           "frequency": 0.0
         },
         {
           "n": 1,
-          "probability": 0.44348179013719163,
+          "probability": 0.4434817901371933,
           "frequency": 1.0
         },
         {
           "n": 1,
-          "probability": 0.5366439588348293,
+          "probability": 0.536643958834827,
           "frequency": 0.0
         }
       ]
     },
     "Welterweight": {
       "n": 119,
-      "log_loss": 0.6720261140953043,
-      "brier": 0.23864598229128753,
+      "log_loss": 0.6720261140953045,
+      "brier": 0.23864598229128767,
       "accuracy": 0.6302521008403361,
       "auc": 0.6350282485875706,
       "ece": 0.06779769186848006,
       "reliability": [
         {
           "n": 3,
-          "probability": 0.12334778224068722,
+          "probability": 0.12334778224068765,
           "frequency": 0.3333333333333333
         },
         {
           "n": 13,
-          "probability": 0.24844583625362127,
+          "probability": 0.24844583625362143,
           "frequency": 0.38461538461538464
         },
         {
           "n": 20,
-          "probability": 0.3529511012945047,
+          "probability": 0.35295110129450513,
           "frequency": 0.35
         },
         {
           "n": 23,
-          "probability": 0.4548834524179232,
+          "probability": 0.45488345241792333,
           "frequency": 0.391304347826087
         },
         {
           "n": 29,
-          "probability": 0.5422750382634703,
+          "probability": 0.5422750382634708,
           "frequency": 0.6206896551724138
         },
         {
           "n": 19,
-          "probability": 0.6389087572713,
+          "probability": 0.6389087572713003,
           "frequency": 0.5789473684210527
         },
         {
           "n": 10,
-          "probability": 0.7365913458860117,
+          "probability": 0.7365913458860118,
           "frequency": 0.7
         },
         {
           "n": 2,
-          "probability": 0.8163903092541209,
+          "probability": 0.8163903092541215,
           "frequency": 1.0
         }
       ]
     },
     "five_round": {
       "n": 94,
-      "log_loss": 0.6923439241312656,
-      "brier": 0.24641633220418194,
+      "log_loss": 0.6923439241312654,
+      "brier": 0.2464163322041819,
       "accuracy": 0.5957446808510638,
       "auc": 0.6369075011504833,
-      "ece": 0.14672374827302517,
+      "ece": 0.14672374827302503,
       "reliability": [
         {
           "n": 9,
-          "probability": 0.14977247476224528,
+          "probability": 0.1497724747622455,
           "frequency": 0.4444444444444444
         },
         {
@@ -899,27 +899,27 @@
         },
         {
           "n": 17,
-          "probability": 0.3628191654652069,
+          "probability": 0.3628191654652074,
           "frequency": 0.47058823529411764
         },
         {
           "n": 15,
-          "probability": 0.4483671301898685,
+          "probability": 0.4483671301898687,
           "frequency": 0.6
         },
         {
           "n": 17,
-          "probability": 0.5533932207462969,
+          "probability": 0.5533932207462972,
           "frequency": 0.5294117647058824
         },
         {
           "n": 14,
-          "probability": 0.6453393430205561,
+          "probability": 0.6453393430205565,
           "frequency": 0.9285714285714286
         },
         {
           "n": 9,
-          "probability": 0.7372314732154711,
+          "probability": 0.7372314732154714,
           "frequency": 0.5555555555555556
         },
         {
@@ -932,19 +932,19 @@
     "debutant": {
       "n": 194,
       "log_loss": 0.6375530191480598,
-      "brier": 0.22286637758456637,
+      "brier": 0.2228663775845664,
       "accuracy": 0.634020618556701,
       "auc": 0.6871231696813093,
-      "ece": 0.0413252272342615,
+      "ece": 0.041325227234261415,
       "reliability": [
         {
           "n": 2,
-          "probability": 0.18295150949033168,
+          "probability": 0.18295150949033212,
           "frequency": 0.5
         },
         {
           "n": 6,
-          "probability": 0.2554420209022599,
+          "probability": 0.2554420209022601,
           "frequency": 0.16666666666666666
         },
         {
@@ -954,57 +954,57 @@
         },
         {
           "n": 43,
-          "probability": 0.4554239535816021,
+          "probability": 0.45542395358160215,
           "frequency": 0.46511627906976744
         },
         {
           "n": 45,
-          "probability": 0.5454458609474007,
+          "probability": 0.5454458609474008,
           "frequency": 0.5333333333333333
         },
         {
           "n": 49,
-          "probability": 0.6438817344113407,
+          "probability": 0.643881734411341,
           "frequency": 0.673469387755102
         },
         {
           "n": 21,
-          "probability": 0.7451637414162958,
+          "probability": 0.7451637414162959,
           "frequency": 0.9047619047619048
         },
         {
           "n": 2,
-          "probability": 0.8365431950488651,
+          "probability": 0.8365431950488654,
           "frequency": 0.5
         }
       ]
     },
     "heavy_favorite": {
       "n": 155,
-      "log_loss": 0.6300002745514429,
-      "brier": 0.2159555692464417,
+      "log_loss": 0.630000274551443,
+      "brier": 0.21595556924644174,
       "accuracy": 0.7032258064516129,
       "auc": 0.736638655462185,
-      "ece": 0.10535669914124783,
+      "ece": 0.10535669914124773,
       "reliability": [
         {
           "n": 1,
-          "probability": 0.08039668943284557,
+          "probability": 0.0803966894328458,
           "frequency": 0.0
         },
         {
           "n": 29,
-          "probability": 0.1535903534938025,
+          "probability": 0.15359035349380276,
           "frequency": 0.3103448275862069
         },
         {
           "n": 36,
-          "probability": 0.22673401961329087,
+          "probability": 0.2267340196132913,
           "frequency": 0.3333333333333333
         },
         {
           "n": 44,
-          "probability": 0.7717430166666674,
+          "probability": 0.7717430166666677,
           "frequency": 0.6590909090909091
         },
         {
