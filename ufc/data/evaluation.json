@@ -6,7 +6,7 @@
     "training_before": "2023-01-01",
     "calibration_before": "2024-01-01",
     "validation_before": "2024-11-01",
-    "test_before": "2026-11-24"
+    "test_before": "2026-11-25"
   },
   "candidates": {
     "elo": {
@@ -243,12 +243,12 @@
       },
       "matchup-context-v1": {
         "n": 349,
-        "log_loss": 0.9477155137252342,
+        "log_loss": 0.9477155137252323,
         "accuracy": 0.5214899713467048
       }
     },
-    "paired_log_loss_change": -0.015945443473339732,
-    "paired_event_se": 0.013183463642345773,
+    "paired_log_loss_change": -0.01594544347334151,
+    "paired_event_se": 0.013183463642344984,
     "rule": "Promote context only when development conditional method log-loss improves by more than one paired event SE; no diagnostic/test selection"
   },
   "method_diagnostic": {
@@ -257,7 +257,7 @@
     "legacy_joint_accuracy": 0.29444444444444445,
     "joint_accuracy": 0.33666666666666667
   },
-  "joint_method_log_loss": 1.5932862905170966,
+  "joint_method_log_loss": 1.5932862905170964,
   "segments": {
     "Bantamweight": {
       "n": 118,
