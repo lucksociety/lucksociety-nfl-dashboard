@@ -1215,6 +1215,14 @@
   ],
   "source": "data/weeks/2026_w11.json"
  },
+ "2026_11_CIN_WAS": {
+  "label": "H",
+  "scores": [
+   22,
+   20
+  ],
+  "source": "data/weeks/2026_w11.json"
+ },
  "2026_11_IND_HOU": {
   "label": "H",
   "scores": [

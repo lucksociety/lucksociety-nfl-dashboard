@@ -1,13 +1,13 @@
 {
   "settled_by_model_and_market": {
     "nfl-v6 / confidence-first-calibration-stress-v2 / spreads": {
-      "n": 9,
-      "wins": 4,
-      "win_rate": 0.4444444444444444,
-      "mean_probability": 0.6639233333333333,
-      "brier": 0.3372263376111111,
-      "log_loss": 0.9111984518421046,
-      "flat_cost_roi": -0.21193260621482785,
+      "n": 10,
+      "wins": 5,
+      "win_rate": 0.5,
+      "mean_probability": 0.677834,
+      "brier": 0.30738342194,
+      "log_loss": 0.8420149272411807,
+      "flat_cost_roi": -0.16234574216266798,
       "reliability": [
         {
           "lower_exclusive": 0.5,
@@ -33,9 +33,9 @@
         {
           "lower_exclusive": 0.8,
           "upper_inclusive": 0.9,
-          "n": 1,
-          "mean_probability": 0.87533,
-          "win_rate": 0
+          "n": 2,
+          "mean_probability": 0.83918,
+          "win_rate": 0.5
         }
       ],
       "calibration_status": "monitor_only_no_automatic_probability_changes",
@@ -71,23 +71,23 @@
     }
   },
   "model_vs_market": {
-    "n": 13,
-    "model_log_loss": 0.5517209607047988,
-    "market_log_loss": 0.5169680697537272,
-    "log_loss_diff": 0.034752890951071605,
-    "log_loss_diff_se": 0.04832768579235487,
-    "model_accuracy": 0.5384615384615384,
-    "market_accuracy": 0.6923076923076923,
+    "n": 14,
+    "model_log_loss": 0.5829558410188964,
+    "market_log_loss": 0.5722549348652871,
+    "log_loss_diff": 0.010700906153609323,
+    "log_loss_diff_se": 0.0507977461439678,
+    "model_accuracy": 0.5,
+    "market_accuracy": 0.6428571428571429,
     "disagree_over_5pts": {
-      "n": 9,
-      "model_side_won": 0.2222222222222222,
-      "model_said": 0.34150777777777774,
-      "market_said": 0.23055555555555554
+      "n": 10,
+      "model_side_won": 0.3,
+      "model_said": 0.3445515,
+      "market_said": 0.235
     },
     "verdict": "too few games to say"
   },
-  "pending_or_ungradable": 1,
+  "pending_or_ungradable": 0,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-24T03:03:28.148527+00:00",
+  "generated_at": "2026-11-25T01:05:20.815489+00:00",
   "records": 32
 }
