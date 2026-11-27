@@ -67,6 +67,30 @@ class ArtifactTests(unittest.TestCase):
         self.assertEqual(state['artifact_ids'],[1])
 
 class ScoreTests(unittest.TestCase):
+    def test_intervals_are_immutable_and_old_records_keep_their_keys(self):
+        old=m.record('1','2026-10-29T12:00Z','2026-10-28T12:00Z','v1',[.7,.3],['H','A'],'fixture',expected_scores=[26,24])
+        self.assertNotIn('score_intervals',old)
+        r=m.record('1','2026-10-29T12:00Z','2026-10-28T12:00Z','v1',[.7,.3],['H','A'],'fixture',expected_scores=[26,24],score_intervals={'total80':[32,67],'margin80':[-14,19]})
+        self.assertEqual(r['schema_version'],2)
+        self.assertEqual(len(m.merge_records([old,r],[r])),2)
+        self.assertEqual(len(m.graded([old,r],{'1':{'label':'H'}})),1)
+        self.assertIn('score_intervals',m.graded([old,r],{'1':{'label':'H'}})[0])
+        self.assertIn('score_intervals',m.graded([r,old],{'1':{'label':'H'}})[0])
+        bad={**r,'score_intervals':{'total80':[0,100]}}
+        with self.assertRaises(ValueError):m.merge_records([bad],[])
+        for bounds in [[4,3],[float('nan'),3],[-1,3],[1]]:
+            with self.assertRaises(ValueError):m.record('1','2026-10-29T12:00Z','2026-10-28T12:00Z','v1',[.7,.3],['H','A'],'fixture',score_intervals={'total80':bounds})
+
+    def test_total_and_margin_coverage_use_home_away_orientation(self):
+        r=m.record('1','2026-10-29T12:00Z','2026-10-28T12:00Z','v1',[.7,.3],['H','A'],'fixture',expected_scores=[26,24],score_intervals={'total80':[32,67],'margin80':[-14,19]})
+        score=m.metrics(m.graded([r],{'1':{'label':'A','scores':[35,39]}}))
+        self.assertEqual(score['total80_n'],1)
+        self.assertEqual(score['total80_coverage'],0)
+        self.assertEqual(score['margin80_coverage'],1)
+        self.assertEqual(score['total80_mean_width'],35)
+        self.assertEqual(score['total_bias'],-24)
+        self.assertEqual(score['margin_bias_home_minus_away'],6)
+
     def test_score_metrics_keep_home_away_orientation(self):
         r=m.record('1','2026-10-29T12:00Z','2026-10-28T12:00Z','v1',[.7,.3],['H','A'],'fixture',expected_scores=[110,100])
         scores=m.metrics(m.graded([r],{'1':{'label':'H','scores':[108,104]}}))
