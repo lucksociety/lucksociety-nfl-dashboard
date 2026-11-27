@@ -1302,5 +1302,21 @@
    30
   ],
   "source": "data/weeks/2026_w11.json"
+ },
+ "2026_12_CHI_DET": {
+  "label": "A",
+  "scores": [
+   35,
+   39
+  ],
+  "source": "data/weeks/2026_w12.json"
+ },
+ "2026_12_GB_LA": {
+  "label": "H",
+  "scores": [
+   26,
+   13
+  ],
+  "source": "data/weeks/2026_w12.json"
  }
 }

@@ -1,13 +1,13 @@
 {
   "settled_by_model_and_market": {
     "nfl-v6 / confidence-first-calibration-stress-v2 / spreads": {
-      "n": 10,
-      "wins": 5,
-      "win_rate": 0.5,
-      "mean_probability": 0.677834,
-      "brier": 0.30738342194,
-      "log_loss": 0.8420149272411807,
-      "flat_cost_roi": -0.16234574216266798,
+      "n": 12,
+      "wins": 7,
+      "win_rate": 0.5833333333333334,
+      "mean_probability": 0.699325,
+      "brier": 0.2627055180833333,
+      "log_loss": 0.7377172943873609,
+      "flat_cost_roi": -0.0798899325988826,
       "reliability": [
         {
           "lower_exclusive": 0.5,
@@ -26,16 +26,16 @@
         {
           "lower_exclusive": 0.7,
           "upper_inclusive": 0.8,
-          "n": 1,
-          "mean_probability": 0.71357,
-          "win_rate": 0
+          "n": 2,
+          "mean_probability": 0.7379150000000001,
+          "win_rate": 0.5
         },
         {
           "lower_exclusive": 0.8,
           "upper_inclusive": 0.9,
-          "n": 2,
-          "mean_probability": 0.83918,
-          "win_rate": 0.5
+          "n": 3,
+          "mean_probability": 0.84322,
+          "win_rate": 0.6666666666666666
         }
       ],
       "calibration_status": "monitor_only_no_automatic_probability_changes",
@@ -71,23 +71,23 @@
     }
   },
   "model_vs_market": {
-    "n": 14,
-    "model_log_loss": 0.5829558410188964,
-    "market_log_loss": 0.5722549348652871,
-    "log_loss_diff": 0.010700906153609323,
-    "log_loss_diff_se": 0.0507977461439678,
+    "n": 16,
+    "model_log_loss": 0.5882351133892587,
+    "market_log_loss": 0.5778804383917573,
+    "log_loss_diff": 0.010354674997501416,
+    "log_loss_diff_se": 0.04735766061290169,
     "model_accuracy": 0.5,
-    "market_accuracy": 0.6428571428571429,
+    "market_accuracy": 0.6875,
     "disagree_over_5pts": {
-      "n": 10,
-      "model_side_won": 0.3,
-      "model_said": 0.3445515,
-      "market_said": 0.235
+      "n": 12,
+      "model_side_won": 0.3333333333333333,
+      "model_said": 0.39129708333333335,
+      "market_said": 0.2833333333333333
     },
     "verdict": "too few games to say"
   },
   "pending_or_ungradable": 1,
   "policy": "Delivered primary recommendation only; last pregame publication per event, including NO BET. Not actual trades. No automatic calibration promotion.",
-  "generated_at": "2026-11-26T00:40:49.843982+00:00",
-  "records": 33
+  "generated_at": "2026-11-27T00:48:55.528561+00:00",
+  "records": 36
 }
