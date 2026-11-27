@@ -3868,9 +3868,9 @@
       "total_mae": 13.026053475935829
     }
   },
-  "generated_at": "2026-11-26T20:29:24.233656+00:00",
+  "generated_at": "2026-11-27T20:15:35.400713+00:00",
   "version": "cbb-1.2.0",
-  "training_results": 26473,
+  "training_results": 26494,
   "chronological_holdouts_scope": "Rating and calibrated error baseline without the role correction",
   "chronological_holdouts": {
     "2026": {
@@ -3883,13 +3883,13 @@
       "margin_interval80_coverage": 0.8131459948320413
     },
     "2027": {
-      "games": 1362,
-      "winner_brier": 0.15091176853891342,
-      "winner_log_loss": 0.45839674995905016,
-      "winner_accuracy": 0.7738619676945668,
-      "margin_mae": 14.397979992657831,
-      "total_mae": 14.326233296622625,
-      "margin_interval80_coverage": 0.7914831130690162
+      "games": 1383,
+      "winner_brier": 0.15246968831344912,
+      "winner_log_loss": 0.46216832676284075,
+      "winner_accuracy": 0.7715112075198843,
+      "margin_mae": 14.33266648590019,
+      "total_mae": 14.318143347794656,
+      "margin_interval80_coverage": 0.7932031814895155
     }
   }
 }
