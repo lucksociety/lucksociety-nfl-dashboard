@@ -16,7 +16,7 @@ def timestamp(value):
     except (ValueError, TypeError): return None
 
 
-def record(event, start, frozen, model, probabilities, labels, source, cutoff=None, expected_scores=None):
+def record(event, start, frozen, model, probabilities, labels, source, cutoff=None, expected_scores=None, score_intervals=None):
     values = [float(p) for p in probabilities]
     if len(values) != len(labels) or any(not math.isfinite(p) or not 0 <= p <= 1 for p in values):
         raise ValueError('Invalid probability vector')
@@ -34,6 +34,16 @@ def record(event, start, frozen, model, probabilities, labels, source, cutoff=No
         if len(expected_scores)!=2 or any(not math.isfinite(x) or x<0 for x in expected_scores):raise ValueError('Invalid score prediction')
     row = dict(schema_version=1, expected_scores=expected_scores, event_id=str(event), start=begin.astimezone(timezone.utc).isoformat(), frozen_at=freeze.astimezone(timezone.utc).isoformat(),
                model=str(model), probabilities=values, labels=labels, source=source, cutoff=cutoff)
+    if score_intervals is not None:
+        if not isinstance(score_intervals,dict) or not score_intervals or set(score_intervals)-{'total80','margin80'}:
+            raise ValueError('Invalid score intervals')
+        intervals={}
+        for name,bounds in score_intervals.items():
+            if not isinstance(bounds,(list,tuple)) or len(bounds)!=2:raise ValueError('Invalid score interval bounds')
+            lo,hi=map(float,bounds)
+            if not all(math.isfinite(x) for x in [lo,hi]) or lo>hi or (name=='total80' and lo<0):raise ValueError('Invalid score interval bounds')
+            intervals[name]=[lo,hi]
+        row.update(schema_version=2,score_intervals=intervals)
     row['key'] = hashlib.sha256(json.dumps(row, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
     return row
 
@@ -71,7 +81,7 @@ def collect_local(root, project):
         for path, f in documents(root, 'data/predictions/*.json'):
             for g in f.get('games', []):
                 if g.get('pHome') is not None:
-                    add(g['id'], g['start'], f.get('generatedAt'), f['model'], [g['pHome'],g['pAway']], ['H','A'], path, expected_scores=list(reversed(g['xg'])) if g.get('xg') else None)
+                    add(g['id'], g['start'], f.get('generatedAt'), f['model'], [g['pHome'],g['pAway']], ['H','A'], path, expected_scores=list(reversed(g['xg'])) if g.get('xg') else None, score_intervals=g.get('scoreIntervals'))
         for path, f in documents(root, 'data/results_*.json'):
             if not isinstance(f, list): continue
             for g in f:
@@ -82,7 +92,8 @@ def collect_local(root, project):
             for x in f.get('predictions', []):
                 g,p = x['game'],x['res']
                 start = datetime.fromisoformat(g['gameday']+'T'+g['gametime']).replace(tzinfo=ZoneInfo('America/New_York')).isoformat()
-                add(g['game_id'], start, f.get('frozen_at'), 'nfl-v6', [p['p_home'],p['p_tie'],p['p_away']], ['H','D','A'], path, f.get('dataThrough', {}).get('last_game_date'), [p['sim_mean_home'],p['sim_mean_away']] if p.get('sim_mean_home') is not None else None)
+                intervals={k:p[v] for k,v in [('total80','ci80_total'),('margin80','ci80_margin')] if p.get(v) is not None}
+                add(g['game_id'], start, f.get('frozen_at'), 'nfl-v6', [p['p_home'],p['p_tie'],p['p_away']], ['H','D','A'], path, f.get('dataThrough', {}).get('last_game_date'), [p['sim_mean_home'],p['sim_mean_away']] if p.get('sim_mean_home') is not None else None, intervals or None)
         for path,f in documents(root, 'data/weeks/*.json'):
             for g in f.get('games', []):
                 final = g.get('final')
@@ -118,7 +129,7 @@ def collect_local(root, project):
 def merge_records(existing, incoming):
     result={}
     for row in [*existing,*incoming]:
-        checked=record(row['event_id'],row['start'],row['frozen_at'],row['model'],row['probabilities'],row['labels'],row['source'],row.get('cutoff'),row.get('expected_scores'))
+        checked=record(row['event_id'],row['start'],row['frozen_at'],row['model'],row['probabilities'],row['labels'],row['source'],row.get('cutoff'),row.get('expected_scores'),row.get('score_intervals'))
         if not checked or checked['key'] != row.get('key'): raise ValueError('Invalid or modified forecast record')
         result[checked['key']]=checked
     return sorted(result.values(),key=lambda r:(r['start'],r['event_id'],r['frozen_at'],r['key']))
@@ -129,7 +140,9 @@ def graded(rows,outcomes):
     chosen={}
     for r in rows:
         key=(r['event_id'],r['model'])
-        if key not in chosen or r['frozen_at']>chosen[key]['frozen_at']:chosen[key]=r
+        old=chosen.get(key)
+        richer_same_freeze=old and r['frozen_at']==old['frozen_at'] and r.get('score_intervals') and not old.get('score_intervals') and r['probabilities']==old['probabilities'] and r.get('expected_scores')==old.get('expected_scores')
+        if old is None or r['frozen_at']>old['frozen_at'] or richer_same_freeze:chosen[key]=r
     out=[]
     for r in chosen.values():
         outcome=outcomes.get(r['event_id'])
@@ -161,7 +174,21 @@ def metrics(rows):
     if scored:
         score_metrics={'score_n':len(scored),'score_mae_per_team':statistics.mean(abs(p-y) for r in scored for p,y in zip(r['expected_scores'],r['actual_scores'])),
                        'total_mae':statistics.mean(abs(sum(r['expected_scores'])-sum(r['actual_scores'])) for r in scored),
-                       'margin_mae':statistics.mean(abs((r['expected_scores'][0]-r['expected_scores'][1])-(r['actual_scores'][0]-r['actual_scores'][1])) for r in scored)}
+                       'margin_mae':statistics.mean(abs((r['expected_scores'][0]-r['expected_scores'][1])-(r['actual_scores'][0]-r['actual_scores'][1])) for r in scored),
+                       'total_bias':statistics.mean(sum(r['expected_scores'])-sum(r['actual_scores']) for r in scored),
+                       'margin_bias_home_minus_away':statistics.mean((r['expected_scores'][0]-r['expected_scores'][1])-(r['actual_scores'][0]-r['actual_scores'][1]) for r in scored),
+                       'score_rmse_per_team':math.sqrt(statistics.mean((p-y)**2 for r in scored for p,y in zip(r['expected_scores'],r['actual_scores'])))}
+    for name in ['total80','margin80']:
+        eligible=[r for r in rows if r.get('score_intervals',{}).get(name) is not None and r.get('actual_scores') is not None]
+        if not eligible:continue
+        covered=[];widths=[]
+        for r in eligible:
+            lo,hi=r['score_intervals'][name];h,a=r['actual_scores']
+            y=h+a if name=='total80' else h-a
+            covered.append(lo<=y<=hi);widths.append(hi-lo)
+        score_metrics[name+'_n']=len(eligible)
+        score_metrics[name+'_coverage']=statistics.mean(covered)
+        score_metrics[name+'_mean_width']=statistics.mean(widths)
     return {**score_metrics,'n':len(rows),'log_loss':statistics.mean(ll),'brier_multiclass_sum':statistics.mean(bs),
             'winner_accuracy':statistics.mean(int(max(range(len(r['probabilities'])),key=r['probabilities'].__getitem__)==r['observed']) for r in rows)}
 
@@ -265,7 +292,7 @@ def main():
     settled=graded(merged,results);models=sorted({r['model'] for r in merged});now=datetime.now(timezone.utc)
     report={'generated_at':now.isoformat(),'project':project,'forecasts':len(merged),'settled_by_version':{},'calibration_proposals':{},
             'forecast_policy':'Last pre-game freeze per event per model version. No retrospectively generated forecast is graded.',
-            'warnings':[]}
+            'warnings':[],'recent_by_version':{}}
     if args.collect:
         cfg=json.loads((folder/'config.json').read_text())
         workflow=cfg.get('refresh_workflow')
@@ -278,6 +305,7 @@ def main():
     for model in models:
         sample=[r for r in settled if r['model']==model]
         report['settled_by_version'][model]=metrics(sample);report['calibration_proposals'][model]=calibration_proposal(sample)
+        report['recent_by_version'][model]={str(days)+'d':metrics([r for r in sample if now-timedelta(days=days)<=timestamp(r['start'])<=now]) for days in [7,30]}
     pending=[r for r in graded_pending(merged,results) if (now-timestamp(r['start'])).total_seconds()>7*86400]
     if pending:report['warnings'].append(f'{len(pending)} events more than seven days old still lack final results; investigate result-feed coverage.')
     if not merged:report['warnings'].append('No eligible pre-game forecasts captured yet; outcome learning has not started.')

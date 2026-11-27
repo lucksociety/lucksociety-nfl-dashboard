@@ -8,7 +8,8 @@ class ArchiveTests(unittest.TestCase):
         m=module(ROOT/'scripts/model_learning.py','learning_test')
         rows,_=m.collect_local(ROOT,json.loads((ROOT/'learning/config.json').read_text())['project'])
         for row in rows:
-            self.assertEqual(set(row),{'event_id','start','frozen_at','model','probabilities','labels','source','cutoff','key','schema_version','expected_scores'})
+            fields={'event_id','start','frozen_at','model','probabilities','labels','source','cutoff','key','schema_version','expected_scores'}
+            self.assertEqual(set(row),fields|({'score_intervals'} if row['schema_version']==2 else set()))
             self.assertLess(m.timestamp(row['frozen_at']),m.timestamp(row['start']))
 
 class SeasonTests(unittest.TestCase):
