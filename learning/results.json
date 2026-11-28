@@ -1311,11 +1311,35 @@
   ],
   "source": "data/weeks/2026_w12.json"
  },
+ "2026_12_DEN_PIT": {
+  "label": "H",
+  "scores": [
+   27,
+   5
+  ],
+  "source": "data/weeks/2026_w12.json"
+ },
  "2026_12_GB_LA": {
   "label": "H",
   "scores": [
    26,
    13
+  ],
+  "source": "data/weeks/2026_w12.json"
+ },
+ "2026_12_KC_BUF": {
+  "label": "H",
+  "scores": [
+   13,
+   10
+  ],
+  "source": "data/weeks/2026_w12.json"
+ },
+ "2026_12_PHI_DAL": {
+  "label": "A",
+  "scores": [
+   38,
+   39
   ],
   "source": "data/weeks/2026_w12.json"
  }
